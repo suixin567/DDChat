@@ -15,7 +15,6 @@ namespace DDN.UserControls
     public partial class GroupItem : UserControl
     {
         public MyGroupModel m_myGroupModel;
-        public int m_receiveModel;
 
         public GroupInfoModel m_groupInfoModel;
 

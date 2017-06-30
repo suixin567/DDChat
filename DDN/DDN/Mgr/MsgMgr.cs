@@ -26,7 +26,12 @@ namespace DDN
 
         public const int CREATE_GROUP_CREQ = 30; //创建群
         public const int CREATE_GROUP_SRES = 31;//建群的响应
-
+        public const int ADD_GROUP_CREQ = 32;//申请入群
+        public const int ADD_GROUP_SRES = 33;//申请响应
+        public const int ONE_WANT_ADD_GROUP_SRES = 34;//有人申请入群
+        public const int AGREE_ADD_GROUP_CREQ = 35;//群主同意申请入群
+        public const int AGREE_ADD_GROUP_SRES = 36;//群主同意申请入群的响应
+        public const int YOU_BE_AGREED_ENTER_GROUP = 37;//你被同意入群
     }
 
     public class MsgModel
@@ -79,11 +84,10 @@ namespace DDN
             //Debug.Print("消息管理器： 收到一小条消息..........." + mModel.Time);
             switch (mModel.MsgType)
             {
-                case MsgProtocol.ADD_FRIEND_SRES://你添加好友的响应,删除那个item就好了
-                    Manager.Instance.formMain.FormAddFriend.onMessage(mModel);
+                case MsgProtocol.ADD_FRIEND_SRES://添加好友的响应
+                    Manager.Instance.formMain.FormAddFriend.showOpreationResultSafePost("好友申请已经发出，请等待对方处理。");
                     break;
-                case MsgProtocol.ONE_ADD_YOU_SRES://有人添加你
-                    Manager.Instance.formMain.notifyIonFlashSafePost();//icon闪烁  
+                case MsgProtocol.ONE_ADD_YOU_SRES://有人添加你                   
                     foreach (var item in mList)
                     {
                         if (item.From == mModel.From && item.MsgType == MsgProtocol.ONE_ADD_YOU_SRES)
@@ -91,6 +95,7 @@ namespace DDN
                             return;
                         }
                     }
+                    Manager.Instance.formMain.notifyIonFlashSafePost();//icon闪烁  
                     this.mList.Add(mModel);
                     break;
                 case MsgProtocol.AGREE_ADD_FRIEND_SRES://我同意别人的加好友申请的响应，删除mlist ,并添加好友
@@ -106,7 +111,6 @@ namespace DDN
                     Manager.Instance.formMain.formMessageVerify.reFreshSafePost();
                     Manager.Instance.formMain.formMessageVerify.showOpreationResultSafePost(mModel.To + "是你的好友了");
                     Manager.Instance.formMain.flowLayoutPanelFriendList.addFriendItemSafePost(mModel.To);
-
                     break;
                 case MsgProtocol.ONE_AGREED_YOU://别人同意了你的申请
                     Manager.Instance.formMain.flowLayoutPanelFriendList.addFriendItemSafePost(mModel.From);//添加好友
@@ -124,17 +128,64 @@ namespace DDN
                     Debug.Print("收到我被删除的消息" + mModel.MsgType);
                     break;
 
-                case MsgProtocol.CREATE_GROUP_SRES://建群的响应 ，      
-                    CreateGroupModel createGroupModel = Coding<CreateGroupModel>.decode(mModel.Content);
-                    Debug.Print("我新建的群号是：" + createGroupModel.VerifyModel);
-                    Debug.Print("我新建的群名字是：" + createGroupModel.Groupname);
-                    //创建群的item VerifyModel暂存了gid!
-                    MyGroupModel myGroupModel = new MyGroupModel();
-                    myGroupModel.GroupID = createGroupModel.VerifyModel;
-                    myGroupModel.ReceiveModel = 0;
+                case MsgProtocol.CREATE_GROUP_SRES://建群的响应
+                    MyGroupModel myGroupModel = Coding<MyGroupModel>.decode(mModel.Content);
+                    Debug.Print("我新建的群号是：" + myGroupModel.GroupID);                   
                     Manager.Instance.formMain.flowLayoutPanelCompanyList.addItemSafePost(myGroupModel);
                     //更新提示文字
-                    Manager.Instance.formMain.flowLayoutPanelCompanyList.formCreateGroup.showOpreationResultSafePost("创建"+ createGroupModel.Groupname+"成功！");
+                    Manager.Instance.formMain.flowLayoutPanelCompanyList.formCreateGroup.showOpreationResultSafePost("创建成功！，群号是：" + myGroupModel.GroupID);
+                    break;
+                case MsgProtocol.ADD_GROUP_SRES://加群的响应
+                    if (mModel.Content == "too many member") {//群员太多
+                        Manager.Instance.formMain.FormAddFriend.showOpreationResultSafePost("此群员已满，加入失败！");
+                        return;
+                    }
+                    if (mModel.Content == "申请已经发出，请等待群主审核。") {
+                        Manager.Instance.formMain.FormAddFriend.showOpreationResultSafePost(mModel.Content);
+                        return;
+                    }
+                    MyGroupModel myAddGroupModel = Coding<MyGroupModel>.decode(mModel.Content);
+                    Debug.Print("我加入的群号是：" + myAddGroupModel.GroupID);
+                    //增加item
+                    Manager.Instance.formMain.flowLayoutPanelCompanyList.addItemSafePost(myAddGroupModel);
+                    //更新提示文字
+                    Manager.Instance.formMain.FormAddFriend.showOpreationResultSafePost("成功加入！");
+                    break;
+                case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人想申请入群   
+                                      
+                    foreach (var item in mList)
+                    {
+                        if (item.From == mModel.From && item.MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES)
+                        {//要判断是否有同样的申请，过滤一下
+                            return;
+                        }
+                    }
+                    Manager.Instance.formMain.notifyIonFlashSafePost();//icon闪烁 
+                    this.mList.Add(mModel);
+                    break;
+                case MsgProtocol.AGREE_ADD_GROUP_SRES://群主同意申请入群的响应
+                    Manager.Instance.formMain.formMessageVerify.showOpreationResultSafePost(mModel.From + "加入成功！");
+                    //移除那条申请入群的消息            
+                    for (int i = 0; i < mList.Count; i++)
+                    {
+                        if (mList[i].MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES && mList[i].From == mModel.From)
+                        {
+                            mList.RemoveAt(i);
+                        }
+                    }
+                    break;
+                case MsgProtocol.YOU_BE_AGREED_ENTER_GROUP://你被同意入群
+                    Manager.Instance.formMain.notifyIonFlashSafePost();//icon闪烁 
+                    this.mList.Add(mModel);
+                    //增加item
+                    MyGroupModel beAgreedEnterGroupModel = new MyGroupModel();
+                    beAgreedEnterGroupModel.GroupID = int.Parse(mModel.To);
+                    beAgreedEnterGroupModel.ReceiveModel = 0;
+                    if (Manager.Instance.formMain.flowLayoutPanelCompanyList==null) {
+                        Debug.Print("KKKKK");
+                    }
+                    Manager.Instance.formMain.flowLayoutPanelCompanyList.addItemSafePost(beAgreedEnterGroupModel);
+
                     break;
                 default:
                     Debug.Print("未知消息协议类型" + mModel.MsgType);

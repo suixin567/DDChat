@@ -85,7 +85,7 @@
             this.addFriendButton.Name = "addFriendButton";
             this.addFriendButton.Size = new System.Drawing.Size(85, 23);
             this.addFriendButton.TabIndex = 9;
-            this.addFriendButton.Text = "添加好友";
+            this.addFriendButton.Text = "查找";
             this.addFriendButton.UseVisualStyleBackColor = true;
             this.addFriendButton.Click += new System.EventHandler(this.addFriendButton_Click);
             // 

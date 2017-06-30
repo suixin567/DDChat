@@ -15,7 +15,7 @@ namespace DDN
     public partial class MsgVerifyItem : UserControl
     {
 
-        MsgModel m_MsgModel=new MsgModel();
+        MsgModel m_MsgModel=new MsgModel();//可能申请加好友，可能申请入群等等。
 
         public MsgVerifyItem()
         {
@@ -31,7 +31,7 @@ namespace DDN
         private void FriendVerifyItem_Load(object sender, EventArgs e)
         {
             //圆形头像
-            Image newImage = CutEllipse(pictureBoxFace.Image, new Rectangle(0, 0, 200, 200), new Size(62, 62));
+            Image newImage =ImageTool.CutEllipse(pictureBoxFace.Image);
             pictureBoxFace.Image = newImage;
             //控件赋值
             this.labelUsername.Text = m_MsgModel.From;
@@ -50,7 +50,7 @@ namespace DDN
                 Image image = HttpReqHelper.requestPic(AppConst.WebUrl + "res/face/" + model.Face);
                 if (image != null)
                 {
-                    Image newImage2 = CutEllipse(image, new Rectangle(0, 0, 200, 200), new Size(62, 62));
+                    Image newImage2 = ImageTool.CutEllipse(image);
                     this.pictureBoxFace.Image = newImage2;
                 }
             }
@@ -62,16 +62,21 @@ namespace DDN
                     this.buttonYes.Hide();
                     this.buttonNo.Hide();
                     this.buttonIgnore.Hide();
-                    //消息列表中清除这个不需要操作的消息
-                 //   Manager.Instance.msgMgr.mList.Remove(m_MsgModel);
-                    // Debug.Print("移除了这个不需要操作的消息" + Manager.Instance.msgMgr.mList.Count.ToString());
+                 //Manager.Instance.msgMgr.mList.Remove(m_MsgModel);
+                    //Debug.Print("移除了这个不需要操作的消息" + Manager.Instance.msgMgr.mList.Count.ToString());
                     break;
                 case MsgProtocol.YOU_BE_DELETED://被删除好友
                     this.buttonYes.Hide();
                     this.buttonNo.Hide();
                     this.buttonIgnore.Hide();
-                    //消息列表中清除这个不需要操作的消息
-                 //   Manager.Instance.msgMgr.mList.Remove(m_MsgModel);
+                 //Manager.Instance.msgMgr.mList.Remove(m_MsgModel);
+                    // Debug.Print("移除了这个不需要操作的消息" + Manager.Instance.msgMgr.mList.Count.ToString());
+                    break;
+                case MsgProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意进群
+                    this.buttonYes.Hide();
+                    this.buttonNo.Hide();
+                    this.buttonIgnore.Hide();
+                    //Manager.Instance.msgMgr.mList.Remove(m_MsgModel);
                     // Debug.Print("移除了这个不需要操作的消息" + Manager.Instance.msgMgr.mList.Count.ToString());
                     break;
                 default:
@@ -79,28 +84,23 @@ namespace DDN
             }
         }
 
-        //绘制圆图片
-        private Image CutEllipse(Image img, Rectangle rec, Size size)
-        {
-            Bitmap bitmap = new Bitmap(size.Width, size.Height);
-            using (Graphics g = Graphics.FromImage(bitmap))
-            {
-                using (TextureBrush br = new TextureBrush(img, System.Drawing.Drawing2D.WrapMode.Clamp, rec))
-                {
-                    br.ScaleTransform(bitmap.Width / (float)rec.Width, bitmap.Height / (float)rec.Height);
-                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-                    g.FillEllipse(br, new Rectangle(Point.Empty, size));
-                }
-            }
-            return bitmap;
-        }
-
-        //通过好友验证
+        //通过验证
         private void buttonYes_Click(object sender, EventArgs e)
         {
-
-            MsgModel model = new MsgModel(MsgProtocol.AGREE_ADD_FRIEND_CREQ,GameInfo.ACC_ID,this.m_MsgModel.From, "我同意了你的好友申请",DateTime.Now.ToString());
-            Manager.Instance.msgMgr.sendMessage(MsgProtocol.FRIEND , model);
+            switch (m_MsgModel.MsgType)
+            {
+                case MsgProtocol.ONE_ADD_YOU_SRES://有人申请加好友
+                    MsgModel model = new MsgModel(MsgProtocol.AGREE_ADD_FRIEND_CREQ, GameInfo.ACC_ID, this.m_MsgModel.From, "我通过了你的好友申请", DateTime.Now.ToString());
+                    Manager.Instance.msgMgr.sendMessage(MsgProtocol.FRIEND, model);
+                    break;
+                case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人申请入群
+                    MsgModel model2 = new MsgModel(MsgProtocol.AGREE_ADD_GROUP_CREQ, this.m_MsgModel.From, this.m_MsgModel.To, "我通过了你的入群申请", DateTime.Now.ToString());
+                    Manager.Instance.msgMgr.sendMessage(MsgProtocol.GROUP, model2);
+                    break;
+                default:
+                    break;
+            }
+            
         }
 
         private void buttonNo_Click(object sender, EventArgs e)

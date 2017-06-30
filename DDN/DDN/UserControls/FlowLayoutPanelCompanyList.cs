@@ -88,7 +88,7 @@ namespace DDN.UserControls
                     var oldItem = (GroupItem)item;
                     if (oldItem.m_myGroupModel.GroupID == model.GroupID)
                     {//已经存在这个item
-                        Debug.Print("已经存在这个群组的item，这不该发生");
+                        Debug.Print("已经存在这个群组的item");
                         return;
                     }
                 }
@@ -129,19 +129,19 @@ namespace DDN.UserControls
         //        }
         //    }
         //}
-        ////获取列表
-        //public List<string> getFriendList()
-        //{
-        //    List<string> friendList = new List<string>();
-        //    foreach (var item in this.flowLayoutPanel.Controls)
-        //    {
-        //        if (item is FriendItem)
-        //        {
-        //            var friendItem = (FriendItem)item;
-        //            friendList.Add(friendItem.FriendUsername);
-        //        }
-        //    }
-        //    return friendList;
-        //}
+        //获取列表
+        public List<int> getGroupList()
+        {
+            List<int> glist = new List<int>();
+            foreach (var item in this.flowLayoutPanel.Controls)
+            {
+                if (item is GroupItem)
+                {
+                    var groupItem = (GroupItem)item;
+                    glist.Add(groupItem.m_myGroupModel.GroupID);
+                }
+            }
+            return glist;
+        }
     }
 }

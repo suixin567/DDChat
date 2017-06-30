@@ -69,16 +69,7 @@ namespace DDN
             //ResourceManager rm = new ResourceManager("DDN.FormMain", Assembly.GetExecutingAssembly());
             //Image img = (Image)rm.GetObject("pic");
             //pictureBox2.Image = img;
-            //处理离线消息
-            if (Manager.Instance.msgMgr.offlineMsgArr!=null) {
-                if (Manager.Instance.msgMgr.offlineMsgArr.Length>0) {
-                    foreach (var item in Manager.Instance.msgMgr.offlineMsgArr)
-                    {
-                        Manager.Instance.msgMgr.onNewMessage(item);
-                    }                   
-                }
-                Manager.Instance.msgMgr.offlineMsgArr = null;
-            }
+          
 
             //创建会话面板
             flowLayoutPanelDialogueList = new FlowLayoutPanelDialogueList();
@@ -89,6 +80,19 @@ namespace DDN
             flowLayoutPanelCompanyList = new FlowLayoutPanelCompanyList();
             this.Controls.Add(flowLayoutPanelCompanyList);
             flowLayoutPanelCompanyList.Location = new Point(10000,10000);
+
+            //处理离线消息
+            if (Manager.Instance.msgMgr.offlineMsgArr != null)
+            {
+                if (Manager.Instance.msgMgr.offlineMsgArr.Length > 0)
+                {
+                    foreach (var item in Manager.Instance.msgMgr.offlineMsgArr)
+                    {
+                        Manager.Instance.msgMgr.onNewMessage(item);
+                    }
+                }
+                Manager.Instance.msgMgr.offlineMsgArr = null;
+            }
         }
 
 

@@ -1,15 +1,10 @@
 ﻿using DDN.Tools;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using DDN.UserControls;
 
 namespace DDN
 {
@@ -24,7 +19,6 @@ namespace DDN
         {
             InitializeComponent();
             m_SyncContext = SynchronizationContext.Current;
-            Debug.Print("添加好友窗体线程" + System.Threading.Thread.CurrentThread.ManagedThreadId.ToString());
         }
 
         private void FormAddFriend_Load(object sender, EventArgs e)
@@ -41,62 +35,33 @@ namespace DDN
         {
             if (textBoxFindFriend.Text!="" && textBoxFindFriend.Text!= GameInfo.ACC_ID) {
               string friends =  HttpReqHelper.request(AppConst.WebUrl+"findFriend?username="+textBoxFindFriend.Text);
-                if (friends!="null")
+                try
                 {
                     this.flowLayoutPanelStrangers.Controls.Clear();
-                    PersonalInfoModel[] model = Coding<PersonalInfoModel[]>.decode(friends);                  
+                    PersonalInfoModel[] model = Coding<PersonalInfoModel[]>.decode(friends);
                     foreach (var item in model)
                     {
-                        AddFriendItem otherItem = new AddFriendItem(item.Username,item.Nickname,item.Face);
+                        AddFriendItem otherItem = new AddFriendItem(item.Username, item.Nickname, item.Face);
                         this.flowLayoutPanelStrangers.Controls.Add(otherItem);
                     }
-                }               
-            }
-            //Debug.Print("找到几个陌生人"+ this.flowLayoutPanelStrangers.Controls.Count);
-        }
-        //查找公司
-        private void buttonFindCompany_Click(object sender, EventArgs e)
-        {
-            Debug.Print("线程" + System.Threading.Thread.CurrentThread.ManagedThreadId.ToString());
-        }
-
-        private void closed(object sender, FormClosedEventArgs e)
-        {
-            this.Dispose();
-        }
-
-        //收到消息
-        public void onMessage(MsgModel model) {
-            m_SyncContext.Post(addFriendSafePost, model.To);
-        }
-
-
-        public void addFriendSafePost(object state)
-        {
-            //Debug.Print("22响应线程" + System.Threading.Thread.CurrentThread.ManagedThreadId.ToString());
-            //Debug.Print("22添加好友的响应" + state);
-            //Debug.Print("22找到几个陌生人" + this.flowLayoutPanelStrangers.Controls.Count);
-            foreach (Control ctl in this.flowLayoutPanelStrangers.Controls)
-            {
-                if (ctl is AddFriendItem)
-                {
-                    AddFriendItem t = (AddFriendItem)ctl;
-               //     Debug.Print("正在遍历");
-                    if (t.labelUsername.Text == state.ToString())
-                    {
-                        showOpreationResult("好友申请已经发出，请等待对方处理。",3);
-                        t.Dispose();
-                    }
                 }
-
+                catch (Exception)
+                {
+                }                               
             }
+        }
+
+
+        //显示操作结果
+        public void showOpreationResultSafePost(string content) {
+            m_SyncContext.Post(showOpreationResult,content);
         }
 
         int delay = 0;
         int currentCount = 0;
-       public void showOpreationResult(string content,int _delay) {
-            this.labelOpreationResult.Text = content;
-            delay = _delay;
+       void showOpreationResult(object content) {
+            this.labelOpreationResult.Text = content.ToString();
+            delay = 4;
             currentCount = 0;
             this.timerOpreationResult.Start();
         }
@@ -108,6 +73,35 @@ namespace DDN
                 this.timerOpreationResult.Stop();
                 this.labelOpreationResult.Text = "";
             }
+        }
+
+        //查找公司
+        private void buttonFindCompany_Click(object sender, EventArgs e)
+        {
+            if (textBoxFindCompany.Text != "")
+            {
+                string company = HttpReqHelper.request(AppConst.WebUrl + "groupBaseInfo?gid=" + textBoxFindCompany.Text);
+                Debug.Print("找到的公司"+ company);
+                try
+                {
+                    this.flowLayoutPanelStrangers.Controls.Clear();
+                    GroupInfoModel model = Coding<GroupInfoModel>.decode(company);
+                    if (model.Gid==0) {
+                        return;
+                    }
+                    AddGroupItem otherItem = new AddGroupItem(model.Name, model.Gid, model.Face);
+                    this.flowLayoutPanelStrangers.Controls.Add(otherItem);
+                }
+                catch (Exception)
+                {
+                }                                   
+            }
+        }
+
+
+        private void closed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

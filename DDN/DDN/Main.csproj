@@ -90,6 +90,12 @@
     <Compile Include="FormRegist.Designer.cs">
       <DependentUpon>FormRegist.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AddGroupItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddGroupItem.Designer.cs">
+      <DependentUpon>AddGroupItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FlowLayoutPanelCompanyList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegist.resx">
       <DependentUpon>FormRegist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AddGroupItem.resx">
+      <DependentUpon>AddGroupItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FlowLayoutPanelCompanyList.resx">
       <DependentUpon>FlowLayoutPanelCompanyList.cs</DependentUpon>

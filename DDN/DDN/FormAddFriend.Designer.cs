@@ -118,9 +118,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(420, 33);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 12);
+            this.label4.Size = new System.Drawing.Size(125, 12);
             this.label4.TabIndex = 7;
-            this.label4.Text = "请输入想查找的公司账号";
+            this.label4.Text = "请输入想查找的公司ID";
             // 
             // pictureBox1
             // 
