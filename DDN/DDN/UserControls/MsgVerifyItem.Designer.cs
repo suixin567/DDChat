@@ -33,7 +33,6 @@
             this.labelNickName = new System.Windows.Forms.Label();
             this.labelContent = new System.Windows.Forms.Label();
             this.buttonYes = new System.Windows.Forms.Button();
-            this.buttonNo = new System.Windows.Forms.Button();
             this.buttonIgnore = new System.Windows.Forms.Button();
             this.labelTime = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
@@ -71,7 +70,7 @@
             // buttonYes
             // 
             this.buttonYes.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonYes.Location = new System.Drawing.Point(428, 21);
+            this.buttonYes.Location = new System.Drawing.Point(432, 19);
             this.buttonYes.Name = "buttonYes";
             this.buttonYes.Size = new System.Drawing.Size(88, 50);
             this.buttonYes.TabIndex = 5;
@@ -79,24 +78,15 @@
             this.buttonYes.UseVisualStyleBackColor = false;
             this.buttonYes.Click += new System.EventHandler(this.buttonYes_Click);
             // 
-            // buttonNo
-            // 
-            this.buttonNo.Location = new System.Drawing.Point(522, 21);
-            this.buttonNo.Name = "buttonNo";
-            this.buttonNo.Size = new System.Drawing.Size(56, 23);
-            this.buttonNo.TabIndex = 6;
-            this.buttonNo.Text = "拒绝";
-            this.buttonNo.UseVisualStyleBackColor = true;
-            this.buttonNo.Click += new System.EventHandler(this.buttonNo_Click);
-            // 
             // buttonIgnore
             // 
-            this.buttonIgnore.Location = new System.Drawing.Point(522, 48);
+            this.buttonIgnore.Location = new System.Drawing.Point(547, 62);
             this.buttonIgnore.Name = "buttonIgnore";
             this.buttonIgnore.Size = new System.Drawing.Size(56, 23);
             this.buttonIgnore.TabIndex = 7;
             this.buttonIgnore.Text = "忽略";
             this.buttonIgnore.UseVisualStyleBackColor = true;
+            this.buttonIgnore.Click += new System.EventHandler(this.buttonIgnore_Click);
             // 
             // labelTime
             // 
@@ -125,7 +115,6 @@
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.labelTime);
             this.Controls.Add(this.buttonIgnore);
-            this.Controls.Add(this.buttonNo);
             this.Controls.Add(this.buttonYes);
             this.Controls.Add(this.labelContent);
             this.Controls.Add(this.labelNickName);
@@ -145,7 +134,6 @@
         private System.Windows.Forms.Label labelNickName;
         private System.Windows.Forms.Label labelContent;
         private System.Windows.Forms.Button buttonYes;
-        private System.Windows.Forms.Button buttonNo;
         private System.Windows.Forms.Button buttonIgnore;
         private System.Windows.Forms.Label labelTime;
         public System.Windows.Forms.Label labelUsername;

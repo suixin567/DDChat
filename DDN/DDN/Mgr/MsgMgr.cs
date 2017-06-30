@@ -32,6 +32,8 @@ namespace DDN
         public const int AGREE_ADD_GROUP_CREQ = 35;//群主同意申请入群
         public const int AGREE_ADD_GROUP_SRES = 36;//群主同意申请入群的响应
         public const int YOU_BE_AGREED_ENTER_GROUP = 37;//你被同意入群
+        public const int QUIT_GROUP_CREQ = 38;//退出一个群
+        public const int QUIT_GROUP_SRES = 39;//退出一个群的响应
     }
 
     public class MsgModel
@@ -127,7 +129,6 @@ namespace DDN
                     Manager.Instance.formMain.notifyIonFlashSafePost();//icon闪烁
                     Debug.Print("收到我被删除的消息" + mModel.MsgType);
                     break;
-
                 case MsgProtocol.CREATE_GROUP_SRES://建群的响应
                     MyGroupModel myGroupModel = Coding<MyGroupModel>.decode(mModel.Content);
                     Debug.Print("我新建的群号是：" + myGroupModel.GroupID);                   
@@ -151,8 +152,7 @@ namespace DDN
                     //更新提示文字
                     Manager.Instance.formMain.FormAddFriend.showOpreationResultSafePost("成功加入！");
                     break;
-                case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人想申请入群   
-                                      
+                case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人想申请入群                                         
                     foreach (var item in mList)
                     {
                         if (item.From == mModel.From && item.MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES)
@@ -181,11 +181,10 @@ namespace DDN
                     MyGroupModel beAgreedEnterGroupModel = new MyGroupModel();
                     beAgreedEnterGroupModel.GroupID = int.Parse(mModel.To);
                     beAgreedEnterGroupModel.ReceiveModel = 0;
-                    if (Manager.Instance.formMain.flowLayoutPanelCompanyList==null) {
-                        Debug.Print("KKKKK");
-                    }
                     Manager.Instance.formMain.flowLayoutPanelCompanyList.addItemSafePost(beAgreedEnterGroupModel);
-
+                    break;
+                case MsgProtocol.QUIT_GROUP_SRES://退群响应
+                    Manager.Instance.formMain.flowLayoutPanelCompanyList.removeItemSafePost(int.Parse(mModel.To));
                     break;
                 default:
                     Debug.Print("未知消息协议类型" + mModel.MsgType);

@@ -29,6 +29,7 @@ namespace DDN.UserControls
 
         private void flowLayoutPanelCompanyList_Load(object sender, EventArgs e)
         {
+            this.labelTip.Text = "";
             pullGroupList();
         }
         //拉取群列表
@@ -107,28 +108,29 @@ namespace DDN.UserControls
             创建群ToolStripMenuItem_Click(null,null);
         }
 
-        ////删除item
-        //public void removeFriendItemSafePost(string username)
-        //{
-        //    m_SyncContext.Post(removeFriendItem, username);
-        //}
-        //void removeFriendItem(object usreName)
-        //{
-        //    foreach (var item in this.flowLayoutPanel.Controls)
-        //    {
-        //        if (item is FriendItem)
-        //        {
-        //            var friendItem = (FriendItem)item;
-        //            if (friendItem.FriendUsername == usreName.ToString())
-        //            {
-        //                friendItem.Dispose();
-        //                amount--;
-        //                this.labelTitle.Text = "公司 " + amount;
-        //                break;
-        //            }
-        //        }
-        //    }
-        //}
+        //删除item
+        public void removeItemSafePost(int gid)
+        {
+            m_SyncContext.Post(removeItem, gid);
+        }
+        void removeItem(object gid)
+        {
+            foreach (var item in this.flowLayoutPanel.Controls)
+            {
+                if (item is GroupItem)
+                {
+                    var groupItem = (GroupItem)item;
+                    if (groupItem.m_myGroupModel.GroupID ==int.Parse(gid.ToString()) )
+                    {
+                        groupItem.Dispose();
+                        amount--;
+                        this.labelTitle.Text = "公司 " + amount;
+                        break;
+                    }
+                }
+            }
+        }
+
         //获取列表
         public List<int> getGroupList()
         {
@@ -142,6 +144,33 @@ namespace DDN.UserControls
                 }
             }
             return glist;
+        }
+
+
+        //显示操作结果
+        public void showOpreationResultSafePost(string content)
+        {
+            m_SyncContext.Post(showOpreationResult, content);
+        }
+
+        int delay = 0;
+        int currentCount = 0;
+        void showOpreationResult(object content)
+        {
+            this.labelTip.Text = content.ToString();
+            delay = 4;
+            currentCount = 0;
+            this.timerOpreationResult.Start();
+        }
+
+        private void timerOpreationResult_Tick(object sender, EventArgs e)
+        {
+            currentCount++;
+            if (currentCount >= delay)
+            {
+                this.timerOpreationResult.Stop();
+                this.labelTip.Text = "";
+            }
         }
     }
 }

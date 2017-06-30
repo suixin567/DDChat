@@ -60,21 +60,18 @@ namespace DDN
             {
                 case MsgProtocol.ONE_AGREED_YOU://别人同意了你的好友申请
                     this.buttonYes.Hide();
-                    this.buttonNo.Hide();
                     this.buttonIgnore.Hide();
                  //Manager.Instance.msgMgr.mList.Remove(m_MsgModel);
                     //Debug.Print("移除了这个不需要操作的消息" + Manager.Instance.msgMgr.mList.Count.ToString());
                     break;
                 case MsgProtocol.YOU_BE_DELETED://被删除好友
                     this.buttonYes.Hide();
-                    this.buttonNo.Hide();
                     this.buttonIgnore.Hide();
                  //Manager.Instance.msgMgr.mList.Remove(m_MsgModel);
                     // Debug.Print("移除了这个不需要操作的消息" + Manager.Instance.msgMgr.mList.Count.ToString());
                     break;
                 case MsgProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意进群
                     this.buttonYes.Hide();
-                    this.buttonNo.Hide();
                     this.buttonIgnore.Hide();
                     //Manager.Instance.msgMgr.mList.Remove(m_MsgModel);
                     // Debug.Print("移除了这个不需要操作的消息" + Manager.Instance.msgMgr.mList.Count.ToString());
@@ -103,10 +100,11 @@ namespace DDN
             
         }
 
-        private void buttonNo_Click(object sender, EventArgs e)
+        //忽略按钮
+        private void buttonIgnore_Click(object sender, EventArgs e)
         {
-
+            Manager.Instance.msgMgr.mList.Remove(m_MsgModel);
+            this.Dispose();                
         }
-       
     }
 }

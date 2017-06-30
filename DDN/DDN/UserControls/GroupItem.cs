@@ -59,6 +59,16 @@ namespace DDN.UserControls
                 }
             }
         }
-    
+
+
+        private void 退出这个群ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (m_groupInfoModel.Master==GameInfo.ACC_ID) {
+                Manager.Instance.formMain.flowLayoutPanelCompanyList.showOpreationResultSafePost("群主不可以退出群");
+                return;
+            }
+            MsgModel mm = new MsgModel(MsgProtocol.QUIT_GROUP_CREQ, GameInfo.ACC_ID, m_myGroupModel.GroupID.ToString(), "不想继续留在这个群了，再见！", DateTime.Now.ToString());
+            Manager.Instance.msgMgr.sendMessage(MsgProtocol.GROUP, mm);
+        }
     }
 }

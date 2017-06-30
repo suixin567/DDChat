@@ -73,13 +73,14 @@
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.退出这个公司ToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(257, 48);
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 48);
             // 
             // 退出这个公司ToolStripMenuItem
             // 
             this.退出这个公司ToolStripMenuItem.Name = "退出这个公司ToolStripMenuItem";
-            this.退出这个公司ToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
-            this.退出这个公司ToolStripMenuItem.Text = "退出这个公司（暂时不支持退出）";
+            this.退出这个公司ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.退出这个公司ToolStripMenuItem.Text = "退出这个群";
+            this.退出这个公司ToolStripMenuItem.Click += new System.EventHandler(this.退出这个群ToolStripMenuItem_Click);
             // 
             // GroupItem
             // 
