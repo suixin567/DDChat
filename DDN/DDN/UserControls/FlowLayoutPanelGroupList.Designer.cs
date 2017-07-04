@@ -1,6 +1,6 @@
 ﻿namespace DDN.UserControls
 {
-    partial class FlowLayoutPanelCompanyList
+    partial class FlowLayoutPanelGroupList
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -36,7 +36,6 @@
             this.buttonCreateGroup = new System.Windows.Forms.Button();
             this.labelTip = new System.Windows.Forms.Label();
             this.timerOpreationResult = new System.Windows.Forms.Timer(this.components);
-            this.flowLayoutPanel.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,11 +47,10 @@
             this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.flowLayoutPanel.ContextMenuStrip = this.contextMenuStrip;
-            this.flowLayoutPanel.Controls.Add(this.labelTitle);
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(0, 25);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(0, 44);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(310, 476);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(310, 457);
             this.flowLayoutPanel.TabIndex = 0;
             this.flowLayoutPanel.WrapContents = false;
             // 
@@ -73,7 +71,7 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(3, 5);
+            this.labelTitle.Location = new System.Drawing.Point(6, 29);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(41, 12);
@@ -108,20 +106,19 @@
             this.timerOpreationResult.Interval = 1000;
             this.timerOpreationResult.Tick += new System.EventHandler(this.timerOpreationResult_Tick);
             // 
-            // FlowLayoutPanelCompanyList
+            // FlowLayoutPanelGroupList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ContextMenuStrip = this.contextMenuStrip;
+            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.labelTip);
             this.Controls.Add(this.buttonCreateGroup);
             this.Controls.Add(this.flowLayoutPanel);
-            this.Name = "FlowLayoutPanelCompanyList";
+            this.Name = "FlowLayoutPanelGroupList";
             this.Size = new System.Drawing.Size(310, 501);
             this.Load += new System.EventHandler(this.flowLayoutPanelCompanyList_Load);
-            this.flowLayoutPanel.ResumeLayout(false);
-            this.flowLayoutPanel.PerformLayout();
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -130,7 +127,7 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem 创建群ToolStripMenuItem;

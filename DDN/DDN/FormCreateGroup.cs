@@ -37,7 +37,7 @@ namespace DDN
         }
 
         void checkGroupAmount() {
-            if (Manager.Instance.formMain.flowLayoutPanelCompanyList.amount> MaxGroupAmount) {
+            if (Manager.Instance.formMain.flowLayoutPanelGroupList.amount> MaxGroupAmount) {
                 labelTip.Text = "最多有"+ MaxGroupAmount+"个公司，你的公司太多不可以创建了！";
                 tomanyGroup = true;
             }

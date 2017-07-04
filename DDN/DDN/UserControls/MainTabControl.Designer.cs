@@ -30,14 +30,15 @@
         {
             this.buttonDialogue = new System.Windows.Forms.Button();
             this.buttonFriends = new System.Windows.Forms.Button();
-            this.buttonCompany = new System.Windows.Forms.Button();
+            this.buttonGroup = new System.Windows.Forms.Button();
+            this.buttonRes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonDialogue
             // 
             this.buttonDialogue.Location = new System.Drawing.Point(0, 0);
             this.buttonDialogue.Name = "buttonDialogue";
-            this.buttonDialogue.Size = new System.Drawing.Size(94, 36);
+            this.buttonDialogue.Size = new System.Drawing.Size(70, 36);
             this.buttonDialogue.TabIndex = 0;
             this.buttonDialogue.Text = "会话";
             this.buttonDialogue.UseVisualStyleBackColor = true;
@@ -45,29 +46,41 @@
             // 
             // buttonFriends
             // 
-            this.buttonFriends.Location = new System.Drawing.Point(94, 0);
+            this.buttonFriends.Location = new System.Drawing.Point(71, 0);
             this.buttonFriends.Name = "buttonFriends";
-            this.buttonFriends.Size = new System.Drawing.Size(94, 36);
+            this.buttonFriends.Size = new System.Drawing.Size(70, 36);
             this.buttonFriends.TabIndex = 1;
             this.buttonFriends.Text = "联系人";
             this.buttonFriends.UseVisualStyleBackColor = true;
             this.buttonFriends.Click += new System.EventHandler(this.buttonFriends_Click);
             // 
-            // buttonCompany
+            // buttonGroup
             // 
-            this.buttonCompany.Location = new System.Drawing.Point(188, 0);
-            this.buttonCompany.Name = "buttonCompany";
-            this.buttonCompany.Size = new System.Drawing.Size(94, 36);
-            this.buttonCompany.TabIndex = 2;
-            this.buttonCompany.Text = "公司";
-            this.buttonCompany.UseVisualStyleBackColor = true;
-            this.buttonCompany.Click += new System.EventHandler(this.buttonCompany_Click);
+            this.buttonGroup.Location = new System.Drawing.Point(141, 0);
+            this.buttonGroup.Name = "buttonGroup";
+            this.buttonGroup.Size = new System.Drawing.Size(70, 36);
+            this.buttonGroup.TabIndex = 2;
+            this.buttonGroup.Text = "群";
+            this.buttonGroup.UseVisualStyleBackColor = true;
+            this.buttonGroup.Click += new System.EventHandler(this.buttonCompany_Click);
+            // 
+            // buttonRes
+            // 
+            this.buttonRes.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonRes.Location = new System.Drawing.Point(212, 0);
+            this.buttonRes.Name = "buttonRes";
+            this.buttonRes.Size = new System.Drawing.Size(70, 36);
+            this.buttonRes.TabIndex = 3;
+            this.buttonRes.Text = "资源";
+            this.buttonRes.UseVisualStyleBackColor = false;
+            this.buttonRes.Click += new System.EventHandler(this.buttonRes_Click);
             // 
             // MainTabControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.buttonCompany);
+            this.Controls.Add(this.buttonRes);
+            this.Controls.Add(this.buttonGroup);
             this.Controls.Add(this.buttonFriends);
             this.Controls.Add(this.buttonDialogue);
             this.Name = "MainTabControl";
@@ -81,6 +94,7 @@
 
         private System.Windows.Forms.Button buttonDialogue;
         private System.Windows.Forms.Button buttonFriends;
-        private System.Windows.Forms.Button buttonCompany;
+        private System.Windows.Forms.Button buttonGroup;
+        private System.Windows.Forms.Button buttonRes;
     }
 }

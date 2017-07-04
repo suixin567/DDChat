@@ -109,7 +109,6 @@ E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.FormAddFriend.resources
 E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.FormLogin.resources
 E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.FormMessageVerify.resources
 E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.FormRegist.resources
-E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.UserControls.FlowLayoutPanelCompanyList.resources
 E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.UserControls.FlowLayoutPanelDialogueList.resources
 E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.UserControls.FlowLayoutPanelFriendList.resources
 E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.FriendItem.resources
@@ -121,5 +120,8 @@ E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.Properties.Resources.resources
 E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.Tools.DDMsgBox.resources
 E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.TopInfoPanel.resources
 E:\刘家君\DDN\DDN\DDN\obj\Debug\Main.csproj.GenerateResource.Cache
-E:\刘家君\DDN\DDN\DDN\obj\Debug\Main.csprojResolveAssemblyReference.cache
 E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.UserControls.AddGroupItem.resources
+E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.UserControls.FlowLayoutPanelGroupList.resources
+E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.UserControls.FlowLayoutPanelResourcesList.resources
+E:\刘家君\DDN\DDN\DDN\obj\Debug\DDN.UserControls.GroupResItem.resources
+E:\刘家君\DDN\DDN\DDN\obj\Debug\Main.csprojResolveAssemblyReference.cache

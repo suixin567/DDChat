@@ -13,7 +13,7 @@ using DDN.Tools;
 
 namespace DDN.UserControls
 {
-    public partial class FlowLayoutPanelCompanyList : UserControl
+    public partial class FlowLayoutPanelGroupList : UserControl
     {
 
         public FormCreateGroup formCreateGroup;
@@ -21,16 +21,16 @@ namespace DDN.UserControls
         public SynchronizationContext m_SyncContext = null;
         public int amount = 0;//群组个数        
 
-        public FlowLayoutPanelCompanyList()
+        public FlowLayoutPanelGroupList()
         {
             InitializeComponent();
             m_SyncContext = SynchronizationContext.Current;
+            pullGroupList();
         }
 
         private void flowLayoutPanelCompanyList_Load(object sender, EventArgs e)
         {
-            this.labelTip.Text = "";
-            pullGroupList();
+            this.labelTip.Text = "";           
         }
         //拉取群列表
         void pullGroupList()

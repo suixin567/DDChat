@@ -96,11 +96,11 @@
     <Compile Include="UserControls\AddGroupItem.Designer.cs">
       <DependentUpon>AddGroupItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\FlowLayoutPanelCompanyList.cs">
+    <Compile Include="UserControls\FlowLayoutPanelGroupList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\FlowLayoutPanelCompanyList.Designer.cs">
-      <DependentUpon>FlowLayoutPanelCompanyList.cs</DependentUpon>
+    <Compile Include="UserControls\FlowLayoutPanelGroupList.Designer.cs">
+      <DependentUpon>FlowLayoutPanelGroupList.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FlowLayoutPanelDialogueList.cs">
       <SubType>UserControl</SubType>
@@ -113,6 +113,12 @@
     </Compile>
     <Compile Include="UserControls\FlowLayoutPanelFriendList.Designer.cs">
       <DependentUpon>FlowLayoutPanelFriendList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FlowLayoutPanelResourcesList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FlowLayoutPanelResourcesList.Designer.cs">
+      <DependentUpon>FlowLayoutPanelResourcesList.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FriendItem.cs">
       <SubType>UserControl</SubType>
@@ -131,6 +137,12 @@
     </Compile>
     <Compile Include="UserControls\GroupItem.Designer.cs">
       <DependentUpon>GroupItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\GroupResItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\GroupResItem.Designer.cs">
+      <DependentUpon>GroupResItem.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MainTabControl.cs">
       <SubType>UserControl</SubType>
@@ -201,14 +213,17 @@
     <EmbeddedResource Include="UserControls\AddGroupItem.resx">
       <DependentUpon>AddGroupItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\FlowLayoutPanelCompanyList.resx">
-      <DependentUpon>FlowLayoutPanelCompanyList.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\FlowLayoutPanelGroupList.resx">
+      <DependentUpon>FlowLayoutPanelGroupList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FlowLayoutPanelDialogueList.resx">
       <DependentUpon>FlowLayoutPanelDialogueList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FlowLayoutPanelFriendList.resx">
       <DependentUpon>FlowLayoutPanelFriendList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FlowLayoutPanelResourcesList.resx">
+      <DependentUpon>FlowLayoutPanelResourcesList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FriendItem.resx">
       <DependentUpon>FriendItem.cs</DependentUpon>
@@ -219,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\GroupItem.resx">
       <DependentUpon>GroupItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\GroupResItem.resx">
+      <DependentUpon>GroupResItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainTabControl.resx">
       <DependentUpon>MainTabControl.cs</DependentUpon>

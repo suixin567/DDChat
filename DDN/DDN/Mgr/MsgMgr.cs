@@ -132,9 +132,9 @@ namespace DDN
                 case MsgProtocol.CREATE_GROUP_SRES://建群的响应
                     MyGroupModel myGroupModel = Coding<MyGroupModel>.decode(mModel.Content);
                     Debug.Print("我新建的群号是：" + myGroupModel.GroupID);                   
-                    Manager.Instance.formMain.flowLayoutPanelCompanyList.addItemSafePost(myGroupModel);
+                    Manager.Instance.formMain.flowLayoutPanelGroupList.addItemSafePost(myGroupModel);
                     //更新提示文字
-                    Manager.Instance.formMain.flowLayoutPanelCompanyList.formCreateGroup.showOpreationResultSafePost("创建成功！，群号是：" + myGroupModel.GroupID);
+                    Manager.Instance.formMain.flowLayoutPanelGroupList.formCreateGroup.showOpreationResultSafePost("创建成功！，群号是：" + myGroupModel.GroupID);
                     break;
                 case MsgProtocol.ADD_GROUP_SRES://加群的响应
                     if (mModel.Content == "too many member") {//群员太多
@@ -148,7 +148,7 @@ namespace DDN
                     MyGroupModel myAddGroupModel = Coding<MyGroupModel>.decode(mModel.Content);
                     Debug.Print("我加入的群号是：" + myAddGroupModel.GroupID);
                     //增加item
-                    Manager.Instance.formMain.flowLayoutPanelCompanyList.addItemSafePost(myAddGroupModel);
+                    Manager.Instance.formMain.flowLayoutPanelGroupList.addItemSafePost(myAddGroupModel);
                     //更新提示文字
                     Manager.Instance.formMain.FormAddFriend.showOpreationResultSafePost("成功加入！");
                     break;
@@ -181,10 +181,10 @@ namespace DDN
                     MyGroupModel beAgreedEnterGroupModel = new MyGroupModel();
                     beAgreedEnterGroupModel.GroupID = int.Parse(mModel.To);
                     beAgreedEnterGroupModel.ReceiveModel = 0;
-                    Manager.Instance.formMain.flowLayoutPanelCompanyList.addItemSafePost(beAgreedEnterGroupModel);
+                    Manager.Instance.formMain.flowLayoutPanelGroupList.addItemSafePost(beAgreedEnterGroupModel);
                     break;
                 case MsgProtocol.QUIT_GROUP_SRES://退群响应
-                    Manager.Instance.formMain.flowLayoutPanelCompanyList.removeItemSafePost(int.Parse(mModel.To));
+                    Manager.Instance.formMain.flowLayoutPanelGroupList.removeItemSafePost(int.Parse(mModel.To));
                     break;
                 default:
                     Debug.Print("未知消息协议类型" + mModel.MsgType);

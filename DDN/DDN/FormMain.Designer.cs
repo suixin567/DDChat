@@ -138,7 +138,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 42);
             this.button1.TabIndex = 10;
-            this.button1.Text = "共享商场";
+            this.button1.Text = "叮叮鸟商城";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // buttonExit

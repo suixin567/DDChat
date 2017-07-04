@@ -42,11 +42,28 @@ namespace DDN
         public FormAddFriend FormAddFriend = null;//添加好友的窗体
         public FormMessageVerify formMessageVerify;//消息管理窗体
         public FlowLayoutPanelDialogueList flowLayoutPanelDialogueList;//会话列表面板
-        public FlowLayoutPanelCompanyList flowLayoutPanelCompanyList;//公司列表面板
+        public FlowLayoutPanelGroupList flowLayoutPanelGroupList;//群列表面板
+        public FlowLayoutPanelResourcesList flowLayoutPanelResourcesList;//资源列表面板
+
         public FormMain()
         {
             InitializeComponent();
             m_SyncContext = SynchronizationContext.Current;
+            //创建会话面板
+            flowLayoutPanelDialogueList = new FlowLayoutPanelDialogueList();
+            this.Controls.Add(flowLayoutPanelDialogueList);
+            flowLayoutPanelDialogueList.Location = new Point(10000, 10000);
+
+            //创建公司面板
+            flowLayoutPanelGroupList = new FlowLayoutPanelGroupList();
+            this.Controls.Add(flowLayoutPanelGroupList);
+            flowLayoutPanelGroupList.Location = new Point(10000, 10000);
+
+            //创建资源面板
+            flowLayoutPanelResourcesList = new FlowLayoutPanelResourcesList();
+            this.Controls.Add(flowLayoutPanelResourcesList);
+            flowLayoutPanelResourcesList.Location = new Point(10000, 10000);
+            
         }
 
         /// <summary>
@@ -71,15 +88,7 @@ namespace DDN
             //pictureBox2.Image = img;
           
 
-            //创建会话面板
-            flowLayoutPanelDialogueList = new FlowLayoutPanelDialogueList();
-            this.Controls.Add(flowLayoutPanelDialogueList);
-            flowLayoutPanelDialogueList.Location = new Point(10000, 10000);
-
-            //创建公司面板
-            flowLayoutPanelCompanyList = new FlowLayoutPanelCompanyList();
-            this.Controls.Add(flowLayoutPanelCompanyList);
-            flowLayoutPanelCompanyList.Location = new Point(10000,10000);
+            
 
             //处理离线消息
             if (Manager.Instance.msgMgr.offlineMsgArr != null)

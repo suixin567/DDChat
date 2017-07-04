@@ -104,8 +104,8 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxGroupFace;
-        private System.Windows.Forms.Label labelName;
+        public System.Windows.Forms.PictureBox pictureBoxGroupFace;
+        public System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem 退出这个公司ToolStripMenuItem;
