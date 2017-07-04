@@ -59,6 +59,8 @@
     <Compile Include="FormCreateGroup.Designer.cs">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServerForUnity\Client.cs" />
+    <Compile Include="ServerForUnity\ServerForUnity.cs" />
     <Compile Include="Tools\ImageTool.cs" />
     <Compile Include="UserControls\AddFriendItem.cs">
       <SubType>UserControl</SubType>

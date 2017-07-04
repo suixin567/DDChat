@@ -39,7 +39,7 @@
             this.buttonFormMsgVerify = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonShop = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonMin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -97,7 +97,7 @@
             this.panelBottom.Controls.Add(this.buttonFormMsgVerify);
             this.panelBottom.Controls.Add(this.button2);
             this.panelBottom.Controls.Add(this.button3);
-            this.panelBottom.Controls.Add(this.button1);
+            this.panelBottom.Controls.Add(this.buttonShop);
             this.panelBottom.Controls.Add(this.addFriendButton);
             this.panelBottom.Location = new System.Drawing.Point(4, 570);
             this.panelBottom.Name = "panelBottom";
@@ -132,14 +132,15 @@
             this.button3.Text = "户型绘制";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonShop
             // 
-            this.button1.Location = new System.Drawing.Point(6, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 42);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "叮叮鸟商城";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonShop.Location = new System.Drawing.Point(6, 3);
+            this.buttonShop.Name = "buttonShop";
+            this.buttonShop.Size = new System.Drawing.Size(75, 42);
+            this.buttonShop.TabIndex = 10;
+            this.buttonShop.Text = "叮叮鸟商城";
+            this.buttonShop.UseVisualStyleBackColor = true;
+            this.buttonShop.Click += new System.EventHandler(this.buttonShop_Click);
             // 
             // buttonExit
             // 
@@ -248,7 +249,7 @@
         private System.Windows.Forms.Timer timerShowOrHide;
         private System.Windows.Forms.Button addFriendButton;
         private System.Windows.Forms.Panel panelBottom;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonShop;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonExit;

@@ -164,11 +164,15 @@ public class ByteArray
 	{
 		if (bytes == null)
 			return;
-		for (int i = bytes.Length - 1; i >= 0; i--)
-		{
-			m_Writer.BaseStream.WriteByte(bytes[i]);
-		}
-	}
+        for (int i = bytes.Length - 1; i >= 0; i--)
+        {
+            m_Writer.BaseStream.WriteByte(bytes[i]);
+        }
+        //for (int i = 0; i < bytes.Length; i++)
+        //{
+        //    m_Writer.BaseStream.WriteByte(bytes[i]);
+        //}
+    }
 	
 	public void WriteInt32(int value)
 	{

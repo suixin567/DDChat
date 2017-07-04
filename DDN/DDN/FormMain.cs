@@ -386,6 +386,11 @@ namespace DDN
             Manager.Instance.ExitApp();
         }
 
-      
+
+        //打开商城
+        private void buttonShop_Click(object sender, EventArgs e)
+        {
+            Manager.Instance.OpenUnity();
+        }
     }
 }
