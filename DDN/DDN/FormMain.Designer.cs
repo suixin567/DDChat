@@ -38,7 +38,7 @@
             this.panelBottom = new System.Windows.Forms.Panel();
             this.buttonFormMsgVerify = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonDrawHouse = new System.Windows.Forms.Button();
             this.buttonShop = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonMin = new System.Windows.Forms.Button();
@@ -96,7 +96,7 @@
             this.panelBottom.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelBottom.Controls.Add(this.buttonFormMsgVerify);
             this.panelBottom.Controls.Add(this.button2);
-            this.panelBottom.Controls.Add(this.button3);
+            this.panelBottom.Controls.Add(this.buttonDrawHouse);
             this.panelBottom.Controls.Add(this.buttonShop);
             this.panelBottom.Controls.Add(this.addFriendButton);
             this.panelBottom.Location = new System.Drawing.Point(4, 570);
@@ -123,14 +123,15 @@
             this.button2.Text = "其他服务";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonDrawHouse
             // 
-            this.button3.Location = new System.Drawing.Point(96, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(85, 42);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "户型绘制";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonDrawHouse.Location = new System.Drawing.Point(96, 3);
+            this.buttonDrawHouse.Name = "buttonDrawHouse";
+            this.buttonDrawHouse.Size = new System.Drawing.Size(85, 42);
+            this.buttonDrawHouse.TabIndex = 12;
+            this.buttonDrawHouse.Text = "户型绘制";
+            this.buttonDrawHouse.UseVisualStyleBackColor = true;
+            this.buttonDrawHouse.Click += new System.EventHandler(this.buttonDrawHouse_Click);
             // 
             // buttonShop
             // 
@@ -250,7 +251,7 @@
         private System.Windows.Forms.Button addFriendButton;
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Button buttonShop;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonDrawHouse;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonMin;

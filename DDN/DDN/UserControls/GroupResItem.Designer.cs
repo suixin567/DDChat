@@ -43,6 +43,7 @@
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "双击查看";
+            this.label1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.GroupResItem_MouseDoubleClick);
             // 
             // labelName
             // 
@@ -51,6 +52,7 @@
             this.labelName.Size = new System.Drawing.Size(111, 12);
             this.labelName.TabIndex = 1;
             this.labelName.Text = "天天壁纸交流群";
+            this.labelName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.GroupResItem_MouseDoubleClick);
             // 
             // pictureBoxFace
             // 
@@ -61,6 +63,7 @@
             this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxFace.TabIndex = 2;
             this.pictureBoxFace.TabStop = false;
+            this.pictureBoxFace.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.GroupResItem_MouseDoubleClick);
             // 
             // GroupResItem
             // 
@@ -74,6 +77,7 @@
             this.Name = "GroupResItem";
             this.Size = new System.Drawing.Size(500, 57);
             this.Load += new System.EventHandler(this.GroupResItem_Load);
+            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.GroupResItem_MouseDoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

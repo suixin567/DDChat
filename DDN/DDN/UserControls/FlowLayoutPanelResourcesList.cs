@@ -25,9 +25,11 @@ namespace DDN.UserControls
 
         }
 
+        //个人资源按钮
         private void buttonMyRes_Click(object sender, EventArgs e)
         {
-
+            UnityManager.Instance.changeUnityScene(4);
+            UnityManager.Instance.resourceMode = 2;
         }
         bool isItemInited = false;
         bool isGroupResShow = false;
@@ -62,7 +64,7 @@ namespace DDN.UserControls
             {
                 if (Manager.Instance.formMain.flowLayoutPanelGroupList.flowLayoutPanel.Controls[i] is GroupItem) {
                     GroupItem gi = (GroupItem)Manager.Instance.formMain.flowLayoutPanelGroupList.flowLayoutPanel.Controls[i];
-                    GroupResItem item = new GroupResItem();
+                    GroupResItem item = new GroupResItem(gi.m_groupInfoModel);
                     item.pictureBoxFace.Image = gi.pictureBoxGroupFace.Image;
                     item.labelName.Text = gi.labelName.Text;
                     this.flowLayoutPanelGroupResItemList.Controls.Add(item);

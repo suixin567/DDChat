@@ -58,34 +58,9 @@ namespace DDN
 
         public void ExitApp()
         {
+            UnityManager.Instance.CloseUnity();
             Environment.Exit(0);
         }
-
-
-        bool isUnityShow = false;
-        public void OpenUnity() {
-            if (isUnityShow == true)
-            {
-                return;
-            }
-            else {
-                try
-                {
-
-
-
-                    System.Diagnostics.Process process = new System.Diagnostics.Process();
-                    process.StartInfo.FileName = @"C:\Users\文强\Desktop\build\2017年6月19日193737\叮叮鸟.exe"; //"输入完整的路径"
-                    process.StartInfo.Arguments = "叮叮鸟.exe"; //启动参数 
-                    process.Start();
-                    isUnityShow = true;
-                }
-                catch (Exception)
-                {
-                    throw;
-                }              
- 
-            }
-        }
+    
     }
 }

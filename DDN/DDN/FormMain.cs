@@ -390,7 +390,13 @@ namespace DDN
         //打开商城
         private void buttonShop_Click(object sender, EventArgs e)
         {
-            Manager.Instance.OpenUnity();
+            UnityManager.Instance.changeUnityScene(4);
+            UnityManager.Instance.resourceMode = 0;
+        }
+        //打开画房子
+        private void buttonDrawHouse_Click(object sender, EventArgs e)
+        {
+            UnityManager.Instance.changeUnityScene(3);
         }
     }
 }

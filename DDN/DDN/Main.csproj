@@ -59,9 +59,11 @@
     <Compile Include="FormCreateGroup.Designer.cs">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServerForUnity\Client.cs" />
-    <Compile Include="ServerForUnity\ServerForUnity.cs" />
+    <Compile Include="UnityManager\ServerForUnity\ServerForUnity.cs" />
+    <Compile Include="UnityManager\ServerForUnity\UnityProtocol\SceneProtocol.cs" />
+    <Compile Include="UnityManager\ServerForUnity\UnityProtocol\UnityProtocol.cs" />
     <Compile Include="Tools\ImageTool.cs" />
+    <Compile Include="UnityManager\UnityManager.cs" />
     <Compile Include="UserControls\AddFriendItem.cs">
       <SubType>UserControl</SubType>
     </Compile>

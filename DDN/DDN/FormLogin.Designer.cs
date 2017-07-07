@@ -160,6 +160,7 @@
             this.Name = "FormLogin";
             this.ShowInTaskbar = false;
             this.Text = "登陆叮叮鸟";
+            this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormLoginClose);
             this.Load += new System.EventHandler(this.FormLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserNameTip)).EndInit();
