@@ -1,0 +1,3 @@
+C:\Users\admin\Desktop\DDN\DDN\Mgr\obj\Release\Mgr.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\DDN\DDN\Mgr\obj\Release\Mgr.Properties.Resources.resources
+C:\Users\admin\Desktop\DDN\DDN\Mgr\obj\Release\Mgr.csproj.GenerateResource.Cache

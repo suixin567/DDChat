@@ -8,16 +8,26 @@ namespace DDN
 {
     static class Program
     {
+        private static System.Threading.Mutex mutex;
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Main());
-            Manager.Instance.InitApp();       
+            mutex = new System.Threading.Mutex(true, "OnlyRun");
+            if (mutex.WaitOne(0, false))
+            {
+                FormDDN DDN = new FormDDN();
+                Application.Run(DDN);
+            }
+            else
+            {               
+                Application.Exit();
+            }
         }
     }
 }

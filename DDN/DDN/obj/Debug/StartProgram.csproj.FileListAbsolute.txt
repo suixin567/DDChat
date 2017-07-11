@@ -1,0 +1,17 @@
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\bin\Debug\StartProgram.exe.config
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\bin\Debug\StartProgram.exe
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\bin\Debug\StartProgram.pdb
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\obj\Debug\StartProgram.Properties.Resources.resources
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\obj\Debug\StartProgram.csproj.GenerateResource.Cache
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\obj\Debug\StartProgram.exe
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\obj\Debug\StartProgram.pdb
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\bin\Debug\Mgr.dll
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\bin\Debug\ToolLib.dll
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\bin\Debug\Login.dll
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\bin\Debug\MainProgram.dll
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\bin\Debug\LitJson.dll
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\bin\Debug\Mgr.pdb
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\bin\Debug\ToolLib.pdb
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\bin\Debug\Login.pdb
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\bin\Debug\MainProgram.pdb
+C:\Users\admin\Desktop\DDN\DDN\StartProgram\obj\Debug\StartProgram.csprojResolveAssemblyReference.cache

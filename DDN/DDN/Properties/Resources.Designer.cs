@@ -59,25 +59,5 @@ namespace DDN.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Icon bird {
-            get {
-                object obj = ResourceManager.GetObject("bird", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Icon blank {
-            get {
-                object obj = ResourceManager.GetObject("blank", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
     }
 }
