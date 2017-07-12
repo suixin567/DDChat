@@ -91,36 +91,39 @@ namespace DDN
         void UpdateFormUpdate()
         {
             Thread.Sleep(2000);
-            List<string> UpdateDllList = getValue("UpdateDll");
-            string updatedll = UpdateDllList[0];
-
-            string url = "http://" + ip + "/res/winUpdateDlls/" + updatedll;
-            string path = System.Windows.Forms.Application.StartupPath + @"\" + updatedll;
-            try
+            List<string> UpdateDllList = getValue("Update");
+            
+            for (int i = 0; i < UpdateDllList.Count; i++)
             {
-                if (debugModel == false)
+                string url = "http://" + ip + "/res/winUpdateDlls/" + UpdateDllList[i];
+                string path = System.Windows.Forms.Application.StartupPath + @"\" + UpdateDllList[i];
+                try
                 {
-                    downloadFormUpdateFile(url, path);
+                    if (debugModel == false)
+                    {
+                        downloadFormUpdateFile(url, path);
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("下载更新程序出错！");
-                Console.WriteLine("下载更新程序出错" + ex);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("下载更新程序出错！");
+                    Console.WriteLine("下载更新程序出错" + ex);
+                }
             }
             Console.WriteLine("下载更新程序完成");
             hideFormSafePost();
             //下载完成，执行更新程序
-            if (File.Exists(System.Windows.Forms.Application.StartupPath + @"\" + updatedll) == false)
+            if (File.Exists(System.Windows.Forms.Application.StartupPath + @"\" + "UpdateProgram.dll") == false)
             {
                 MessageBox.Show("发生致命错误。更新程序不存在。");
+                Environment.Exit(0);
                 return;
             }
 
 
             //加载程序集(dll文件地址)，使用Assembly类
-            Console.WriteLine("读取程序集：" + System.Windows.Forms.Application.StartupPath + @"\" + updatedll);
-            Assembly assembly = Assembly.LoadFile(System.Windows.Forms.Application.StartupPath + @"\" + updatedll);
+            Console.WriteLine("读取程序集：" + System.Windows.Forms.Application.StartupPath + @"\" + "UpdateProgram.dll");
+            Assembly assembly = Assembly.LoadFile(System.Windows.Forms.Application.StartupPath + @"\" + "UpdateProgram.dll");
 
             Type type = assembly.GetType("UpdateProgram.FormUpdate");
             object instance = assembly.CreateInstance("UpdateProgram.FormUpdate");

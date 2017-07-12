@@ -30,7 +30,6 @@ namespace UpdateProgram
         }
 
         public void downFiles(string serInfos) {                     
-            Debug.Print("被调用");
             m_serInfos = serInfos.Split('\n');
             downLoadDlls();
         }
@@ -41,20 +40,35 @@ namespace UpdateProgram
             List<string> ipList = getValue("FilesUrl");            
             List<string> toLoadDlls = getValue("Files");
             Debug.Print("总共需要下载的文件数------》"+ toLoadDlls.Count);
+            //创建临时文件夹
+           DirectoryInfo tempDir = Directory.CreateDirectory(System.Windows.Forms.Application.StartupPath + @"\temp");
+            Debug.Print("临时文件路径" + tempDir.FullName);
+            int count = 0;
             try
             {
                 foreach (var item in toLoadDlls)
                 {
+                    count++;
                     //下载中
-                    labelProgress.Text =  "更新..." + item;
+                    labelProgress.Text =  "更新..." + item + "     " + count + "/"+ toLoadDlls.Count;
                     labelProgress.Refresh();
                     string url = "http://" + ipList[0] + "/res/winUpdateDlls/" + item;
-                    string path = System.Windows.Forms.Application.StartupPath + @"\" + item;
+                    string path = tempDir + @"\" + item;
                     HttpDownloadFile(url,path);
                     Thread.Sleep(500);                    
                 }
-                labelProgress.Text = "更新完成...\n\n启动中...";
-                Refresh();
+                //移动功能文件
+
+                List<string> toMoveFiles = toLoadDlls;
+                List<string> mianList = getValue("Main");
+                toMoveFiles.Remove(mianList[0]);
+                for (int i = 0; i < toMoveFiles.Count; i++)
+                {
+                    File.Copy(System.Windows.Forms.Application.StartupPath + @"\temp\"+ toMoveFiles[i],
+                    Application.StartupPath+ @"\"+ toMoveFiles[i],true);
+                    //删除临时文件
+                    File.Delete(System.Windows.Forms.Application.StartupPath + @"\temp\" + toMoveFiles[i]);
+                }             
             }
             catch (Exception err)
             {
@@ -62,9 +76,9 @@ namespace UpdateProgram
                 MessageBox.Show("更新文件出错...");               
                 Environment.Exit(0);
             }
-
-            Thread.Sleep(5000);
             //更新完毕
+            labelProgress.Text = "更新完成...\n\n启动中...";
+            Refresh();
             List<string> programNameList = getValue("Program");
             Console.WriteLine("FormUpdate更新dll完毕，开启程序");
             openPragram(programNameList[0]);
@@ -73,7 +87,7 @@ namespace UpdateProgram
           
 
 
-       public static void openPragram(string programName)
+       public void openPragram(string programName)
         {
             System.Diagnostics.Process process;
             try
@@ -82,7 +96,8 @@ namespace UpdateProgram
 
                 Console.WriteLine("FormUpdate启动的程序是" + System.Windows.Forms.Application.StartupPath + @"\" + programName);
                 process.StartInfo.FileName = System.Windows.Forms.Application.StartupPath + @"\" + programName;
-                process.StartInfo.Arguments = programName; //启动参数 
+                List<string> mianList = getValue("Main");
+                process.StartInfo.Arguments = mianList[0]; //启动参数 
                 process.Start();
             }
             catch (Exception e)
