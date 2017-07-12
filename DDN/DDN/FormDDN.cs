@@ -66,8 +66,9 @@ namespace DDN
             }
             catch (Exception)
             {
-                //发生错误 即需要去更新
-                UpdateFormUpdate();
+                //发生错误
+                FileStream fs1 = new FileStream(System.Windows.Forms.Application.StartupPath + @"\wv.conf", FileMode.Create);
+                fs1.Close();
             }
             Console.WriteLine("WinformVersion是--------》:" + WinformVersion);
             if (WinformVersion != topVersion)
