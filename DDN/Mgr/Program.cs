@@ -26,19 +26,21 @@ namespace Mgr
                 }
                 if (File.Exists(System.Windows.Forms.Application.StartupPath + @"\temp\" + args[0]) == true)
                 {
+                    int count = 0;
                     while (UpdateMainProgram(args[0]) == false)
                     {
                         //更新主程序                
                         Thread.Sleep(100);
+                        count++;
+                        if (count > 50)
+                        {
+                            break;
+                        }
                     }
-
                 }
-            }     
- 
-
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Manager.Instance.InitApp();
             Application.Run(new FormMgr());
         }
 
