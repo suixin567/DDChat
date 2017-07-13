@@ -97,7 +97,7 @@ namespace UnityControl
         void downLoadUnity()
         {
             KillProcess("7-Zip Console");
-            Debug.Print("杀掉进程7-Zip");
+          //  Debug.Print("杀掉进程7-Zip");
             string ip = AnalyzeMFile.Analyze(oriSerInfos, "FilesUrl")[0];
             string url = "http://" + ip + "/res/winUpdateDlls/" + AnalyzeMFile.Analyze(oriSerInfos, "Unity")[0];
             string path = unityPath + @"\temp\" + AnalyzeMFile.Analyze(oriSerInfos, "Unity")[0];
@@ -113,35 +113,51 @@ namespace UnityControl
                     foreach (FileSystemInfo fsinfo in fsinfos)
                     {
                         Debug.Print("遍历unity下的所有文件" + fsinfo.FullName);
-                        if (fsinfo is DirectoryInfo && fsinfo.FullName.EndsWith("temp")==false)     //判断是否为文件夹  
+                        if (fsinfo is DirectoryInfo && fsinfo.FullName.EndsWith("temp") == false)     //判断是否为文件夹  
                         {
                             Debug.Print("下载完 删除原有文件" + fsinfo.FullName);
                             try
                             {
                                 Directory.Delete(fsinfo.FullName, true);
+                                Debug.Print("删除了原unity版本：" + fsinfo.FullName);
+
                             }
                             catch (Exception deerr)
                             {
-                                Debug.Print("删除原unity版本失败！" + deerr.ToString());                                
-                            }                            
+                                Debug.Print("删除原unity版本失败！" + deerr.ToString());
+                            //    MessageBox.Show("删除旧版本失败");
+                            }
                         }
                     }
 
                     labelProgressSafePost("提取中，请稍后...");
-                    //   PlayerPrefs.SetString("unityName", AnalyzeMFile.Analyze(oriSerInfos, "Unity")[0]);
                     //解压
+                    Debug.Print("开始解压");
                     string oriPath = unityPath + @"\temp\" + AnalyzeMFile.Analyze(oriSerInfos, "Unity")[0];
                     string disPath = unityPath;
-                    _7zHelper.DecompressFileToDestDirectory(oriPath, disPath,delegate(string dcerr) {
-                        if (dcerr == null)
+                    try
+                    {
+                        _7zHelper.DecompressFileToDestDirectory(oriPath, disPath, delegate (string dcerr)
                         {
-                            UnityManager.Instance.ExetUnity();
-                        }
-                        else {
-                            Debug.Print("解压出错！");
-                        }
-                    });
-                    labelProgressSafePost("提取完成，启动中...");
+                            if (dcerr == null)
+                            {
+                                UnityManager.Instance.ExetUnity();
+                            }
+                            else
+                            {
+                                Debug.Print("解压出错！");
+                            }
+                        });
+                        labelProgressSafePost("提取完成，启动中...");
+                    }
+                    catch (Exception dcerr)
+                    {
+                        Debug.Print("解压出错"+ dcerr.ToString());
+                        MessageBox.Show("解压出错" + dcerr.ToString());
+                    }
+                   
+                   
+                    
                     closeSelfSafePost();
                 }
             },

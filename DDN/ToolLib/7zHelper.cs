@@ -5,11 +5,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 public class _7zHelper
     {
     // Fields  
-    private static string _7zInstallPath = System.Windows.Forms.Application.StartupPath + @"\dc.exe";
+    private static string _7zInstallPath = "dc.exe";
     public delegate void dcEvent(string err);
 
     /// <summary>  
@@ -60,27 +61,32 @@ public class _7zHelper
         try
         {
             process.StartInfo.FileName = _7zInstallPath;
-            process.StartInfo.Arguments = " x " + strInFilePath + " -o" + strOutDirectoryPath + " -r ";
+            process.StartInfo.Arguments = " x " + strInFilePath + " -o" + strOutDirectoryPath + " -r -y";
             //隐藏DOS窗口  
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+           // process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             process.Start();
             process.WaitForExit();
             process.Close();
-            Debug.Print("解压完了");
-            if (callBack != null)
-            {
-                callBack(null);
-            }
-            //删除zip
-            File.Delete(strInFilePath);
+          
+           
         }
         catch (Exception e)
         {
             Debug.Print("解压错误!" + e);
+            MessageBox.Show("解压出错" + e);
+            return;
         }
         finally {
             process.Close();
-        }      
+        }
+        Debug.Print("解压完了");
+        if (callBack != null)
+        {
+            callBack(null);
+        }
+        //删除zip
+       File.Delete(strInFilePath);
+        Debug.Print("我的路径是"+ Directory.GetCurrentDirectory());
     }
 
     /// <summary>
