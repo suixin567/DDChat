@@ -91,7 +91,16 @@ namespace UnityControl
 
             string message2 = Coding<SocketModel>.encode(model);
             byte[] data = Encoding.UTF8.GetBytes(message2);
-            clientSocket.Send(data);
+            try
+            {
+                clientSocket.Send(data);
+            }
+            catch (Exception err)
+            {
+                Debug.Print("向Unity发送消息失败！" + err.ToString());
+                UnityManager.Instance.CloseUnity();
+            }
+            
         }
 
         void onMessage(SocketModel model)

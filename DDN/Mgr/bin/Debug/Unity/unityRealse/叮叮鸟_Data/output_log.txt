@@ -1,0 +1,195 @@
+Mono path[0] = 'C:/Users/文强/Desktop/DDN/DDN/Mgr/bin/Debug/Unity/unityRealse/叮叮鸟_Data/Managed'
+Mono path[1] = 'C:/Users/文强/Desktop/DDN/DDN/Mgr/bin/Debug/Unity/unityRealse/叮叮鸟_Data/Mono'
+Mono config path = 'C:/Users/文强/Desktop/DDN/DDN/Mgr/bin/Debug/Unity/unityRealse/叮叮鸟_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/文强/Desktop/DDN/DDN/Mgr/bin/Debug/Unity/unityRealse/叮叮鸟_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55127
+Multi-casting "[IP] 192.168.1.105 [Port] 55127 [Flags] 2 [Guid] 632141548 [EditorId] 2429570960 [Version] 1048832 [Id] WindowsPlayer(C-PC) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.1.105:55127]
+Initialize engine version: 5.3.4f1 (fdbb5133b820)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c81)
+    Vendor:   NVIDIA
+    VRAM:     2015 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\BuildMeshToolRT.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\BuildMeshToolRT.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\LitJson.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\LitJson.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\PunchRT.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\PunchRT.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\System.Drawing.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\System.Drawing.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\System.Windows.Forms.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\DemiLib.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\DemiLib.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\DOTween.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\DOTween.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\DOTween43.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\DOTween43.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\DOTween46.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\DOTween46.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\DOTween50.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\DOTween50.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\DOTweenPro.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\DOTweenPro.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\Mono.Data.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\Mono.Data.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\Mono.Data.Sqlite.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\Mono.Data.Sqlite.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\System.Data.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\System.Data.dll into Unity Child Domain
+- Completed reload, in  0.066 seconds
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
+<RI> Initialized touch support.
+UnloadTime: 1.094381 ms
+NullReferenceException: Object reference not set to an instance of an object
+  at TitleCanves.OnEnable () [0x00000] in C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\0_title\TitleCanves.cs:33 
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/0_title/TitleCanves.cs Line: 33)
+
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\System.Configuration.dll (this message is harmless)
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\System.Xml.dll (this message is harmless)
+连接服务器成功...
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetWorkManager:Awake() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\NetWorkManager.cs:34)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/NetWorkManager.cs Line: 34)
+
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\unityRealse\叮叮鸟_Data\Managed\System.Transactions.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1464 -> priority: 1 
+收到了换场景1
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:57)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 57)
+
+收到资源模式响应0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:108)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 108)
+
+资源类型被切换了
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListTypePanel:onResourceMode(Int32)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:123)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 123)
+
+资源类型被切换了 共享库
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListTypePanel:onShareLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:41)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:22)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:123)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/4_vShowList/VshowListTypePanel.cs Line: 41)
+
+发出虚拟展厅请求：http://192.168.1.101:6688/houseData?protocol=14&lib=0&provider=共享库不等于我&username=共享库不等于我&style=0&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator2A:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:63)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+VshowListTypePanel:onShareLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:52)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:22)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:123)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+发出请求商城是：http://192.168.1.101:6688/shop2?&lib=0&provider=共享库不等于我&username=共享库不等于我&style=0&color=0&mat=0&brand=&maintype=节点&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator2C:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\ShopResManager.cs:52)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+ShopResLibraryPanel:onShareLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\ShopResLibraryPanel.cs:55)
+ShopResLibraryPanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\ShopResLibraryPanel.cs:24)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:124)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+无法回退！这句提示不应该出现！
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+<addScene>c__Iterator6:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\MySceneManager\MySceneManager.cs:148)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/MySceneManager/MySceneManager.cs Line: 148)
+
+收到展厅是：[{"Username":"huijiakeji","Name":"白模","Productcode":"WHITEMOLD","Provider":"惠佳科技","Style":0,"Createdtime":"2017-05-05 19:09:02","Lastsavedtime":"2017-06-16 16:37:54","Version":"2"},{"Username":"huijiakeji","Name":"工业风","Productcode":"STATIC_LOFTSTYLE","Provider":"惠佳科技","Style":0,"Createdtime":"2017-06-16 18:06:09","Lastsavedtime":"2017-06-16 18:06:18","Version":"0"},{"Username":"huijiakeji","Name":"静态房间（黑白简约）","Productcode":"STATIC_APARTME","Provider":"惠佳科技","Style":0,"Createdtime":"2017-06-19 10:44:48","Lastsavedtime":"2017-06-19 10:44:53","Version":"0"},{"Username":"huijiakeji","Name":"静态房间USA","Productcode":"STATIC_USA","Provider":"惠佳科技","Style":0,"Createdtime":"2017-06-19 10:47:48","Lastsavedtime":"2017-06-19 10:47:45","Version":"0"},{"Username":"huijiakeji","Name":"黑吧简约（壁纸）","Productcode":"STATIC_HBDT","Provider":"惠佳科技","Style":0,"Createdtime":"2017-06-19 10:49:55","Lastsavedtime":"2017-06-19 10:49:58","Version":"0"},{"Username":"huijiakeji","Name":"美式风格（壁纸）","Productcode":"STATIC_USAS","Provider":"惠佳科技","Style":0,"Createdtime":"2017-06-19 10:51:42","Lastsavedtime":"2017-06-19 10:51:45","Version":"0"},{"Username":"huijiakeji","Name":"中国风","Productcode":"STATIC_CNSTYLEL","Provider":"惠佳科技","Style":0,"Createdtime":"2017-06-19 10:53:54","Lastsavedtime":"2017-06-19 10:53:57","Version":"0"}]&7
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator2A:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:76)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+starting www download: http://192.168.1.101:6688//Windows/resourcesbase/virtualshow/STATIC_APARTME_pre
+展厅预览图下载失败：STATIC_APARTME原因：404 Not Found
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListItem:<loadImage>m__1B(String, SkyAssetBundle) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListItem.cs:182)
+Mysky.SkyBundle.<LoadBundle>c__Iterator2:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\AssetBundle\SkyBundleManager.cs:209)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/4_vShowList/VshowListItem.cs Line: 182)
+
+收到是：硬装=3,家具=43,厨卫=1,照明=3,家饰=34,家电=1,工装=0,&[{"Name":"餐桌","Provider":"美林峰","Productcode":"MLF_JJ_CANZ01","Price":"880","Length":"1","Width":"1","Height":"1","Version":"0"},{"Name":"餐边柜","Provider":"美林峰","Productcode":"MLF_JJ_CANBG01","Price":"780","Length":"1","Width":"1","Height":"1","Version":"0"},{"Name":"餐椅","Provider":"美林峰","Productcode":"MLF_JJ_CHANY02","Price":"310","Length":"1","Width":"1","Height":"1","Version":"0"},{"Name":"门","Provider":"慧佳科技","Productcode":"WHITEMOLD_DOOR","Price":"600","Length":"1","Width":"1","Height":"1","Version":"0"},{"Name":"床头柜","Provider":"美林峰","Productcode":"MLF_JJ_CTG01","Price":"480","Length":"1","Width":"1","Height":"1","Version":"0"},{"Name":"吊灯","Provider":"怡欣居","Productcode":"YXJ_LCLIGHT","Price":"1200","Length":"1","Width":"1","Height":"1","Version":"2"},{"Name":"餐椅","Provider":"美林峰","Productcode":"MLF_JJ_CHANY01","Price":"320","Length":"1","Width":"1","Height":"1","Version":"0"},{"Name":"茶凳","Provider":"美林峰","Productcode":"MLF_JJ_CHAD01","Price":"330","Length":"1","Width":"1","Height":"1","Version":"1"},{"Name":"吊灯","Provider":"怡欣居","Productcode":"YXJ_DROPLIGHT1","Price":"600","Length":"1","Width":"1","Height":"1","Version":"1"},{"Name":"边几","Provider":"美林峰","Productcode":"MLF_JJ_BJ01","Price":"330","Length":"1","Width":"1","Height":"1","Version":"0"},{"Name":"组合电视柜","Provider":"美林峰","Productcode":"MLF_JJ_DSG01","Price":"8800","Length":"1","Width":"1","Height":"1","Version":"3"},{"Name":"书柜","Provider":"美林峰","Productcode":"MLF_JJ_DGSJ01","Price":"8888","Length":"1","Width":"1","Height":"1","Version":"1"},{"Name":"多人沙发","Provider":"美林峰","Productcode":"MLF_JJ_SF03","Price":"8000","Length":"1","Width":"1","Height":"1","Version":"2"},{"Name":"单人沙发","Provider":"美林峰","Productcode":"MLF_JJ_DTSF03","Price":"2000","Length":"1","Width":"1","Height":"1","Version":"1"},{"Name":"茶几","Provider":"美林峰","Productcode":"MLF_JJ_CJ01","Price":"450","Length":"1","Width":"1","Height":"1","Version":"1"},{"Name":"方形茶几","Provider":"美林峰","Productcode":"MLF_JJ_CJ02","Price":"550","Length":"1","Width":"1","Height":"1","Version":"1"},{"Name":"装饰画（荷花）","Provider":"美林峰","Productcode":"MLF_JS_ZSH01","Price":"160","Length":"1","Width":"1","Height":"1","Version":"1"},{"Name":"装饰画","Provider":"美林峰","Productcode":"MLF_JS_ZSHZ01","Price":"120","Length":"1","Width":"1","Height":"1","Version":"1"}]
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator2C:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\ShopResManager.cs:66)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+

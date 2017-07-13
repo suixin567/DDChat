@@ -19,9 +19,6 @@ namespace UnityControl
                 if (instance == null)
                 {
                     instance = new UnityManager();
-                    //if (PlayerPrefs.GetString("unityName") == "") {
-                    //    PlayerPrefs.SetString("unityName","DDN.exe");
-                    //}
                 }
                 return instance;
             }
@@ -34,7 +31,7 @@ namespace UnityControl
         public int resourceMode = 0;//资源模式 0：公开商城1：群资源2：个人资源
         public string currentGroup = "";//当前群组
         public int sceneIndex = 4;
-
+        public bool isUpdateing = false;//是否更新中
         #endregion
 
         public void OpenUnity()
@@ -47,24 +44,22 @@ namespace UnityControl
             {
                 try
                 {
+                    if (isUpdateing==true) {
+                        Debug.Print("Tip : 更新中，请稍后...");
+                        return;
+                    }
+                    isUpdateing = true;
                     FormUnityUpdate formUnityUpdate = new FormUnityUpdate();
                     if (formUnityUpdate.checkUpdate())
                     {
+                        Debug.Print("退出更新状态");
+ 
                         ExetUnity();
                     }
                     else {
 
                     }
-
-
-                    //if (UpdateUnity.Instance.checkUpdate() == true)
-                    //{
-                    //    ExetUnity();
-                    //}
-                    //else {
-                        
-                    //}
-                  
+                    Debug.Print("---------------这里几时会运行？函数中开了新线程就会运行");                          
                 }
                 catch (Exception e)
                 {
@@ -75,6 +70,7 @@ namespace UnityControl
         }
 
         public void ExetUnity() {
+            isUpdateing = false;
             process = new System.Diagnostics.Process();
             //if (PlayerPrefs.GetString("unityName") == "")
             //{
@@ -118,8 +114,7 @@ namespace UnityControl
                         return;                
                     }
                 }
-            }
-            
+            }            
         }
 
 
@@ -136,6 +131,7 @@ namespace UnityControl
             {
             }
         }
+
         //切换Unity场景
         public void changeUnityScene(int scene)
         {
@@ -148,8 +144,6 @@ namespace UnityControl
             {
                 ServerForUnity.Instance.SendMessage(UnityProtocol.SCENE, sceneIndex, 0, "");
             }
-
-
         }
     }
 }
