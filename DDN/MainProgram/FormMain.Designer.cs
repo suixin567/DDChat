@@ -44,10 +44,9 @@
             this.buttonMin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timerNotifyIcon = new System.Windows.Forms.Timer(this.components);
+            this.mainTabControl1 = new MainProgram.UserControls.MainTabControl();
             this.flowLayoutPanelFriendList = new MainProgram.UserControls.FlowLayoutPanelFriendList();
             this.topInfoPanel1 = new MainProgram.UserControls.TopInfoPanel();
-            this.mainTabControl1 = new MainProgram.UserControls.MainTabControl();
-            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStripNotifyIcon.SuspendLayout();
             this.panelBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,7 +81,7 @@
             // 
             // addFriendButton
             // 
-            this.addFriendButton.Location = new System.Drawing.Point(96, 47);
+            this.addFriendButton.Location = new System.Drawing.Point(89, 47);
             this.addFriendButton.Name = "addFriendButton";
             this.addFriendButton.Size = new System.Drawing.Size(85, 23);
             this.addFriendButton.TabIndex = 9;
@@ -102,7 +101,7 @@
             this.panelBottom.Controls.Add(this.addFriendButton);
             this.panelBottom.Location = new System.Drawing.Point(4, 570);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(282, 75);
+            this.panelBottom.Size = new System.Drawing.Size(272, 75);
             this.panelBottom.TabIndex = 10;
             // 
             // buttonFormMsgVerify
@@ -117,7 +116,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(192, 3);
+            this.button2.Location = new System.Drawing.Point(181, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 42);
             this.button2.TabIndex = 13;
@@ -126,7 +125,7 @@
             // 
             // buttonDrawHouse
             // 
-            this.buttonDrawHouse.Location = new System.Drawing.Point(96, 3);
+            this.buttonDrawHouse.Location = new System.Drawing.Point(89, 3);
             this.buttonDrawHouse.Name = "buttonDrawHouse";
             this.buttonDrawHouse.Size = new System.Drawing.Size(85, 42);
             this.buttonDrawHouse.TabIndex = 12;
@@ -148,7 +147,7 @@
             // 
             this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonExit.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonExit.Location = new System.Drawing.Point(258, 2);
+            this.buttonExit.Location = new System.Drawing.Point(248, 2);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(30, 30);
             this.buttonExit.TabIndex = 12;
@@ -160,7 +159,7 @@
             // 
             this.buttonMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonMin.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonMin.Location = new System.Drawing.Point(225, 2);
+            this.buttonMin.Location = new System.Drawing.Point(215, 2);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(30, 30);
             this.buttonMin.TabIndex = 13;
@@ -184,6 +183,13 @@
             this.timerNotifyIcon.Interval = 500;
             this.timerNotifyIcon.Tick += new System.EventHandler(this.notifyIconTimer_Tick);
             // 
+            // mainTabControl1
+            // 
+            this.mainTabControl1.Location = new System.Drawing.Point(4, 123);
+            this.mainTabControl1.Name = "mainTabControl1";
+            this.mainTabControl1.Size = new System.Drawing.Size(272, 36);
+            this.mainTabControl1.TabIndex = 19;
+            // 
             // flowLayoutPanelFriendList
             // 
             this.flowLayoutPanelFriendList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -191,7 +197,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelFriendList.Location = new System.Drawing.Point(4, 161);
             this.flowLayoutPanelFriendList.Name = "flowLayoutPanelFriendList";
-            this.flowLayoutPanelFriendList.Size = new System.Drawing.Size(282, 406);
+            this.flowLayoutPanelFriendList.Size = new System.Drawing.Size(272, 406);
             this.flowLayoutPanelFriendList.TabIndex = 17;
             // 
             // topInfoPanel1
@@ -202,33 +208,16 @@
             this.topInfoPanel1.Size = new System.Drawing.Size(230, 80);
             this.topInfoPanel1.TabIndex = 16;
             // 
-            // mainTabControl1
-            // 
-            this.mainTabControl1.Location = new System.Drawing.Point(4, 122);
-            this.mainTabControl1.Name = "mainTabControl1";
-            this.mainTabControl1.Size = new System.Drawing.Size(282, 36);
-            this.mainTabControl1.TabIndex = 15;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(146, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(290, 650);
+            this.ClientSize = new System.Drawing.Size(280, 650);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.mainTabControl1);
             this.Controls.Add(this.flowLayoutPanelFriendList);
             this.Controls.Add(this.topInfoPanel1);
-            this.Controls.Add(this.mainTabControl1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonMin);
             this.Controls.Add(this.buttonExit);
@@ -238,7 +227,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(500, 1500);
-            this.MinimumSize = new System.Drawing.Size(290, 500);
+            this.MinimumSize = new System.Drawing.Size(280, 500);
             this.Name = "FormMain";
             this.ShowInTaskbar = false;
             this.Text = "叮叮鸟";
@@ -269,10 +258,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timerNotifyIcon;
         private System.Windows.Forms.Button buttonFormMsgVerify;
-        private UserControls.MainTabControl mainTabControl1;
         private UserControls.TopInfoPanel topInfoPanel1;
         public UserControls.FlowLayoutPanelFriendList flowLayoutPanelFriendList;
-        private System.Windows.Forms.Button button1;
+        private UserControls.MainTabControl mainTabControl1;
     }
 }
 

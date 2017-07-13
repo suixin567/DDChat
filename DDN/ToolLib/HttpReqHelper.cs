@@ -7,8 +7,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Threading;
 
-   public class HttpReqHelper
+public class HttpReqHelper
     {
 
         public static string request(string url)
@@ -65,10 +66,63 @@ using System.Drawing;
         }
 
 
-        /// <summary>  
-        /// 创建POST方式的HTTP请求  
-        /// </summary>  
-        public static HttpWebResponse CreatePostHttpResponse(string url, IDictionary<string, string> parameters, int timeout, string userAgent, CookieCollection cookies)
+    //文件下载
+    public delegate void AssetLoadEvent(string err);
+    public delegate void AssetLoadProgress(float progress);
+
+
+    public static void downloadFile(string url, string path, AssetLoadEvent callback, AssetLoadProgress progress=null)
+    {
+        int a = path.LastIndexOf('\\');
+        string directory = path.Substring(0, a);
+        if (File.Exists(directory) == false)
+        {
+            Directory.CreateDirectory(directory);
+        }
+        HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
+        HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+        long totalBytes = response.ContentLength;
+        Stream responseStream = response.GetResponseStream();
+        Stream stream = new FileStream(path, FileMode.Create);
+        long totalDownloadedByte = 0;
+        try
+        {          
+            byte[] bArr = new byte[1024];
+            int size = responseStream.Read(bArr, 0, (int)bArr.Length);
+            while (size > 0)
+            {
+                totalDownloadedByte = size + totalDownloadedByte;
+                stream.Write(bArr, 0, size);
+                size = responseStream.Read(bArr, 0, (int)bArr.Length);
+                if (progress!=null) {
+                    progress((float)totalDownloadedByte / (float)totalBytes * 100);
+                }                
+                //System.Windows.Forms.Application.DoEvents(); //必须加注这句代码，否则label1将因为循环执行太快而来不及显示信息
+              //  Thread.Sleep(10);
+            }
+            stream.Close();
+            responseStream.Close();
+            //下载成功
+            if (callback != null) callback(null);
+        }
+        catch (Exception e)
+        {
+            Debug.Print("ToolLib下载文件出错:" + e);
+            if (callback != null) callback(e.ToString());
+            throw e;
+        }
+        finally {
+            stream.Close();
+            responseStream.Close();
+        }
+     
+    }
+
+
+    /// <summary>  
+    /// 创建POST方式的HTTP请求  
+    /// </summary>  
+    public static HttpWebResponse CreatePostHttpResponse(string url, IDictionary<string, string> parameters, int timeout, string userAgent, CookieCollection cookies)
         {
             HttpWebRequest request = null;
             //如果是发送HTTPS请求  

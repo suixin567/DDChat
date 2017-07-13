@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="7zHelper.cs" />
+    <Compile Include="AnalyzeMFile.cs" />
     <Compile Include="AppConst.cs" />
     <Compile Include="Coding.cs" />
     <Compile Include="HttpReqHelper.cs" />

@@ -36,9 +36,9 @@
             // 
             // buttonDialogue
             // 
-            this.buttonDialogue.Location = new System.Drawing.Point(0, 0);
+            this.buttonDialogue.Location = new System.Drawing.Point(1, 0);
             this.buttonDialogue.Name = "buttonDialogue";
-            this.buttonDialogue.Size = new System.Drawing.Size(70, 36);
+            this.buttonDialogue.Size = new System.Drawing.Size(68, 36);
             this.buttonDialogue.TabIndex = 0;
             this.buttonDialogue.Text = "会话";
             this.buttonDialogue.UseVisualStyleBackColor = true;
@@ -46,9 +46,9 @@
             // 
             // buttonFriends
             // 
-            this.buttonFriends.Location = new System.Drawing.Point(71, 0);
+            this.buttonFriends.Location = new System.Drawing.Point(68, 0);
             this.buttonFriends.Name = "buttonFriends";
-            this.buttonFriends.Size = new System.Drawing.Size(70, 36);
+            this.buttonFriends.Size = new System.Drawing.Size(68, 36);
             this.buttonFriends.TabIndex = 1;
             this.buttonFriends.Text = "联系人";
             this.buttonFriends.UseVisualStyleBackColor = true;
@@ -56,9 +56,9 @@
             // 
             // buttonGroup
             // 
-            this.buttonGroup.Location = new System.Drawing.Point(141, 0);
+            this.buttonGroup.Location = new System.Drawing.Point(136, 0);
             this.buttonGroup.Name = "buttonGroup";
-            this.buttonGroup.Size = new System.Drawing.Size(70, 36);
+            this.buttonGroup.Size = new System.Drawing.Size(68, 36);
             this.buttonGroup.TabIndex = 2;
             this.buttonGroup.Text = "群";
             this.buttonGroup.UseVisualStyleBackColor = true;
@@ -67,9 +67,9 @@
             // buttonRes
             // 
             this.buttonRes.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonRes.Location = new System.Drawing.Point(212, 0);
+            this.buttonRes.Location = new System.Drawing.Point(203, 0);
             this.buttonRes.Name = "buttonRes";
-            this.buttonRes.Size = new System.Drawing.Size(70, 36);
+            this.buttonRes.Size = new System.Drawing.Size(68, 36);
             this.buttonRes.TabIndex = 3;
             this.buttonRes.Text = "资源";
             this.buttonRes.UseVisualStyleBackColor = false;
@@ -84,7 +84,7 @@
             this.Controls.Add(this.buttonFriends);
             this.Controls.Add(this.buttonDialogue);
             this.Name = "MainTabControl";
-            this.Size = new System.Drawing.Size(282, 36);
+            this.Size = new System.Drawing.Size(272, 36);
             this.Load += new System.EventHandler(this.MainTabControl_Load);
             this.ResumeLayout(false);
 

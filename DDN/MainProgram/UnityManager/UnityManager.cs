@@ -1,6 +1,8 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,9 @@ namespace UnityControl
                 if (instance == null)
                 {
                     instance = new UnityManager();
+                    //if (PlayerPrefs.GetString("unityName") == "") {
+                    //    PlayerPrefs.SetString("unityName","DDN.exe");
+                    //}
                 }
                 return instance;
             }
@@ -42,19 +47,81 @@ namespace UnityControl
             {
                 try
                 {
-                    process = new System.Diagnostics.Process();
-                    process.StartInfo.FileName = @"E:\build\叮叮鸟.exe"; //"输入完整的路径"
-                    process.StartInfo.Arguments = "叮叮鸟.exe"; //启动参数 
-                    process.Start();
-                    isUnityShow = true;
+                    FormUnityUpdate formUnityUpdate = new FormUnityUpdate();
+                    if (formUnityUpdate.checkUpdate())
+                    {
+                        ExetUnity();
+                    }
+                    else {
+
+                    }
+
+
+                    //if (UpdateUnity.Instance.checkUpdate() == true)
+                    //{
+                    //    ExetUnity();
+                    //}
+                    //else {
+                        
+                    //}
+                  
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
-                    throw;
+                    Debug.Print("Unity打开失败！"+e);
                 }
 
             }
         }
+
+        public void ExetUnity() {
+            process = new System.Diagnostics.Process();
+            //if (PlayerPrefs.GetString("unityName") == "")
+            //{
+            //    unityName = System.Windows.Forms.Application.StartupPath + @"\Unity\DDN.exe";
+            //}
+            //else {
+            //    unityName = System.Windows.Forms.Application.StartupPath + @"\Unity\" + PlayerPrefs.GetString("unityName");
+            //    Debug.Print("打开的Unity是：" + unityName);           
+            //}
+            //var files = Directory.GetFiles(System.Windows.Forms.Application.StartupPath + @"\Unity\");//, " *.exe"
+            findExe(System.Windows.Forms.Application.StartupPath + @"\Unity");
+            string unityName = exe;
+            Debug.Print("要打开的是：" + unityName);
+            if (unityName=="") {
+                Debug.Print("程序不存在！");
+                return;
+            }
+            process.StartInfo.FileName = unityName;
+            process.Start();
+            isUnityShow = true;
+        }
+
+        static string exe = "";
+        static void findExe(string dir)
+        {
+            DirectoryInfo d = new DirectoryInfo(dir);
+            FileSystemInfo[] fsinfos = d.GetFileSystemInfos();
+            foreach (FileSystemInfo fsinfo in fsinfos)
+            {
+              //  Debug.Print("遍历顺序" + fsinfo.FullName);
+                if (fsinfo is DirectoryInfo)     //判断是否为文件夹  
+                {
+                    findExe(fsinfo.FullName);//递归调用  
+                }
+                else
+                {
+                //    Debug.Print("遍历中" + fsinfo.FullName);
+                    if (fsinfo.FullName.EndsWith(".exe")) {
+               //         Debug.Print("找到exe了" + fsinfo.FullName);
+                        exe = fsinfo.FullName;
+                        return;                
+                    }
+                }
+            }
+            
+        }
+
 
         public void CloseUnity()
         {

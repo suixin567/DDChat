@@ -77,7 +77,6 @@ namespace DDN
                 showFormSafePost();
 
                 //更新文件
-
                 Thread th = new Thread(new ThreadStart(UpdateFormUpdate));
                 th.Start();
             }

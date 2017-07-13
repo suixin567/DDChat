@@ -17,3 +17,14 @@ C:\Users\Administrator\Desktop\DDN\DDN\DDN\obj\Debug\DDN.csproj.GenerateResource
 C:\Users\Administrator\Desktop\DDN\DDN\DDN\obj\Debug\DDN.exe
 C:\Users\Administrator\Desktop\DDN\DDN\DDN\obj\Debug\DDN.pdb
 C:\Users\Administrator\Desktop\DDN\DDN\DDN\obj\Debug\DDN.FormDDN.resources
+C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\DDN.exe.config
+C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\DDN.exe
+C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\DDN.pdb
+C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\UpdateProgram.dll
+C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\UpdateProgram.pdb
+C:\Users\文强\Desktop\DDN\DDN\DDN\obj\Debug\DDN.csprojResolveAssemblyReference.cache
+C:\Users\文强\Desktop\DDN\DDN\DDN\obj\Debug\DDN.FormDDN.resources
+C:\Users\文强\Desktop\DDN\DDN\DDN\obj\Debug\DDN.Properties.Resources.resources
+C:\Users\文强\Desktop\DDN\DDN\DDN\obj\Debug\DDN.csproj.GenerateResource.Cache
+C:\Users\文强\Desktop\DDN\DDN\DDN\obj\Debug\DDN.exe
+C:\Users\文强\Desktop\DDN\DDN\DDN\obj\Debug\DDN.pdb
