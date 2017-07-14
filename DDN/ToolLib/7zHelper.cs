@@ -10,7 +10,7 @@ using System.Windows.Forms;
 public class _7zHelper
     {
     // Fields  
-    private static string _7zInstallPath = "dc.exe";
+    private static string _7zInstallPath = @".\dc.exe";
     public delegate void dcEvent(string err);
 
     /// <summary>  

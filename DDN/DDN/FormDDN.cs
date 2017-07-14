@@ -55,14 +55,14 @@ namespace DDN
             serInfos = response.Split('\n');
             int topVersion = -1;
 
-            List<string> topVersionList = getValue("Version");
+            List<string> topVersionList = getValue(oriSerInfos,"Version");
             topVersion = int.Parse(topVersionList[0]);
-            Console.WriteLine("topVersion是--------》:" + topVersion);
+            Debug.Print("topVersion是--------》:" + topVersion);
             int WinformVersion = 0;
             try
             {
                 string versionStr = System.IO.File.ReadAllText(System.Windows.Forms.Application.StartupPath + @"\wv.conf");
-                WinformVersion = int.Parse(versionStr);
+                WinformVersion = int.Parse(getValue(versionStr,"Version")[0]);
             }
             catch (Exception)
             {
@@ -70,7 +70,7 @@ namespace DDN
                 FileStream fs1 = new FileStream(System.Windows.Forms.Application.StartupPath + @"\wv.conf", FileMode.Create);
                 fs1.Close();
             }
-            Console.WriteLine("WinformVersion是--------》:" + WinformVersion);
+            Debug.Print("WinformVersion是--------》:" + WinformVersion);
             if (WinformVersion != topVersion)
             {
                 //就需要更，显示出来
@@ -82,7 +82,7 @@ namespace DDN
             }
             else//不需要更新
             {
-                List<string> programNameList = getValue("Program");
+                List<string> programNameList = getValue(oriSerInfos,"Program");
                 openPragram(programNameList[0]);
             }
         }
@@ -90,8 +90,8 @@ namespace DDN
 
         void UpdateFormUpdate()
         {
-            Thread.Sleep(2000);
-            List<string> UpdateDllList = getValue("Update");
+            Thread.Sleep(100);
+            List<string> UpdateDllList = getValue(oriSerInfos,"Update");
             
             for (int i = 0; i < UpdateDllList.Count; i++)
             {
@@ -107,10 +107,10 @@ namespace DDN
                 catch (Exception ex)
                 {
                     MessageBox.Show("下载更新程序出错！");
-                    Console.WriteLine("下载更新程序出错" + ex);
+                    Debug.Print("下载更新程序出错" + ex);
                 }
             }
-            Console.WriteLine("下载更新程序完成");
+            Debug.Print("下载更新程序完成");
             hideFormSafePost();
             //下载完成，执行更新程序
             if (File.Exists(System.Windows.Forms.Application.StartupPath + @"\" + "UpdateProgram.dll") == false)
@@ -122,7 +122,7 @@ namespace DDN
 
 
             //加载程序集(dll文件地址)，使用Assembly类
-            Console.WriteLine("读取程序集：" + System.Windows.Forms.Application.StartupPath + @"\" + "UpdateProgram.dll");
+            Debug.Print("读取程序集：" + System.Windows.Forms.Application.StartupPath + @"\" + "UpdateProgram.dll");
             Assembly assembly = Assembly.LoadFile(System.Windows.Forms.Application.StartupPath + @"\" + "UpdateProgram.dll");
 
             Type type = assembly.GetType("UpdateProgram.FormUpdate");
@@ -187,40 +187,42 @@ namespace DDN
 
 
 
-        List<string> getValue(string key)
+        List<string> getValue(string content , string key)
         {
-            for (int i = 0; i < serInfos.Length; i++)
+            string[] rows = content.Split('\n');
+
+            for (int i = 0; i < rows.Length; i++)
             {
-                if (serInfos[i].Contains("[" + key + "]"))
+                if (rows[i].Contains("[" + key + "]"))
                 {
                     List<string> values = new List<string>();
-                    //   Console.WriteLine("发现key"+i);
-                    for (int j = i + 1; j < serInfos.Length; j++)
+                    //   Debug.Print("发现key"+i);
+                    for (int j = i + 1; j < rows.Length; j++)
                     {
-                        //      Console.WriteLine("比对中"+j + data[j]);
-                        if (serInfos[j].Contains("[") == false && serInfos[j].Contains("]") == false)
+                        //      Debug.Print("比对中"+j + data[j]);
+                        if (rows[j].Contains("[") == false && rows[j].Contains("]") == false)
                         {
-                            string temp = serInfos[j].TrimEnd((char[])"\r".ToCharArray());
+                            string temp = rows[j].TrimEnd((char[])"\r".ToCharArray());
                             if (temp.Contains("\r") == false && temp.Contains("\n") == false && temp != string.Empty)
                             {
                                 values.Add(temp.Trim());
-                                //        Console.WriteLine("找到值" + data[j]);
+                                //        Debug.Print("找到值" + data[j]);
                             }
                         }
                         else
                         {
-                            //         Console.WriteLine("已经到界" + data[j]);
+                            //         Debug.Print("已经到界" + data[j]);
                             break;
                         }
                     }
                     if (values.Count == 0)
                     {
-                        Console.WriteLine("错误： 没有找到value!");
+                        Debug.Print("错误： 没有找到value!");
                     }
                     return values;
                 }
             }
-            Console.WriteLine("错误： 没有找到key!");
+            Debug.Print("错误： 没有找到key!");
             return null;
         }
 
@@ -233,7 +235,7 @@ namespace DDN
             {
                 process = new System.Diagnostics.Process();
 
-                Console.WriteLine("启动的程序是" + System.Windows.Forms.Application.StartupPath + @"\" + programName);
+                Debug.Print("启动的程序是" + System.Windows.Forms.Application.StartupPath + @"\" + programName);
                 process.StartInfo.FileName = System.Windows.Forms.Application.StartupPath + @"\" + programName;
                 process.StartInfo.Arguments = programName; //启动参数 
                 process.Start();
@@ -242,7 +244,7 @@ namespace DDN
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Debug.Print(e.ToString());
                 MessageBox.Show("发生致命错误，无需更新时找不到启动程序\n点击确定按钮自动修复程序。");
                 UpdateFormUpdate();
             }
@@ -257,10 +259,8 @@ namespace DDN
             m_SyncContext.Post(showForm, null);
         }
         void showForm(object state)
-        {
-          
+        {          
             this.Show();
-            Debug.Print("需要更新，得显示啊");
         }
         void hideFormSafePost() {
             m_SyncContext.Post(hideForm, null);

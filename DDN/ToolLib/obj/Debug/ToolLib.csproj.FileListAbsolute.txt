@@ -7,14 +7,6 @@ C:\Users\admin\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.csproj.GenerateResource
 C:\Users\admin\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.dll
 C:\Users\admin\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.pdb
 C:\Users\admin\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.csprojResolveAssemblyReference.cache
-C:\Users\文强\Desktop\DDN\DDN\ToolLib\bin\Debug\ToolLib.dll.config
-C:\Users\文强\Desktop\DDN\DDN\ToolLib\bin\Debug\ToolLib.dll
-C:\Users\文强\Desktop\DDN\DDN\ToolLib\bin\Debug\ToolLib.pdb
-C:\Users\文强\Desktop\DDN\DDN\ToolLib\bin\Debug\LitJson.dll
-C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.Properties.Resources.resources
-C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.csproj.GenerateResource.Cache
-C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.dll
-C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.pdb
 C:\Users\Administrator\Desktop\DDN\DDN\ToolLib\bin\Debug\ToolLib.dll.config
 C:\Users\Administrator\Desktop\DDN\DDN\ToolLib\bin\Debug\ToolLib.dll
 C:\Users\Administrator\Desktop\DDN\DDN\ToolLib\bin\Debug\ToolLib.pdb
@@ -23,3 +15,12 @@ C:\Users\Administrator\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.Properties.Reso
 C:\Users\Administrator\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.csproj.GenerateResource.Cache
 C:\Users\Administrator\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.dll
 C:\Users\Administrator\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.pdb
+C:\Users\文强\Desktop\DDN\DDN\ToolLib\bin\Debug\ToolLib.dll.config
+C:\Users\文强\Desktop\DDN\DDN\ToolLib\bin\Debug\ToolLib.dll
+C:\Users\文强\Desktop\DDN\DDN\ToolLib\bin\Debug\ToolLib.pdb
+C:\Users\文强\Desktop\DDN\DDN\ToolLib\bin\Debug\LitJson.dll
+C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.csprojResolveAssemblyReference.cache
+C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.Properties.Resources.resources
+C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.csproj.GenerateResource.Cache
+C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.dll
+C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.pdb

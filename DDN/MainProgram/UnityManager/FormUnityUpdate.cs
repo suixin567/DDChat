@@ -133,8 +133,8 @@ namespace UnityControl
                     labelProgressSafePost("提取中，请稍后...");
                     //解压
                     Debug.Print("开始解压");
-                    string oriPath = unityPath + @"\temp\" + AnalyzeMFile.Analyze(oriSerInfos, "Unity")[0];
-                    string disPath = unityPath;
+                    string oriPath = @".\Unity\temp\" + AnalyzeMFile.Analyze(oriSerInfos, "Unity")[0];
+                    string disPath = @".\Unity";
                     try
                     {
                         _7zHelper.DecompressFileToDestDirectory(oriPath, disPath, delegate (string dcerr)
