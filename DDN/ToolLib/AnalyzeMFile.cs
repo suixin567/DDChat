@@ -59,7 +59,7 @@ namespace ToolLib
 
 
 
-        string AnalyzeSet(string content, string key, List<string> value)
+        public static string AnalyzeSet(string content, string key, List<string> value)
         {
 
             string[] serInfos;

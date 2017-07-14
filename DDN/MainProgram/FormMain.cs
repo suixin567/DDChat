@@ -156,6 +156,7 @@ namespace MainProgram
         {
             Debug.Print("托盘右键退出被点击");
             this.notifyIconFormMain.Visible = false;
+            UnityManager.Instance.CloseUnity();
             this.Close();
             this.Dispose();
             Environment.Exit(0);
@@ -297,6 +298,8 @@ namespace MainProgram
         private void FormMainClose(object sender, FormClosedEventArgs e)
         {
             this.notifyIconFormMain.Visible = false;
+            
+            
             // 注意判断关闭事件reason来源于窗体按钮，否则用菜单退出时无法退出!
             //if (e.CloseReason == CloseReason.UserClosing)
             //{
@@ -379,6 +382,7 @@ namespace MainProgram
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.notifyIconFormMain.Visible = false;
+            UnityManager.Instance.CloseUnity();
             this.Dispose();
             Environment.Exit(0);
         }

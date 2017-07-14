@@ -70,7 +70,7 @@ namespace UnityControl
         }
 
         public void ExetUnity() {
-            isUpdateing = false;
+            isUpdateing = false;/////////////////////////////////////////////有问题！！！
             process = new System.Diagnostics.Process();
             //if (PlayerPrefs.GetString("unityName") == "")
             //{

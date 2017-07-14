@@ -49,20 +49,30 @@ namespace UnityControl
             string topUnityVerStr = AnalyzeMFile.Analyze(oriSerInfos, "UnityVersion")[0];
             int topUnityVerson = int.Parse(topUnityVerStr);
             Debug.Print("unity最高版本----------------》" + topUnityVerson);
-            int unityVersion = 0;
+            int unityVersion = -1;
             //本地版本号
-            try
+            if (File.Exists(@".\wv.conf"))
             {
-                string unityVersionStr = File.ReadAllText(unityPath + @"\uv.conf");
-                unityVersion = int.Parse(unityVersionStr);
+                string content = File.ReadAllText(@".\wv.conf");
+                List<string> temp = AnalyzeMFile.Analyze(content, "UnityVersion");
+                if (temp!=null)
+                {
+                   
+                    try
+                    {
+                        string unityVersionStr = temp[0];
+                        unityVersion = int.Parse(unityVersionStr);
+                    }
+                    catch
+                    {           
+                    }                   
+                }                
             }
-            catch (Exception)
-            {
-                unityVersion = -1;
-                //发生错误，直接下载unity
-                //FileStream fs1 = new FileStream(System.Windows.Forms.Application.StartupPath + @"\wv.conf", FileMode.Create);
-                //fs1.Close();
-            }
+            else {
+                FileStream fs1 = new FileStream(System.Windows.Forms.Application.StartupPath + @".\wv.conf", FileMode.Create);
+                fs1.Close();
+                Debug.Print("读取Unity配置文件不存在，这不该发生！-------》" + unityVersion);
+            }           
             Debug.Print("unity本地版本----------------》" + unityVersion);
             if (unityVersion != topUnityVerson)
             {
@@ -78,26 +88,9 @@ namespace UnityControl
             }
         }
 
-        /// <summary>
-        /// 关闭进程
-        /// </summary>
-        /// <param name="processName">进程名</param>
-        private static void KillProcess(string processName)
-        {
-            Process[] myproc = Process.GetProcesses();
-            foreach (Process item in myproc)
-            {
-                if (item.ProcessName == processName)
-                {
-                    item.Kill();
-                }
-            }
-        }
 
         void downLoadUnity()
         {
-            KillProcess("7-Zip Console");
-          //  Debug.Print("杀掉进程7-Zip");
             string ip = AnalyzeMFile.Analyze(oriSerInfos, "FilesUrl")[0];
             string url = "http://" + ip + "/res/winUpdateDlls/" + AnalyzeMFile.Analyze(oriSerInfos, "Unity")[0];
             string path = unityPath + @"\temp\" + AnalyzeMFile.Analyze(oriSerInfos, "Unity")[0];
@@ -139,8 +132,40 @@ namespace UnityControl
                     {
                         _7zHelper.DecompressFileToDestDirectory(oriPath, disPath, delegate (string dcerr)
                         {
-                            if (dcerr == null)
+                            if (dcerr == null)//解压成功
                             {
+                                //更新版本号！！
+                                try
+                                {
+                                    string versionStr="";
+                                    if (File.Exists(@".\wv.conf"))
+                                    {
+                                        //读取配置文件
+                                        versionStr = System.IO.File.ReadAllText(System.Windows.Forms.Application.StartupPath + @".\wv.conf");
+                                    }
+                                    else {
+                                        FileStream fs1 = new FileStream(System.Windows.Forms.Application.StartupPath + @".\wv.conf", FileMode.Create);
+                                        fs1.Close();
+                                        Debug.Print("更新unity版本配置文件失败，这不该发生！");
+                                    }
+                                 
+                                    //更新配置文件
+                                    string newContent = AnalyzeMFile.AnalyzeSet(versionStr, "UnityVersion", new List<string> { AnalyzeMFile.Analyze(oriSerInfos, "UnityVersion")[0] });
+                                    FileStream fs = new FileStream(@".\wv.conf", FileMode.Create);
+                                    StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.UTF8);//转码               
+                                    sw.WriteLine(newContent);
+                                    //清空缓冲区
+                                    sw.Flush();
+                                    //关闭流
+                                    sw.Close();
+                                    fs.Close();
+                                }
+                                catch (Exception upErr)
+                                {
+                                    Debug.Print("更新Unity版本号失败" + upErr);
+                                }
+                                Debug.Print("更新Unity版本号：" + AnalyzeMFile.Analyze(oriSerInfos, "UnityVersion")[0]);
+
                                 UnityManager.Instance.ExetUnity();
                             }
                             else
