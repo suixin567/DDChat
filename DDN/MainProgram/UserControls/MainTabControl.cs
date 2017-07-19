@@ -43,37 +43,9 @@ namespace MainProgram.UserControls
                 formMain.flowLayoutPanelResourcesList.Anchor = OriAnchor;
                 switchState();
             }       
-
         }
 
-        //会话选项卡被点击
-        private void buttonDialogue_Click(object sender, EventArgs e)
-        {
-            currentSelectState = 0;
-          //  switchState();
-        }
-
-        //好友选项卡被点击
-        private void buttonFriends_Click(object sender, EventArgs e)
-        {
-            currentSelectState = 1;
-           // switchState();
-        }
-
-        //群选项卡被点击
-        private void buttonCompany_Click(object sender, EventArgs e)
-        {
-            currentSelectState = 2;
-            switchState();
-        }
-
-        //资源
-        private void buttonRes_Click(object sender, EventArgs e)
-        {
-            currentSelectState = 3;
-            switchState();
-        }
-
+     
         void switchState() {           
 
             switch (currentSelectState)
@@ -82,30 +54,183 @@ namespace MainProgram.UserControls
                     formMain.flowLayoutPanelDialogueList.Show();
                     formMain.flowLayoutPanelFriendList.Hide();
                     formMain.flowLayoutPanelGroupList.Hide();
-                    formMain.flowLayoutPanelResourcesList.Hide();      
+                    formMain.flowLayoutPanelResourcesList.Hide();
+                    pictureBoxDia.BackColor = Color.DodgerBlue;
+                    pictureBoxFriend.BackColor = Color.Transparent;
+                    pictureBoxGroup.BackColor = Color.Transparent;
+                    pictureBoxRes.BackColor = Color.Transparent;
+
                     break;
                 case 1:
                     formMain.flowLayoutPanelDialogueList.Hide();
                     formMain.flowLayoutPanelFriendList.Show();
                     formMain.flowLayoutPanelGroupList.Hide();
                     formMain.flowLayoutPanelResourcesList.Hide();
+
+                    pictureBoxDia.BackColor = Color.Transparent;
+                    pictureBoxFriend.BackColor = Color.DodgerBlue;
+                    pictureBoxGroup.BackColor = Color.Transparent;
+                    pictureBoxRes.BackColor = Color.Transparent;
+
                     break;
                 case 2:
                     formMain.flowLayoutPanelDialogueList.Hide();
                     formMain.flowLayoutPanelFriendList.Hide();
                     formMain.flowLayoutPanelGroupList.Show();
                     formMain.flowLayoutPanelResourcesList.Hide();
+
+                    pictureBoxDia.BackColor = Color.Transparent;
+                    pictureBoxFriend.BackColor = Color.Transparent;
+                    pictureBoxGroup.BackColor = Color.DodgerBlue;
+                    pictureBoxRes.BackColor = Color.Transparent;
                     break;
                 case 3:
                     formMain.flowLayoutPanelDialogueList.Hide();
                     formMain.flowLayoutPanelFriendList.Hide();
                     formMain.flowLayoutPanelGroupList.Hide();
                     formMain.flowLayoutPanelResourcesList.Show();
-                    Debug.Print("显示资源项目");
+
+                    pictureBoxDia.BackColor = Color.Transparent;
+                    pictureBoxFriend.BackColor = Color.Transparent;
+                    pictureBoxGroup.BackColor = Color.Transparent;
+                    pictureBoxRes.BackColor = Color.DodgerBlue;
+
                     break;
                 default:
                     break;
             }
+        }
+        Label m_labelTip = null;
+
+        private void pictureBoxDia_MouseHover(object sender, EventArgs e)
+        {
+            Label labelTip = new Label();
+            formMain.Controls.Add(labelTip);
+            labelTip.Text = "会话";
+            labelTip.Size = new Size(40, 20);
+            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+            labelTip.TextAlign = ContentAlignment.MiddleCenter;
+            labelTip.BackColor = Color.White;
+            Point po = new Point(this.Location.X + 15, this.Location.Y + 30);
+            labelTip.Location = po;
+            labelTip.BringToFront();
+            m_labelTip = labelTip;
+
+        }
+
+        private void pictureBoxDia_MouseLeave(object sender, EventArgs e)
+        {
+            if (m_labelTip != null)
+            {
+                m_labelTip.Dispose();
+            }
+
+        }
+
+        private void pictureBoxFriend_MouseHover(object sender, EventArgs e)
+        {
+
+            Label labelTip = new Label();
+            formMain.Controls.Add(labelTip);
+            labelTip.Text = "联系人";
+            labelTip.Size = new Size(55, 20);
+            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+            labelTip.TextAlign = ContentAlignment.MiddleCenter;
+            labelTip.BackColor = Color.White;
+            Point po = new Point(this.Location.X + 77, this.Location.Y + 30);
+            labelTip.Location = po;
+            labelTip.BringToFront();
+            m_labelTip = labelTip;
+
+        }
+
+        private void pictureBoxFriend_MouseLeave(object sender, EventArgs e)
+        {
+            if (m_labelTip != null)
+            {
+                m_labelTip.Dispose();
+            }
+
+        }
+
+        private void pictureBoxGroup_MouseHover(object sender, EventArgs e)
+        {
+
+            Label labelTip = new Label();
+            formMain.Controls.Add(labelTip);
+            labelTip.Text = "群组";
+            labelTip.Size = new Size(40, 20);
+            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+            labelTip.TextAlign = ContentAlignment.MiddleCenter;
+            labelTip.BackColor = Color.White;
+            Point po = new Point(this.Location.X + 150, this.Location.Y + 30);
+            labelTip.Location = po;
+            labelTip.BringToFront();
+            m_labelTip = labelTip;
+
+        }
+
+        private void pictureBoxGroup_MouseLeave(object sender, EventArgs e)
+        {
+            if (m_labelTip != null)
+            {
+                m_labelTip.Dispose();
+            }
+
+        }
+
+        private void pictureBoxRes_MouseHover(object sender, EventArgs e)
+        {
+
+            Label labelTip = new Label();
+            formMain.Controls.Add(labelTip);
+            labelTip.Text = "资源管理";
+            labelTip.Size = new Size(60, 20);
+            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+            labelTip.TextAlign = ContentAlignment.MiddleCenter;
+            labelTip.BackColor = Color.White;
+            Point po = new Point(this.Location.X + 210, this.Location.Y + 30);
+            labelTip.Location = po;
+            labelTip.BringToFront();
+            m_labelTip = labelTip;
+
+        }
+
+        private void pictureBoxRes_MouseLeave(object sender, EventArgs e)
+        {
+            if (m_labelTip != null)
+            {
+                m_labelTip.Dispose();
+            }
+
+        }
+
+        private void pictureBoxDia_Click(object sender, EventArgs e)
+        {
+            currentSelectState = 0;
+            switchState();
+
+        }
+
+        private void pictureBoxFriend_Click(object sender, EventArgs e)
+        {
+            currentSelectState = 1;
+            switchState();
+
+        }
+
+        private void pictureBoxGroup_Click(object sender, EventArgs e)
+        {
+            currentSelectState = 2;
+            switchState();
+
+        }
+
+        private void pictureBoxRes_Click(object sender, EventArgs e)
+        {
+            currentSelectState = 3;
+            switchState();
+
         }
     }
 }
