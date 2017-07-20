@@ -70,7 +70,7 @@ namespace MainProgram.UserControls
             {
                 this.flowLayoutPanel.Controls.Add(friendItem);
                 friendAmount++;
-                this.labelTitle.Text = "好友 " + friendAmount;
+                this.buttonFriend.Text = "好友 " + friendAmount;
             }
 
         }
@@ -91,7 +91,7 @@ namespace MainProgram.UserControls
                     {
                         friendItem.Dispose();
                         friendAmount--;
-                        this.labelTitle.Text = "好友 " + friendAmount;
+                        this.buttonFriend.Text = "好友 " + friendAmount;
                         break;
                     }
                 }
@@ -112,9 +112,33 @@ namespace MainProgram.UserControls
             return friendList;
         }
 
-        private void flowLayoutPanel_Paint(object sender, PaintEventArgs e)
+        bool isFirendExpend = true;
+        //好友展开与折叠
+        private void buttonFriend_Click(object sender, EventArgs e)
         {
-
+            isFirendExpend = !isFirendExpend;
+            if (isFirendExpend)//展开时
+            {
+                this.buttonFriend.Image = MainProgram.Properties.Resources._3_1;
+                foreach (var item in this.flowLayoutPanel.Controls)
+                {
+                    if (item is FriendItem) {
+                        ((FriendItem)item).Show();
+                    }
+                }
+                
+            }
+            else//收起时
+            {
+                this.buttonFriend.Image = MainProgram.Properties.Resources._3;
+                foreach (var item in this.flowLayoutPanel.Controls)
+                {
+                    if (item is FriendItem)
+                    {
+                        ((FriendItem)item).Hide();
+                    }
+                }
+            }
         }
     }
 }

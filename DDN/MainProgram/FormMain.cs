@@ -451,8 +451,8 @@ namespace MainProgram
         {
             Label labelTip = new Label();
             this.Controls.Add(labelTip);
-            labelTip.Text = "消息验证";
-            labelTip.Size = new Size(60, 20);
+            labelTip.Text = "验证消息";
+            labelTip.Size = new Size(60, 25);
             labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
             labelTip.ForeColor = Color.White;
             labelTip.TextAlign = ContentAlignment.MiddleCenter;
@@ -473,12 +473,12 @@ namespace MainProgram
             Label labelTip = new Label();
             this.Controls.Add(labelTip);
             labelTip.Text = "查找";
-            labelTip.Size = new Size(60, 20);
+            labelTip.Size = new Size(40, 25);
             labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
             labelTip.ForeColor = Color.White;
             labelTip.TextAlign = ContentAlignment.MiddleCenter;
             labelTip.BackColor = Color.DodgerBlue;
-            Point po = new Point(this.panelBottom.Location.X + 220, this.panelBottom.Location.Y - 15);
+            Point po = new Point(this.panelBottom.Location.X + 235, this.panelBottom.Location.Y - 15);
             labelTip.Location = po;
             labelTip.BringToFront();
             m_labelTip = labelTip;

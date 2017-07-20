@@ -217,7 +217,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanelFriendList.Location = new System.Drawing.Point(4, 155);
             this.flowLayoutPanelFriendList.Name = "flowLayoutPanelFriendList";
-            this.flowLayoutPanelFriendList.Size = new System.Drawing.Size(272, 483);
+            this.flowLayoutPanelFriendList.Size = new System.Drawing.Size(272, 475);
             this.flowLayoutPanelFriendList.TabIndex = 17;
             // 
             // topInfoPanel1

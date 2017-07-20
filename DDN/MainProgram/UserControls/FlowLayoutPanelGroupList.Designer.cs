@@ -32,10 +32,10 @@
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.创建群ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelTitle = new System.Windows.Forms.Label();
             this.buttonCreateGroup = new System.Windows.Forms.Button();
             this.labelTip = new System.Windows.Forms.Label();
             this.timerOpreationResult = new System.Windows.Forms.Timer(this.components);
+            this.buttonGroup = new System.Windows.Forms.Button();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,9 +48,9 @@
             this.flowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel.ContextMenuStrip = this.contextMenuStrip;
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(0, 44);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(0, 46);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(310, 457);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(310, 455);
             this.flowLayoutPanel.TabIndex = 0;
             this.flowLayoutPanel.WrapContents = false;
             // 
@@ -67,16 +67,6 @@
             this.创建群ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.创建群ToolStripMenuItem.Text = "创建公司";
             this.创建群ToolStripMenuItem.Click += new System.EventHandler(this.创建群ToolStripMenuItem_Click);
-            // 
-            // labelTitle
-            // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(6, 29);
-            this.labelTitle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(41, 12);
-            this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "群组 0";
             // 
             // buttonCreateGroup
             // 
@@ -108,13 +98,28 @@
             this.timerOpreationResult.Interval = 1000;
             this.timerOpreationResult.Tick += new System.EventHandler(this.timerOpreationResult_Tick);
             // 
+            // buttonGroup
+            // 
+            this.buttonGroup.FlatAppearance.BorderSize = 0;
+            this.buttonGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGroup.Image = global::MainProgram.Properties.Resources._3_1;
+            this.buttonGroup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGroup.Location = new System.Drawing.Point(6, 23);
+            this.buttonGroup.Name = "buttonGroup";
+            this.buttonGroup.Size = new System.Drawing.Size(68, 23);
+            this.buttonGroup.TabIndex = 3;
+            this.buttonGroup.Text = "群组 0";
+            this.buttonGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonGroup.UseVisualStyleBackColor = true;
+            this.buttonGroup.Click += new System.EventHandler(this.buttonGroup_Click);
+            // 
             // FlowLayoutPanelGroupList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ContextMenuStrip = this.contextMenuStrip;
-            this.Controls.Add(this.labelTitle);
+            this.Controls.Add(this.buttonGroup);
             this.Controls.Add(this.labelTip);
             this.Controls.Add(this.buttonCreateGroup);
             this.Controls.Add(this.flowLayoutPanel);
@@ -130,11 +135,11 @@
         #endregion
 
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
-        private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem 创建群ToolStripMenuItem;
         private System.Windows.Forms.Button buttonCreateGroup;
         private System.Windows.Forms.Label labelTip;
         private System.Windows.Forms.Timer timerOpreationResult;
+        private System.Windows.Forms.Button buttonGroup;
     }
 }

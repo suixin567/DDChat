@@ -99,7 +99,7 @@ namespace MainProgram.UserControls
             {
                 this.flowLayoutPanel.Controls.Add(groupItem);
                 amount++;
-                this.labelTitle.Text = "公司 " + amount;
+                this.buttonGroup.Text = "公司 " + amount;
             }
         }
         //创建公司
@@ -124,7 +124,7 @@ namespace MainProgram.UserControls
                     {
                         groupItem.Dispose();
                         amount--;
-                        this.labelTitle.Text = "公司 " + amount;
+                        this.buttonGroup.Text = "公司 " + amount;
                         break;
                     }
                 }
@@ -170,6 +170,33 @@ namespace MainProgram.UserControls
             {
                 this.timerOpreationResult.Stop();
                 this.labelTip.Text = "";
+            }
+        }
+        bool isGroupExpend = true;
+        private void buttonGroup_Click(object sender, EventArgs e)
+        {
+            isGroupExpend = !isGroupExpend;
+            if (isGroupExpend)
+            {
+                this.buttonGroup.Image = MainProgram.Properties.Resources._3_1;
+                foreach (var item in this.flowLayoutPanel.Controls)
+                {
+                    if (item is GroupItem)
+                    {
+                        ((GroupItem)item).Show();
+                    }
+                }
+            }
+            else
+            {
+                this.buttonGroup.Image = MainProgram.Properties.Resources._3;
+                foreach (var item in this.flowLayoutPanel.Controls)
+                {
+                    if (item is GroupItem)
+                    {
+                        ((GroupItem)item).Hide();
+                    }
+                }
             }
         }
     }

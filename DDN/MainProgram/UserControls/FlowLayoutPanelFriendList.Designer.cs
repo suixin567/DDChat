@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlowLayoutPanelFriendList));
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.labelTitle = new System.Windows.Forms.Label();
+            this.buttonFriend = new System.Windows.Forms.Button();
             this.flowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,24 +41,29 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
-            this.flowLayoutPanel.Controls.Add(this.labelTitle);
+            this.flowLayoutPanel.Controls.Add(this.buttonFriend);
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
             this.flowLayoutPanel.Size = new System.Drawing.Size(246, 502);
             this.flowLayoutPanel.TabIndex = 0;
             this.flowLayoutPanel.WrapContents = false;
-            this.flowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel_Paint);
             // 
-            // labelTitle
+            // buttonFriend
             // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(3, 5);
-            this.labelTitle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(41, 12);
-            this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "好友 0";
+            this.buttonFriend.BackColor = System.Drawing.Color.Transparent;
+            this.buttonFriend.FlatAppearance.BorderSize = 0;
+            this.buttonFriend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFriend.Image = ((System.Drawing.Image)(resources.GetObject("buttonFriend.Image")));
+            this.buttonFriend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonFriend.Location = new System.Drawing.Point(3, 3);
+            this.buttonFriend.Name = "buttonFriend";
+            this.buttonFriend.Size = new System.Drawing.Size(65, 23);
+            this.buttonFriend.TabIndex = 1;
+            this.buttonFriend.Text = "好友 0";
+            this.buttonFriend.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonFriend.UseVisualStyleBackColor = false;
+            this.buttonFriend.Click += new System.EventHandler(this.buttonFriend_Click);
             // 
             // FlowLayoutPanelFriendList
             // 
@@ -68,7 +74,6 @@
             this.Size = new System.Drawing.Size(246, 502);
             this.Load += new System.EventHandler(this.FlowLayoutPanelFriendList_Load);
             this.flowLayoutPanel.ResumeLayout(false);
-            this.flowLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -76,6 +81,6 @@
         #endregion
 
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
-        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Button buttonFriend;
     }
 }
