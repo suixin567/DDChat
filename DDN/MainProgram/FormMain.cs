@@ -77,7 +77,7 @@ namespace MainProgram
             SetBtnStyle(this.buttonMin);
             //icon闪烁计时器停止
             this.timerNotifyIcon.Stop();
-            this.notifyIconFormMain.Text = "叮叮鸟：" + MainMgr.Instance.BaseInfo.Nickname + "（" + MainMgr.Instance.BaseInfo.Username + "）";
+           
             //////////////
             //ResourceManager rm = new ResourceManager("DDN.FormMain", Assembly.GetExecutingAssembly());
             //Image img = (Image)rm.GetObject("pic");

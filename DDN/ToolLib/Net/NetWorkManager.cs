@@ -266,7 +266,7 @@ using System.Threading;
                 //    yield break;
                 //}
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                socket.Connect("127.0.0.1", port);
+                socket.Connect(url, port);
                 //异步进行socket的读取,读取完毕之后进行回调                                   ，最后一个参数用于给回调函数传递子线程参数，这里不需要
                 socket.BeginReceive(dataCarriage, 0, maxReceiveSize, SocketFlags.None, ReceiveCallBack, null);//最多只能接受maxReceiveSize大小数据
                 IsConnected = true;

@@ -52,7 +52,7 @@
             this.pictureBoxTopFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTopFace.Image")));
             this.pictureBoxTopFace.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxTopFace.Name = "pictureBoxTopFace";
-            this.pictureBoxTopFace.Size = new System.Drawing.Size(75, 75);
+            this.pictureBoxTopFace.Size = new System.Drawing.Size(70, 70);
             this.pictureBoxTopFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxTopFace.TabIndex = 2;
             this.pictureBoxTopFace.TabStop = false;

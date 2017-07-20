@@ -48,6 +48,7 @@
             this.friendFacePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.friendFacePictureBox.TabIndex = 0;
             this.friendFacePictureBox.TabStop = false;
+            this.friendFacePictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.friendFacePictureBox_MouseDoubleClick);
             // 
             // friendNickName
             // 
@@ -58,6 +59,7 @@
             this.friendNickName.Size = new System.Drawing.Size(29, 12);
             this.friendNickName.TabIndex = 1;
             this.friendNickName.Text = "叮叮";
+            this.friendNickName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.friendNickName_MouseDoubleClick);
             // 
             // LabelDescription
             // 
@@ -67,6 +69,7 @@
             this.LabelDescription.Size = new System.Drawing.Size(89, 12);
             this.LabelDescription.TabIndex = 2;
             this.LabelDescription.Text = "我们都喜欢听歌";
+            this.LabelDescription.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LabelDescription_MouseDoubleClick);
             // 
             // contextMenuStripFriendItem
             // 
@@ -78,7 +81,7 @@
             // 删除好友ToolStripMenuItem
             // 
             this.删除好友ToolStripMenuItem.Name = "删除好友ToolStripMenuItem";
-            this.删除好友ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除好友ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.删除好友ToolStripMenuItem.Text = "删除好友";
             this.删除好友ToolStripMenuItem.Click += new System.EventHandler(this.删除好友ToolStripMenuItem_Click);
             // 
@@ -95,6 +98,7 @@
             this.Name = "FriendItem";
             this.Size = new System.Drawing.Size(500, 57);
             this.Load += new System.EventHandler(this.FriendItem_Load);
+            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.FriendItem_MouseDoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.friendFacePictureBox)).EndInit();
             this.contextMenuStripFriendItem.ResumeLayout(false);
             this.ResumeLayout(false);

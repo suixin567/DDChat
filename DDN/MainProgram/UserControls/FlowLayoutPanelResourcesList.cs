@@ -54,11 +54,6 @@ namespace MainProgram.UserControls
             }
         }
 
-        private void buttonAll_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         void copyGroupItem() {
 

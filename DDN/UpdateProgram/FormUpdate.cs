@@ -42,6 +42,7 @@ namespace UpdateProgram
         void downLoadDlls()
         {
             List<string> ipList = getValue(m_serInfoStr,"FilesUrl");
+            List<string> pathList = getValue(m_serInfoStr, "FilesPath");
             List<string> toLoadDlls = getValue(m_serInfoStr,"Files");
             Debug.Print("总共需要下载的文件数------》" + toLoadDlls.Count);
             //创建临时文件夹
@@ -56,7 +57,8 @@ namespace UpdateProgram
                     //下载中
                     labelProgress.Text = "更新..." + item + "     " + count + "/" + toLoadDlls.Count;
                     labelProgress.Refresh();
-                    string url = "http://" + ipList[0] + "/res/winUpdateDlls/" + item;
+                    string url = "http://" + ipList[0] + "/res/winUpdateDlls/"+ pathList[0]+"/" + item;
+                    Debug.Print("更新文件" + "http://" + ipList[0] + "/res/winUpdateDlls/" + pathList[0] + "/" + item);
                     string path = tempDir + @"\" + item;
                     HttpDownloadFile(url, path);
                     Thread.Sleep(500);

@@ -90,11 +90,12 @@ namespace DDN
         void UpdateFormUpdate()
         {
             Thread.Sleep(100);
+            List<string> FilesPathList = getValue(oriSerInfos, "FilesPath");
             List<string> UpdateDllList = getValue(oriSerInfos,"Update");
             
             for (int i = 0; i < UpdateDllList.Count; i++)
             {
-                string url = "http://" + ip + "/res/winUpdateDlls/" + UpdateDllList[i];
+                string url = "http://" + ip + "/res/winUpdateDlls/" + FilesPathList[0] + "/" + UpdateDllList[i];
                 string path = System.Windows.Forms.Application.StartupPath + @"\" + UpdateDllList[i];
                 try
                 {

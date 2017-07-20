@@ -49,8 +49,8 @@ namespace MainProgram
         //创建群按钮
         private void buttonCreateGroup_Click(object sender, EventArgs e)
         {
-            if (tomanyGroup) {
-                labelTip.Text = "最多有" + MaxGroupAmount + "个公司，你的公司太多不可以创建了！";
+            checkGroupAmount();
+            if (tomanyGroup) {               
                 return;
             }
             if (textBoxGroupName.Text=="") {

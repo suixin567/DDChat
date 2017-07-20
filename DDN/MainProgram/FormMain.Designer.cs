@@ -266,7 +266,7 @@
 
         #endregion
 
-        private System.Windows.Forms.NotifyIcon notifyIconFormMain;
+        public System.Windows.Forms.NotifyIcon notifyIconFormMain;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripNotifyIcon;
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.Timer timerShowOrHide;

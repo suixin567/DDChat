@@ -64,17 +64,35 @@ namespace Login
         }
 
 
-        //账户密码格式校验
+        //账户格式校验
         public bool IsRightFormat(string str_handset)
         {
             bool temp = false;
-            bool res = System.Text.RegularExpressions.Regex.IsMatch(str_handset, @"^\w{6,13}$");
+            bool res = System.Text.RegularExpressions.Regex.IsMatch(str_handset, @"(^[0-9]{6,10}$)");          
+
+            if (res == true)
+            {
+                temp = res;
+                labelregistResult.Text = "";
+            }
+            return temp;
+        }
+
+
+        //密码格式校验
+        public bool IsPsdRightFormat(string str_handset)
+        {
+            bool temp = false;
+            bool res = System.Text.RegularExpressions.Regex.IsMatch(str_handset, @"^\w{6,10}$");
+
             if (res == true)
             {
                 temp = res;
             }
             return temp;
         }
+
+        
 
         //电话格式校验
         public bool IsPhoneset(string str_handset)
@@ -88,6 +106,20 @@ namespace Login
             return temp;
         }
 
+        //f纯数字格式校验
+        public bool IsNumber(string str_handset)
+        {
+            bool temp = false;
+            bool res = System.Text.RegularExpressions.Regex.IsMatch(str_handset, @"(^[0-9]*$)");
+            if (res == true)
+            {
+                temp = res;
+            }
+            return temp;
+        }
+
+
+
         private void onUserNameChanged(object sender, EventArgs e)
         {
             //账号
@@ -99,14 +131,23 @@ namespace Login
             else
             {
                 pictureBoxUserNameTip.Hide();
-                accRight = false;
+                accRight = false;               
             }
+            //判断只能输入数字
+            if (IsNumber(textBoxRegistUserName.Text) == false)
+            {
+                textBoxRegistUserName.Text = "";
+            }
+            else
+            {
+            }
+            labelregistResult.Text = "";
         }
 
         private void onPsdChanged(object sender, EventArgs e)
         {
             //密码
-            if (IsRightFormat(textBoxRegistPsd.Text))
+            if (IsPsdRightFormat(textBoxRegistPsd.Text))
             {
                 pictureBoxPsdTip.Show();
                 psdRight = true;
@@ -114,8 +155,9 @@ namespace Login
             else
             {
                 pictureBoxPsdTip.Hide();
-                psdRight = false;
+                psdRight = false;               
             }
+            labelregistResult.Text = "";
         }
 
         private void onPhoneChanged(object sender, EventArgs e)
@@ -131,6 +173,7 @@ namespace Login
                 pictureBoxPhoneTip.Hide();
                 phoneRight = false;
             }
+            labelregistResult.Text = "";
         }
 
         //注册结果

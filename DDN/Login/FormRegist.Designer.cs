@@ -41,6 +41,8 @@
             this.pictureBoxPsdTip = new System.Windows.Forms.PictureBox();
             this.pictureBoxPhoneTip = new System.Windows.Forms.PictureBox();
             this.labelregistResult = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserNameTip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPsdTip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoneTip)).BeginInit();
@@ -50,7 +52,7 @@
             // 
             this.textBoxRegistUserName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxRegistUserName.Location = new System.Drawing.Point(152, 60);
-            this.textBoxRegistUserName.MaxLength = 13;
+            this.textBoxRegistUserName.MaxLength = 10;
             this.textBoxRegistUserName.Name = "textBoxRegistUserName";
             this.textBoxRegistUserName.Size = new System.Drawing.Size(159, 21);
             this.textBoxRegistUserName.TabIndex = 0;
@@ -59,7 +61,7 @@
             // textBoxRegistPsd
             // 
             this.textBoxRegistPsd.Location = new System.Drawing.Point(152, 112);
-            this.textBoxRegistPsd.MaxLength = 13;
+            this.textBoxRegistPsd.MaxLength = 10;
             this.textBoxRegistPsd.Name = "textBoxRegistPsd";
             this.textBoxRegistPsd.Size = new System.Drawing.Size(159, 21);
             this.textBoxRegistPsd.TabIndex = 1;
@@ -97,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 118);
+            this.label2.Location = new System.Drawing.Point(62, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 5;
@@ -116,11 +118,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(113, 281);
+            this.label4.Location = new System.Drawing.Point(139, 280);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(269, 12);
+            this.label4.Size = new System.Drawing.Size(185, 12);
             this.label4.TabIndex = 7;
-            this.label4.Text = "账号密码中，仅能包含6-13位字母、数字、下划线";
+            this.label4.Text = "账号密码中，仅能包含6-10位数字";
             // 
             // pictureBoxUserNameTip
             // 
@@ -162,11 +164,31 @@
             this.labelregistResult.TabIndex = 11;
             this.labelregistResult.Text = "注册结果";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(152, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(137, 12);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "账号仅能包含6-10位数字";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(152, 95);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(137, 12);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "密码仅能包含字母、数字";
+            // 
             // FormRegist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 311);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.labelregistResult);
             this.Controls.Add(this.pictureBoxPhoneTip);
             this.Controls.Add(this.pictureBoxPsdTip);
@@ -210,5 +232,7 @@
         private System.Windows.Forms.PictureBox pictureBoxPsdTip;
         private System.Windows.Forms.PictureBox pictureBoxPhoneTip;
         public System.Windows.Forms.Label labelregistResult;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

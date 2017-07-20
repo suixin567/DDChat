@@ -252,6 +252,7 @@ namespace Login
         public void CloseRegistSafePost()
         {
             m_SyncContext.Post(CloseRegist, null);
+            showLoginOpreationResultSafePost("注册成功！");
         }
 
         public void CloseRegist(object state)

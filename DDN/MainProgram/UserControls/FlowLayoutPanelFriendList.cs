@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 using Mgr;
+using UnityControl;
 
 namespace MainProgram.UserControls
 {
@@ -28,6 +29,16 @@ namespace MainProgram.UserControls
         {
             //拉取好友列表
             pullFriendList();
+        }
+
+        public void InitSelfInfo(PersonalInfoModel model) {
+            this.labelSelf.Text = model.Nickname + " (自己)";
+
+        }
+
+        public void InitSelfFace(Image face)
+        {
+            this.pictureBoxSelfFace.Image = face;        
         }
 
         void pullFriendList()
@@ -120,6 +131,7 @@ namespace MainProgram.UserControls
             if (isFirendExpend)//展开时
             {
                 this.buttonFriend.Image = MainProgram.Properties.Resources._3_1;
+                this.panelSelf.Show();
                 foreach (var item in this.flowLayoutPanel.Controls)
                 {
                     if (item is FriendItem) {
@@ -131,14 +143,40 @@ namespace MainProgram.UserControls
             else//收起时
             {
                 this.buttonFriend.Image = MainProgram.Properties.Resources._3;
+                this.panelSelf.Hide();
                 foreach (var item in this.flowLayoutPanel.Controls)
                 {
                     if (item is FriendItem)
                     {
                         ((FriendItem)item).Hide();
-                    }
+                    }                  
                 }
             }
+        }
+
+        //自己选项被双击
+        private void panelSelf_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            UnityManager.Instance.changeUnityScene(4);
+            UnityManager.Instance.resourceMode = 2;
+        }
+
+        private void pictureBoxSelfFace_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            UnityManager.Instance.changeUnityScene(4);
+            UnityManager.Instance.resourceMode = 2;
+        }
+
+        private void labelTip_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            UnityManager.Instance.changeUnityScene(4);
+            UnityManager.Instance.resourceMode = 2;
+        }
+
+        private void labelSelf_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            UnityManager.Instance.changeUnityScene(4);
+            UnityManager.Instance.resourceMode = 2;
         }
     }
 }

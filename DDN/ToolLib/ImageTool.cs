@@ -52,7 +52,7 @@ using System.Threading.Tasks;
         {
             return null;
         }
-            Rectangle rec = new Rectangle(0, 0, 200, 200);
+            Rectangle rec = new Rectangle(0, 0, img.Width, img.Height);
             Size size = new Size(62, 62);
             Bitmap bitmap = new Bitmap(size.Width, size.Height);
             using (Graphics g = Graphics.FromImage(bitmap))

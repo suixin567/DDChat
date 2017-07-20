@@ -10,7 +10,7 @@ namespace MainProgram.UserControls
 {
     public partial class MainTabControl : UserControl
     {
-        int currentSelectState = 3;//默认选中朋友列表
+        int currentSelectState = 1;//默认选中朋友列表
 
         Point oriLocation;
         Size oriSize;
@@ -58,7 +58,7 @@ namespace MainProgram.UserControls
                     pictureBoxDia.BackColor = Color.DodgerBlue;
                     pictureBoxFriend.BackColor = Color.Transparent;
                     pictureBoxGroup.BackColor = Color.Transparent;
-                    pictureBoxRes.BackColor = Color.Transparent;
+                 //   pictureBoxRes.BackColor = Color.Transparent;
 
                     break;
                 case 1:
@@ -70,7 +70,7 @@ namespace MainProgram.UserControls
                     pictureBoxDia.BackColor = Color.Transparent;
                     pictureBoxFriend.BackColor = Color.DodgerBlue;
                     pictureBoxGroup.BackColor = Color.Transparent;
-                    pictureBoxRes.BackColor = Color.Transparent;
+                //    pictureBoxRes.BackColor = Color.Transparent;
 
                     break;
                 case 2:
@@ -82,7 +82,7 @@ namespace MainProgram.UserControls
                     pictureBoxDia.BackColor = Color.Transparent;
                     pictureBoxFriend.BackColor = Color.Transparent;
                     pictureBoxGroup.BackColor = Color.DodgerBlue;
-                    pictureBoxRes.BackColor = Color.Transparent;
+               //     pictureBoxRes.BackColor = Color.Transparent;
                     break;
                 case 3:
                     formMain.flowLayoutPanelDialogueList.Hide();
@@ -93,7 +93,7 @@ namespace MainProgram.UserControls
                     pictureBoxDia.BackColor = Color.Transparent;
                     pictureBoxFriend.BackColor = Color.Transparent;
                     pictureBoxGroup.BackColor = Color.Transparent;
-                    pictureBoxRes.BackColor = Color.DodgerBlue;
+                //    pictureBoxRes.BackColor = Color.DodgerBlue;
 
                     break;
                 default:
@@ -111,7 +111,7 @@ namespace MainProgram.UserControls
             labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
             labelTip.TextAlign = ContentAlignment.MiddleCenter;
             labelTip.BackColor = Color.White;
-            Point po = new Point(this.Location.X + 15, this.Location.Y + 30);
+            Point po = new Point(this.Location.X + 25, this.Location.Y + 30);
             labelTip.Location = po;
             labelTip.BringToFront();
             m_labelTip = labelTip;
@@ -137,7 +137,7 @@ namespace MainProgram.UserControls
             labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
             labelTip.TextAlign = ContentAlignment.MiddleCenter;
             labelTip.BackColor = Color.White;
-            Point po = new Point(this.Location.X + 77, this.Location.Y + 30);
+            Point po = new Point(this.Location.X + 110, this.Location.Y + 30);
             labelTip.Location = po;
             labelTip.BringToFront();
             m_labelTip = labelTip;
@@ -163,7 +163,7 @@ namespace MainProgram.UserControls
             labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
             labelTip.TextAlign = ContentAlignment.MiddleCenter;
             labelTip.BackColor = Color.White;
-            Point po = new Point(this.Location.X + 150, this.Location.Y + 30);
+            Point po = new Point(this.Location.X + 210, this.Location.Y + 30);
             labelTip.Location = po;
             labelTip.BringToFront();
             m_labelTip = labelTip;

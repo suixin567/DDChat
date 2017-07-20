@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Mgr;
+using UnityControl;
 
 namespace MainProgram.UserControls
 {
@@ -68,6 +69,27 @@ namespace MainProgram.UserControls
             }
             MsgModel mm = new MsgModel(MsgProtocol.QUIT_GROUP_CREQ, PlayerPrefs.GetString("username"), m_myGroupModel.GroupID.ToString(), "不想继续留在这个群了，再见！", DateTime.Now.ToString());
             MainMgr.Instance.msgMgr.sendMessage(MsgProtocol.GROUP, mm);
+        }
+        //双击
+        private void GroupItem_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
+            UnityManager.Instance.changeUnityScene(4);
+            UnityManager.Instance.resourceMode = 1;
+        }
+        //双击
+        private void labelName_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
+            UnityManager.Instance.changeUnityScene(4);
+            UnityManager.Instance.resourceMode = 1;
+        }
+
+        private void pictureBoxGroupFace_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
+            UnityManager.Instance.changeUnityScene(4);
+            UnityManager.Instance.resourceMode = 1;
         }
     }
 }
