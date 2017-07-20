@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel
@@ -39,24 +37,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel.AutoScroll = true;
-            this.flowLayoutPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.flowLayoutPanel.Controls.Add(this.label1);
+            this.flowLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
             this.flowLayoutPanel.Size = new System.Drawing.Size(227, 382);
             this.flowLayoutPanel.TabIndex = 0;
             this.flowLayoutPanel.WrapContents = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "会话 0";
             // 
             // FlowLayoutPanelDialogueList
             // 
@@ -65,8 +52,6 @@
             this.Controls.Add(this.flowLayoutPanel);
             this.Name = "FlowLayoutPanelDialogueList";
             this.Size = new System.Drawing.Size(227, 382);
-            this.flowLayoutPanel.ResumeLayout(false);
-            this.flowLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -74,6 +59,5 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
-        private System.Windows.Forms.Label label1;
     }
 }

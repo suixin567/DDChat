@@ -36,7 +36,7 @@ namespace MainProgram.UserControls
 
                 formMain.flowLayoutPanelGroupList.Location = oriLocation;
                 formMain.flowLayoutPanelGroupList.Size = oriSize;
-                formMain.flowLayoutPanelDialogueList.Anchor = OriAnchor;
+                formMain.flowLayoutPanelGroupList.Anchor = OriAnchor;
 
                 formMain.flowLayoutPanelResourcesList.Location = oriLocation;
                 formMain.flowLayoutPanelResourcesList.Size = oriSize;

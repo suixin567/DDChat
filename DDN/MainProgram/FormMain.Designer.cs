@@ -34,12 +34,11 @@
             this.contextMenuStripNotifyIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerShowOrHide = new System.Windows.Forms.Timer(this.components);
-            this.addFriendButton = new System.Windows.Forms.Button();
             this.panelBottom = new System.Windows.Forms.Panel();
-            this.buttonFormMsgVerify = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.buttonDrawHouse = new System.Windows.Forms.Button();
+            this.buttonDraw = new System.Windows.Forms.Button();
             this.buttonShop = new System.Windows.Forms.Button();
+            this.buttonMsg = new System.Windows.Forms.PictureBox();
+            this.buttonFindFriend = new System.Windows.Forms.PictureBox();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonMin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -49,6 +48,8 @@
             this.topInfoPanel1 = new MainProgram.UserControls.TopInfoPanel();
             this.contextMenuStripNotifyIcon.SuspendLayout();
             this.panelBottom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonMsg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonFindFriend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,69 +80,87 @@
             this.timerShowOrHide.Enabled = true;
             this.timerShowOrHide.Tick += new System.EventHandler(this.timerShowOrHide_Tick);
             // 
-            // addFriendButton
-            // 
-            this.addFriendButton.Location = new System.Drawing.Point(89, 47);
-            this.addFriendButton.Name = "addFriendButton";
-            this.addFriendButton.Size = new System.Drawing.Size(85, 23);
-            this.addFriendButton.TabIndex = 9;
-            this.addFriendButton.Text = "查找";
-            this.addFriendButton.UseVisualStyleBackColor = true;
-            this.addFriendButton.Click += new System.EventHandler(this.addFriendButton_Click);
-            // 
             // panelBottom
             // 
             this.panelBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelBottom.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panelBottom.Controls.Add(this.buttonFormMsgVerify);
-            this.panelBottom.Controls.Add(this.button2);
-            this.panelBottom.Controls.Add(this.buttonDrawHouse);
+            this.panelBottom.BackColor = System.Drawing.Color.Transparent;
+            this.panelBottom.Controls.Add(this.buttonDraw);
             this.panelBottom.Controls.Add(this.buttonShop);
-            this.panelBottom.Controls.Add(this.addFriendButton);
-            this.panelBottom.Location = new System.Drawing.Point(4, 570);
+            this.panelBottom.Controls.Add(this.buttonMsg);
+            this.panelBottom.Controls.Add(this.buttonFindFriend);
+            this.panelBottom.Location = new System.Drawing.Point(4, 613);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(272, 75);
+            this.panelBottom.Size = new System.Drawing.Size(272, 33);
             this.panelBottom.TabIndex = 10;
             // 
-            // buttonFormMsgVerify
+            // buttonDraw
             // 
-            this.buttonFormMsgVerify.Location = new System.Drawing.Point(5, 47);
-            this.buttonFormMsgVerify.Name = "buttonFormMsgVerify";
-            this.buttonFormMsgVerify.Size = new System.Drawing.Size(76, 23);
-            this.buttonFormMsgVerify.TabIndex = 14;
-            this.buttonFormMsgVerify.Text = "消息管理";
-            this.buttonFormMsgVerify.UseVisualStyleBackColor = true;
-            this.buttonFormMsgVerify.Click += new System.EventHandler(this.buttonFormMsgVerify_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(181, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 42);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "其他服务";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // buttonDrawHouse
-            // 
-            this.buttonDrawHouse.Location = new System.Drawing.Point(89, 3);
-            this.buttonDrawHouse.Name = "buttonDrawHouse";
-            this.buttonDrawHouse.Size = new System.Drawing.Size(85, 42);
-            this.buttonDrawHouse.TabIndex = 12;
-            this.buttonDrawHouse.Text = "户型绘制";
-            this.buttonDrawHouse.UseVisualStyleBackColor = true;
-            this.buttonDrawHouse.Click += new System.EventHandler(this.buttonDrawHouse_Click);
+            this.buttonDraw.BackColor = System.Drawing.Color.SteelBlue;
+            this.buttonDraw.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDraw.FlatAppearance.BorderSize = 0;
+            this.buttonDraw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDraw.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonDraw.ForeColor = System.Drawing.Color.White;
+            this.buttonDraw.Image = ((System.Drawing.Image)(resources.GetObject("buttonDraw.Image")));
+            this.buttonDraw.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDraw.Location = new System.Drawing.Point(76, 7);
+            this.buttonDraw.Name = "buttonDraw";
+            this.buttonDraw.Size = new System.Drawing.Size(68, 30);
+            this.buttonDraw.TabIndex = 18;
+            this.buttonDraw.Text = "绘制";
+            this.buttonDraw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonDraw.UseVisualStyleBackColor = false;
+            this.buttonDraw.Click += new System.EventHandler(this.buttonDraw_Click);
+            this.buttonDraw.MouseLeave += new System.EventHandler(this.buttonDraw_MouseLeave);
+            this.buttonDraw.MouseHover += new System.EventHandler(this.buttonDraw_MouseHover);
             // 
             // buttonShop
             // 
-            this.buttonShop.Location = new System.Drawing.Point(6, 3);
+            this.buttonShop.BackColor = System.Drawing.Color.SteelBlue;
+            this.buttonShop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonShop.FlatAppearance.BorderSize = 0;
+            this.buttonShop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonShop.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonShop.ForeColor = System.Drawing.Color.White;
+            this.buttonShop.Image = ((System.Drawing.Image)(resources.GetObject("buttonShop.Image")));
+            this.buttonShop.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonShop.Location = new System.Drawing.Point(3, 6);
             this.buttonShop.Name = "buttonShop";
-            this.buttonShop.Size = new System.Drawing.Size(75, 42);
-            this.buttonShop.TabIndex = 10;
-            this.buttonShop.Text = "叮叮鸟商城";
-            this.buttonShop.UseVisualStyleBackColor = true;
+            this.buttonShop.Size = new System.Drawing.Size(67, 30);
+            this.buttonShop.TabIndex = 17;
+            this.buttonShop.Text = "商城";
+            this.buttonShop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonShop.UseVisualStyleBackColor = false;
             this.buttonShop.Click += new System.EventHandler(this.buttonShop_Click);
+            this.buttonShop.MouseLeave += new System.EventHandler(this.buttonShop_MouseLeave);
+            this.buttonShop.MouseHover += new System.EventHandler(this.buttonShop_MouseHover);
+            // 
+            // buttonMsg
+            // 
+            this.buttonMsg.Image = ((System.Drawing.Image)(resources.GetObject("buttonMsg.Image")));
+            this.buttonMsg.Location = new System.Drawing.Point(215, 16);
+            this.buttonMsg.Name = "buttonMsg";
+            this.buttonMsg.Size = new System.Drawing.Size(15, 15);
+            this.buttonMsg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.buttonMsg.TabIndex = 16;
+            this.buttonMsg.TabStop = false;
+            this.buttonMsg.Click += new System.EventHandler(this.buttonFormMsgVerify_Click);
+            this.buttonMsg.MouseLeave += new System.EventHandler(this.buttonMsg_MouseLeave);
+            this.buttonMsg.MouseHover += new System.EventHandler(this.buttonMsg_MouseHover);
+            // 
+            // buttonFindFriend
+            // 
+            this.buttonFindFriend.Image = ((System.Drawing.Image)(resources.GetObject("buttonFindFriend.Image")));
+            this.buttonFindFriend.Location = new System.Drawing.Point(247, 16);
+            this.buttonFindFriend.Name = "buttonFindFriend";
+            this.buttonFindFriend.Size = new System.Drawing.Size(15, 15);
+            this.buttonFindFriend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.buttonFindFriend.TabIndex = 15;
+            this.buttonFindFriend.TabStop = false;
+            this.buttonFindFriend.Click += new System.EventHandler(this.addFriendButton_Click);
+            this.buttonFindFriend.MouseLeave += new System.EventHandler(this.buttonFindFriend_MouseLeave);
+            this.buttonFindFriend.MouseHover += new System.EventHandler(this.buttonFindFriend_MouseHover);
             // 
             // buttonExit
             // 
@@ -185,19 +204,20 @@
             // 
             // mainTabControl1
             // 
+            this.mainTabControl1.BackColor = System.Drawing.Color.Transparent;
             this.mainTabControl1.Location = new System.Drawing.Point(4, 123);
             this.mainTabControl1.Name = "mainTabControl1";
-            this.mainTabControl1.Size = new System.Drawing.Size(272, 36);
-            this.mainTabControl1.TabIndex = 19;
+            this.mainTabControl1.Size = new System.Drawing.Size(272, 31);
+            this.mainTabControl1.TabIndex = 18;
             // 
             // flowLayoutPanelFriendList
             // 
             this.flowLayoutPanelFriendList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanelFriendList.Location = new System.Drawing.Point(4, 161);
+            this.flowLayoutPanelFriendList.Location = new System.Drawing.Point(4, 155);
             this.flowLayoutPanelFriendList.Name = "flowLayoutPanelFriendList";
-            this.flowLayoutPanelFriendList.Size = new System.Drawing.Size(272, 406);
+            this.flowLayoutPanelFriendList.Size = new System.Drawing.Size(272, 483);
             this.flowLayoutPanelFriendList.TabIndex = 17;
             // 
             // topInfoPanel1
@@ -215,13 +235,13 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(280, 650);
             this.ControlBox = false;
+            this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.mainTabControl1);
             this.Controls.Add(this.flowLayoutPanelFriendList);
             this.Controls.Add(this.topInfoPanel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonMin);
             this.Controls.Add(this.buttonExit);
-            this.Controls.Add(this.panelBottom);
             this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -237,6 +257,8 @@
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.contextMenuStripNotifyIcon.ResumeLayout(false);
             this.panelBottom.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.buttonMsg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonFindFriend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -248,18 +270,17 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripNotifyIcon;
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.Timer timerShowOrHide;
-        private System.Windows.Forms.Button addFriendButton;
         private System.Windows.Forms.Panel panelBottom;
-        private System.Windows.Forms.Button buttonShop;
-        private System.Windows.Forms.Button buttonDrawHouse;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Button buttonMin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timerNotifyIcon;
-        private System.Windows.Forms.Button buttonFormMsgVerify;
         private UserControls.TopInfoPanel topInfoPanel1;
         public UserControls.FlowLayoutPanelFriendList flowLayoutPanelFriendList;
+        private System.Windows.Forms.Button buttonShop;
+        private System.Windows.Forms.Button buttonDraw;
+        private System.Windows.Forms.PictureBox buttonMsg;
+        private System.Windows.Forms.PictureBox buttonFindFriend;
         private UserControls.MainTabControl mainTabControl1;
     }
 }

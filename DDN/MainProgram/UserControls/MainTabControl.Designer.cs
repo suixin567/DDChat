@@ -44,7 +44,7 @@
             this.pictureBoxDia.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxDia.Image")));
             this.pictureBoxDia.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxDia.Name = "pictureBoxDia";
-            this.pictureBoxDia.Size = new System.Drawing.Size(67, 30);
+            this.pictureBoxDia.Size = new System.Drawing.Size(67, 31);
             this.pictureBoxDia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxDia.TabIndex = 0;
             this.pictureBoxDia.TabStop = false;
@@ -57,7 +57,7 @@
             this.pictureBoxFriend.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxFriend.Image")));
             this.pictureBoxFriend.Location = new System.Drawing.Point(68, 0);
             this.pictureBoxFriend.Name = "pictureBoxFriend";
-            this.pictureBoxFriend.Size = new System.Drawing.Size(67, 30);
+            this.pictureBoxFriend.Size = new System.Drawing.Size(67, 31);
             this.pictureBoxFriend.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxFriend.TabIndex = 1;
             this.pictureBoxFriend.TabStop = false;
@@ -68,9 +68,9 @@
             // pictureBoxGroup
             // 
             this.pictureBoxGroup.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGroup.Image")));
-            this.pictureBoxGroup.Location = new System.Drawing.Point(138, 0);
+            this.pictureBoxGroup.Location = new System.Drawing.Point(137, 0);
             this.pictureBoxGroup.Name = "pictureBoxGroup";
-            this.pictureBoxGroup.Size = new System.Drawing.Size(67, 30);
+            this.pictureBoxGroup.Size = new System.Drawing.Size(67, 31);
             this.pictureBoxGroup.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxGroup.TabIndex = 2;
             this.pictureBoxGroup.TabStop = false;
@@ -83,7 +83,7 @@
             this.pictureBoxRes.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRes.Image")));
             this.pictureBoxRes.Location = new System.Drawing.Point(205, 0);
             this.pictureBoxRes.Name = "pictureBoxRes";
-            this.pictureBoxRes.Size = new System.Drawing.Size(67, 30);
+            this.pictureBoxRes.Size = new System.Drawing.Size(67, 31);
             this.pictureBoxRes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxRes.TabIndex = 3;
             this.pictureBoxRes.TabStop = false;
@@ -101,7 +101,7 @@
             this.Controls.Add(this.pictureBoxFriend);
             this.Controls.Add(this.pictureBoxDia);
             this.Name = "MainTabControl";
-            this.Size = new System.Drawing.Size(272, 30);
+            this.Size = new System.Drawing.Size(272, 31);
             this.Load += new System.EventHandler(this.MainTabControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).EndInit();

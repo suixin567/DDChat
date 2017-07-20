@@ -70,9 +70,9 @@
             this.label2.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(374, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 15);
+            this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 2;
-            this.label2.Text = "找公司";
+            this.label2.Text = "找群";
             // 
             // textBoxFindCompany
             // 
@@ -118,9 +118,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(420, 33);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(125, 12);
+            this.label4.Size = new System.Drawing.Size(113, 12);
             this.label4.TabIndex = 7;
-            this.label4.Text = "请输入想查找的公司ID";
+            this.label4.Text = "请输入想查找的群ID";
             // 
             // pictureBox1
             // 

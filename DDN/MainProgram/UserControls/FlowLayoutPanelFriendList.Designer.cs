@@ -39,7 +39,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel.AutoScroll = true;
-            this.flowLayoutPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.flowLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanel.Controls.Add(this.labelTitle);
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -47,6 +47,7 @@
             this.flowLayoutPanel.Size = new System.Drawing.Size(246, 502);
             this.flowLayoutPanel.TabIndex = 0;
             this.flowLayoutPanel.WrapContents = false;
+            this.flowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel_Paint);
             // 
             // labelTitle
             // 

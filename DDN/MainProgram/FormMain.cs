@@ -388,6 +388,10 @@ namespace MainProgram
         }
 
 
+        
+  
+        
+
         //打开商城
         private void buttonShop_Click(object sender, EventArgs e)
         {
@@ -395,9 +399,97 @@ namespace MainProgram
             UnityManager.Instance.resourceMode = 0;
         }
         //打开画房子
-        private void buttonDrawHouse_Click(object sender, EventArgs e)
+        private void buttonDraw_Click(object sender, EventArgs e)
         {
             UnityManager.Instance.changeUnityScene(3);
+        }
+
+
+
+        Label m_labelTip = null;
+
+        private void buttonShop_MouseHover(object sender, EventArgs e)
+        {
+            Label labelTip = new Label();
+            this.Controls.Add(labelTip);
+            labelTip.Text = "商城";
+            labelTip.Size = new Size(40, 20);
+            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+            labelTip.ForeColor = Color.White;
+            labelTip.TextAlign = ContentAlignment.MiddleCenter;
+            labelTip.BackColor = Color.DodgerBlue;
+            Point po = new Point(this.panelBottom.Location.X + 20, this.panelBottom.Location.Y - 15);
+            labelTip.Location = po;
+            labelTip.BringToFront();
+            m_labelTip = labelTip;
+        }
+
+        private void buttonShop_MouseLeave(object sender, EventArgs e)
+        {
+            if (m_labelTip != null) m_labelTip.Dispose();
+        }
+
+        private void buttonDraw_MouseHover(object sender, EventArgs e)
+        {
+            Label labelTip = new Label();
+            this.Controls.Add(labelTip);
+            labelTip.Text = "绘制户型";
+            labelTip.Size = new Size(60, 20);
+            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+            labelTip.ForeColor = Color.White;
+            labelTip.TextAlign = ContentAlignment.MiddleCenter;
+            labelTip.BackColor = Color.DodgerBlue;
+            Point po = new Point(this.panelBottom.Location.X + 80, this.panelBottom.Location.Y - 15);
+            labelTip.Location = po;
+            labelTip.BringToFront();
+            m_labelTip = labelTip;
+        }
+
+        private void buttonDraw_MouseLeave(object sender, EventArgs e)
+        {
+            if (m_labelTip != null) m_labelTip.Dispose();
+        }
+
+        private void buttonMsg_MouseHover(object sender, EventArgs e)
+        {
+            Label labelTip = new Label();
+            this.Controls.Add(labelTip);
+            labelTip.Text = "消息验证";
+            labelTip.Size = new Size(60, 20);
+            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+            labelTip.ForeColor = Color.White;
+            labelTip.TextAlign = ContentAlignment.MiddleCenter;
+            labelTip.BackColor = Color.DodgerBlue;
+            Point po = new Point(this.panelBottom.Location.X + 190, this.panelBottom.Location.Y - 15);
+            labelTip.Location = po;
+            labelTip.BringToFront();
+            m_labelTip = labelTip;            
+        }
+
+        private void buttonMsg_MouseLeave(object sender, EventArgs e)
+        {
+            if (m_labelTip != null) m_labelTip.Dispose();
+        }
+
+        private void buttonFindFriend_MouseHover(object sender, EventArgs e)
+        {
+            Label labelTip = new Label();
+            this.Controls.Add(labelTip);
+            labelTip.Text = "查找";
+            labelTip.Size = new Size(60, 20);
+            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+            labelTip.ForeColor = Color.White;
+            labelTip.TextAlign = ContentAlignment.MiddleCenter;
+            labelTip.BackColor = Color.DodgerBlue;
+            Point po = new Point(this.panelBottom.Location.X + 220, this.panelBottom.Location.Y - 15);
+            labelTip.Location = po;
+            labelTip.BringToFront();
+            m_labelTip = labelTip;
+        }
+
+        private void buttonFindFriend_MouseLeave(object sender, EventArgs e)
+        {
+            if (m_labelTip != null) m_labelTip.Dispose();
         }
     }
 }

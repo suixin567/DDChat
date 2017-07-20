@@ -31,7 +31,6 @@
             this.buttonCreateGroup = new System.Windows.Forms.Button();
             this.buttonMyRes = new System.Windows.Forms.Button();
             this.buttonGroupRes = new System.Windows.Forms.Button();
-            this.buttonAll = new System.Windows.Forms.Button();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanelGroupResItemList = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel.SuspendLayout();
@@ -41,6 +40,7 @@
             // 
             this.buttonCreateGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCreateGroup.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonCreateGroup.ForeColor = System.Drawing.Color.White;
             this.buttonCreateGroup.Location = new System.Drawing.Point(234, 1);
             this.buttonCreateGroup.Name = "buttonCreateGroup";
             this.buttonCreateGroup.Size = new System.Drawing.Size(75, 23);
@@ -68,26 +68,16 @@
             this.buttonGroupRes.UseVisualStyleBackColor = true;
             this.buttonGroupRes.Click += new System.EventHandler(this.buttonGroupRes_Click);
             // 
-            // buttonAll
-            // 
-            this.buttonAll.Location = new System.Drawing.Point(3, 67);
-            this.buttonAll.Name = "buttonAll";
-            this.buttonAll.Size = new System.Drawing.Size(189, 23);
-            this.buttonAll.TabIndex = 2;
-            this.buttonAll.Text = "全部资源（个人资源+群资源）";
-            this.buttonAll.UseVisualStyleBackColor = true;
-            this.buttonAll.Click += new System.EventHandler(this.buttonAll_Click);
-            // 
             // flowLayoutPanel
             // 
             this.flowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel.AutoScroll = true;
+            this.flowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel.Controls.Add(this.buttonMyRes);
             this.flowLayoutPanel.Controls.Add(this.buttonGroupRes);
             this.flowLayoutPanel.Controls.Add(this.flowLayoutPanelGroupResItemList);
-            this.flowLayoutPanel.Controls.Add(this.buttonAll);
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 30);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
@@ -109,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.flowLayoutPanel);
             this.Controls.Add(this.buttonCreateGroup);
             this.Name = "FlowLayoutPanelResourcesList";
@@ -123,7 +113,6 @@
 
         #endregion
         private System.Windows.Forms.Button buttonCreateGroup;
-        private System.Windows.Forms.Button buttonAll;
         private System.Windows.Forms.Button buttonMyRes;
         private System.Windows.Forms.Button buttonGroupRes;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;

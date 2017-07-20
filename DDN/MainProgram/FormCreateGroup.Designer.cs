@@ -50,9 +50,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(75, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "公司名称：";
+            this.label1.Text = "群名称：";
             // 
             // textBoxGroupName
             // 
@@ -69,9 +69,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(75, 147);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 2;
-            this.label2.Text = "公司规模：";
+            this.label2.Text = "群规模：";
             // 
             // label3
             // 
@@ -130,9 +130,9 @@
             this.label6.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label6.Location = new System.Drawing.Point(337, 13);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 12);
+            this.label6.Size = new System.Drawing.Size(77, 12);
             this.label6.TabIndex = 3;
-            this.label6.Text = "查看建公司资格";
+            this.label6.Text = "查看建群资格";
             // 
             // buttonCreateGroup
             // 
@@ -151,9 +151,9 @@
             this.label5.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label5.Location = new System.Drawing.Point(105, 11);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 12);
+            this.label5.Size = new System.Drawing.Size(77, 12);
             this.label5.TabIndex = 1;
-            this.label5.Text = "叮叮鸟公司服务协议";
+            this.label5.Text = "叮叮鸟群协议";
             // 
             // checkBox1
             // 
@@ -197,7 +197,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormCreateGroup";
-            this.Text = "创建公司";
+            this.Text = "创建群";
             this.Load += new System.EventHandler(this.FormCreateGroup_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

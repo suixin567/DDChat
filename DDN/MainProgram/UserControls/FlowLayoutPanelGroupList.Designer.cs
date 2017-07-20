@@ -45,7 +45,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel.AutoScroll = true;
-            this.flowLayoutPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.flowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel.ContextMenuStrip = this.contextMenuStrip;
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 44);
@@ -76,17 +76,19 @@
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(41, 12);
             this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "公司 0";
+            this.labelTitle.Text = "群组 0";
             // 
             // buttonCreateGroup
             // 
             this.buttonCreateGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCreateGroup.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonCreateGroup.ForeColor = System.Drawing.Color.White;
             this.buttonCreateGroup.Location = new System.Drawing.Point(234, 1);
             this.buttonCreateGroup.Name = "buttonCreateGroup";
             this.buttonCreateGroup.Size = new System.Drawing.Size(75, 23);
             this.buttonCreateGroup.TabIndex = 1;
-            this.buttonCreateGroup.Text = "创建公司";
-            this.buttonCreateGroup.UseVisualStyleBackColor = true;
+            this.buttonCreateGroup.Text = "创建群";
+            this.buttonCreateGroup.UseVisualStyleBackColor = false;
             this.buttonCreateGroup.Click += new System.EventHandler(this.buttonCreateGroup_Click);
             // 
             // labelTip
@@ -110,7 +112,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ContextMenuStrip = this.contextMenuStrip;
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.labelTip);

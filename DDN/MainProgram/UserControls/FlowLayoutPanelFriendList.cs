@@ -111,5 +111,10 @@ namespace MainProgram.UserControls
             }
             return friendList;
         }
+
+        private void flowLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
