@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Mgr.Properties {
+namespace MainProgram.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Mgr.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Mgr.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MainProgram.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -73,9 +73,9 @@ namespace Mgr.Properties {
         /// <summary>
         ///   查找类似于 (Icon) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Icon blank {
+        internal static System.Drawing.Icon nil {
             get {
-                object obj = ResourceManager.GetObject("blank", resourceCulture);
+                object obj = ResourceManager.GetObject("nil", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

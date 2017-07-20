@@ -74,8 +74,7 @@ namespace DDN
             if (WinformVersion != topVersion)
             {
                 //就需要更，显示出来
-                showFormSafePost();
-
+                showFormSafePost();             
                 //更新文件
                 Thread th = new Thread(new ThreadStart(UpdateFormUpdate));
                 th.Start();
@@ -111,6 +110,7 @@ namespace DDN
                 }
             }
             Debug.Print("下载更新程序完成");
+            Thread.Sleep(2000);
             hideFormSafePost();
             //下载完成，执行更新程序
             if (File.Exists(System.Windows.Forms.Application.StartupPath + @"\" + "UpdateProgram.dll") == false)
@@ -181,6 +181,8 @@ namespace DDN
             catch (Exception e)
             {
                 Debug.Print(e.ToString());
+                MessageBox.Show("连接远程服务器失败！");
+                Environment.Exit(0);
             }
             return responseString;
         }

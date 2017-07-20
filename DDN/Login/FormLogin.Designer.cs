@@ -74,6 +74,7 @@
             // buttonLogin
             // 
             this.buttonLogin.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonLogin.ForeColor = System.Drawing.Color.White;
             this.buttonLogin.Location = new System.Drawing.Point(134, 234);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(165, 34);

@@ -30,6 +30,8 @@
         {
             this.label = new System.Windows.Forms.Label();
             this.labelProgress = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label
@@ -50,12 +52,23 @@
             this.labelProgress.TabIndex = 2;
             this.labelProgress.Text = "更新中...";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UpdateProgram.Properties.Resources.bird;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 60);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(333, 121);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(300, 100);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelProgress);
             this.Controls.Add(this.label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -65,6 +78,7 @@
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormUpdate_FormClosed);
             this.Load += new System.EventHandler(this.FormUpdate_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -73,6 +87,7 @@
         #endregion
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label labelProgress;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

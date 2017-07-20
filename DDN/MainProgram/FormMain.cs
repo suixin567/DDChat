@@ -12,9 +12,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
-using Mgr.Properties;
-using System.Resources;
-using System.Reflection;
 using MainProgram.UserControls;
 using UnityControl;
 
@@ -129,10 +126,10 @@ namespace MainProgram
         {
             if (isNotifyIconHide==false)//变小
             {
-                this.notifyIconFormMain.Icon = Mgr.Properties.Resources.blank;
+                this.notifyIconFormMain.Icon = MainProgram.Properties.Resources.nil;              
                 isNotifyIconHide = true;
             }else{//变大
-                this.notifyIconFormMain.Icon = Mgr.Properties.Resources.bird;
+                this.notifyIconFormMain.Icon = MainProgram.Properties.Resources.bird;
                 isNotifyIconHide = false;
             }          
         }
@@ -188,7 +185,7 @@ namespace MainProgram
         {
             isNotifyIconFlashing = false;//停止icon闪烁
             this.timerNotifyIcon.Stop();
-            this.notifyIconFormMain.Icon = Mgr.Properties.Resources.bird;
+            this.notifyIconFormMain.Icon = MainProgram.Properties.Resources.bird;
 
             //创建消息管理器面板
             if (formMessageVerify == null)

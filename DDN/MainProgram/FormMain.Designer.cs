@@ -199,7 +199,7 @@
             // timerNotifyIcon
             // 
             this.timerNotifyIcon.Enabled = true;
-            this.timerNotifyIcon.Interval = 500;
+            this.timerNotifyIcon.Interval = 300;
             this.timerNotifyIcon.Tick += new System.EventHandler(this.notifyIconTimer_Tick);
             // 
             // mainTabControl1
