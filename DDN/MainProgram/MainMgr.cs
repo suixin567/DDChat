@@ -34,7 +34,7 @@ namespace MainProgram
             set {
                 baseInfo = value;
                 formMain.notifyIconFormMain.Text = "叮叮鸟：" + MainMgr.Instance.BaseInfo.Nickname + "（" + MainMgr.Instance.BaseInfo.Username + "）";
-                formMain.flowLayoutPanelFriendList.InitSelfInfo(baseInfo);
+                formMain.flowLayoutPanelFriendList.InitSelfInfoSafePost(baseInfo);
             }
         }
         Image selfFace;

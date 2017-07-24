@@ -31,9 +31,13 @@ namespace MainProgram.UserControls
             pullFriendList();
         }
 
-        public void InitSelfInfo(PersonalInfoModel model) {
-            this.labelSelf.Text = model.Nickname + " (自己)";
+        public void InitSelfInfoSafePost(PersonalInfoModel model)
+        {
+            m_SyncContext.Post(InitSelfInfo, model.Nickname);
+        }
 
+        public void InitSelfInfo(object state) {
+            this.labelSelf.Text = state.ToString()+ " (自己)";
         }
 
         public void InitSelfFace(Image face)
@@ -43,16 +47,18 @@ namespace MainProgram.UserControls
 
         void pullFriendList()
         {
-            string pullFriendList = HttpReqHelper.request(AppConst.WebUrl + "friendList?username=" + PlayerPrefs.GetString("username"));
-            Debug.Print("我的好友列表" + pullFriendList);
-            string[] friendArr = pullFriendList.Split(',');
-            foreach (var friend in friendArr)
-            {
-                if (friend != "")
-                {
-                    addFriendItemSafePost(friend);
-                }
-            }
+             HttpReqHelper.requestSync(AppConst.WebUrl + "friendList?username=" + PlayerPrefs.GetString("username") , delegate(string pullFriendList) {
+                 Debug.Print("我的好友列表" + pullFriendList);
+                 string[] friendArr = pullFriendList.Split(',');
+                 foreach (var friend in friendArr)
+                 {
+                     if (friend != "")
+                     {
+                         addFriendItemSafePost(friend);
+                     }
+                 }
+             });
+           
         }
 
 

@@ -45,20 +45,21 @@ namespace MainProgram
 
             if (textBoxFindFriend.Text != "" && textBoxFindFriend.Text != PlayerPrefs.GetString("username"))
             {
-              string friends =  HttpReqHelper.request(AppConst.WebUrl+"findFriend?username="+textBoxFindFriend.Text);
-                try
-                {
-                    this.flowLayoutPanelStrangers.Controls.Clear();
-                    PersonalInfoModel[] model = Coding<PersonalInfoModel[]>.decode(friends);
-                    foreach (var item in model)
-                    {
-                        AddFriendItem otherItem = new AddFriendItem(item.Username, item.Nickname, item.Face);
-                        this.flowLayoutPanelStrangers.Controls.Add(otherItem);
-                    }
-                }
-                catch (Exception)
-                {
-                }                               
+               HttpReqHelper.requestSync(AppConst.WebUrl+"findFriend?username="+textBoxFindFriend.Text,delegate(string friends) {
+                   try
+                   {
+                       this.flowLayoutPanelStrangers.Controls.Clear();
+                       PersonalInfoModel[] model = Coding<PersonalInfoModel[]>.decode(friends);
+                       foreach (var item in model)
+                       {
+                           AddFriendItem otherItem = new AddFriendItem(item.Username, item.Nickname, item.Face);
+                           this.flowLayoutPanelStrangers.Controls.Add(otherItem);
+                       }
+                   }
+                   catch (Exception)
+                   {
+                   }
+               });                                    
             }
         }
 
@@ -92,21 +93,24 @@ namespace MainProgram
             if (textBoxFindCompany.Text != "")
             {
                 
-                string company = HttpReqHelper.request(AppConst.WebUrl + "groupBaseInfo?gid=" + textBoxFindCompany.Text);
-                Debug.Print("找到的公司"+ company);
-                try
-                {
-                    this.flowLayoutPanelStrangers.Controls.Clear();
-                    GroupInfoModel model = Coding<GroupInfoModel>.decode(company);
-                    if (model.Gid==0) {
-                        return;
-                    }
-                    AddGroupItem otherItem = new AddGroupItem(model.Name, model.Gid, model.Face);
-                    this.flowLayoutPanelStrangers.Controls.Add(otherItem);
-                }
-                catch (Exception)
-                {
-                }                                   
+               HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + textBoxFindCompany.Text,delegate(string company) {
+                   Debug.Print("找到的公司" + company);
+                   try
+                   {
+                       this.flowLayoutPanelStrangers.Controls.Clear();
+                       GroupInfoModel model = Coding<GroupInfoModel>.decode(company);
+                       if (model.Gid == 0)
+                       {
+                           return;
+                       }
+                       AddGroupItem otherItem = new AddGroupItem(model.Name, model.Gid, model.Face);
+                       this.flowLayoutPanelStrangers.Controls.Add(otherItem);
+                   }
+                   catch (Exception)
+                   {
+                   }
+               });
+                                          
             }
         }
 

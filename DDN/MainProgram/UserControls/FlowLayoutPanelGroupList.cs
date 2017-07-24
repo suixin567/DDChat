@@ -35,22 +35,21 @@ namespace MainProgram.UserControls
         //拉取群列表
         void pullGroupList()
         {
-            string pullGroupList = HttpReqHelper.request(AppConst.WebUrl + "groupList?username=" + PlayerPrefs.GetString("username"));
-            Debug.Print("我的群列表" + pullGroupList);
-
-            try
-            {
-                MyGroupModel[] myGroupModels = Coding<MyGroupModel[]>.decode(pullGroupList);
-                foreach (var group in myGroupModels)
+            HttpReqHelper.requestSync(AppConst.WebUrl + "groupList?username=" + PlayerPrefs.GetString("username"),delegate(string pullGroupList) {
+                Debug.Print("我的群列表" + pullGroupList);
+                try
                 {
-                    addItemSafePost(group);
+                    MyGroupModel[] myGroupModels = Coding<MyGroupModel[]>.decode(pullGroupList);
+                    foreach (var group in myGroupModels)
+                    {
+                        addItemSafePost(group);
+                    }
                 }
-            }
-            catch (Exception e)
-            {
-                Debug.Print(e.ToString());
-            }
-
+                catch (Exception e)
+                {
+                    Debug.Print(e.ToString());
+                }
+            });        
            
         }
 

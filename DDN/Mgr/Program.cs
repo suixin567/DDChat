@@ -11,7 +11,12 @@ namespace Mgr
 {
     static class Program
     {
-        static bool isDebugModel = false;
+#if DEBUG
+        static bool isDebugModel = true;
+#else
+    static bool isDebugModel = false;
+#endif
+
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>

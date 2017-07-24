@@ -69,7 +69,15 @@ namespace MainProgram
 
         public void onMessage(SocketModel sm)
         {
-            MsgModel mModel = Coding<MsgModel>.decode(sm.Message);
+            MsgModel mModel = new MsgModel();
+            try
+            {
+                mModel = Coding<MsgModel>.decode(sm.Message);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("MsgMgr.onMessage解析错误" + e.ToString());               
+            }
             onNewMessage(mModel);
             if (MainMgr.Instance.formMain.formMessageVerify != null && MainMgr.Instance.formMain.formMessageVerify.IsDisposed == false)
             {
@@ -201,26 +209,38 @@ namespace MainProgram
         //拉取离线消息
         void pullOfflineMsg()
         {
-            string offlineMsg = HttpReqHelper.request(AppConst.WebUrl + "offlinemsg?protocol=0&username=" + PlayerPrefs.GetString("username"));
-            Debug.Print("我的离线消息" + offlineMsg);
-            offlineMsgArr = Coding<MsgModel[]>.decode(offlineMsg);
-            //告诉服务器可以删除离线消息
-            if (offlineMsgArr != null)
-            {
-                if (offlineMsgArr.Length > 0)
-                {
-                    clearOfflineMsg();
-                }
-            }
+           HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=0&username=" + PlayerPrefs.GetString("username"),delegate(string offlineMsg) {
+               Debug.Print("我的离线消息" + offlineMsg);
+               try
+               {
+                   offlineMsgArr = Coding<MsgModel[]>.decode(offlineMsg);
+               }
+               catch (Exception e)
+               {
+                   Debug.Print("MsgMgr.pullOfflineMsg()解析离线消息失败" + e.ToString());
+               }
+
+               //告诉服务器可以删除离线消息
+               if (offlineMsgArr != null)
+               {
+                   if (offlineMsgArr.Length > 0)
+                   {
+                       clearOfflineMsg();
+                   }
+               }
+           });
+
+           
         }
 
         void clearOfflineMsg()
         {
-            string offlineMsg = HttpReqHelper.request(AppConst.WebUrl + "offlinemsg?protocol=1&username=" + PlayerPrefs.GetString("username"));
-            if (offlineMsg == "false")
-            {
-                clearOfflineMsg();
-            }
+            HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=1&username=" + PlayerPrefs.GetString("username"),delegate(string offlineMsg) {
+                if (offlineMsg == "false")
+                {
+                    clearOfflineMsg();
+                }
+            });           
         }
 
     }

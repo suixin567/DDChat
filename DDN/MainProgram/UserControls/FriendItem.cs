@@ -16,7 +16,7 @@ namespace MainProgram.UserControls
     public partial class FriendItem : UserControl
     {
         public string FriendUsername;
-
+        PersonalInfoModel m_friendModel = new PersonalInfoModel();
         public SynchronizationContext m_SyncContext = null;
 
         public FriendItem()
@@ -40,21 +40,41 @@ namespace MainProgram.UserControls
         private void FriendItem_Load(object sender, EventArgs e)
         {
             //获取这个好友的基本信息
-            string friendInfo = HttpReqHelper.request(AppConst.WebUrl + "baseInfo?username=" + FriendUsername);
-            PersonalInfoModel model = Coding<PersonalInfoModel>.decode(friendInfo);
-            friendNickName.Text = model.Nickname;
-            LabelDescription.Text = model.Description;
-            //下载头像
-            if (model.Face != "")
-            {
-                Image image = HttpReqHelper.requestPic(AppConst.WebUrl + "res/face/" + model.Face);
-                if (image != null)
+            HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + FriendUsername,delegate(string friendInfo) {
+               
+                try
                 {
-                    Image newImage = ImageTool.CutEllipse(image);
-                    this.friendFacePictureBox.Image = newImage;
+                   m_friendModel = Coding<PersonalInfoModel>.decode(friendInfo);
                 }
-            }
+                catch (Exception err)
+                {
+                    Debug.Print("FriendItem.FriendItem_Load解析失败" + err.ToString());
+                    return;
+                }
+                
+                //下载头像
+                if (m_friendModel.Face != "")
+                {
+                    Image image = HttpReqHelper.requestPic(AppConst.WebUrl + "res/face/" + m_friendModel.Face);
+                    if (image != null)
+                    {
+                        Image newImage = ImageTool.CutEllipse(image);
+                        this.friendFacePictureBox.Image = newImage;
+                    }
+                }
+            });
+           
         }
+
+        void initLabelSafePost() {
+            m_SyncContext.Post(initLabel,null);
+        }
+        void initLabel(object state)
+        {
+            friendNickName.Text = m_friendModel.Nickname;
+            LabelDescription.Text = m_friendModel.Description;
+        }
+
 
         private void 删除好友ToolStripMenuItem_Click(object sender, EventArgs e)
         {

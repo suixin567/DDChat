@@ -12,27 +12,70 @@ using System.Threading;
 public class HttpReqHelper
     {
 
-        public static string request(string url)
+    public static string request(string url)
+    {
+        string responseString = "";
+        try
         {
-            string responseString="";
-            try
-            {
-                //  Debug.Print("发出是：" + url);
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.Method = "GET";
-                request.ContentType = "textml;charset=UTF-8";
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                //   Debug.Print("收到的是" + responseString);
-            }
-            catch (Exception e) {
-                Debug.Print(e.ToString());
-            }    
-            return responseString;
+            //  Debug.Print("发出是：" + url);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.ContentType = "textml;charset=UTF-8";
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            //   Debug.Print("收到的是" + responseString);
         }
+        catch (Exception e)
+        {
+            Debug.Print(e.ToString());
+        }
+        return responseString;
+    }
+
+
+
+    public delegate void RequestInfoEvent(string callback);
+
+    public static void requestSync(string url, RequestInfoEvent callBack)
+    {
+        string responseString = "";
+        Func<string, string> reqInfo = requestThread;
+        IAsyncResult iar = reqInfo.BeginInvoke(url, ar =>
+        {
+            responseString = reqInfo.EndInvoke(ar);
+            if (callBack !=null)
+            {
+                callBack(responseString);
+            }
+        }, reqInfo);    
+    }
+
+    static string requestThread(string url)
+    {
+        string responseString = "";
+        try
+        {
+            Debug.Print("发出是：" + url);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.ContentType = "textml;charset=UTF-8";
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+            //   Debug.Print("收到的是" + responseString);
+        }
+        catch (Exception e)
+        {
+            Debug.Print(e.ToString());
+            return e.ToString();
+        }
+        Debug.Print("线程收到的数据" + responseString);
+        return responseString;
+    }
+
 
         public static Image requestPic(string url)
         {
+        return null;
             Image image=null;
             Stream resStream = null;
             try
@@ -73,14 +116,27 @@ public class HttpReqHelper
 
     public static void downloadFile(string url, string path, AssetLoadEvent callback, AssetLoadProgress progress=null)
     {
+        Debug.Print("下载Unity的请求" + url);
         int a = path.LastIndexOf('\\');
         string directory = path.Substring(0, a);
         if (File.Exists(directory) == false)
         {
             Directory.CreateDirectory(directory);
         }
-        HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
-        HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+        HttpWebRequest request =null;
+        HttpWebResponse response =null;
+        try
+        {
+            request = WebRequest.Create(url) as HttpWebRequest;
+            response = request.GetResponse() as HttpWebResponse;
+        }
+        catch (Exception err)
+        {
+            Debug.Print("下载Unity文件失败" + err.ToString());
+            if (callback != null) callback(err.ToString());
+            return;
+        }
+      
         long totalBytes = response.ContentLength;
         Stream responseStream = response.GetResponseStream();
         Stream stream = new FileStream(path, FileMode.Create);

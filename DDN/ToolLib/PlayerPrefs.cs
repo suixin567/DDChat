@@ -95,7 +95,16 @@ using LitJson;
             {
           //      Debug.Print("每一条PlayerPrefs数据：" + playerPrefsList[i]);
                 PlayerPrefsIntModel model = new PlayerPrefsIntModel();
+            try
+            {
                 model = Coding<PlayerPrefsIntModel>.decode(playerPrefsIntList[i]);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("SetInt解析失败"+ e.ToString());
+                return;               
+            }
+               
                 if (model.intKey == intKey)//找到了数据
                 {
                     isAllreadyExist = true;
@@ -135,7 +144,16 @@ using LitJson;
             foreach (var item in playerPrefsIntList)
             {
                 PlayerPrefsIntModel model = new PlayerPrefsIntModel();
+            try
+            {
                 model = Coding<PlayerPrefsIntModel>.decode(item);
+            }
+            catch (Exception err)
+            {
+                Debug.Print("GetInt解析失败" + err.ToString());
+                return 0;
+            }
+              
                 if (model.intKey == intKey)//找到了数据
                 {
                     return model.intValue;
@@ -170,7 +188,16 @@ using LitJson;
             {
                 //      Debug.Print("每一条PlayerPrefs数据：" + playerPrefsList[i]);
                 PlayerPrefsStringModel model = new PlayerPrefsStringModel();
-                model = Coding<PlayerPrefsStringModel>.decode(playerPrefsStringList[i]);
+                try
+                {
+                    model = Coding<PlayerPrefsStringModel>.decode(playerPrefsStringList[i]);
+                }
+                catch (Exception err)
+                {
+                    Debug.Print("SetString解析失败" + err.ToString());
+                return;
+                }
+               
                 if (model.stringKey == stringKey)//找到了数据
                 {
                     isAllreadyExist = true;
@@ -211,7 +238,16 @@ using LitJson;
             foreach (var item in playerPrefsStringList)
             {
                 PlayerPrefsStringModel model = new PlayerPrefsStringModel();
+            try
+            {
                 model = Coding<PlayerPrefsStringModel>.decode(item);
+            }
+            catch (Exception err)
+            {
+                Debug.Print("GetString 解析失败" + err.ToString());
+                return "";
+            }
+              
                 if (model.stringKey == stringKey)//找到了数据
                 {
                     return model.stringValue;

@@ -120,7 +120,7 @@ namespace UnityControl
                             catch (Exception deerr)
                             {
                                 Debug.Print("删除原unity版本失败！" + deerr.ToString());
-                            //    MessageBox.Show("删除旧版本失败");
+                                //    MessageBox.Show("删除旧版本失败");
                             }
                         }
                     }
@@ -139,18 +139,19 @@ namespace UnityControl
                                 //更新版本号！！
                                 try
                                 {
-                                    string versionStr="";
+                                    string versionStr = "";
                                     if (File.Exists(@".\wv.conf"))
                                     {
                                         //读取配置文件
                                         versionStr = System.IO.File.ReadAllText(System.Windows.Forms.Application.StartupPath + @".\wv.conf");
                                     }
-                                    else {
+                                    else
+                                    {
                                         FileStream fs1 = new FileStream(System.Windows.Forms.Application.StartupPath + @".\wv.conf", FileMode.Create);
                                         fs1.Close();
                                         Debug.Print("更新unity版本配置文件失败，这不该发生！");
                                     }
-                                 
+
                                     //更新配置文件
                                     string newContent = AnalyzeMFile.AnalyzeSet(versionStr, "UnityVersion", new List<string> { AnalyzeMFile.Analyze(oriSerInfos, "UnityVersion")[0] });
                                     FileStream fs = new FileStream(@".\wv.conf", FileMode.Create);
@@ -179,12 +180,17 @@ namespace UnityControl
                     }
                     catch (Exception dcerr)
                     {
-                        Debug.Print("解压出错"+ dcerr.ToString());
+                        Debug.Print("解压出错" + dcerr.ToString());
                         MessageBox.Show("解压出错" + dcerr.ToString());
                     }
-                   
-                   
-                    
+
+
+
+                    closeSelfSafePost();
+                }
+                else {
+                    MessageBox.Show("下载3D模块失败，请重试。");
+                    UnityManager.Instance.isUpdateing = false;
                     closeSelfSafePost();
                 }
             },

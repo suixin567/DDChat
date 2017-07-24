@@ -34,21 +34,32 @@ namespace MainProgram.UserControls
                 //圆形头像
                 pictureBoxTopFace.Image = ImageTool.CutEllipse(pictureBoxTopFace.Image);
                 //请求网络数据
-                string myinfo = HttpReqHelper.request(AppConst.WebUrl + "baseInfo?username=" + PlayerPrefs.GetString("username"));
-                model = Coding<PersonalInfoModel>.decode(myinfo);
-                MainMgr.Instance.BaseInfo = model;   
-                //初始化昵称Label
-                initNickLabel();
-                this.labelSelfDescription.Text = model.Description;
-                if (model.Face != "")
-                {
-                    //请求头像
-                    faceImage = HttpReqHelper.requestPic(AppConst.WebUrl + "res/face/" + model.Face);
-                    if (faceImage!=null)
+                HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + PlayerPrefs.GetString("username"),delegate(string myinfo) {
+                    try
                     {
-                        MainMgr.Instance.SelfFace = faceImage;
-                    }                   
-                }
+                        model = Coding<PersonalInfoModel>.decode(myinfo);
+                    }
+                    catch (Exception err)
+                    {
+                        Debug.Print("TopInfoPanel.TopInfoPanel_Load()解析失败" + err.ToString());
+                        return;
+                    }
+
+                    MainMgr.Instance.BaseInfo = model;
+                    //初始化昵称Label
+                    initNickLabelSafePost();
+                    
+                    if (model.Face != "")
+                    {
+                        //请求头像
+                        faceImage = HttpReqHelper.requestPic(AppConst.WebUrl + "res/face/" + model.Face);
+                        if (faceImage != null)
+                        {
+                            MainMgr.Instance.SelfFace = faceImage;
+                        }
+                    }
+                });
+               
                 //在线状态显示               
                 NetWorkManager.Instance.offLineEvent += this.offline;
                 NetWorkManager.Instance.onLineEvent += this.onLine;
@@ -56,8 +67,14 @@ namespace MainProgram.UserControls
             }
         }
 
-        void initNickLabel() {
+
+        void initNickLabelSafePost() {
+            m_SyncContext.Post(initNickLabel,null);         
+        }
+        void initNickLabel(object state)
+        {
             this.labelSelfNickName.Text = model.Nickname;
+            this.labelSelfDescription.Text = model.Description;
             this.labelOnlineState.Location = new Point(labelSelfNickName.Location.X + labelSelfNickName.Width + 7, labelSelfNickName.Location.Y + 2);
         }
 

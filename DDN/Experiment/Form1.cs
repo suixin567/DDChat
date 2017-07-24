@@ -65,5 +65,16 @@ namespace Experiment
                 Debug.Print("<script>('写入失败！')</script>");
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Func<int, int, int> plus = (a, b) =>
+            {
+                return a + b;
+            };
+
+           int res = plus(1,2);
+            Debug.Print(res.ToString());
+        }
     }
 }

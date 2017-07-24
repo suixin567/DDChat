@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
-//using Login;
+using System.Windows.Forms;
 
-    public class NetWorkManager
+public class NetWorkManager
     {
         //单例
         private static NetWorkManager instance;
@@ -78,7 +78,9 @@ using System.Threading;
             }
             catch (Exception e)
             {
-                Debug.Print("连接服务器失败:" + e.Message);
+                Debug.Print("连接服务器失败:"+ url+ "  "+ port + e.Message);
+            MessageBox.Show("连接服务器失败，请重试","叮叮鸟提示：");
+            Environment.Exit(0);
             }
         }
 

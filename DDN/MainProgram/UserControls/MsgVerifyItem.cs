@@ -39,21 +39,32 @@ namespace MainProgram.UserControls
             this.labelTime.Text = m_MsgModel.Time;
 
             //对方信息（昵称和头像）
-            string fromInfo = HttpReqHelper.request(AppConst.WebUrl + "baseInfo?username=" + m_MsgModel.From);
-
-            if (fromInfo != "null")
-            {
-                PersonalInfoModel model = Coding<PersonalInfoModel>.decode(fromInfo);
-                this.labelNickName.Text = model.Nickname;
-
-                //请求头像
-                Image image = HttpReqHelper.requestPic(AppConst.WebUrl + "res/face/" + model.Face);
-                if (image != null)
+            HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + m_MsgModel.From,delegate(string fromInfo) {
+                if (fromInfo != "null")
                 {
-                    Image newImage2 = ImageTool.CutEllipse(image);
-                    this.pictureBoxFace.Image = newImage2;
+                    PersonalInfoModel model = new PersonalInfoModel();
+                    try
+                    {
+                        model = Coding<PersonalInfoModel>.decode(fromInfo);
+                    }
+                    catch (Exception err)
+                    {
+                        Debug.Print("MsgVerifyItem.FriendVerifyItem_Load解析错误" + err.ToString());
+                        return;
+                    }
+                    this.labelNickName.Text = model.Nickname;
+
+                    //请求头像
+                    Image image = HttpReqHelper.requestPic(AppConst.WebUrl + "res/face/" + model.Face);
+                    if (image != null)
+                    {
+                        Image newImage2 = ImageTool.CutEllipse(image);
+                        this.pictureBoxFace.Image = newImage2;
+                    }
                 }
-            }
+            });
+
+          
 
             //跟据消息类型 进行不同的展示
             switch (m_MsgModel.MsgType)

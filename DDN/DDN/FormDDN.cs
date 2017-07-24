@@ -18,9 +18,13 @@ namespace DDN
     public partial class FormDDN : Form
     {
 
-
         bool debugModel = false;
+
+#if DEBUG
+        static string ip = "192.168.1.101:7788";
+#else
         static string ip = "211.159.186.78:7788";
+#endif
         string oriSerInfos;
         string[] serInfos;
         public SynchronizationContext m_SyncContext = null;

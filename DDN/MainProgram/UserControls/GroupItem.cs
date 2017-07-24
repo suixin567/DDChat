@@ -32,22 +32,33 @@ namespace MainProgram.UserControls
             //圆形头像
             pictureBoxGroupFace.Image = ImageTool.CutEllipse(pictureBoxGroupFace.Image);
             //获取这个群的基本信息
-            string info = HttpReqHelper.request(AppConst.WebUrl + "groupBaseInfo?gid=" + m_myGroupModel.GroupID);
-            GroupInfoModel model = Coding<GroupInfoModel>.decode(info);
-            m_groupInfoModel = model;
-
-            labelName.Text = model.Name;
-
-            //下载头像
-            if (model.Face != "")
-            {
-                Image image = HttpReqHelper.requestPic(AppConst.WebUrl + "res/face/" + model.Face);
-                if (image != null)
+            HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + m_myGroupModel.GroupID,delegate(string info) {
+                GroupInfoModel model = new GroupInfoModel();
+                try
                 {
-                    Image newImage = ImageTool.CutEllipse(image);
-                    this.pictureBoxGroupFace.Image = newImage;
+                    model = Coding<GroupInfoModel>.decode(info);
                 }
-            }
+                catch (Exception err)
+                {
+                    Debug.Print("GroupItem.GroupItm()解析失败" + err.ToString());
+                    return;
+                }
+                m_groupInfoModel = model;
+
+                labelName.Text = model.Name;
+
+                //下载头像
+                if (model.Face != "")
+                {
+                    Image image = HttpReqHelper.requestPic(AppConst.WebUrl + "res/face/" + model.Face);
+                    if (image != null)
+                    {
+                        Image newImage = ImageTool.CutEllipse(image);
+                        this.pictureBoxGroupFace.Image = newImage;
+                    }
+                }
+            });
+            
         }
 
 

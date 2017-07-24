@@ -9,3 +9,12 @@ C:\Users\admin\Desktop\DDN\DDN\UpdateProgram\obj\Release\UpdateProgram.Propertie
 C:\Users\admin\Desktop\DDN\DDN\UpdateProgram\obj\Release\UpdateProgram.csproj.GenerateResource.Cache
 C:\Users\admin\Desktop\DDN\DDN\UpdateProgram\obj\Release\UpdateProgram.exe
 C:\Users\admin\Desktop\DDN\DDN\UpdateProgram\obj\Release\UpdateProgram.pdb
+C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\bin\Release\UpdateProgram.dll.config
+C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\bin\Release\UpdateProgram.dll
+C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\bin\Release\UpdateProgram.pdb
+C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\obj\Release\UpdateProgram.csprojResolveAssemblyReference.cache
+C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\obj\Release\UpdateProgram.FormUpdate.resources
+C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\obj\Release\UpdateProgram.Properties.Resources.resources
+C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\obj\Release\UpdateProgram.csproj.GenerateResource.Cache
+C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\obj\Release\UpdateProgram.dll
+C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\obj\Release\UpdateProgram.pdb
