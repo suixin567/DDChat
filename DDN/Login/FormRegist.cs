@@ -83,7 +83,7 @@ namespace Login
         public bool IsPsdRightFormat(string str_handset)
         {
             bool temp = false;
-            bool res = System.Text.RegularExpressions.Regex.IsMatch(str_handset, @"^\w{6,10}$");
+            bool res = System.Text.RegularExpressions.Regex.IsMatch(str_handset, @"^\w{6,13}$");
 
             if (res == true)
             {

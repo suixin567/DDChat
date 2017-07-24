@@ -18,14 +18,20 @@ namespace DDN
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+             
+          
+
+
             mutex = new System.Threading.Mutex(true, "OnlyRun");
-            if (mutex.WaitOne(0, false))
+            if (mutex.WaitOne(0, false)  && System.Diagnostics.Process.GetProcessesByName("Mgr").ToList().Count == 0)
             {
                 FormDDN DDN = new FormDDN();
                 Application.Run(DDN);
             }
             else
-            {               
+            {
+                MessageBox.Show("已经有叮叮鸟程序在运行，不可以开启多个。","叮叮鸟提示"); 
                 Application.Exit();
             }
         }

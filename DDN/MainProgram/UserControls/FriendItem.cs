@@ -58,6 +58,22 @@ namespace MainProgram.UserControls
 
         private void 删除好友ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (FriendUsername=="111111") {
+                Label labelTip = new Label();
+                ((FormMain)FindForm()).flowLayoutPanelFriendList.Controls.Add(labelTip);
+                labelTip.Text = "怎么连客服妹妹也要删？";
+                labelTip.Size = new Size(140, 25);
+                labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+                labelTip.ForeColor = Color.White;
+                labelTip.TextAlign = ContentAlignment.MiddleCenter;
+                labelTip.BackColor = Color.DodgerBlue;
+                Point po = new Point(this.Location.X + 10, this.Location.Y + 10);
+                labelTip.Location = po;
+                labelTip.BringToFront();
+                Thread th = new Thread(new ParameterizedThreadStart(closeTip));
+                th.Start(labelTip);
+                return;
+            }
             Debug.Print("删除好友");
             MsgModel mm = new MsgModel(MsgProtocol.DELETE_FRIEND_CREQ, PlayerPrefs.GetString("username"), FriendUsername, "我把你删除好友了，再见。", DateTime.Now.ToString());
             MainMgr.Instance.msgMgr.sendMessage(MsgProtocol.FRIEND, mm);

@@ -5,9 +5,9 @@
     public class AppConst
     {
 
-        public const string LAN = "192.168.1.101";
-     //   public const string WAN = "211.159.186.78";
-        public static string SocketUrl = LAN;
+      //  public const string LAN = "192.168.1.101";
+        public const string WAN = "211.159.186.78";
+        public static string SocketUrl = WAN;
         public static string WebUrl = "http://" + SocketUrl + ":7788/";
         //public static string StandaloneDBPath = "C:/Users/Public/standalone.db";
         //public static string StandaloneDBPath = "C:/Users/Public/standalone.db";//单机模式数据库位置

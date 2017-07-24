@@ -36,7 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pictureBoxUserNameTip = new System.Windows.Forms.PictureBox();
             this.pictureBoxPsdTip = new System.Windows.Forms.PictureBox();
             this.pictureBoxPhoneTip = new System.Windows.Forms.PictureBox();
@@ -61,7 +60,7 @@
             // textBoxRegistPsd
             // 
             this.textBoxRegistPsd.Location = new System.Drawing.Point(152, 112);
-            this.textBoxRegistPsd.MaxLength = 10;
+            this.textBoxRegistPsd.MaxLength = 13;
             this.textBoxRegistPsd.Name = "textBoxRegistPsd";
             this.textBoxRegistPsd.Size = new System.Drawing.Size(159, 21);
             this.textBoxRegistPsd.TabIndex = 1;
@@ -79,7 +78,7 @@
             // buttonRegistCommit
             // 
             this.buttonRegistCommit.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonRegistCommit.Location = new System.Drawing.Point(152, 228);
+            this.buttonRegistCommit.Location = new System.Drawing.Point(152, 247);
             this.buttonRegistCommit.Name = "buttonRegistCommit";
             this.buttonRegistCommit.Size = new System.Drawing.Size(159, 31);
             this.buttonRegistCommit.TabIndex = 3;
@@ -113,16 +112,6 @@
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 6;
             this.label3.Text = "手机号码";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(139, 280);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(185, 12);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "账号密码中，仅能包含6-10位数字";
             // 
             // pictureBoxUserNameTip
             // 
@@ -178,9 +167,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(152, 95);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(137, 12);
+            this.label6.Size = new System.Drawing.Size(173, 12);
             this.label6.TabIndex = 13;
-            this.label6.Text = "密码仅能包含字母、数字";
+            this.label6.Text = "密码仅能包含6-13位字母、数字";
             // 
             // FormRegist
             // 
@@ -193,7 +182,6 @@
             this.Controls.Add(this.pictureBoxPhoneTip);
             this.Controls.Add(this.pictureBoxPsdTip);
             this.Controls.Add(this.pictureBoxUserNameTip);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -227,7 +215,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBoxUserNameTip;
         private System.Windows.Forms.PictureBox pictureBoxPsdTip;
         private System.Windows.Forms.PictureBox pictureBoxPhoneTip;

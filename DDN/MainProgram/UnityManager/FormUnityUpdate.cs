@@ -44,7 +44,7 @@ namespace UnityControl
 
         public bool checkUpdate()
         {
-            oriSerInfos = HttpReqHelper.request("http://192.168.1.101:7788/winUpdate");
+            oriSerInfos = HttpReqHelper.request(AppConst.WebUrl +"winUpdate");
 
             string topUnityVerStr = AnalyzeMFile.Analyze(oriSerInfos, "UnityVersion")[0];
             int topUnityVerson = int.Parse(topUnityVerStr);
@@ -92,7 +92,9 @@ namespace UnityControl
         void downLoadUnity()
         {
             string ip = AnalyzeMFile.Analyze(oriSerInfos, "FilesUrl")[0];
-            string url = "http://" + ip + "/res/winUpdateDlls/" + AnalyzeMFile.Analyze(oriSerInfos, "Unity")[0];
+            string filesPath = AnalyzeMFile.Analyze(oriSerInfos, "FilesPath")[0];
+
+            string url = "http://" + ip + "/res/winUpdateDlls/"+ filesPath+"/" + AnalyzeMFile.Analyze(oriSerInfos, "Unity")[0];
             string path = unityPath + @"\temp\" + AnalyzeMFile.Analyze(oriSerInfos, "Unity")[0];
             Debug.Print("下载Unity文件" + url + path);
 

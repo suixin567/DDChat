@@ -244,7 +244,6 @@ namespace Login
 
         public void CloseSelf(object state)
         {
-       //     Close();
             Dispose();
         }
 

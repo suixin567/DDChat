@@ -34,6 +34,10 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Login">
       <HintPath>..\Login\bin\Debug\Login.dll</HintPath>
@@ -93,6 +97,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bird.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bird.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
