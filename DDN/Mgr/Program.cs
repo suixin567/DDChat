@@ -14,7 +14,7 @@ namespace Mgr
 #if DEBUG
         static bool isDebugModel = true;
 #else
-    static bool isDebugModel = false;
+    static bool isDebugModel = true;
 #endif
 
         /// <summary>

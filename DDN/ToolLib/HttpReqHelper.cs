@@ -72,48 +72,53 @@ public class HttpReqHelper
         return responseString;
     }
 
-
-        public static Image requestPic(string url)
+    public delegate void RequestPicEvent(Image img);
+    public static void requestPicSync(string url , RequestPicEvent callBack)
         {
-        return null;
-            Image image=null;
-            Stream resStream = null;
-            try
+        Image tempImage;
+        Func<string,Image> reqPic = requestPicThread;
+        IAsyncResult iar = reqPic.BeginInvoke(url, ar =>
+        {
+            tempImage = reqPic.EndInvoke(ar);
+            if (callBack != null)
             {
-                //    Debug.Print("发出请求图片是：" + url);
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.Method = "GET";
-                request.ContentType = "application/octet-stream";
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-                resStream = response.GetResponseStream();
-                image = Image.FromStream(resStream);
-                return image;
+                callBack(tempImage);
             }
-            catch
-            {
-                return null;
-            }
-            finally
-            {
-                if (resStream != null)
-                {
-                    resStream.Close();
-                }
-                // if (image!=null) {
-                //    image.Dispose();
-                // }
-            }
-            //image.Save(@"C:/x.JPG", System.Drawing.Imaging.ImageFormat.Jpeg);                        
-            //WebClient wc = new WebClient();
-            //wc.DownloadFile("http://dotnet.aspx.cc/Images/logoSite.gif", "c:\\xx.gif");
+        }, reqPic);
+    }
+
+    static Image requestPicThread(string url) {
+        Image image = null;
+        Stream resStream = null;
+        try
+        {
+            //    Debug.Print("发出请求图片是：" + url);
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.ContentType = "application/octet-stream";
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            resStream = response.GetResponseStream();
+            image = Image.FromStream(resStream);
+            return image;
         }
+        catch (Exception err)
+        {
+            Debug.Print("requestPicThread下载图片失败" + err.ToString());
+            return null;
+        }
+        finally
+        {
+            if (resStream != null)
+            {
+                resStream.Close();
+            }
+        }
+    }
 
 
     //文件下载
     public delegate void AssetLoadEvent(string err);
     public delegate void AssetLoadProgress(float progress);
-
-
     public static void downloadFile(string url, string path, AssetLoadEvent callback, AssetLoadProgress progress=null)
     {
         Debug.Print("下载Unity的请求" + url);

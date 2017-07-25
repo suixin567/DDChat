@@ -13,3 +13,15 @@ C:\Users\admin\Desktop\DDN\DDN\Login\obj\Release\Mgr.Properties.Resources.resour
 C:\Users\admin\Desktop\DDN\DDN\Login\obj\Release\Login.csproj.GenerateResource.Cache
 C:\Users\admin\Desktop\DDN\DDN\Login\obj\Release\Login.dll
 C:\Users\admin\Desktop\DDN\DDN\Login\obj\Release\Login.pdb
+C:\Users\文强\Desktop\DDN\DDN\Login\bin\Release\Login.dll.config
+C:\Users\文强\Desktop\DDN\DDN\Login\bin\Release\Login.dll
+C:\Users\文强\Desktop\DDN\DDN\Login\bin\Release\Login.pdb
+C:\Users\文强\Desktop\DDN\DDN\Login\bin\Release\ToolLib.dll
+C:\Users\文强\Desktop\DDN\DDN\Login\bin\Release\LitJson.dll
+C:\Users\文强\Desktop\DDN\DDN\Login\bin\Release\ToolLib.pdb
+C:\Users\文强\Desktop\DDN\DDN\Login\obj\Release\Login.FormLogin.resources
+C:\Users\文强\Desktop\DDN\DDN\Login\obj\Release\Login.FormRegist.resources
+C:\Users\文强\Desktop\DDN\DDN\Login\obj\Release\Mgr.Properties.Resources.resources
+C:\Users\文强\Desktop\DDN\DDN\Login\obj\Release\Login.csproj.GenerateResource.Cache
+C:\Users\文强\Desktop\DDN\DDN\Login\obj\Release\Login.dll
+C:\Users\文强\Desktop\DDN\DDN\Login\obj\Release\Login.pdb

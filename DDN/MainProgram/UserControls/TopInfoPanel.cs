@@ -52,11 +52,13 @@ namespace MainProgram.UserControls
                     if (model.Face != "")
                     {
                         //请求头像
-                        faceImage = HttpReqHelper.requestPic(AppConst.WebUrl + "res/face/" + model.Face);
-                        if (faceImage != null)
-                        {
-                            MainMgr.Instance.SelfFace = faceImage;
-                        }
+                        HttpReqHelper.requestPicSync(AppConst.WebUrl + "res/face/" + model.Face,delegate(Image face) {
+                            faceImage = face;
+                            if (faceImage != null)
+                            {
+                                MainMgr.Instance.SelfFace = faceImage;
+                            }
+                        });                       
                     }
                 });
                

@@ -32,9 +32,9 @@
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonFriend = new System.Windows.Forms.Button();
             this.panelSelf = new System.Windows.Forms.Panel();
-            this.pictureBoxSelfFace = new System.Windows.Forms.PictureBox();
-            this.labelSelf = new System.Windows.Forms.Label();
             this.labelTip = new System.Windows.Forms.Label();
+            this.labelSelf = new System.Windows.Forms.Label();
+            this.pictureBoxSelfFace = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel.SuspendLayout();
             this.panelSelf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelfFace)).BeginInit();
@@ -50,6 +50,7 @@
             this.flowLayoutPanel.Controls.Add(this.buttonFriend);
             this.flowLayoutPanel.Controls.Add(this.panelSelf);
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
             this.flowLayoutPanel.Size = new System.Drawing.Size(246, 502);
@@ -85,16 +86,15 @@
             this.panelSelf.TabIndex = 2;
             this.panelSelf.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panelSelf_MouseDoubleClick);
             // 
-            // pictureBoxSelfFace
+            // labelTip
             // 
-            this.pictureBoxSelfFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSelfFace.Image")));
-            this.pictureBoxSelfFace.Location = new System.Drawing.Point(12, 6);
-            this.pictureBoxSelfFace.Name = "pictureBoxSelfFace";
-            this.pictureBoxSelfFace.Size = new System.Drawing.Size(45, 45);
-            this.pictureBoxSelfFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxSelfFace.TabIndex = 0;
-            this.pictureBoxSelfFace.TabStop = false;
-            this.pictureBoxSelfFace.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSelfFace_MouseDoubleClick);
+            this.labelTip.AutoSize = true;
+            this.labelTip.Location = new System.Drawing.Point(74, 38);
+            this.labelTip.Name = "labelTip";
+            this.labelTip.Size = new System.Drawing.Size(113, 12);
+            this.labelTip.TabIndex = 2;
+            this.labelTip.Text = "双击查看自己的资源";
+            this.labelTip.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.labelTip_MouseDoubleClick);
             // 
             // labelSelf
             // 
@@ -108,15 +108,16 @@
             this.labelSelf.Text = "自己";
             this.labelSelf.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.labelSelf_MouseDoubleClick);
             // 
-            // labelTip
+            // pictureBoxSelfFace
             // 
-            this.labelTip.AutoSize = true;
-            this.labelTip.Location = new System.Drawing.Point(74, 38);
-            this.labelTip.Name = "labelTip";
-            this.labelTip.Size = new System.Drawing.Size(113, 12);
-            this.labelTip.TabIndex = 2;
-            this.labelTip.Text = "双击查看自己的资源";
-            this.labelTip.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.labelTip_MouseDoubleClick);
+            this.pictureBoxSelfFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSelfFace.Image")));
+            this.pictureBoxSelfFace.Location = new System.Drawing.Point(12, 6);
+            this.pictureBoxSelfFace.Name = "pictureBoxSelfFace";
+            this.pictureBoxSelfFace.Size = new System.Drawing.Size(45, 45);
+            this.pictureBoxSelfFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSelfFace.TabIndex = 0;
+            this.pictureBoxSelfFace.TabStop = false;
+            this.pictureBoxSelfFace.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSelfFace_MouseDoubleClick);
             // 
             // FlowLayoutPanelFriendList
             // 

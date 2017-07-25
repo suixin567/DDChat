@@ -43,11 +43,12 @@ namespace MainProgram.UserControls
             //下载头像
             if (m_Face != "")
             {
-                Image image = HttpReqHelper.requestPic(AppConst.WebUrl + "res/face/" + m_Face);
-                if (image != null)
-                {
-                    this.pictureBoxFace.Image = ImageTool.CutEllipse(image);
-                }
+                HttpReqHelper.requestPicSync(AppConst.WebUrl + "res/face/" + m_Face,delegate(Image face) {
+                    if (face != null)
+                    {
+                        this.pictureBoxFace.Image = ImageTool.CutEllipse(face);
+                    }
+                });                
             }
         }
 

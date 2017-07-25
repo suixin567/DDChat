@@ -55,12 +55,14 @@ namespace MainProgram.UserControls
                     this.labelNickName.Text = model.Nickname;
 
                     //请求头像
-                    Image image = HttpReqHelper.requestPic(AppConst.WebUrl + "res/face/" + model.Face);
-                    if (image != null)
-                    {
-                        Image newImage2 = ImageTool.CutEllipse(image);
-                        this.pictureBoxFace.Image = newImage2;
-                    }
+                    HttpReqHelper.requestPicSync(AppConst.WebUrl + "res/face/" + model.Face,delegate(Image face) {
+                        if (face != null)
+                        {
+                            Image newImage2 = ImageTool.CutEllipse(face);
+                            this.pictureBoxFace.Image = newImage2;
+                        }
+                    });
+                    
                 }
             });
 

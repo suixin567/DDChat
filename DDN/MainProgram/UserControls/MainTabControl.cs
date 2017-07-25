@@ -84,18 +84,18 @@ namespace MainProgram.UserControls
                     pictureBoxGroup.BackColor = Color.DodgerBlue;
                //     pictureBoxRes.BackColor = Color.Transparent;
                     break;
-                case 3:
-                    formMain.flowLayoutPanelDialogueList.Hide();
-                    formMain.flowLayoutPanelFriendList.Hide();
-                    formMain.flowLayoutPanelGroupList.Hide();
-                    formMain.flowLayoutPanelResourcesList.Show();
+                //case 3:
+                //    formMain.flowLayoutPanelDialogueList.Hide();
+                //    formMain.flowLayoutPanelFriendList.Hide();
+                //    formMain.flowLayoutPanelGroupList.Hide();
+                //    formMain.flowLayoutPanelResourcesList.Show();
 
-                    pictureBoxDia.BackColor = Color.Transparent;
-                    pictureBoxFriend.BackColor = Color.Transparent;
-                    pictureBoxGroup.BackColor = Color.Transparent;
-                //    pictureBoxRes.BackColor = Color.DodgerBlue;
+                //    pictureBoxDia.BackColor = Color.Transparent;
+                //    pictureBoxFriend.BackColor = Color.Transparent;
+                //    pictureBoxGroup.BackColor = Color.Transparent;
+                ////    pictureBoxRes.BackColor = Color.DodgerBlue;
 
-                    break;
+                //    break;
                 default:
                     break;
             }
