@@ -29,13 +29,13 @@ using LitJson;
 
         public static void Init()
         {
-            Debug.Print(PlayerPrefsIntPath);
+         //   Debug.Print(PlayerPrefsIntPath);
             if (!File.Exists(PlayerPrefsIntPath))
             {      
                 FileStream f = File.Create(PlayerPrefsIntPath);//创建该文件
                 f.Close();
             }
-            Debug.Print(PlayerPrefsStringPath);
+         //   Debug.Print(PlayerPrefsStringPath);
             if (!File.Exists(PlayerPrefsStringPath))
             {
                 FileStream f = File.Create(PlayerPrefsStringPath);//创建该文件

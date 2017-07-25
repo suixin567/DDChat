@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
+using System.Drawing.Drawing2D;
 
 namespace MainProgram.UserControls
 {
@@ -23,16 +18,19 @@ namespace MainProgram.UserControls
 
         public TopInfoPanel()
         {
-            InitializeComponent();            
+            InitializeComponent();
+        
         }       
 
         private void TopInfoPanel_Load(object sender, EventArgs e)
         {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(pictureBoxTopFace.DisplayRectangle, 0, 360);
+            pictureBoxTopFace.Region = new Region(path);
+
             m_SyncContext = SynchronizationContext.Current;
             if (PlayerPrefs.GetString("username") != "")
             {
-                //圆形头像
-                pictureBoxTopFace.Image = ImageTool.CutEllipse(pictureBoxTopFace.Image);
                 //请求网络数据
                 HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + PlayerPrefs.GetString("username"),delegate(string myinfo) {
                     try
@@ -52,10 +50,11 @@ namespace MainProgram.UserControls
                     if (model.Face != "")
                     {
                         //请求头像
-                        HttpReqHelper.requestPicSync(AppConst.WebUrl + "res/face/" + model.Face,delegate(Image face) {
+                        HttpReqHelper.loadFaceSync(model.Face,delegate(Image face) {
                             faceImage = face;
                             if (faceImage != null)
                             {
+                                pictureBoxTopFace.Image = faceImage;
                                 MainMgr.Instance.SelfFace = faceImage;
                             }
                         });                       
@@ -99,21 +98,13 @@ namespace MainProgram.UserControls
             if (NetWorkManager.Instance.IsConnected)
             {
                 this.labelOnlineState.Text = "在线";
-                this.labelOnlineState.ForeColor = Color.Lime;
-                if (faceImage!=null)
-                {
-                    pictureBoxTopFace.Image = ImageTool.CutEllipse(faceImage);
-                }                
+                this.labelOnlineState.ForeColor = Color.Lime; 
             }
             else
             {
                 this.labelOnlineState.Text = "离线";
                 this.labelOnlineState.ForeColor = Color.Red;
                 Image tempImage = ImageTool.grayImage(faceImage);
-                if (faceImage != null)
-                {
-                    pictureBoxTopFace.Image = ImageTool.CutEllipse(faceImage);
-                }
             }
         }
 

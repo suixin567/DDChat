@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using Mgr;
 using UnityControl;
+using System.Drawing.Drawing2D;
 
 namespace MainProgram.UserControls
 {
@@ -16,6 +17,9 @@ namespace MainProgram.UserControls
         public GroupItem()
         {
             InitializeComponent();
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(pictureBoxGroupFace.DisplayRectangle, 0, 360);
+            pictureBoxGroupFace.Region = new Region(path);
         }
 
         public GroupItem(MyGroupModel myGroupModel)
@@ -29,8 +33,6 @@ namespace MainProgram.UserControls
 
             InitializeComponent();
             m_myGroupModel = myGroupModel;
-            //圆形头像
-            pictureBoxGroupFace.Image = ImageTool.CutEllipse(pictureBoxGroupFace.Image);
             //获取这个群的基本信息
             HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + m_myGroupModel.GroupID,delegate(string info) {
                 GroupInfoModel model = new GroupInfoModel();
@@ -50,11 +52,10 @@ namespace MainProgram.UserControls
                 //下载头像
                 if (model.Face != "")
                 {
-                    HttpReqHelper.requestPicSync(AppConst.WebUrl + "res/face/" + model.Face,delegate(Image face) {
+                    HttpReqHelper.loadFaceSync(model.Face,delegate(Image face) {
                         if (face != null)
                         {
-                            Image newImage = ImageTool.CutEllipse(face);
-                            this.pictureBoxGroupFace.Image = newImage;
+                            this.pictureBoxGroupFace.Image = face;
                         }
                     });
                   

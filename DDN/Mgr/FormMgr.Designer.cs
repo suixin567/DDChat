@@ -33,6 +33,7 @@
             this.label = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelRunMode = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,11 +63,21 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // labelRunMode
+            // 
+            this.labelRunMode.AutoSize = true;
+            this.labelRunMode.Location = new System.Drawing.Point(127, 42);
+            this.labelRunMode.Name = "labelRunMode";
+            this.labelRunMode.Size = new System.Drawing.Size(41, 12);
+            this.labelRunMode.TabIndex = 2;
+            this.labelRunMode.Text = "测试版";
+            // 
             // FormMgr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(175, 60);
+            this.Controls.Add(this.labelRunMode);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -87,5 +98,6 @@
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelRunMode;
     }
 }

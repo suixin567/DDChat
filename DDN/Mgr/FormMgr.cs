@@ -26,15 +26,19 @@ namespace Mgr
             int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width / 2 - this.Size.Width / 2);
             int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2-50);
             this.StartPosition = FormStartPosition.Manual; //窗体的位置由Location属性决定
-            this.Location = (Point)new Size(x, y);         //窗体的起始位置为(x,y)
-            
+            this.Location = (Point)new Size(x, y);         //窗体的起始位置为(x,y)            
             InitApp();
+#if DEBUG
+        this.labelRunMode.Text = "测试版";
+#else
+            this.labelRunMode.Text = "发布版";
+#endif
         }
 
         public void InitApp()
         {
        
-            Debug.Print("mgr线程" + System.Threading.Thread.CurrentThread.ManagedThreadId.ToString());
+           // Debug.Print("mgr线程" + System.Threading.Thread.CurrentThread.ManagedThreadId.ToString());
 
             PlayerPrefs.Init();
             NetWorkManager.Instance.Start();
@@ -42,6 +46,7 @@ namespace Mgr
             th.Start();
             Login.LoginMgr.Instance.Init();
             m_SyncContext = SynchronizationContext.Current;
+            HttpReqHelper.Init();
         }
 
 
@@ -76,7 +81,6 @@ namespace Mgr
                     Login.LoginMgr.Instance.formLogin.OnMessage(model);
                     if (model.Message == PlayerPrefs.GetString("account"))
                     {
-                        Debug.Print("登陆成功了");
                         PlayerPrefs.SetString("username", model.Message);
                         openMainProgramSafePost();
                     }

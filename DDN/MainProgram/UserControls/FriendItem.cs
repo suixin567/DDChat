@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using Mgr;
 using System.Threading;
+using System.Drawing.Drawing2D;
 
 namespace MainProgram.UserControls
 {
@@ -31,14 +32,18 @@ namespace MainProgram.UserControls
                 Dispose();
                 return;
             }
-            InitializeComponent();
-            //圆形头像
-            friendFacePictureBox.Image =ImageTool.CutEllipse(friendFacePictureBox.Image);
-            FriendUsername = friendUsername;        
+            InitializeComponent();     
+                  
+            FriendUsername = friendUsername;
         }
 
         private void FriendItem_Load(object sender, EventArgs e)
         {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(friendFacePictureBox.DisplayRectangle, 0, 360);
+            friendFacePictureBox.Region = new Region(path);
+
+            m_SyncContext = SynchronizationContext.Current;
             //获取这个好友的基本信息
             HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + FriendUsername,delegate(string friendInfo) {
                
@@ -55,17 +60,32 @@ namespace MainProgram.UserControls
                 //下载头像
                 if (m_friendModel.Face != "")
                 {
-                    HttpReqHelper.requestPicSync(AppConst.WebUrl + "res/face/" + m_friendModel.Face,delegate(Image face) {
+                    HttpReqHelper.loadFaceSync(m_friendModel.Face,delegate(Image face) {
                         if (face != null)
                         {
-                            Image newImage = ImageTool.CutEllipse(face);
-                            this.friendFacePictureBox.Image = newImage;
+                            //Image newImage = ImageTool.CutEllipse(face);
+                            //this.friendFacePictureBox.Image = newImage;
+                            friendFacePictureBox.Image = face;
+                            faceRegionSafePost();
                         }
                     });                   
                 }
-            });
-           
+            });           
         }
+
+        void faceRegionSafePost()
+        {           
+            m_SyncContext.Post(faceRegion, null);
+        }
+        void faceRegion(object state)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(friendFacePictureBox.DisplayRectangle, 360, 360);
+            friendFacePictureBox.Region = new Region(path);
+        }
+
+
+
 
         void initLabelSafePost() {
             m_SyncContext.Post(initLabel,null);
@@ -128,7 +148,6 @@ namespace MainProgram.UserControls
        
         public void disponseTipSafePost(Label labelTip)
         {
-            m_SyncContext = ((FormMain)FindForm()).m_SyncContext;
             m_SyncContext.Post(disponseTip, labelTip);
         }
      

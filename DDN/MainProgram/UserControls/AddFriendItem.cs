@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Mgr;
+using System.Drawing.Drawing2D;
 
 namespace MainProgram.UserControls
 {
@@ -34,15 +35,19 @@ namespace MainProgram.UserControls
 
         private void AddFriendItem_Load(object sender, EventArgs e)
         {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(pictureBoxFace.DisplayRectangle, 0, 360);
+            pictureBoxFace.Region = new Region(path);
+
             this.labelUsername.Text = m_userName;
             this.labelNickName.Text = m_nickName;
             //下载头像
             if (m_face != "")
             {
-                HttpReqHelper.requestPicSync(AppConst.WebUrl + "res/face/" + m_face,delegate(Image face) {
+                HttpReqHelper.loadFaceSync(m_face,delegate(Image face) {
                     if (face != null)
                     {
-                        this.pictureBoxFace.Image = ImageTool.CutEllipse(face);
+                        this.pictureBoxFace.Image = face;
                     }
                 });               
             }

@@ -210,7 +210,7 @@ namespace MainProgram
         void pullOfflineMsg()
         {
            HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=0&username=" + PlayerPrefs.GetString("username"),delegate(string offlineMsg) {
-               Debug.Print("我的离线消息" + offlineMsg);
+               Debug.Print("我的离线消息------>>>>>>" + offlineMsg);
                try
                {
                    offlineMsgArr = Coding<MsgModel[]>.decode(offlineMsg);

@@ -3,7 +3,6 @@ C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Release\DDN.exe
 C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Release\DDN.pdb
 C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Release\UpdateProgram.dll
 C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Release\UpdateProgram.pdb
-C:\Users\文强\Desktop\DDN\DDN\DDN\obj\Release\DDN.csprojResolveAssemblyReference.cache
 C:\Users\文强\Desktop\DDN\DDN\DDN\obj\Release\DDN.FormDDN.resources
 C:\Users\文强\Desktop\DDN\DDN\DDN\obj\Release\DDN.Properties.Resources.resources
 C:\Users\文强\Desktop\DDN\DDN\DDN\obj\Release\DDN.csproj.GenerateResource.Cache

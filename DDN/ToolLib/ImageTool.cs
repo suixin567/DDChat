@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 
-    public class ImageTool
+public class ImageTool
     {
 
         public static Image grayImage(Image image)
@@ -46,25 +47,36 @@ using System.Threading.Tasks;
 
 
         //绘制圆图片
-        public static Image CutEllipse(Image img)
-        {
-        if (img == null)
-        {
-            return null;
-        }
-            Rectangle rec = new Rectangle(0, 0, img.Width, img.Height);
-            Size size = new Size(62, 62);
-            Bitmap bitmap = new Bitmap(size.Width, size.Height);
-            using (Graphics g = Graphics.FromImage(bitmap))
-            {
-                using (TextureBrush br = new TextureBrush(img, System.Drawing.Drawing2D.WrapMode.Clamp, rec))
-                {
-                    br.ScaleTransform(bitmap.Width / (float)rec.Width, bitmap.Height / (float)rec.Height);
-                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-                    g.FillEllipse(br, new Rectangle(Point.Empty, size));
-                }
-            }
-            return bitmap;
-        }
+        //public static Image CutEllipse(Image img)
+        //{        
+        //if (img == null)
+        //{
+        //    return null;
+        //}
+        //return img;
+
+        ////try
+        ////{
+        ////    Rectangle rec = new Rectangle(0, 0, img.Width, img.Height);
+        ////    Size size = new Size(62, 62);
+        ////    Bitmap bitmap = new Bitmap(size.Width, size.Height);
+        ////    using (Graphics g = Graphics.FromImage(bitmap))
+        ////    {
+        ////        using (TextureBrush br = new TextureBrush(img, System.Drawing.Drawing2D.WrapMode.Clamp, rec))
+        ////        {
+        ////            br.ScaleTransform(bitmap.Width / (float)rec.Width, bitmap.Height / (float)rec.Height);
+        ////            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+        ////            g.FillEllipse(br, new Rectangle(Point.Empty, size));
+        ////        }
+        ////    }
+        ////    return bitmap;
+        ////}
+        ////catch (Exception err )
+        ////{
+        ////    Debug.Print("CutEllipse发生错误" + err.ToString());
+        ////    return null;   
+        ////}
+         
+        //}
     }
 

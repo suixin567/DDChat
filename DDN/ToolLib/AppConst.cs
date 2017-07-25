@@ -5,18 +5,16 @@
     public class AppConst
     {
 
-#if DEBUG
-        static string ip = "192.168.1.101";
-#else
+    //#if DEBUG
+    //        static string ip = "192.168.1.101";
+    //#else
+    //    static string ip = "211.159.186.78";
+    //#endif
     static string ip = "211.159.186.78";
-#endif
-        public static string SocketUrl = ip;
-        public static string WebUrl = "http://" + SocketUrl + ":7788/";
-        //public static string StandaloneDBPath = "C:/Users/Public/standalone.db";
+    public static string SocketUrl = ip;
+        public static string WebUrl = "http://" + SocketUrl + ":7788/";      
         //public static string StandaloneDBPath = "C:/Users/Public/standalone.db";//单机模式数据库位置
-        //public static bool StandaloneModel = true;//单机模式的开关
-        //public static bool VShowNetWork = true;//是否加载保存家具开关
-        //public static string StandaloneTexturePath = "C:/Users/Public/furnitureTexture/";//单机模式图片保存位置
+        public static string WinPicPath = "C:/Users/Public/DDN/win/face/";//win图片保存位置
 
 
         //      public const int maxSocketSize = 5000;

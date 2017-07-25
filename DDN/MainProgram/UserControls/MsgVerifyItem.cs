@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Mgr;
+using System.Drawing.Drawing2D;
 
 namespace MainProgram.UserControls
 {
@@ -30,9 +31,9 @@ namespace MainProgram.UserControls
 
         private void FriendVerifyItem_Load(object sender, EventArgs e)
         {
-            //圆形头像
-            Image newImage =ImageTool.CutEllipse(pictureBoxFace.Image);
-            pictureBoxFace.Image = newImage;
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(pictureBoxFace.DisplayRectangle, 0, 360);
+            pictureBoxFace.Region = new Region(path);
             //控件赋值
             this.labelUsername.Text = m_MsgModel.From;
             this.labelContent.Text = "消息内容：" + m_MsgModel.Content;
@@ -55,11 +56,10 @@ namespace MainProgram.UserControls
                     this.labelNickName.Text = model.Nickname;
 
                     //请求头像
-                    HttpReqHelper.requestPicSync(AppConst.WebUrl + "res/face/" + model.Face,delegate(Image face) {
+                    HttpReqHelper.loadFaceSync(model.Face,delegate(Image face) {
                         if (face != null)
                         {
-                            Image newImage2 = ImageTool.CutEllipse(face);
-                            this.pictureBoxFace.Image = newImage2;
+                            this.pictureBoxFace.Image = face;
                         }
                     });
                     

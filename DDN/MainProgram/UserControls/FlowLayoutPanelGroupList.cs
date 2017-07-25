@@ -36,7 +36,10 @@ namespace MainProgram.UserControls
         void pullGroupList()
         {
             HttpReqHelper.requestSync(AppConst.WebUrl + "groupList?username=" + PlayerPrefs.GetString("username"),delegate(string pullGroupList) {
-                Debug.Print("我的群列表" + pullGroupList);
+                Debug.Print("我的群列表------>>>>>>" + pullGroupList);
+                if (pullGroupList=="") {
+                    return;
+                }
                 try
                 {
                     MyGroupModel[] myGroupModels = Coding<MyGroupModel[]>.decode(pullGroupList);

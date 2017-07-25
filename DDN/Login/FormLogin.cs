@@ -42,7 +42,6 @@ namespace Login
         {
             InitializeComponent();
             m_SyncContext = SynchronizationContext.Current;
-            Debug.Print("登录窗体线程" + System.Threading.Thread.CurrentThread.ManagedThreadId.ToString());
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -96,7 +95,6 @@ namespace Login
                 {
                     PlayerPrefs.SetInt("remeberAcc", 0);
                 }
-                Debug.Print("发送登录消息");
                 //增加菊花
                 //    LoadingPanelManager.instance.setLoadingPanel("login", transform, Vector2.zero, Vector2.one);
             }
@@ -160,7 +158,7 @@ namespace Login
         void loginOK(string userInfo)
         {
             //登陆成功
-           Debug.Print("FormLogin--->>>登录结果是：" + userInfo);
+          // Debug.Print("FormLogin--->>>登录结果是：" + userInfo);
         //    GameInfo.IS_LOGIN = 1;//已登录
             //跳转场景 ,不需要销毁自己
      //     LoginMgr.Instance.formLogin.DialogResult = DialogResult.OK;    //返回一个登录成功的对话框状态     
