@@ -158,9 +158,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(152, 42);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(137, 12);
+            this.label5.Size = new System.Drawing.Size(215, 12);
             this.label5.TabIndex = 12;
-            this.label5.Text = "账号仅能包含6-10位数字";
+            this.label5.Text = "账号仅能包含6-10位数字(不能以0开头)";
             // 
             // label6
             // 

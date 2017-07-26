@@ -19,14 +19,15 @@ namespace Login
         bool accRight = false;
         bool psdRight = false;
         bool phoneRight = false;
+        bool zeroBegin = false;
 
         FormLogin formLogin;
         public FormRegist(int x,int y,FormLogin login)
         {
             formLogin = login;
             InitializeComponent();       
-            this.StartPosition = FormStartPosition.Manual; //窗体的位置由Location属性决定
-            this.Location = (Point)new Size(x, y);         //窗体的起始位置为(x,y)
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = (Point)new Size(x, y);
         }
 
         private void FormRegist_Load(object sender, EventArgs e)
@@ -37,14 +38,14 @@ namespace Login
             labelregistResult.Text = "";
         }
 
-        //注册按钮被提交
+        //注册提交按钮被点击
         private void buttonRegistCommit_Click(object sender, EventArgs e)
         {
             if (NetWorkManager.NET_STATE == NetState.WAIT) {
                 return;
             }
 
-            if (accRight == true && psdRight == true && phoneRight == true)
+            if (accRight == true && psdRight == true && phoneRight == true && zeroBegin ==false)
             {
                 //变为等待状态
                 NetWorkManager.NET_STATE = NetState.WAIT;
@@ -106,6 +107,17 @@ namespace Login
             return temp;
         }
 
+        public bool IsZeroBegin(string str_handset)
+        {
+            bool temp = false;
+            if (str_handset[0].ToString() == "0")
+            {
+                return true;
+            }          
+            return temp;
+        }
+
+
         //f纯数字格式校验
         public bool IsNumber(string str_handset)
         {
@@ -133,14 +145,23 @@ namespace Login
                 pictureBoxUserNameTip.Hide();
                 accRight = false;               
             }
+            //判断是否以0开头
+            if (IsZeroBegin(textBoxRegistUserName.Text))
+            {
+                zeroBegin = true;
+            }
+            else
+            {
+                zeroBegin = false;
+            }
+
+
             //判断只能输入数字
             if (IsNumber(textBoxRegistUserName.Text) == false)
             {
                 textBoxRegistUserName.Text = "";
             }
-            else
-            {
-            }
+
             labelregistResult.Text = "";
         }
 

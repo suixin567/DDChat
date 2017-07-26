@@ -56,9 +56,9 @@
             this.friendNickName.BackColor = System.Drawing.SystemColors.Info;
             this.friendNickName.Location = new System.Drawing.Point(71, 13);
             this.friendNickName.Name = "friendNickName";
-            this.friendNickName.Size = new System.Drawing.Size(29, 12);
+            this.friendNickName.Size = new System.Drawing.Size(41, 12);
             this.friendNickName.TabIndex = 1;
-            this.friendNickName.Text = "叮叮";
+            this.friendNickName.Text = "叮叮鸟";
             this.friendNickName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.friendNickName_MouseDoubleClick);
             // 
             // LabelDescription
@@ -66,9 +66,9 @@
             this.LabelDescription.AutoSize = true;
             this.LabelDescription.Location = new System.Drawing.Point(74, 38);
             this.LabelDescription.Name = "LabelDescription";
-            this.LabelDescription.Size = new System.Drawing.Size(89, 12);
+            this.LabelDescription.Size = new System.Drawing.Size(41, 12);
             this.LabelDescription.TabIndex = 2;
-            this.LabelDescription.Text = "我们都喜欢听歌";
+            this.LabelDescription.Text = "......";
             this.LabelDescription.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LabelDescription_MouseDoubleClick);
             // 
             // contextMenuStripFriendItem

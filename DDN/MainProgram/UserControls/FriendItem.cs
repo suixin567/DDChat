@@ -46,10 +46,11 @@ namespace MainProgram.UserControls
             m_SyncContext = SynchronizationContext.Current;
             //获取这个好友的基本信息
             HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + FriendUsername,delegate(string friendInfo) {
-               
+                Debug.Print("收到一名朋友的信息" + friendInfo);
                 try
                 {
-                   m_friendModel = Coding<PersonalInfoModel>.decode(friendInfo);
+                    m_friendModel = Coding<PersonalInfoModel>.decode(friendInfo);
+                    initLabelSafePost();
                 }
                 catch (Exception err)
                 {
@@ -63,26 +64,24 @@ namespace MainProgram.UserControls
                     HttpReqHelper.loadFaceSync(m_friendModel.Face,delegate(Image face) {
                         if (face != null)
                         {
-                            //Image newImage = ImageTool.CutEllipse(face);
-                            //this.friendFacePictureBox.Image = newImage;
                             friendFacePictureBox.Image = face;
-                            faceRegionSafePost();
+                       //     faceRegionSafePost();
                         }
                     });                   
                 }
             });           
         }
 
-        void faceRegionSafePost()
-        {           
-            m_SyncContext.Post(faceRegion, null);
-        }
-        void faceRegion(object state)
-        {
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(friendFacePictureBox.DisplayRectangle, 360, 360);
-            friendFacePictureBox.Region = new Region(path);
-        }
+        //void faceRegionSafePost()
+        //{           
+        //    m_SyncContext.Post(faceRegion, null);
+        //}
+        //void faceRegion(object state)
+        //{
+        //    GraphicsPath path = new GraphicsPath();
+        //    path.AddArc(friendFacePictureBox.DisplayRectangle, 360, 360);
+        //    friendFacePictureBox.Region = new Region(path);
+        //}
 
 
 

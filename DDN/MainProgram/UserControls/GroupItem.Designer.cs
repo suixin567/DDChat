@@ -54,9 +54,9 @@
             this.labelName.AutoSize = true;
             this.labelName.Location = new System.Drawing.Point(75, 22);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(53, 12);
+            this.labelName.Size = new System.Drawing.Size(41, 12);
             this.labelName.TabIndex = 1;
-            this.labelName.Text = "默认名字";
+            this.labelName.Text = "......";
             this.labelName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.labelName_MouseDoubleClick);
             // 
             // contextMenuStrip
