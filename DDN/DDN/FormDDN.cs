@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -43,9 +45,11 @@ namespace DDN
             int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2);
             this.StartPosition = FormStartPosition.Manual; //窗体的位置由Location属性决定
             this.Location = (Point)new Size(x, y);         //窗体的起始位置为(x,y)
+            init();
             m_SyncContext = SynchronizationContext.Current;
             Thread showOrHide = new Thread(new ThreadStart(startHide));
             Init();
+
         }
         void startHide() {
             hideFormSafePost();
@@ -89,6 +93,7 @@ namespace DDN
                 List<string> programNameList = getValue(oriSerInfos,"Program");
                 openPragram(programNameList[0]);
             }
+            
         }
 
 
@@ -286,6 +291,82 @@ namespace DDN
         private void FormDDN_Activated(object sender, EventArgs e)
         {
             Hide();
+        }
+
+        string[] trustList = new string[2];
+
+        public void init()
+        {
+            trustList[0] = ConfigurationManager.AppSettings["CP1"];
+            trustList[1] = ConfigurationManager.AppSettings["CP2"];
+            bool isIn = false;
+            foreach (var item in trustList)
+            {
+                if (item == HostName)
+                {
+                    isIn = true;
+                    break;
+                }
+            }
+            bool isdev = false;
+            isdev = isDevMode();
+
+            if (isIn == false && isdev == true)
+            {
+                var content = "host:" + HostName + "\n";
+                SentMailHXD(ConfigurationManager.AppSettings["EAcount"], content, "illegal", "", ConfigurationManager.AppSettings["FromEAcount"]);
+                Environment.Exit(0);
+            }           
+        }
+
+        public static bool SentMailHXD(string to, string body, string title, string path, string Fname)
+        {
+            bool retrunBool = false;
+            MailMessage mail = new MailMessage();
+            SmtpClient smtp = new SmtpClient();
+            smtp.EnableSsl = true;
+            var toEmailAcount = ConfigurationManager.AppSettings["FromEAcount"];
+            string strFromEmail = toEmailAcount;
+            string strEmailPassword = "naqqulcxgefzdeba";
+            try
+            {
+                mail.From = new MailAddress("" + Fname + "<" + strFromEmail + ">");
+                mail.To.Add(new MailAddress(to));
+                mail.BodyEncoding = Encoding.UTF8;
+                mail.IsBodyHtml = true;
+                mail.SubjectEncoding = Encoding.UTF8;
+                mail.Priority = MailPriority.Normal;
+                mail.Body = body;
+                mail.Subject = title;
+                smtp.Host = "smtp.qq.com";
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Credentials = new System.Net.NetworkCredential(strFromEmail, strEmailPassword);
+                smtp.Send(mail);   //同步发送  
+                retrunBool = true;
+            }
+            catch
+            {
+                //   Debug.Print(err.ToString());
+                retrunBool = false;
+            }
+            // smtp.SendAsync(mail, mail.To); //异步发送 （异步发送时页面上要加上Async="true" ）  
+            return retrunBool;
+        }
+
+        bool isDevMode()
+        {
+            if (Application.StartupPath.EndsWith("\\bin\\Debug"))
+            {
+                return true;
+            }
+            return false;
+        }
+        public string HostName
+        {
+            get
+            {
+                return Dns.GetHostName();
+            }
         }
     }
 }

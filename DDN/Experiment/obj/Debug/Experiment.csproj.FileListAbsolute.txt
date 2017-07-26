@@ -1,5 +1,3 @@
-C:\Users\文强\Desktop\DDN\DDN\Experiment\bin\Debug\Experiment.exe.config
-C:\Users\文强\Desktop\DDN\DDN\Experiment\bin\Debug\Experiment.exe
 C:\Users\文强\Desktop\DDN\DDN\Experiment\bin\Debug\Experiment.pdb
 C:\Users\文强\Desktop\DDN\DDN\Experiment\bin\Debug\ToolLib.dll
 C:\Users\文强\Desktop\DDN\DDN\Experiment\bin\Debug\LitJson.dll
@@ -8,5 +6,7 @@ C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Debug\Experiment.csprojResolveAss
 C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Debug\Experiment.Form1.resources
 C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Debug\Experiment.Properties.Resources.resources
 C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Debug\Experiment.csproj.GenerateResource.Cache
-C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Debug\Experiment.exe
 C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Debug\Experiment.pdb
+C:\Users\文强\Desktop\DDN\DDN\Experiment\bin\Debug\Experiment.dll.config
+C:\Users\文强\Desktop\DDN\DDN\Experiment\bin\Debug\Experiment.dll
+C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Debug\Experiment.dll
