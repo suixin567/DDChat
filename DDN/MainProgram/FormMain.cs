@@ -71,10 +71,10 @@ namespace MainProgram
         {
             int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width - this.Size.Width * 3);
             int y = (300);
-            this.StartPosition = FormStartPosition.Manual; //窗体的位置由Location属性决定
-            this.Location = (Point)new Size(x, y);         //窗体的起始位置为(x,y)     
-            SetBtnStyle(this.buttonExit);
-            SetBtnStyle(this.buttonMin);
+            this.StartPosition = FormStartPosition.Manual; 
+            this.Location = (Point)new Size(x, y);           
+        //    SetBtnStyle(this.buttonExit);
+       //     SetBtnStyle(this.buttonMin);
             //icon闪烁计时器停止
             this.timerNotifyIcon.Stop();
            
@@ -380,7 +380,6 @@ namespace MainProgram
         {
             this.notifyIconFormMain.Visible = false;
             UnityManager.Instance.CloseUnity();
-            this.Dispose();
             Environment.Exit(0);
         }
 

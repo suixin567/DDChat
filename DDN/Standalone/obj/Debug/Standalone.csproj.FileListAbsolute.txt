@@ -1,0 +1,9 @@
+C:\Users\文强\Desktop\DDN\DDN\Standalone\bin\Debug\Standalone.exe.config
+C:\Users\文强\Desktop\DDN\DDN\Standalone\bin\Debug\Standalone.exe
+C:\Users\文强\Desktop\DDN\DDN\Standalone\bin\Debug\Standalone.pdb
+C:\Users\文强\Desktop\DDN\DDN\Standalone\obj\Debug\Standalone.csprojResolveAssemblyReference.cache
+C:\Users\文强\Desktop\DDN\DDN\Standalone\obj\Debug\Standalone.FormStandalone.resources
+C:\Users\文强\Desktop\DDN\DDN\Standalone\obj\Debug\Standalone.Properties.Resources.resources
+C:\Users\文强\Desktop\DDN\DDN\Standalone\obj\Debug\Standalone.csproj.GenerateResource.Cache
+C:\Users\文强\Desktop\DDN\DDN\Standalone\obj\Debug\Standalone.exe
+C:\Users\文强\Desktop\DDN\DDN\Standalone\obj\Debug\Standalone.pdb

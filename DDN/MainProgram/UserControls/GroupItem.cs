@@ -5,21 +5,19 @@ using System.Diagnostics;
 using Mgr;
 using UnityControl;
 using System.Drawing.Drawing2D;
+using System.Threading;
 
 namespace MainProgram.UserControls
 {
     public partial class GroupItem : UserControl
     {
         public MyGroupModel m_myGroupModel;
-
         public GroupInfoModel m_groupInfoModel;
+        public SynchronizationContext m_SyncContext = null;
 
         public GroupItem()
         {
-            InitializeComponent();
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(pictureBoxGroupFace.DisplayRectangle, 0, 360);
-            pictureBoxGroupFace.Region = new Region(path);
+            InitializeComponent();         
         }
 
         public GroupItem(MyGroupModel myGroupModel)
@@ -32,47 +30,58 @@ namespace MainProgram.UserControls
             }
 
             InitializeComponent();
-            m_myGroupModel = myGroupModel;
+            m_myGroupModel = myGroupModel;                      
+        }
+
+     
+
+
+
+        private void GroupItem_Load(object sender, EventArgs e)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(pictureBoxGroupFace.DisplayRectangle, 0, 360);
+            pictureBoxGroupFace.Region = new Region(path);
+            m_SyncContext = SynchronizationContext.Current;
+            if (m_myGroupModel ==null) {
+                return;
+            }
+
             //获取这个群的基本信息
-            HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + m_myGroupModel.GroupID,delegate(string info) {
-                GroupInfoModel model = new GroupInfoModel();
+            HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + m_myGroupModel.GroupID, delegate (string info) {
+                Debug.Print("群model是" + info);                
                 try
                 {
-                    model = Coding<GroupInfoModel>.decode(info);
+                    m_groupInfoModel = Coding<GroupInfoModel>.decode(info);                                 
+                    initLabelSafePost();
+                    //下载头像
+                    if (m_groupInfoModel.Face != "")
+                    {
+                        HttpReqHelper.loadFaceSync(m_groupInfoModel.Face, delegate (Image face) {
+                            if (face != null)
+                            {
+                                this.pictureBoxGroupFace.Image = face;
+                            }
+                        });
+                    }
                 }
                 catch (Exception err)
                 {
                     Debug.Print("GroupItem.GroupItm()解析失败" + err.ToString());
                     return;
-                }
-                m_groupInfoModel = model;
-
-                labelName.Text = model.Name;
-
-                //下载头像
-                if (model.Face != "")
-                {
-                    HttpReqHelper.loadFaceSync(model.Face,delegate(Image face) {
-                        if (face != null)
-                        {
-                            this.pictureBoxGroupFace.Image = face;
-                        }
-                    });
-                  
-                }
+                }               
             });
-            
+
         }
-
-
-        private void GroupItem_Load(object sender, EventArgs e)
+        void initLabelSafePost()
         {
-            if (m_myGroupModel ==null) {
-                return;
-            }
-           
+            m_SyncContext.Post(initLabel, null);
         }
-
+        void initLabel(object state)
+        {
+            labelName.Text = m_groupInfoModel.Name;
+            Debug.Print("群名字是" + m_groupInfoModel.Name);
+        }
 
         private void 退出这个群ToolStripMenuItem_Click(object sender, EventArgs e)
         {
