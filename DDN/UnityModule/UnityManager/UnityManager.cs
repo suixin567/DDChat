@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace UnityControl
+namespace UnityModule
 {
-    class UnityManager
+    public class UnityManager
     {
+        #region 单例
         private static UnityManager instance;
         public static UnityManager Instance
         {
@@ -23,6 +26,7 @@ namespace UnityControl
                 return instance;
             }
         }
+        #endregion
 
         #region 属性
         System.Diagnostics.Process process;
@@ -32,6 +36,9 @@ namespace UnityControl
         public string currentGroup = "";//当前群组
         public int sceneIndex = 4;
         public bool isUpdateing = false;//是否更新中
+        public int netMode = 0;//网络模式，0为正常模式，1为离线模式
+        public IntPtr formMainHandle;
+        public IntPtr unityHandle;
         #endregion
 
         public void OpenUnity()
@@ -40,58 +47,64 @@ namespace UnityControl
             {
                 return;
             }
-            else
+            if (netMode == 0)//联网模式
             {
                 try
                 {
-                    if (isUpdateing==true) {
+                    if (isUpdateing == true)
+                    {
                         Debug.Print("Tip : 更新中，请稍后...");
                         return;
                     }
                     isUpdateing = true;
-                    FormUnityUpdate formUnityUpdate = new FormUnityUpdate();
+                    FormUnityUpdate formUnityUpdate = new FormUnityUpdate(formMainHandle);
                     if (formUnityUpdate.checkUpdate())
                     {
-                        Debug.Print("退出更新状态");
- 
                         ExetUnity();
                     }
-                    else {
-
-                    }
-                    Debug.Print("---------------这里几时会运行？函数中开了新线程就会运行");                          
                 }
                 catch (Exception e)
                 {
-                    Debug.Print("Unity打开失败！"+e);
+                    Debug.Print("Unity打开失败！" + e);
                 }
-
+            } else {//单机模式
+                ExetUnity();
             }
         }
+
 
         public void ExetUnity() {
             isUpdateing = false;/////////////////////////////////////////////有问题！！！
             process = new System.Diagnostics.Process();
-            //if (PlayerPrefs.GetString("unityName") == "")
-            //{
-            //    unityName = System.Windows.Forms.Application.StartupPath + @"\Unity\DDN.exe";
-            //}
-            //else {
-            //    unityName = System.Windows.Forms.Application.StartupPath + @"\Unity\" + PlayerPrefs.GetString("unityName");
-            //    Debug.Print("打开的Unity是：" + unityName);           
-            //}
-            //var files = Directory.GetFiles(System.Windows.Forms.Application.StartupPath + @"\Unity\");//, " *.exe"
-            findExe(System.Windows.Forms.Application.StartupPath + @"\Unity");
-            string unityName = exe;
-            Debug.Print("要打开的是：" + unityName);
-            if (unityName=="") {
-                Debug.Print("程序不存在！");
-                return;
+            try
+            {
+                findExe(System.Windows.Forms.Application.StartupPath + @"\Unity");
+                Debug.Print("要打开的是：" + exe);
+                process.StartInfo.FileName = exe;
+                process.Start();
+                isUnityShow = true;
+                unityHandle = process.Handle;
+                SetText(unityHandle,"你好啊");
             }
-            process.StartInfo.FileName = unityName;
-            process.Start();
-            isUnityShow = true;
+            catch (Exception err)
+            {
+                Debug.Print("打开Unity失败" + err.ToString());
+                MessageBox.Show("3D展示模块不存在！\n请先下载3D模块。", "叮叮鸟提示：");
+            }           
         }
+
+
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private static extern int SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, string lParam);
+
+        /// <param name="lParam">要发送的内容</param>        
+        public static void SetText(IntPtr hWnd, string lParam)
+        {
+            SendMessage(hWnd, WM_SETTEXT, IntPtr.Zero, lParam);
+        }
+        private const int WM_SETTEXT = 0x000C;
+
 
         static string exe = "";
         static void findExe(string dir)

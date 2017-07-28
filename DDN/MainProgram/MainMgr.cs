@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityModule;
 
 namespace MainProgram
 {
@@ -50,9 +51,10 @@ namespace MainProgram
 
         public void Init() {
            msgMgr = new MsgMgr();
-            UnityControl.ServerForUnity.Instance.Start();
+           ServerForUnity.Instance.Start();          
            formMain = new FormMain();
            formMain.Show();
-       }
+           UnityManager.Instance.formMainHandle = formMain.Handle;
+        }
     }
 }

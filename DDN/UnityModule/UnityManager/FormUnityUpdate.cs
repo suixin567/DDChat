@@ -1,5 +1,4 @@
-﻿using MainProgram;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,24 +6,38 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ToolLib;
 
-namespace UnityControl
+namespace UnityModule
 {
     public partial class FormUnityUpdate : Form
     {
+        IntPtr m_formMainHandle;
+
+
+        //[DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
+        //public static extern int ShowWindow(IntPtr hwnd, int nCmdShow);
+
+        ////   nCmdShow的含义
+        ////0    关闭窗口
+        ////1    正常大小显示窗口
+        ////2    最小化窗口
+        ////3    最大化窗口
+
 
         string unityPath = System.Windows.Forms.Application.StartupPath + @"\Unity";
         string oriSerInfos;
         public SynchronizationContext m_SyncContext = null;
 
 
-        public FormUnityUpdate()
+        public FormUnityUpdate(IntPtr formMainHandle)
         {
+            this.m_formMainHandle = formMainHandle;
             InitializeComponent();
             m_SyncContext = SynchronizationContext.Current;
         }
@@ -33,12 +46,34 @@ namespace UnityControl
 
         private void FormUnityUpdate_Load(object sender, EventArgs e)
         {
-            Form formMaim = MainMgr.Instance.formMain;
-            int x = formMaim.Location.X;
-            int y = formMaim.Location.Y + formMaim.Height;
+            getFormMian();
+        }
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool GetWindowRect(IntPtr hWnd, ref RECT lpRect);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct RECT
+        {
+            public int Left;                            
+            public int Top;                             
+            public int Right;                          
+            public int Bottom;                     
+        }
+
+
+        void getFormMian()
+        {
+            RECT rect = new RECT();
+            GetWindowRect(m_formMainHandle, ref rect);
+            int width = rect.Right - rect.Left;                 
+            int height = rect.Bottom - rect.Top;            
+            int x = rect.Left;
+            int y = rect.Top;
             this.StartPosition = FormStartPosition.Manual; 
-            this.Location = (Point)new Size(x, y);
-            this.Width = formMaim.Width;
+            this.Location = (Point)new Size(x, y+ height);
+            this.Width = width;
         }
 
 

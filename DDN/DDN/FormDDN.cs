@@ -27,7 +27,8 @@ namespace DDN
         //#else
         //        static string ip = "211.159.186.78:7788";
         //#endif
-        static string ip = "211.159.186.78:7788";
+        //static string ip = "211.159.186.78:7788";
+        static string ip = "192.168.1.101:7788";
         string oriSerInfos;
         string[] serInfos;
         public SynchronizationContext m_SyncContext = null;
@@ -192,12 +193,31 @@ namespace DDN
             catch (Exception e)
             {
                 Debug.Print(e.ToString());
-                MessageBox.Show("连接远程服务器失败！");
-                Environment.Exit(0);
+                MessageBox.Show("连接远程服务器失败，点击确定可进入离线模式！","叮叮鸟提示：");
+                openStandalonePragram();
             }
             return responseString;
         }
 
+        static void openStandalonePragram()
+        {
+            System.Diagnostics.Process process;
+            try
+            {
+                process = new System.Diagnostics.Process();
+                Debug.Print("FormUpdate启动的程序是" + System.Windows.Forms.Application.StartupPath + @"\Standalone.exe");
+                process.StartInfo.FileName = System.Windows.Forms.Application.StartupPath + @"\Standalone.exe";               
+                process.StartInfo.Arguments = "Standalone"; //启动参数 
+                process.Start();
+                Environment.Exit(0);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("开启离线主程序错误：" + e);
+                MessageBox.Show("发生致命错误，开启离线程序错误。","叮叮鸟提示：");
+                Environment.Exit(0);
+            }
+        }
 
 
         List<string> getValue(string content , string key)
@@ -252,8 +272,6 @@ namespace DDN
                 process.StartInfo.FileName = System.Windows.Forms.Application.StartupPath + @"\" + programName;
                 process.StartInfo.Arguments = programName; //启动参数 
                 process.Start();
-
-
             }
             catch (Exception e)
             {

@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
 using MainProgram.UserControls;
-using UnityControl;
+using UnityModule;
 
 namespace MainProgram
 {

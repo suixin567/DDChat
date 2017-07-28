@@ -1,4 +1,4 @@
-﻿namespace UnityControl
+﻿namespace UnityModule
 {
     partial class FormUnityUpdate
     {

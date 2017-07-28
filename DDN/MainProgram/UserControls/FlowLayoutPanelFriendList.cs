@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 using Mgr;
-using UnityControl;
+using UnityModule;
 
 namespace MainProgram.UserControls
 {

@@ -55,6 +55,9 @@
     <Reference Include="ToolLib">
       <HintPath>..\ToolLib\bin\Debug\ToolLib.dll</HintPath>
     </Reference>
+    <Reference Include="UnityModule">
+      <HintPath>..\UnityModule\bin\Debug\UnityModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModel.cs" />
@@ -66,16 +69,6 @@
     </Compile>
     <Compile Include="MainMgr.cs" />
     <Compile Include="MsgMgr.cs" />
-    <Compile Include="UnityManager\FormUnityUpdate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UnityManager\FormUnityUpdate.Designer.cs">
-      <DependentUpon>FormUnityUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UnityManager\ServerForUnity\ServerForUnity.cs" />
-    <Compile Include="UnityManager\ServerForUnity\UnityProtocol\SceneProtocol.cs" />
-    <Compile Include="UnityManager\ServerForUnity\UnityProtocol\UnityProtocol.cs" />
-    <Compile Include="UnityManager\UnityManager.cs" />
     <Compile Include="UserControls\AddFriendItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,9 +168,6 @@
     </Compile>
     <EmbeddedResource Include="FormCreateGroup.resx">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UnityManager\FormUnityUpdate.resx">
-      <DependentUpon>FormUnityUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddFriendItem.resx">
       <DependentUpon>AddFriendItem.cs</DependentUpon>

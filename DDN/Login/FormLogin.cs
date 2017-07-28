@@ -395,6 +395,32 @@ namespace Login
                 return Dns.GetHostName();
             }
         }
+
+        private void buttonStandalone_Click(object sender, EventArgs e)
+        {
+            openStandalonePragram();
+            this.Dispose();
+        }
+
+        static void openStandalonePragram()
+        {
+            System.Diagnostics.Process process;
+            try
+            {
+                process = new System.Diagnostics.Process();
+                Debug.Print("FormUpdate启动的程序是" + System.Windows.Forms.Application.StartupPath + @"\Standalone.exe");
+                process.StartInfo.FileName = System.Windows.Forms.Application.StartupPath + @"\Standalone.exe";
+                process.StartInfo.Arguments = "Standalone"; //启动参数 
+                process.Start();
+                Environment.Exit(0);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("开启离线主程序错误：" + e);
+                MessageBox.Show("发生致命错误，开启离线程序错误。", "叮叮鸟提示：");
+                Environment.Exit(0);
+            }
+        }
     }
 }
 

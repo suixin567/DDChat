@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UnityModule;
 
 namespace Standalone
 {
@@ -24,7 +25,9 @@ namespace Standalone
             int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width - this.Size.Width * 3);
             int y = (300);
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = (Point)new Size(x, y);          
+            this.Location = (Point)new Size(x, y);
+            UnityManager.Instance.netMode = 1;
+            ServerForUnity.Instance.Start();
         }
 
 
@@ -52,7 +55,7 @@ namespace Standalone
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.notifyIconFormStandalone.Visible = false;
-           // UnityManager.Instance.CloseUnity();
+            UnityManager.Instance.CloseUnity();
             Environment.Exit(0);
         }
 
@@ -65,6 +68,64 @@ namespace Standalone
         {
             this.notifyIconFormStandalone.Visible = false;
             Environment.Exit(0);
+        }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            UnityManager.Instance.changeUnityScene(4);
+            UnityManager.Instance.resourceMode = 0;
+        }
+
+        private void timerShowOrHide_Tick(object sender, EventArgs e)
+        {
+            AutoSideHideOrShow();
+        }
+        void AutoSideHideOrShow()
+        {
+            int sideThickness = 4;//边缘的厚度，窗体停靠在边缘隐藏后留出来的可见部分的厚度  
+
+            //如果窗体最小化或最大化了则什么也不做  
+            if (this.WindowState == FormWindowState.Minimized || this.WindowState == FormWindowState.Maximized)
+            {
+                return;
+            }
+
+            //如果鼠标在窗体内  
+            if (Cursor.Position.X >= this.Left && Cursor.Position.X < this.Right && Cursor.Position.Y >= this.Top && Cursor.Position.Y < this.Bottom)
+            {
+                //如果窗体离屏幕边缘很近，则自动停靠在该边缘  
+                if (this.Top <= sideThickness)
+                {
+                    this.Top = 0;
+                }
+                if (this.Left <= sideThickness)
+                {
+                    this.Left = 0;
+                }
+                if (this.Left >= Screen.PrimaryScreen.WorkingArea.Width - this.Width - sideThickness)
+                {
+                    this.Left = Screen.PrimaryScreen.WorkingArea.Width - this.Width;
+                }
+            }
+            //当鼠标离开窗体以后  
+            else
+            {
+                //隐藏到屏幕左边缘  
+                if (this.Left == 0)
+                {
+                    this.Left = sideThickness - this.Width;
+                }
+                //隐藏到屏幕右边缘  
+                else if (this.Left == Screen.PrimaryScreen.WorkingArea.Width - this.Width)
+                {
+                    this.Left = Screen.PrimaryScreen.WorkingArea.Width - sideThickness;
+                }
+                //隐藏到屏幕上边缘  
+                else if (this.Top == 0 && this.Left > 0 && this.Left < Screen.PrimaryScreen.WorkingArea.Width - this.Width)
+                {
+                    this.Top = sideThickness - this.Height;
+                }
+            }
         }
     }
 }

@@ -61,7 +61,7 @@ namespace UpdateProgram
                     Debug.Print("更新文件" + "http://" + ipList[0] + "/res/winUpdateDlls/" + pathList[0] + "/" + item);
                     string path = tempDir + @"\" + item;
                     HttpDownloadFile(url, path);
-                    Thread.Sleep(500);
+                  //  Thread.Sleep(500);
                 }
                 //移动功能文件
 

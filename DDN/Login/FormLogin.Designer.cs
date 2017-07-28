@@ -40,6 +40,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelOpreationResult = new System.Windows.Forms.Label();
             this.timerOpreationResult = new System.Windows.Forms.Timer(this.components);
+            this.buttonStandalone = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserNameTip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPsdTip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -141,11 +142,25 @@
             this.timerOpreationResult.Interval = 1000;
             this.timerOpreationResult.Tick += new System.EventHandler(this.timerOpreationResult_Tick);
             // 
+            // buttonStandalone
+            // 
+            this.buttonStandalone.FlatAppearance.BorderSize = 0;
+            this.buttonStandalone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStandalone.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonStandalone.Location = new System.Drawing.Point(320, 245);
+            this.buttonStandalone.Name = "buttonStandalone";
+            this.buttonStandalone.Size = new System.Drawing.Size(75, 23);
+            this.buttonStandalone.TabIndex = 10;
+            this.buttonStandalone.Text = " 离线登录 ";
+            this.buttonStandalone.UseVisualStyleBackColor = true;
+            this.buttonStandalone.Click += new System.EventHandler(this.buttonStandalone_Click);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 273);
+            this.Controls.Add(this.buttonStandalone);
             this.Controls.Add(this.labelOpreationResult);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelRegist);
@@ -184,5 +199,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelOpreationResult;
         private System.Windows.Forms.Timer timerOpreationResult;
+        private System.Windows.Forms.Button buttonStandalone;
     }
 }

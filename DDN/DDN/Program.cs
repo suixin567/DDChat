@@ -23,7 +23,7 @@ namespace DDN
           
 
 
-            mutex = new System.Threading.Mutex(true, "OnlyRun");
+            mutex = new System.Threading.Mutex(true, "ddnOnlyRun");
             if (mutex.WaitOne(0, false)  && System.Diagnostics.Process.GetProcessesByName("Mgr").ToList().Count == 0)
             {
                 FormDDN DDN = new FormDDN();

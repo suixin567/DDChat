@@ -60,7 +60,6 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\LitJson.dll
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\ToolLib.pdb
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.csprojResolveAssemblyReference.cache
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormCreateGroup.resources
-C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\UnityControl.FormUnityUpdate.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.AddFriendItem.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormAddFriend.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormMessageVerify.resources
@@ -80,3 +79,5 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.csproj.Generat
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.dll
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.pdb
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.Properties.Resources.resources
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\UnityModule.dll
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\UnityModule.pdb

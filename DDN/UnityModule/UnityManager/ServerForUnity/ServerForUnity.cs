@@ -4,13 +4,14 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace UnityControl
+namespace UnityModule
 {
-    class ServerForUnity
+    public class ServerForUnity
     {
 
         //单例
@@ -34,8 +35,16 @@ namespace UnityControl
 
         public void Start()
         {
-            th = new Thread(new ThreadStart(startServer));
-            th.Start();
+            try
+            {
+                th = new Thread(new ThreadStart(startServer));
+                th.Start();
+            }
+            catch (Exception err)
+            {
+                Debug.Print("Unity服务器开启失败" + err.ToString());
+            }
+           
         }
 
         void startServer()
@@ -121,9 +130,25 @@ namespace UnityControl
                         if (UnityManager.Instance.isUnityShow==false) {//还没开启unity，unity就来了
                             SendMessage(UnityProtocol.CLOSE_UNITY,0,0,"");
                         }
-                    }
+                    }                 
                     //返回个人信息
-                    SendMessage(UnityProtocol.SELF_INFO, 0, 0, PlayerPrefs.GetString("username"));
+                    Debug.Print("返回的个人信息是" + UnityManager.Instance.netMode);
+                    SendMessage(UnityProtocol.SELF_INFO, 0,UnityManager.Instance.netMode, PlayerPrefs.GetString("username"));
+
+                    Debug.Print("Unity版本号" + model.Message);
+                    try
+                    {
+                        Process[] ps = Process.GetProcessesByName("叮叮鸟");
+                        Debug.Print(ps.Length.ToString());
+                        foreach (Process p in ps)//遍历进程
+                        {
+                            SetWindowText(p.MainWindowHandle, "叮叮鸟------虚拟家装设计------免费共享平台------powered by H+ technology"+"      V"+ model.Message);
+                        }
+                    }
+                    catch (Exception err)
+                    {
+                        Debug.Print("设置Unity Text错误：" + err.ToString());
+                    }
                     break;
                 case UnityProtocol.SCENE:
                     Debug.Print("unity请求场景信息");
@@ -145,5 +170,12 @@ namespace UnityControl
                     break;
             }
         }
+
+        [DllImport("user32.dll", EntryPoint = "SetWindowText")]
+        public static extern int SetWindowText(
+           IntPtr hwnd,
+           string lpString
+       );
+
     }
 }
