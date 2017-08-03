@@ -84,6 +84,7 @@ namespace UnityModule
                 catch (Exception)
                 {
                     Debug.Print("unity断开");
+                  UnityManager.Instance.isUnityShow = false;
                     break;
                 }
 
@@ -131,30 +132,31 @@ namespace UnityModule
                         //    Debug.Print("还没开始就来了！！！");
                         //    return;
                         //}
-                        UnityManager.Instance.isUnityShow = true;
+                        UnityManager.Instance.isUnityShow = true;//(测试使用，否则会再开一个客户端)
                         UnityManager.Instance.unityMode = 1;
                     }                 
                     //返回个人信息
                     Debug.Print("返回的个人信息是" + PlayerPrefs.GetString("username") +"网络模式"+UnityManager.Instance.netMode);
                     SendMessage(UnityProtocol.SELF_INFO, 0,UnityManager.Instance.netMode, PlayerPrefs.GetString("username"));
                     Debug.Print("修改Unity标题" + model.Message);
-                    try
-                    {
-                        Process[] ps = Process.GetProcessesByName("叮叮鸟");
-                        foreach (Process p in ps)//遍历进程
-                        {
-                            SetWindowText(p.MainWindowHandle, "叮叮鸟------虚拟家装设计------免费共享平台------powered by H+ technology"+"      V"+ model.Message);
-                        }
-                    }
-                    catch (Exception err)
-                    {
-                        Debug.Print("设置Unity Text错误：" + err.ToString());
-                    }
+                    //try
+                    //{
+                    //    Process[] ps = Process.GetProcessesByName("叮叮鸟");
+                    //    foreach (Process p in ps)//遍历进程
+                    //    {
+                    //        SetWindowText(p.MainWindowHandle, "叮叮鸟------虚拟家装设计------免费共享平台------powered by H+ technology"+"      V"+ model.Message);
+                    //    }
+                    //}
+                    //catch (Exception err)
+                    //{
+                    //    Debug.Print("设置Unity Text错误：" + err.ToString());
+                    //}
+
+                    UnityManager.Instance.formUnity.setTextSafePost("叮叮鸟------虚拟家装设计------免费共享平台------powered by H+ technology" + "      V" + model.Message);
                     break;
                 case UnityProtocol.SCENE:
-                   Debug.Print("unity请求场景信息");
-                    //  UnityManager.Instance.changeUnityScene(UnityManager.Instance.sceneIndex);
-                    ServerForUnity.Instance.SendMessage(UnityProtocol.SCENE, UnityManager.Instance.sceneIndex, 0, "");
+                   //Debug.Print("unity请求场景信息");
+                    SendMessage(UnityProtocol.SCENE, UnityManager.Instance.sceneIndex, 0, "");
                     break;
                 case UnityProtocol.RESOUCE_MODE:
                    // Debug.Print("unity请求资源模式");
