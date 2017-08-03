@@ -80,7 +80,11 @@ namespace UnityModule
         public void CloseUnity()
         {
             isUnityShow = false;
-            formUnity.Dispose();
+            if (formUnity!=null)
+            {
+                formUnity.Dispose();
+            }
+            
         }
 
         //切换Unity场景

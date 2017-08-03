@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace UnityModule
 
         private void FormUnity_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(System.Windows.Forms.SystemInformation.WorkingArea.Width / 2, System.Windows.Forms.SystemInformation.WorkingArea.Height / 2);
+            this.Size = new Size(System.Windows.Forms.SystemInformation.WorkingArea.Width / 3, System.Windows.Forms.SystemInformation.WorkingArea.Height / 2);
             int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width/2 - this.Size.Width/2);
             int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2);
             this.StartPosition = FormStartPosition.Manual;
@@ -128,7 +129,41 @@ namespace UnityModule
 
         private void FormUnity_Paint(object sender, PaintEventArgs e)
         {
-            this.Refresh();
+            this.panel1. Refresh();
+         //   this.Size = new Size(this.Width, this.Width*2/3);
         }
+
+        private void FormUnity_Resize(object sender, EventArgs e)
+        {
+         //   this.Size = new Size(this.Width, this.Width * 2 / 3);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this .Dispose();
+        }
+
+        //public void closeSafePost(string text)
+        //{
+        //    m_SyncContext.Post(setText, text);
+        //}
+        //void setText(object state)
+        //{
+        //    this.Text = (string)state;
+        //}
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private static extern int SendMessage(IntPtr hwnd, int wMsg, IntPtr wParam, IntPtr lParam);
     }
 }

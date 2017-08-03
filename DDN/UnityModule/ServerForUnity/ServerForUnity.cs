@@ -122,6 +122,7 @@ namespace UnityModule
                     Debug.Print("unity请求个人信息");
                     if (model.Command ==0) {
                         Debug.Print("编辑器模式");
+                        UnityManager.Instance.isUnityShow = true;
                         UnityManager.Instance.unityMode = 0;
                     }
                     if (model.Command == 1)
@@ -151,7 +152,7 @@ namespace UnityModule
                     //{
                     //    Debug.Print("设置Unity Text错误：" + err.ToString());
                     //}
-
+                    if(UnityManager.Instance.unityMode == 1)
                     UnityManager.Instance.formUnity.setTextSafePost("叮叮鸟------虚拟家装设计------免费共享平台------powered by H+ technology" + "      V" + model.Message);
                     break;
                 case UnityProtocol.SCENE:
