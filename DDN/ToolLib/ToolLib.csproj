@@ -54,6 +54,7 @@
     <Compile Include="AnalyzeMFile.cs" />
     <Compile Include="AppConst.cs" />
     <Compile Include="Coding.cs" />
+    <Compile Include="DataModel.cs" />
     <Compile Include="HttpReqHelper.cs" />
     <Compile Include="ImageTool.cs" />
     <Compile Include="Net\ByteArray.cs" />

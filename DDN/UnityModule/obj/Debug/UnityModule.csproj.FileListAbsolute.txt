@@ -10,4 +10,3 @@ C:\Users\文强\Desktop\DDN\DDN\UnityModule\bin\Debug\LitJson.dll
 C:\Users\文强\Desktop\DDN\DDN\UnityModule\bin\Debug\ToolLib.pdb
 C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.dll
 C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.pdb
-C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.FormUnity.resources

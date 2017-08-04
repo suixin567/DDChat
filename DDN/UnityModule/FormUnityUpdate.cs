@@ -204,7 +204,10 @@ namespace UnityModule
                                 }
                                 Debug.Print("更新Unity版本号：" + AnalyzeMFile.Analyze(oriSerInfos, "UnityVersion")[0]);
 
-                                UnityManager.Instance.ExetUnity();
+                                if (UnityManager.Instance.updateUnityEvent != null)  {
+                                    UnityManager.Instance.updateUnityEvent(true);
+                                }
+                                UnityManager.Instance.isUpdateing = false;
                             }
                             else
                             {

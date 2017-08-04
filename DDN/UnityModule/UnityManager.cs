@@ -33,16 +33,17 @@ namespace UnityModule
         public int netMode = 0;//网络模式，0为正常模式，1为离线模式
         public IntPtr formMainHandle;
         public IntPtr unityHandle;
-        public FormUnity formUnity = null;
         #endregion
 
-        public void OpenUnity()
-        {
-            Debug.Print("打开Unity的请求");
-            if (isUnityShow == true)
-            {
-                return;
-            }
+
+
+        public delegate void UpdateUnityEvent(bool result);
+        public UpdateUnityEvent updateUnityEvent;
+
+
+        //检查是否需要更新
+        public void checkUpdate()
+        {            
             if (netMode == 0)//联网模式
             {
                 try
@@ -56,49 +57,33 @@ namespace UnityModule
                     FormUnityUpdate formUnityUpdate = new FormUnityUpdate(formMainHandle);
                     if (formUnityUpdate.checkUpdate())
                     {
-                        ExetUnity();
+                        if (updateUnityEvent!=null) {
+                            updateUnityEvent(true);
+                            Debug.Print("Unity无需更新，可以启动");
+                        }
                     }
                 }
                 catch (Exception e)
                 {
                     Debug.Print("Unity打开失败！" + e);
                 }
-            } else {//单机模式
-                ExetUnity();
-            }
-        }
-
-
-        public void ExetUnity() {
-            isUpdateing = false;/////////////////////////////////////////////有问题！！！
-            isUnityShow = true;
-            formUnity = new FormUnity();
-            formUnity.Show();      
+            } 
         }
 
 
         public void CloseUnity()
         {
-            isUnityShow = false;
-            if (formUnity!=null)
-            {
-                formUnity.Dispose();
-            }
-            
+            isUnityShow = false;                      
         }
+
 
         //切换Unity场景
         public void changeUnityScene(int scene)
         {
-            sceneIndex = scene;
-            if (isUnityShow == false)//&& unityMode == 1
-            {
-                UnityManager.Instance.OpenUnity();
-            }
-            else
+            if (isUnityShow ==true)
             {
                 ServerForUnity.Instance.SendMessage(UnityProtocol.SCENE, sceneIndex, 0, "");
-            }
+            }              
         }
     }
 }

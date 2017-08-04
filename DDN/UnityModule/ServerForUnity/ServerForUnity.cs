@@ -152,8 +152,8 @@ namespace UnityModule
                     //{
                     //    Debug.Print("设置Unity Text错误：" + err.ToString());
                     //}
-                    if(UnityManager.Instance.unityMode == 1)
-                    UnityManager.Instance.formUnity.setTextSafePost("叮叮鸟------虚拟家装设计------免费共享平台------powered by H+ technology" + "      V" + model.Message);
+                 //   if(UnityManager.Instance.unityMode == 1)
+                  //  UnityManager.Instance.formUnity.setTextSafePost("叮叮鸟------虚拟家装设计------免费共享平台------powered by H+ technology" + "      V" + model.Message);
                     break;
                 case UnityProtocol.SCENE:
                    //Debug.Print("unity请求场景信息");

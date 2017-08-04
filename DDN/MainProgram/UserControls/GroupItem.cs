@@ -6,6 +6,7 @@ using Mgr;
 using UnityModule;
 using System.Drawing.Drawing2D;
 using System.Threading;
+using Dialog;
 
 namespace MainProgram.UserControls
 {
@@ -96,23 +97,26 @@ namespace MainProgram.UserControls
         //双击
         private void GroupItem_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
-            UnityManager.Instance.changeUnityScene(4);
-            UnityManager.Instance.resourceMode = 1;
+            //UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
+            //UnityManager.Instance.changeUnityScene(4);
+            //UnityManager.Instance.resourceMode = 1;
+            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid);
         }
         //双击
         private void labelName_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
-            UnityManager.Instance.changeUnityScene(4);
-            UnityManager.Instance.resourceMode = 1;
+            // UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
+            //UnityManager.Instance.changeUnityScene(4);
+            //UnityManager.Instance.resourceMode = 1;
+            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid);
         }
 
         private void pictureBoxGroupFace_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
-            UnityManager.Instance.changeUnityScene(4);
-            UnityManager.Instance.resourceMode = 1;
+            //UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
+            //UnityManager.Instance.changeUnityScene(4);
+            //UnityManager.Instance.resourceMode = 1;
+            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid);
         }
     }
 }

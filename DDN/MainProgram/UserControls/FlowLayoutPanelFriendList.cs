@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Threading;
 using Mgr;
 using UnityModule;
+using Dialog;
 
 namespace MainProgram.UserControls
 {
@@ -163,26 +164,31 @@ namespace MainProgram.UserControls
         //自己选项被双击
         private void panelSelf_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            UnityManager.Instance.changeUnityScene(4);
-            UnityManager.Instance.resourceMode = 2;
+            FormDialogManager.Instance.openDialog(2);
+
+          //  UnityManager.Instance.changeUnityScene(4);
+          //  UnityManager.Instance.resourceMode = 2;
         }
 
         private void pictureBoxSelfFace_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            UnityManager.Instance.changeUnityScene(4);
-            UnityManager.Instance.resourceMode = 2;
+            FormDialogManager.Instance.openDialog(2);
+            //  UnityManager.Instance.changeUnityScene(4);
+            //  UnityManager.Instance.resourceMode = 2;
         }
 
         private void labelTip_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            UnityManager.Instance.changeUnityScene(4);
-            UnityManager.Instance.resourceMode = 2;
+            FormDialogManager.Instance.openDialog(2);
+            //   UnityManager.Instance.changeUnityScene(4);
+            //   UnityManager.Instance.resourceMode = 2;
         }
 
         private void labelSelf_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            UnityManager.Instance.changeUnityScene(4);
-            UnityManager.Instance.resourceMode = 2;
+            FormDialogManager.Instance.openDialog(2);
+            //UnityManager.Instance.changeUnityScene(4);
+            //UnityManager.Instance.resourceMode = 2;
         }
     }
 }

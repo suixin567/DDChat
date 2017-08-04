@@ -34,9 +34,9 @@ namespace MainProgram.UserControls
         //群组资源被双击
         private void GroupResItem_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
-            UnityManager.Instance.changeUnityScene(4);
-            UnityManager.Instance.resourceMode = 1;
+            //UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
+            //UnityManager.Instance.changeUnityScene(4);
+            //UnityManager.Instance.resourceMode = 1;
         }
     }
 }

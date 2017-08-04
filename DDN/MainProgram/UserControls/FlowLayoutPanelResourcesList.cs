@@ -30,8 +30,8 @@ namespace MainProgram.UserControls
         //个人资源按钮
         private void buttonMyRes_Click(object sender, EventArgs e)
         {
-            UnityManager.Instance.changeUnityScene(4);
-            UnityManager.Instance.resourceMode = 2;
+          //  UnityManager.Instance.changeUnityScene(4);
+           // UnityManager.Instance.resourceMode = 2;
         }
         bool isItemInited = false;
         bool isGroupResShow = false;

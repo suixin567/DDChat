@@ -14,6 +14,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using MainProgram.UserControls;
 using UnityModule;
+using Dialog;
 
 namespace MainProgram
 {
@@ -391,13 +392,14 @@ namespace MainProgram
         //打开商城
         private void buttonShop_Click(object sender, EventArgs e)
         {
-            UnityManager.Instance.changeUnityScene(4);
-            UnityManager.Instance.resourceMode = 0;
+            FormDialogManager.Instance.openDialog(0);
+          //  UnityManager.Instance.changeUnityScene(4);
+          //  UnityManager.Instance.resourceMode = 0;
         }
         //打开画房子
         private void buttonDraw_Click(object sender, EventArgs e)
         {
-            UnityManager.Instance.changeUnityScene(3);
+      //      UnityManager.Instance.changeUnityScene(3);
         }
 
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-
+//个人信息
         public struct PersonalInfoModel
         {
             public string Username;
@@ -27,7 +27,7 @@ public class MyGroupModel {
     public int GroupID;
     public int ReceiveModel;
 }
-
+//群信息
 public struct GroupInfoModel
 {
     public int Gid;
