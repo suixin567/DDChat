@@ -34,12 +34,8 @@ namespace Dialog
 
 
         #region 属性
-        public Dictionary<int, Form> formGroupDictionary = new Dictionary<int, Form>();
-        public Dictionary<int, Form> formFriendDictionary = new Dictionary<int, Form>();
-        public Form formSelf = null;
-        public Form formShop = null;
+        public Dictionary<string, FormDialog> formListDictionary = new Dictionary<string, FormDialog>();
         static string exe = "";
-
         public int childFromAmount = 0;
         #endregion
 
@@ -59,7 +55,6 @@ namespace Dialog
             this.Location = (Point)new Size(x, y);
             UnityManager.Instance.updateUnityEvent += this.onUnityCanRunEvent;
             UnityManager.Instance.checkUpdate();
-            Debug.Print("对话管理器加载完毕");
         }
 
         static void findExe(string dir)
@@ -83,58 +78,68 @@ namespace Dialog
             }
         }
 
-        public void openDialog(int dialogType, int id = -1)
+        //dialogType 资源类型
+        //dialogName 表示群的名字 或者好友名字
+        //dialogId 表示群号 或者好友的id
+        public void openDialog(int dialogType,  int dialogId = -1, string dialogName="",Image face=null)
         {
             switch (dialogType)
             {
                 case 0://请求打开商城
-                    UnityManager.Instance.resourceMode = 0;
-                   // Debug.Print(formShop.IsDisposed.ToString());
-
-                    if (formShop == null || formShop.IsDisposed==true)
+                    if (formListDictionary.ContainsKey("shop") == false)
                     {
-                        formShop = new FormDialog(dialogType, id);
-                        setParent(formShop);
-                        formShop.Show();
+                        FormDialog formShop = new FormDialog(dialogType, -1, "商城",face);
+                        formShop.BackColor = Color.Red;
+                        setParent(formShop);                        
                         childFromAmount++;
+                        formListDictionary.Add("shop",formShop);
+                        //创建选项卡
+                        ButtonTab btnTab = new ButtonTab(0,"shop", "商城", null);
+                        this.flowLayoutPanelTab.Controls.Add(btnTab);
                     }
-                    else {//已经打开商城
-                        UnityManager.Instance.changeUnityScene(4);
-                        Debug.Print("尚城已经打开了");
-                    }
+                    changeActiveWindow("shop");            
                     break;
                 case 1://请求打开群
-                    UnityManager.Instance.resourceMode = 1;
-                    if (formGroupDictionary.ContainsKey(id) == false)
+
+                    if (formListDictionary.ContainsKey("group"+dialogId) == false)
                     {
-                        FormDialog formGroup = new FormDialog(dialogType, id);
-                        formGroup.Show();
-                        formGroupDictionary.Add(id, formGroup);
+                        FormDialog formGroup = new FormDialog(dialogType, dialogId, dialogName, face);
+                        setParent(formGroup);
+                        childFromAmount++;
+                        formListDictionary.Add("group" + dialogId, formGroup);
+                        //创建选项卡
+                        ButtonTab btnTab1 = new ButtonTab(1,"group" + dialogId, dialogName, face);
+                        this.flowLayoutPanelTab.Controls.Add(btnTab1);                        
                     }
+                    changeActiveWindow("group" + dialogId);
                     break;
                 case 2://请求打开个人
-                    UnityManager.Instance.resourceMode = 2;
-                    if (formSelf == null)
+                    if (formListDictionary.ContainsKey("self")==false)
                     {
-                        formSelf = new FormDialog(dialogType, id);
+                        FormDialog formSelf = new FormDialog(dialogType, -1, "我的", face);
                         setParent(formSelf);
-                        formSelf.Show();
                         childFromAmount++;
+                        formListDictionary.Add("self", formSelf);
+                        //创建选项卡
+                        ButtonTab btnTab2 = new ButtonTab(2,"self", "我的", null);
+                        this.flowLayoutPanelTab.Controls.Add(btnTab2);
                     }
-                    else {//已经打开个人
-                        UnityManager.Instance.changeUnityScene(4);
-                    }
+                    changeActiveWindow("self");
                     break;
-                case 3://请求打开朋友
-                    UnityManager.Instance.resourceMode = 3;
-                    if (formFriendDictionary.ContainsKey(id) == false)
-                    {
-                        FormDialog formFriend = new FormDialog(dialogType, id);
-                        formFriend.Show();
-                        formFriendDictionary.Add(id, formFriend);
-                    }
-                    break;
+                //case 3://请求打开朋友
+                //    UnityManager.Instance.resourceMode = 3;
+                //    if (formFriendDictionary.ContainsKey(id) == false)
+                //    {
+                //        FormDialog formFriend = new FormDialog(dialogType, id);
+                //        formFriend.Show();
+                //        formFriendDictionary.Add(id, formFriend);
+                //    }
+                //    break;
             }        
+        }
+
+        void createDialogWindow() {
+
         }
 
 
@@ -142,7 +147,6 @@ namespace Dialog
             if (result) {
                 //打开Unity
                 findExe(System.Windows.Forms.Application.StartupPath + @"\Unity");
-                Debug.Print("准备打开Unity客户端哈：" + exe);
                 if (exe == "")
                 {
                     MessageBox.Show("3D展示模块不存在！\n请先下载3D模块。", "叮叮鸟提示：");
@@ -160,13 +164,52 @@ namespace Dialog
         {
             child.TopLevel = false;
             child.Parent = this;
-            if (childFromAmount == 0)
-            {
-                child.Location = new Point(this.panelTab.Width+2, this.panelTop.Height+2);
-                child.Size = new Size(this.Width - this.panelTab.Width-5, this.Height-this.panelTop.Height-5);
-            }
+            child.Location = new Point(this.flowLayoutPanelTab.Width+2, this.panelTop.Height+2);
+            child.Size = new Size(this.Width - this.flowLayoutPanelTab.Width-5, this.Height-this.panelTop.Height-5);
+            child.Show();
         }
 
+        //设置激活窗体
+        public void changeActiveWindow(string activeId) {
+            foreach (var item in formListDictionary)
+            {
+                if (item.Key == activeId)
+                {
+                    item.Value.Show();
+                }
+                else {
+                    item.Value.Hide();
+                }
+            }
+            foreach (var item in flowLayoutPanelTab.Controls)
+            {
+                ButtonTab btnTab = (ButtonTab)item;
+                if (btnTab.m_id == activeId)
+                {
+                    btnTab.BackColor = Color.Violet;
+                    //切换Unity场景
+                    if (btnTab.m_dialogType==0)
+                    {
+                        UnityManager.Instance.resourceMode = 0;
+                        UnityManager.Instance.changeUnityScene(4);
+                    }
+                    if (btnTab.m_dialogType == 1)
+                    {
+                        UnityManager.Instance.currentGroup = btnTab.m_dialogTitle;
+                        UnityManager.Instance.resourceMode = 1;
+                        UnityManager.Instance.changeUnityScene(4);
+                    }
+                    if (btnTab.m_dialogType == 2)
+                    {
+                        UnityManager.Instance.resourceMode = 2;
+                        UnityManager.Instance.changeUnityScene(4);
+                    }
+                }
+                else {
+                    btnTab.BackColor = Color.White;
+                }                
+            }
+        }
 
         const int Guying_HTLEFT = 10;
         const int Guying_HTRIGHT = 11;
@@ -218,13 +261,7 @@ namespace Dialog
         private void buttonMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-    
-
-        private void FormDialogManager_FormClosing(object sender, FormClosingEventArgs e)
-        {
-         
-        }
+        }    
 
  
 
@@ -242,6 +279,11 @@ namespace Dialog
             instance = null;
             this.Close();
             this.Dispose();
+        }
+
+        private void flowLayoutPanelTab_Paint(object sender, PaintEventArgs e)
+        {
+            Debug.Print(this.flowLayoutPanelTab.Controls.Count.ToString());
         }
     }
 }

@@ -164,7 +164,7 @@ namespace MainProgram.UserControls
         //自己选项被双击
         private void panelSelf_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            FormDialogManager.Instance.openDialog(2);
+            FormDialogManager.Instance.openDialog(2,-1,"我的", pictureBoxSelfFace.Image);
 
           //  UnityManager.Instance.changeUnityScene(4);
           //  UnityManager.Instance.resourceMode = 2;
@@ -172,21 +172,21 @@ namespace MainProgram.UserControls
 
         private void pictureBoxSelfFace_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            FormDialogManager.Instance.openDialog(2);
+            FormDialogManager.Instance.openDialog(2, -1, "我的", pictureBoxSelfFace.Image);
             //  UnityManager.Instance.changeUnityScene(4);
             //  UnityManager.Instance.resourceMode = 2;
         }
 
         private void labelTip_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            FormDialogManager.Instance.openDialog(2);
+            FormDialogManager.Instance.openDialog(2, -1, "我的", pictureBoxSelfFace.Image);
             //   UnityManager.Instance.changeUnityScene(4);
             //   UnityManager.Instance.resourceMode = 2;
         }
 
         private void labelSelf_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            FormDialogManager.Instance.openDialog(2);
+            FormDialogManager.Instance.openDialog(2, -1, "我的", pictureBoxSelfFace.Image);
             //UnityManager.Instance.changeUnityScene(4);
             //UnityManager.Instance.resourceMode = 2;
         }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -37,12 +38,22 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(194, 35);
+            this.panel1.Size = new System.Drawing.Size(295, 35);
             this.panel1.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(203, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "设置";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -81,8 +92,8 @@
             this.Name = "FormDialog";
             this.ShowInTaskbar = false;
             this.Text = "FormDialog";
+            this.Activated += new System.EventHandler(this.FormDialog_Activated);
             this.Load += new System.EventHandler(this.FormDialog_Load);
-            this.Resize += new System.EventHandler(this.FormDialog_Resize);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -93,5 +104,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
     }
 }

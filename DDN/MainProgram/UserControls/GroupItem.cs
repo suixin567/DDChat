@@ -100,7 +100,7 @@ namespace MainProgram.UserControls
             //UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
             //UnityManager.Instance.changeUnityScene(4);
             //UnityManager.Instance.resourceMode = 1;
-            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid);
+            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name,pictureBoxGroupFace.Image);
         }
         //双击
         private void labelName_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -108,7 +108,7 @@ namespace MainProgram.UserControls
             // UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
             //UnityManager.Instance.changeUnityScene(4);
             //UnityManager.Instance.resourceMode = 1;
-            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid);
+            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name, pictureBoxGroupFace.Image);
         }
 
         private void pictureBoxGroupFace_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -116,7 +116,7 @@ namespace MainProgram.UserControls
             //UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
             //UnityManager.Instance.changeUnityScene(4);
             //UnityManager.Instance.resourceMode = 1;
-            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid);
+            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name, pictureBoxGroupFace.Image);
         }
     }
 }

@@ -35,8 +35,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.panelTab = new System.Windows.Forms.Panel();
             this.buttonMin = new System.Windows.Forms.Button();
+            this.flowLayoutPanelTab = new System.Windows.Forms.FlowLayoutPanel();
             this.appContainer = new SmileWei.EmbeddedApp.AppContainer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTop.SuspendLayout();
@@ -95,15 +95,6 @@
             this.panelTop.Size = new System.Drawing.Size(200, 50);
             this.panelTop.TabIndex = 9;
             // 
-            // panelTab
-            // 
-            this.panelTab.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelTab.Location = new System.Drawing.Point(0, 0);
-            this.panelTab.Name = "panelTab";
-            this.panelTab.Size = new System.Drawing.Size(100, 684);
-            this.panelTab.TabIndex = 10;
-            // 
             // buttonMin
             // 
             this.buttonMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -117,13 +108,26 @@
             this.buttonMin.UseVisualStyleBackColor = true;
             this.buttonMin.Click += new System.EventHandler(this.buttonMin_Click);
             // 
+            // flowLayoutPanelTab
+            // 
+            this.flowLayoutPanelTab.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.flowLayoutPanelTab.AutoScroll = true;
+            this.flowLayoutPanelTab.BackColor = System.Drawing.Color.SteelBlue;
+            this.flowLayoutPanelTab.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanelTab.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanelTab.Name = "flowLayoutPanelTab";
+            this.flowLayoutPanelTab.Size = new System.Drawing.Size(100, 600);
+            this.flowLayoutPanelTab.TabIndex = 12;
+            this.flowLayoutPanelTab.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelTab_Paint);
+            // 
             // appContainer
             // 
             this.appContainer.AppFilename = "";
             this.appContainer.AppProcess = null;
-            this.appContainer.Location = new System.Drawing.Point(198, 156);
+            this.appContainer.Location = new System.Drawing.Point(106, 126);
             this.appContainer.Name = "appContainer";
-            this.appContainer.Size = new System.Drawing.Size(298, 404);
+            this.appContainer.Size = new System.Drawing.Size(493, 474);
             this.appContainer.TabIndex = 4;
             // 
             // FormDialogManager
@@ -131,9 +135,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(600, 684);
+            this.ClientSize = new System.Drawing.Size(600, 600);
+            this.Controls.Add(this.flowLayoutPanelTab);
             this.Controls.Add(this.buttonMin);
-            this.Controls.Add(this.panelTab);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.buttonMax);
             this.Controls.Add(this.buttonClose);
@@ -142,7 +146,6 @@
             this.MinimumSize = new System.Drawing.Size(600, 500);
             this.Name = "FormDialogManager";
             this.Text = "FormDialogManager";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDialogManager_FormClosing);
             this.Load += new System.EventHandler(this.FormDialogManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelTop.ResumeLayout(false);
@@ -158,7 +161,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Panel panelTop;
-        public System.Windows.Forms.Panel panelTab;
         private System.Windows.Forms.Button buttonMin;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTab;
     }
 }
