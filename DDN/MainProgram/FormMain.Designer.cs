@@ -261,9 +261,7 @@
             this.ShowInTaskbar = false;
             this.Text = "叮叮鸟";
             this.TopMost = true;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMainClose);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Resize += new System.EventHandler(this.Main_Resize);
             this.contextMenuStripNotifyIcon.ResumeLayout(false);
             this.panelBottom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buttonMsg)).EndInit();

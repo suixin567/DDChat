@@ -96,8 +96,6 @@ namespace Dialog
 
         void resize(object sender, EventArgs e)
         {
-            //this.Size = new Size(Parent.Width - FormDialogManager.Instance.panelTab.Width - 5,
-            //    Parent.Height - FormDialogManager.Instance.panelTab.Height - 5);
             if (Parent!=null)
             {
                 this.Size = new Size(Parent.Width - 105, Parent.Height - 55);

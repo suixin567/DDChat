@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UnityModule;
 
+
 namespace Dialog
 {
     public partial class FormDialogManager : Form
@@ -58,6 +59,7 @@ namespace Dialog
             this.Location = (Point)new Size(x, y);
             UnityManager.Instance.updateUnityEvent += this.onUnityCanRunEvent;
             UnityManager.Instance.checkUpdate();
+            Debug.Print("对话管理器加载完毕");
         }
 
         static void findExe(string dir)
@@ -87,7 +89,9 @@ namespace Dialog
             {
                 case 0://请求打开商城
                     UnityManager.Instance.resourceMode = 0;
-                    if (formShop == null)
+                   // Debug.Print(formShop.IsDisposed.ToString());
+
+                    if (formShop == null || formShop.IsDisposed==true)
                     {
                         formShop = new FormDialog(dialogType, id);
                         setParent(formShop);
@@ -96,6 +100,7 @@ namespace Dialog
                     }
                     else {//已经打开商城
                         UnityManager.Instance.changeUnityScene(4);
+                        Debug.Print("尚城已经打开了");
                     }
                     break;
                 case 1://请求打开群
@@ -112,6 +117,7 @@ namespace Dialog
                     if (formSelf == null)
                     {
                         formSelf = new FormDialog(dialogType, id);
+                        setParent(formSelf);
                         formSelf.Show();
                         childFromAmount++;
                     }
@@ -136,7 +142,7 @@ namespace Dialog
             if (result) {
                 //打开Unity
                 findExe(System.Windows.Forms.Application.StartupPath + @"\Unity");
-                Debug.Print("准备打开Unity客户端：" + exe);
+                Debug.Print("准备打开Unity客户端哈：" + exe);
                 if (exe == "")
                 {
                     MessageBox.Show("3D展示模块不存在！\n请先下载3D模块。", "叮叮鸟提示：");
@@ -217,11 +223,23 @@ namespace Dialog
 
         private void FormDialogManager_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.appContainer.AppProcess.Close();
+         
+        }
+
+ 
+
+        public void AppExitEvent() {
+            buttonClose_Click(null,null);
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
+            if (this.appContainer.AppProcess != null)
+            {
+                this.appContainer.AppProcess.Close();
+            }
+            UnityManager.Instance.updateUnityEvent -= this.onUnityCanRunEvent;
+            instance = null;
             this.Close();
             this.Dispose();
         }

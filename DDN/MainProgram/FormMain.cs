@@ -102,11 +102,6 @@ namespace MainProgram
         }
 
 
-        //适配
-        void Main_Resize(object sender, EventArgs e)
-        {
-        }
-
 
         //icon开始闪烁
         public void notifyIonFlashSafePost()
@@ -153,11 +148,7 @@ namespace MainProgram
         private void MenuItemExit_Click(object sender, EventArgs e)
         {
             Debug.Print("托盘右键退出被点击");
-            this.notifyIconFormMain.Visible = false;
-            UnityManager.Instance.CloseUnity();
-            this.Close();
-            this.Dispose();
-            Environment.Exit(0);
+            this.buttonExit_Click(null,null);
         }
 
         bool isNotifyIconFlashing = false;
@@ -293,24 +284,24 @@ namespace MainProgram
 
 
         //用户退出程序
-        private void FormMainClose(object sender, FormClosedEventArgs e)
-        {
-            this.notifyIconFormMain.Visible = false;
+        //private void FormMainClose(object sender, FormClosedEventArgs e)
+        //{
+        //    this.notifyIconFormMain.Visible = false;
             
             
-            // 注意判断关闭事件reason来源于窗体按钮，否则用菜单退出时无法退出!
-            //if (e.CloseReason == CloseReason.UserClosing)
-            //{
-            //    //取消"关闭窗口"事件
-            //    //    e.Cancel = true;
-            //    //使关闭时窗口向右下角缩小的效果
-            //    //   this.WindowState = FormWindowState.Minimized;
-            //    //    this.notifyIcon1.Visible = true;
-            //    //    this.Hide();
-            //    //    return;
-            //    Debug.Print("用户关闭窗体");
-            //}
-        }
+        //    // 注意判断关闭事件reason来源于窗体按钮，否则用菜单退出时无法退出!
+        //    //if (e.CloseReason == CloseReason.UserClosing)
+        //    //{
+        //    //    //取消"关闭窗口"事件
+        //    //    //    e.Cancel = true;
+        //    //    //使关闭时窗口向右下角缩小的效果
+        //    //    //   this.WindowState = FormWindowState.Minimized;
+        //    //    //    this.notifyIcon1.Visible = true;
+        //    //    //    this.Hide();
+        //    //    //    return;
+        //    //    Debug.Print("用户关闭窗体");
+        //    //}
+        //}
 
 
         const int Guying_HTLEFT = 10;
@@ -376,18 +367,25 @@ namespace MainProgram
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        public delegate void AppExitEvent();
+        public event AppExitEvent appExitEvent;
         //退出
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.notifyIconFormMain.Visible = false;
             UnityManager.Instance.CloseUnity();
+            if (appExitEvent!=null)
+            {
+                appExitEvent();
+            }
+            FormDialogManager.Instance.AppExitEvent();
+            this.Close();
             Environment.Exit(0);
         }
 
 
-        
-  
-        
+
 
         //打开商城
         private void buttonShop_Click(object sender, EventArgs e)

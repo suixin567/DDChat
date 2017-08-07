@@ -91,8 +91,7 @@ namespace UnityModule
                 string content = File.ReadAllText(@".\wv.conf");
                 List<string> temp = AnalyzeMFile.Analyze(content, "UnityVersion");
                 if (temp!=null)
-                {
-                   
+                {                   
                     try
                     {
                         string unityVersionStr = temp[0];
@@ -119,6 +118,12 @@ namespace UnityModule
             }
             else
             {//不需要更新
+                if (UnityManager.Instance.updateUnityEvent != null)
+                {
+                    UnityManager.Instance.isUpdateing = false;
+                    UnityManager.Instance.updateUnityEvent(true);
+                    Debug.Print("不需要更新的");
+                }
                 return true;
             }
         }
@@ -205,9 +210,9 @@ namespace UnityModule
                                 Debug.Print("更新Unity版本号：" + AnalyzeMFile.Analyze(oriSerInfos, "UnityVersion")[0]);
 
                                 if (UnityManager.Instance.updateUnityEvent != null)  {
+                                    UnityManager.Instance.isUpdateing = false;
                                     UnityManager.Instance.updateUnityEvent(true);
                                 }
-                                UnityManager.Instance.isUpdateing = false;
                             }
                             else
                             {
@@ -228,7 +233,11 @@ namespace UnityModule
                 }
                 else {
                     MessageBox.Show("下载3D模块失败，请重试。");
-                    UnityManager.Instance.isUpdateing = false;
+                    if (UnityManager.Instance.updateUnityEvent != null)
+                    {
+                        UnityManager.Instance.isUpdateing = false;
+                        UnityManager.Instance.updateUnityEvent(false);
+                    }
                     closeSelfSafePost();
                 }
             },

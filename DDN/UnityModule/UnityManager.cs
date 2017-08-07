@@ -55,13 +55,7 @@ namespace UnityModule
                     }
                     isUpdateing = true;
                     FormUnityUpdate formUnityUpdate = new FormUnityUpdate(formMainHandle);
-                    if (formUnityUpdate.checkUpdate())
-                    {
-                        if (updateUnityEvent!=null) {
-                            updateUnityEvent(true);
-                            Debug.Print("Unity无需更新，可以启动");
-                        }
-                    }
+                    formUnityUpdate.checkUpdate();
                 }
                 catch (Exception e)
                 {
