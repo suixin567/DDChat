@@ -35,7 +35,6 @@
             this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerShowOrHide = new System.Windows.Forms.Timer(this.components);
             this.panelBottom = new System.Windows.Forms.Panel();
-            this.buttonDraw = new System.Windows.Forms.Button();
             this.buttonShop = new System.Windows.Forms.Button();
             this.buttonMsg = new System.Windows.Forms.PictureBox();
             this.buttonFindFriend = new System.Windows.Forms.PictureBox();
@@ -85,7 +84,6 @@
             this.panelBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelBottom.BackColor = System.Drawing.Color.Transparent;
-            this.panelBottom.Controls.Add(this.buttonDraw);
             this.panelBottom.Controls.Add(this.buttonShop);
             this.panelBottom.Controls.Add(this.buttonMsg);
             this.panelBottom.Controls.Add(this.buttonFindFriend);
@@ -93,27 +91,6 @@
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(272, 33);
             this.panelBottom.TabIndex = 10;
-            // 
-            // buttonDraw
-            // 
-            this.buttonDraw.BackColor = System.Drawing.Color.SteelBlue;
-            this.buttonDraw.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonDraw.FlatAppearance.BorderSize = 0;
-            this.buttonDraw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDraw.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonDraw.ForeColor = System.Drawing.Color.White;
-            this.buttonDraw.Image = ((System.Drawing.Image)(resources.GetObject("buttonDraw.Image")));
-            this.buttonDraw.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDraw.Location = new System.Drawing.Point(76, 7);
-            this.buttonDraw.Name = "buttonDraw";
-            this.buttonDraw.Size = new System.Drawing.Size(68, 30);
-            this.buttonDraw.TabIndex = 18;
-            this.buttonDraw.Text = "绘制";
-            this.buttonDraw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonDraw.UseVisualStyleBackColor = false;
-            this.buttonDraw.Click += new System.EventHandler(this.buttonDraw_Click);
-            this.buttonDraw.MouseLeave += new System.EventHandler(this.buttonDraw_MouseLeave);
-            this.buttonDraw.MouseHover += new System.EventHandler(this.buttonDraw_MouseHover);
             // 
             // buttonShop
             // 
@@ -285,7 +262,6 @@
         private UserControls.TopInfoPanel topInfoPanel1;
         public UserControls.FlowLayoutPanelFriendList flowLayoutPanelFriendList;
         private System.Windows.Forms.Button buttonShop;
-        private System.Windows.Forms.Button buttonDraw;
         private System.Windows.Forms.PictureBox buttonMsg;
         private System.Windows.Forms.PictureBox buttonFindFriend;
         private UserControls.MainTabControl mainTabControl1;

@@ -28,57 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.buttonSetting = new System.Windows.Forms.Button();
+            this.buttonRes = new System.Windows.Forms.Button();
+            this.buttonChat = new System.Windows.Forms.Button();
+            this.panelChat = new System.Windows.Forms.Panel();
+            this.buttonDraw = new System.Windows.Forms.Button();
+            this.flowLayoutPanelTop = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelTop.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // buttonSetting
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(295, 35);
-            this.panel1.TabIndex = 4;
+            this.buttonSetting.Location = new System.Drawing.Point(251, 6);
+            this.buttonSetting.Name = "buttonSetting";
+            this.buttonSetting.Size = new System.Drawing.Size(75, 23);
+            this.buttonSetting.TabIndex = 2;
+            this.buttonSetting.Text = "群设置";
+            this.buttonSetting.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonRes
             // 
-            this.button1.Location = new System.Drawing.Point(203, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "设置";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonRes.Location = new System.Drawing.Point(89, 6);
+            this.buttonRes.Name = "buttonRes";
+            this.buttonRes.Size = new System.Drawing.Size(75, 23);
+            this.buttonRes.TabIndex = 1;
+            this.buttonRes.Text = "资源";
+            this.buttonRes.UseVisualStyleBackColor = true;
+            this.buttonRes.Click += new System.EventHandler(this.buttonRes_Click);
             // 
-            // button4
+            // buttonChat
             // 
-            this.button4.Location = new System.Drawing.Point(107, 6);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "资源";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonChat.Location = new System.Drawing.Point(8, 6);
+            this.buttonChat.Name = "buttonChat";
+            this.buttonChat.Size = new System.Drawing.Size(75, 23);
+            this.buttonChat.TabIndex = 0;
+            this.buttonChat.Text = "聊天";
+            this.buttonChat.UseVisualStyleBackColor = true;
+            this.buttonChat.Click += new System.EventHandler(this.buttonChat_Click);
             // 
-            // button3
+            // panelChat
             // 
-            this.button3.Location = new System.Drawing.Point(12, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "聊天";
-            this.button3.UseVisualStyleBackColor = true;
+            this.panelChat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelChat.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelChat.Location = new System.Drawing.Point(0, 35);
+            this.panelChat.Name = "panelChat";
+            this.panelChat.Size = new System.Drawing.Size(701, 566);
+            this.panelChat.TabIndex = 5;
             // 
-            // panel2
+            // buttonDraw
             // 
-            this.panel2.Location = new System.Drawing.Point(0, 35);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(700, 565);
-            this.panel2.TabIndex = 5;
+            this.buttonDraw.Location = new System.Drawing.Point(170, 6);
+            this.buttonDraw.Name = "buttonDraw";
+            this.buttonDraw.Size = new System.Drawing.Size(75, 23);
+            this.buttonDraw.TabIndex = 3;
+            this.buttonDraw.Text = "绘制户型";
+            this.buttonDraw.UseVisualStyleBackColor = true;
+            this.buttonDraw.Click += new System.EventHandler(this.buttonDraw_Click);
+            // 
+            // flowLayoutPanelTop
+            // 
+            this.flowLayoutPanelTop.Controls.Add(this.buttonChat);
+            this.flowLayoutPanelTop.Controls.Add(this.buttonRes);
+            this.flowLayoutPanelTop.Controls.Add(this.buttonDraw);
+            this.flowLayoutPanelTop.Controls.Add(this.buttonSetting);
+            this.flowLayoutPanelTop.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanelTop.Name = "flowLayoutPanelTop";
+            this.flowLayoutPanelTop.Padding = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.flowLayoutPanelTop.Size = new System.Drawing.Size(338, 35);
+            this.flowLayoutPanelTop.TabIndex = 0;
             // 
             // FormDialog
             // 
@@ -86,24 +105,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(700, 600);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.flowLayoutPanelTop);
+            this.Controls.Add(this.panelChat);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormDialog";
             this.ShowInTaskbar = false;
             this.Text = "FormDialog";
-            this.Activated += new System.EventHandler(this.FormDialog_Activated);
             this.Load += new System.EventHandler(this.FormDialog_Load);
-            this.panel1.ResumeLayout(false);
+            this.VisibleChanged += new System.EventHandler(this.FormDialog_VisibleChanged);
+            this.flowLayoutPanelTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonRes;
+        private System.Windows.Forms.Button buttonChat;
+        private System.Windows.Forms.Panel panelChat;
+        private System.Windows.Forms.Button buttonSetting;
+        private System.Windows.Forms.Button buttonDraw;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTop;
     }
 }

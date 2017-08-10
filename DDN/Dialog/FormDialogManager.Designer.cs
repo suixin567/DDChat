@@ -32,14 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDialogManager));
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonMax = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelTop = new System.Windows.Forms.Panel();
+            this.pictureBoxFace = new System.Windows.Forms.PictureBox();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.buttonMin = new System.Windows.Forms.Button();
             this.flowLayoutPanelTab = new System.Windows.Forms.FlowLayoutPanel();
             this.appContainer = new SmileWei.EmbeddedApp.AppContainer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonClose
@@ -67,33 +65,25 @@
             this.buttonMax.Text = "□";
             this.buttonMax.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // pictureBoxFace
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxFace.Image")));
+            this.pictureBoxFace.Location = new System.Drawing.Point(100, 4);
+            this.pictureBoxFace.Name = "pictureBoxFace";
+            this.pictureBoxFace.Size = new System.Drawing.Size(45, 45);
+            this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFace.TabIndex = 7;
+            this.pictureBoxFace.TabStop = false;
             // 
-            // label1
+            // labelTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(74, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "叮叮鸟";
-            // 
-            // panelTop
-            // 
-            this.panelTop.Controls.Add(this.pictureBox1);
-            this.panelTop.Controls.Add(this.label1);
-            this.panelTop.Location = new System.Drawing.Point(100, 0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(200, 50);
-            this.panelTop.TabIndex = 9;
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelTitle.Location = new System.Drawing.Point(156, 16);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(56, 16);
+            this.labelTitle.TabIndex = 8;
+            this.labelTitle.Text = "叮叮鸟";
             // 
             // buttonMin
             // 
@@ -113,21 +103,20 @@
             this.flowLayoutPanelTab.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.flowLayoutPanelTab.AutoScroll = true;
-            this.flowLayoutPanelTab.BackColor = System.Drawing.Color.SteelBlue;
+            this.flowLayoutPanelTab.BackColor = System.Drawing.SystemColors.Menu;
             this.flowLayoutPanelTab.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelTab.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelTab.Name = "flowLayoutPanelTab";
             this.flowLayoutPanelTab.Size = new System.Drawing.Size(100, 600);
             this.flowLayoutPanelTab.TabIndex = 12;
-            this.flowLayoutPanelTab.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelTab_Paint);
             // 
             // appContainer
             // 
             this.appContainer.AppFilename = "";
             this.appContainer.AppProcess = null;
-            this.appContainer.Location = new System.Drawing.Point(106, 126);
+            this.appContainer.Location = new System.Drawing.Point(106, 78);
             this.appContainer.Name = "appContainer";
-            this.appContainer.Size = new System.Drawing.Size(493, 474);
+            this.appContainer.Size = new System.Drawing.Size(482, 510);
             this.appContainer.TabIndex = 4;
             // 
             // FormDialogManager
@@ -136,9 +125,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(600, 600);
+            this.Controls.Add(this.labelTitle);
+            this.Controls.Add(this.pictureBoxFace);
             this.Controls.Add(this.flowLayoutPanelTab);
             this.Controls.Add(this.buttonMin);
-            this.Controls.Add(this.panelTop);
             this.Controls.Add(this.buttonMax);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.appContainer);
@@ -147,21 +137,19 @@
             this.Name = "FormDialogManager";
             this.Text = "FormDialogManager";
             this.Load += new System.EventHandler(this.FormDialogManager_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelTop.ResumeLayout(false);
-            this.panelTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private SmileWei.EmbeddedApp.AppContainer appContainer;
+        public SmileWei.EmbeddedApp.AppContainer appContainer;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonMax;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.PictureBox pictureBoxFace;
+        private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button buttonMin;
-        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTab;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTab;
     }
 }

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using SmileWei.EmbeddedApp;
+using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UnityModule;
 
@@ -20,6 +14,7 @@ namespace Dialog
         int m_groupOrFriendId = -1;
         public string m_title = "";
         Image m_face = null;
+        public int UIState = 1;//对话窗的UI模式，0代表展示资源的状态，1代表聊天状态 ,2代表绘制状态
         #endregion
 
         public FormDialog(int type , int dialogId, string dialogName, Image face)
@@ -29,76 +24,145 @@ namespace Dialog
             m_groupOrFriendId = dialogId;
             m_title = dialogName;
             this.m_face = face;
+
+
         }
 
         private void FormDialog_Load(object sender, EventArgs e)
         {
-            Parent.Resize += new EventHandler(this.resize);          
+            Parent.Resize += new EventHandler(this.resize);
+            //根据窗体类型 设置toppanel的按钮        
             switch (m_dialogType)
             {
                 case 0://商城
-                  
                     break;
                 case 1://群
-                    //请求群信息
-                    //string groupInfo = HttpReqHelper.request(AppConst.WebUrl + "groupBaseInfo?gid=" + groupOrFriendId);
-                    //Debug.Print("群信息是" + groupInfo);
-                    //GroupInfoModel m_groupInfoModel=new GroupInfoModel();
-                    //try
-                    //{
-                    //    m_groupInfoModel = Coding<GroupInfoModel>.decode(groupInfo);
-                    //}
-                    //catch {
-                    //    Debug.Print("解析群数据失败");
-                    //}
-                    //UnityManager.Instance.currentGroup = m_groupInfoModel.Name;
-                  
                     break;
                 case 2://个人
-                    
+                    this.buttonChat.Dispose();
+                    this.buttonSetting.Dispose();
                     break;
-                case 3://朋友
-                   
+                case 3://朋友                   
                     break;
                 default:
                     break;
-            }           
+            }
         }
-
-        //关闭按钮
-        //private void buttonClose_Click(object sender, EventArgs e)
-        //{
-        //    switch (dialogType)
-        //    {
-        //        case 0:
-        //            FormDialogManager.Instance.formShop = null;
-        //            break;
-        //        case 1:
-        //            FormDialogManager.Instance.formGroupDictionary.Remove(groupOrFriendId);
-        //            break;
-        //        case 2:
-        //            FormDialogManager.Instance.formSelf = null;
-        //            break;
-        //        case 3:
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //    this.Dispose();
-        //}
 
 
         void resize(object sender, EventArgs e)
         {
-            if (Parent!=null)
+            if (Parent != null)
             {
-                this.Size = new Size(Parent.Width - 105, Parent.Height - 55);
-            }           
+                this.Size = new Size(Parent.Width - 105, Parent.Height - 50 - 3);
+            }
+            switch (m_dialogType)
+                {
+                    case 0:
+                        if (this.Size.Width > 300 && this.Size.Height > 200)
+                        {
+                            FormDialogManager.Instance.appContainer.Size = this.Size;
+                        }
+                        break;
+                    case 1://群
+                        if (this.Size.Width > 300 && this.Size.Height > 200)
+                        {
+                            FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+                        }
+                        break;
+                    case 2:
+                        if (this.Size.Width > 300 && this.Size.Height > 200)
+                        {
+                            FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+                        }
+                        break;
+                    default:
+                        break;
+                }
         }
 
-        private void FormDialog_Activated(object sender, EventArgs e)
+        //资源选项卡
+        private void buttonRes_Click(object sender, EventArgs e)
         {
-            Debug.Print("我被激活了" + m_title);
+            UIState = 0;
+            panelChat.Hide();
+            UnityManager.Instance.changeUnityScene(4);
+            FormDialogManager.Instance.appContainer.Show();
+            FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X , this.Location.Y + this.flowLayoutPanelTop.Height);
+            FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
         }
+
+        //聊天选项卡
+        private void buttonChat_Click(object sender, EventArgs e)
+        {
+            UIState = 1;
+            panelChat.Show();
+            FormDialogManager.Instance.appContainer.Hide();
+        }
+
+        //画房子选项卡
+        private void buttonDraw_Click(object sender, EventArgs e)
+        {
+            UIState = 2;
+            panelChat.Hide();
+            UnityManager.Instance.changeUnityScene(3);
+            FormDialogManager.Instance.appContainer.Show();
+            FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+            FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+        }
+
+        //设置激活窗体时触发
+        private void FormDialog_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible==false)
+            {
+                return;
+            }
+            switch (m_dialogType)
+            {
+                case 0:
+                    this.flowLayoutPanelTop.Hide();
+                    this.panelChat.Hide();
+                    FormDialogManager.Instance.appContainer.Show();
+                    FormDialogManager.Instance.appContainer.Location = this.Location;
+                    UnityManager.Instance.resourceMode = 0;
+                    UnityManager.Instance.changeUnityScene(4);
+                    break;
+                case 1:
+                    FormDialogManager.Instance.appContainer.Location = this.panelChat.Location;
+                    UnityManager.Instance.currentGroup = m_title;
+                    UnityManager.Instance.resourceMode = 1;
+                    if (UIState == 0)//资源
+                    {
+                        FormDialogManager.Instance.appContainer.Show();
+                        FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+                        UnityManager.Instance.changeUnityScene(4);
+                    }
+                    else if (UIState == 1)//聊天
+                    {
+                        this.panelChat.Show();
+                        FormDialogManager.Instance.appContainer.Hide();
+                    }
+                    else//绘制
+                    {
+                        FormDialogManager.Instance.appContainer.Show();
+                        FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+                        UnityManager.Instance.changeUnityScene(3);
+                    }
+                    break;
+                case 2://个人
+                    this.panelChat.Hide();
+                    UnityManager.Instance.resourceMode = 2;
+                    FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+                    FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+                    FormDialogManager.Instance.appContainer.Show();
+                    UnityManager.Instance.changeUnityScene(4);
+                    break;
+                default:
+                    break;
+            }
+            resize(null,null);
+        }
+
     }
 }

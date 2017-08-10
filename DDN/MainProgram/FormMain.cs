@@ -395,12 +395,10 @@ namespace MainProgram
           //  UnityManager.Instance.resourceMode = 0;
         }
         //打开画房子
-        private void buttonDraw_Click(object sender, EventArgs e)
-        {
-      //      UnityManager.Instance.changeUnityScene(3);
-        }
-
-
+      //  private void buttonDraw_Click(object sender, EventArgs e)
+      //  {
+      ////      UnityManager.Instance.changeUnityScene(3);
+      //  }
 
         Label m_labelTip = null;
 

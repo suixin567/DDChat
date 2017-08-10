@@ -76,6 +76,7 @@ namespace UnityModule
         {
             if (isUnityShow ==true)
             {
+                sceneIndex = scene;
                 ServerForUnity.Instance.SendMessage(UnityProtocol.SCENE, sceneIndex, 0, "");
             }              
         }
