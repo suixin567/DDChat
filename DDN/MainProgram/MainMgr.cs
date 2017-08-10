@@ -54,7 +54,6 @@ namespace MainProgram
            ServerForUnity.Instance.Start();          
            formMain = new FormMain();
            formMain.Show();
-           UnityManager.Instance.formMainHandle = formMain.Handle;
         }
     }
 }

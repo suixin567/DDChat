@@ -72,8 +72,8 @@ namespace UnityModule
             int x = rect.Left;
             int y = rect.Top;
             this.StartPosition = FormStartPosition.Manual; 
-            this.Location = (Point)new Size(x, y+ height);
-            this.Width = width;
+            this.Location = (Point)new Size(x+ width/4, y+ height/3);
+            this.Width = width/2;
         }
 
 

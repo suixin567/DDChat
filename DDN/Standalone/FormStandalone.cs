@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -14,6 +16,9 @@ namespace Standalone
 {
     public partial class FormStandalone : Form
     {
+        static string exe = "";
+        Process unityProcess;
+
         public FormStandalone()
         {
             InitializeComponent();
@@ -52,10 +57,16 @@ namespace Standalone
             this.WindowState = FormWindowState.Minimized;
         }
 
+        //关闭程序
         private void buttonExit_Click(object sender, EventArgs e)
         {
+            if (unityProcess!=null)
+            {
+                if (!unityProcess.HasExited)
+                    unityProcess.Kill();
+                unityProcess = null;
+            }
             this.notifyIconFormStandalone.Visible = false;
-            UnityManager.Instance.CloseUnity();
             Environment.Exit(0);
         }
 
@@ -66,15 +77,53 @@ namespace Standalone
 
         private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.notifyIconFormStandalone.Visible = false;
-            Environment.Exit(0);
+            buttonExit_Click(null,null);
         }
 
+        //启动Unity
         private void buttonStart_Click(object sender, EventArgs e)
         {
             UnityManager.Instance.changeUnityScene(4);
             UnityManager.Instance.resourceMode = 0;
+
+            findExe(System.Windows.Forms.Application.StartupPath + @"\Unity");
+            if (exe == "")
+            {
+                MessageBox.Show("3D展示模块不存在！\n请先下载3D模块。", "叮叮鸟提示：");
+            }
+            else
+            {
+                try
+                {
+                    unityProcess = new Process();
+                    unityProcess.StartInfo.FileName = exe;
+                    //   p.StartInfo.UseShellExecute = false;
+
+                    // p.StartInfo.RedirectStandardInput = true;
+
+                    // p.StartInfo.RedirectStandardOutput = true;
+
+                    //  p.StartInfo.RedirectStandardError = true;
+
+                    //  p.StartInfo.CreateNoWindow = true;
+
+                    //    p.StartInfo.WorkingDirectory = Application.StartupPath + @"\FormGen\";
+
+                    unityProcess.Start();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("程序加载失败");
+                    if (unityProcess != null)
+                    {
+                        if (!unityProcess.HasExited)
+                            unityProcess.Kill();
+                        unityProcess = null;
+                    }
+                }
+            }
         }
+
 
         private void timerShowOrHide_Tick(object sender, EventArgs e)
         {
@@ -124,6 +173,28 @@ namespace Standalone
                 else if (this.Top == 0 && this.Left > 0 && this.Left < Screen.PrimaryScreen.WorkingArea.Width - this.Width)
                 {
                     this.Top = sideThickness - this.Height;
+                }
+            }
+        }
+
+
+        static void findExe(string dir)
+        {
+            DirectoryInfo d = new DirectoryInfo(dir);
+            FileSystemInfo[] fsinfos = d.GetFileSystemInfos();
+            foreach (FileSystemInfo fsinfo in fsinfos)
+            {
+                if (fsinfo is DirectoryInfo)     //判断是否为文件夹  
+                {
+                    findExe(fsinfo.FullName);//递归调用  
+                }
+                else
+                {
+                    if (fsinfo.FullName.EndsWith(".exe"))
+                    {
+                        exe = fsinfo.FullName;
+                        return;
+                    }
                 }
             }
         }

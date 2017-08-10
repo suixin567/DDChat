@@ -31,7 +31,6 @@ namespace UnityModule
         public int sceneIndex = 4;
         public bool isUpdateing = false;//是否更新中
         public int netMode = 0;//网络模式，0为正常模式，1为离线模式
-        public IntPtr formMainHandle;
         public IntPtr unityHandle;
         #endregion
 
@@ -42,7 +41,7 @@ namespace UnityModule
 
 
         //检查是否需要更新
-        public void checkUpdate()
+        public void checkUpdate(IntPtr  formHandle)
         {            
             if (netMode == 0)//联网模式
             {
@@ -54,7 +53,7 @@ namespace UnityModule
                         return;
                     }
                     isUpdateing = true;
-                    FormUnityUpdate formUnityUpdate = new FormUnityUpdate(formMainHandle);
+                    FormUnityUpdate formUnityUpdate = new FormUnityUpdate(formHandle);
                     formUnityUpdate.checkUpdate();
                 }
                 catch (Exception e)

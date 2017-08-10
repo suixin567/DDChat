@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 using UnityModule;
 
@@ -36,13 +37,16 @@ namespace Dialog
         static string exe = "";
         public const int topHeight = 50;
         public FormDialog activeDialog = null;//激活对话窗
+        public SynchronizationContext m_SyncContext = null;
         #endregion
 
 
         public FormDialogManager()
         {
             InitializeComponent();
+            m_SyncContext = SynchronizationContext.Current;
             this.Show();
+
         }
 
         private void FormDialogManager_Load(object sender, EventArgs e)
@@ -56,30 +60,12 @@ namespace Dialog
             path.AddArc(pictureBoxFace.DisplayRectangle, 0, 360);
             pictureBoxFace.Region = new Region(path);
             this.appContainer.Hide();
+            //unity检查更新
             UnityManager.Instance.updateUnityEvent += this.onUnityCanRunEvent;
-            UnityManager.Instance.checkUpdate();
+            UnityManager.Instance.checkUpdate(this.Handle);
         }
 
-        static void findExe(string dir)
-        {
-            DirectoryInfo d = new DirectoryInfo(dir);
-            FileSystemInfo[] fsinfos = d.GetFileSystemInfos();
-            foreach (FileSystemInfo fsinfo in fsinfos)
-            {
-                if (fsinfo is DirectoryInfo)     //判断是否为文件夹  
-                {
-                    findExe(fsinfo.FullName);//递归调用  
-                }
-                else
-                {
-                    if (fsinfo.FullName.EndsWith(".exe"))
-                    {
-                        exe = fsinfo.FullName;
-                        return;
-                    }
-                }
-            }
-        }
+    
 
         //dialogType 资源类型
         //dialogName 表示群的名字 或者好友名字
@@ -92,7 +78,6 @@ namespace Dialog
                     if (formListDictionary.ContainsKey("shop") == false)
                     {
                         FormDialog formShop = new FormDialog(dialogType, -1, "商城", face);
-                        formShop.BackColor = Color.Red;
                         setParent(formShop);
                         formListDictionary.Add("shop", formShop);
                         //创建选项卡
@@ -138,7 +123,7 @@ namespace Dialog
             }
         }
 
-
+        //unity更新完毕
         void onUnityCanRunEvent(bool result)
         {
             if (result)
@@ -152,8 +137,45 @@ namespace Dialog
                 }
                 else
                 {
-                    appContainer.AppFilename = exe;
-                    appContainer.Start();
+                    //this.appContainer.Show();
+                    //appContainer.AppFilename = exe;
+                    //appContainer.Start();
+                    openUnitySafePost();
+                }
+            }
+        }
+
+
+        public void openUnitySafePost()
+        {
+            m_SyncContext.Post(openUnity, null);
+        }
+        //icon开始闪烁
+        void openUnity(object state)
+        {
+            this.appContainer.Show();
+            appContainer.AppFilename = exe;
+            appContainer.Start();
+        }
+
+
+        static void findExe(string dir)
+        {
+            DirectoryInfo d = new DirectoryInfo(dir);
+            FileSystemInfo[] fsinfos = d.GetFileSystemInfos();
+            foreach (FileSystemInfo fsinfo in fsinfos)
+            {
+                if (fsinfo is DirectoryInfo)     //判断是否为文件夹  
+                {
+                    findExe(fsinfo.FullName);//递归调用  
+                }
+                else
+                {
+                    if (fsinfo.FullName.EndsWith(".exe"))
+                    {
+                        exe = fsinfo.FullName;
+                        return;
+                    }
                 }
             }
         }
