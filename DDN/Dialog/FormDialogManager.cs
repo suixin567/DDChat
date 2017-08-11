@@ -63,8 +63,12 @@ namespace Dialog
             //unity检查更新
             UnityManager.Instance.updateUnityEvent += this.onUnityCanRunEvent;
             UnityManager.Instance.checkUpdate(this.Handle);
+            UnityManager.Instance.openedUnityEvent += this.onUnityOpened;
+                
         }
-
+        void onUnityOpened() {
+            this.appContainer.UnityOpendSafePost();
+        }
     
 
         //dialogType 资源类型
@@ -150,10 +154,8 @@ namespace Dialog
         {
             m_SyncContext.Post(openUnity, null);
         }
-        //icon开始闪烁
         void openUnity(object state)
         {
-            this.appContainer.Show();
             appContainer.AppFilename = exe;
             appContainer.Start();
         }

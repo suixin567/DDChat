@@ -9,6 +9,7 @@ using System.Drawing.Design;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing;
+using System.Threading;
 
 namespace SmileWei.EmbeddedApp
 {
@@ -20,6 +21,8 @@ namespace SmileWei.EmbeddedApp
     {
         Action<object, EventArgs> appIdleAction = null;
         EventHandler appIdleEvent = null;
+        public SynchronizationContext m_SyncContext = null;
+
         public AppContainer()
         {
             InitializeComponent();
@@ -33,6 +36,7 @@ namespace SmileWei.EmbeddedApp
             InitializeComponent();
             appIdleAction = new Action<object, EventArgs>(Application_Idle);
             appIdleEvent = new EventHandler(appIdleAction);
+            m_SyncContext = m_SyncContext = SynchronizationContext.Current;
         }
         /// <summary>
         /// 将属性<code>AppFilename</code>指向的应用程序打开并嵌入此容器
@@ -46,7 +50,7 @@ namespace SmileWei.EmbeddedApp
             try
             {
                 ProcessStartInfo info = new ProcessStartInfo(this.m_AppFilename);
-                info.UseShellExecute = true;
+              //  info.UseShellExecute = true;
                 info.WindowStyle = ProcessWindowStyle.Minimized;
                 //info.WindowStyle = ProcessWindowStyle.Hidden;
                 m_AppProcess = System.Diagnostics.Process.Start(info);
@@ -307,10 +311,21 @@ namespace SmileWei.EmbeddedApp
         #endregion Win32 API
 
 
+        public void UnityOpendSafePost()
+        {
+            m_SyncContext.Post(UnityOpend, null);
+        }
+        //icon开始闪烁
+        void UnityOpend(object state)
+        {
+            EmbedAgain();
+        }
+
+
+
         public void EmbedAgain()
         {
             EmbedProcess(m_AppProcess, this);
-            MessageBox.Show("完毕");
         }
         /// <summary>
         /// 将指定的程序嵌入指定的控件
@@ -331,8 +346,10 @@ namespace SmileWei.EmbeddedApp
                 // Remove border and whatnot               
                 SetWindowLong(new HandleRef(this,app.MainWindowHandle), GWL_STYLE, WS_VISIBLE);
             }
-            catch (Exception)
-            { }
+            catch (Exception err)
+            {
+                Debug.Print("去除子程序标题失败" + err.ToString());
+            }
             try
             {
                 // Move the window to overlay it on this window
@@ -340,6 +357,14 @@ namespace SmileWei.EmbeddedApp
             }
             catch (Exception)
             { }
+        }
+
+        public void SetWindowLongAgain() {
+           
+            if (m_AppProcess!=null)
+            {
+                SetWindowLong(new HandleRef(this, m_AppProcess.MainWindowHandle), GWL_STYLE, WS_VISIBLE);
+            }            
         }
     }
 }

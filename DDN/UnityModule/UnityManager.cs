@@ -37,7 +37,10 @@ namespace UnityModule
 
 
         public delegate void UpdateUnityEvent(bool result);
-        public UpdateUnityEvent updateUnityEvent;
+        public UpdateUnityEvent updateUnityEvent;//unity更新完成事件
+
+        public delegate void OpenedUnityEvent();
+        public OpenedUnityEvent openedUnityEvent;//unity启动事件
 
 
         //检查是否需要更新
@@ -78,6 +81,13 @@ namespace UnityModule
                 sceneIndex = scene;
                 ServerForUnity.Instance.SendMessage(UnityProtocol.SCENE, sceneIndex, 0, "");
             }              
+        }
+
+        public void UnityOpened() {
+            if (openedUnityEvent!=null)
+            {
+                openedUnityEvent();
+            }           
         }
     }
 }

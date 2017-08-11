@@ -1,6 +1,5 @@
 ﻿using SmileWei.EmbeddedApp;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using UnityModule;
@@ -39,14 +38,14 @@ namespace Dialog
                 case 1://群
                     break;
                 case 2://个人
-                    this.buttonChat.Dispose();
-                    this.buttonSetting.Dispose();
+                    this.labelChat.Dispose();
                     break;
                 case 3://朋友                   
                     break;
                 default:
                     break;
             }
+            labelChat.BackColor = Color.SteelBlue;
         }
 
 
@@ -81,34 +80,22 @@ namespace Dialog
                 }
         }
 
-        //资源选项卡
+        
         private void buttonRes_Click(object sender, EventArgs e)
         {
-            UIState = 0;
-            panelChat.Hide();
-            UnityManager.Instance.changeUnityScene(4);
-            FormDialogManager.Instance.appContainer.Show();
-            FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X , this.Location.Y + this.flowLayoutPanelTop.Height);
-            FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+          
         }
 
-        //聊天选项卡
+        
         private void buttonChat_Click(object sender, EventArgs e)
         {
-            UIState = 1;
-            panelChat.Show();
-            FormDialogManager.Instance.appContainer.Hide();
+        
         }
 
-        //画房子选项卡
+
         private void buttonDraw_Click(object sender, EventArgs e)
         {
-            UIState = 2;
-            panelChat.Hide();
-            UnityManager.Instance.changeUnityScene(3);
-            FormDialogManager.Instance.appContainer.Show();
-            FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
-            FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+         
         }
 
         //设置激活窗体时触发
@@ -129,7 +116,7 @@ namespace Dialog
                     UnityManager.Instance.changeUnityScene(4);
                     break;
                 case 1:
-                    FormDialogManager.Instance.appContainer.Location = this.panelChat.Location;
+                    FormDialogManager.Instance.appContainer.Hide();
                     UnityManager.Instance.currentGroup = m_title;
                     UnityManager.Instance.resourceMode = 1;
                     if (UIState == 0)//资源
@@ -164,5 +151,48 @@ namespace Dialog
             resize(null,null);
         }
 
+        //聊天选项卡
+        private void labelChat_Click(object sender, EventArgs e)
+        {
+            foreach (var item in flowLayoutPanelTop.Controls)
+            {
+                ((Label)item).BackColor = Color.Transparent;
+            }
+            labelChat.BackColor = Color.SteelBlue;
+            UIState = 1;
+            panelChat.Show();
+            FormDialogManager.Instance.appContainer.Hide();
+        }
+        //资源选项卡
+        private void labelRes_Click(object sender, EventArgs e)
+        {
+            foreach (var item in flowLayoutPanelTop.Controls)
+            {
+                ((Label)item).BackColor = Color.Transparent;
+            }
+            labelRes.BackColor = Color.SteelBlue;
+            UIState = 0;
+            panelChat.Hide();
+            UnityManager.Instance.changeUnityScene(4);
+            FormDialogManager.Instance.appContainer.Show();
+            FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+            FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+        }
+
+        //画房子选项卡
+        private void labelDraw_Click(object sender, EventArgs e)
+        {
+            foreach (var item in flowLayoutPanelTop.Controls)
+            {
+                ((Label)item).BackColor = Color.Transparent;
+            }
+            labelDraw.BackColor = Color.SteelBlue;
+            UIState = 2;
+            panelChat.Hide();
+            UnityManager.Instance.changeUnityScene(3);
+            FormDialogManager.Instance.appContainer.Show();
+            FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+            FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+        }
     }
 }

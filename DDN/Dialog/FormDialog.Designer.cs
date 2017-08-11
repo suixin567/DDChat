@@ -28,43 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonSetting = new System.Windows.Forms.Button();
-            this.buttonRes = new System.Windows.Forms.Button();
-            this.buttonChat = new System.Windows.Forms.Button();
             this.panelChat = new System.Windows.Forms.Panel();
-            this.buttonDraw = new System.Windows.Forms.Button();
             this.flowLayoutPanelTop = new System.Windows.Forms.FlowLayoutPanel();
+            this.labelChat = new System.Windows.Forms.Label();
+            this.labelRes = new System.Windows.Forms.Label();
+            this.labelDraw = new System.Windows.Forms.Label();
             this.flowLayoutPanelTop.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonSetting
-            // 
-            this.buttonSetting.Location = new System.Drawing.Point(251, 6);
-            this.buttonSetting.Name = "buttonSetting";
-            this.buttonSetting.Size = new System.Drawing.Size(75, 23);
-            this.buttonSetting.TabIndex = 2;
-            this.buttonSetting.Text = "群设置";
-            this.buttonSetting.UseVisualStyleBackColor = true;
-            // 
-            // buttonRes
-            // 
-            this.buttonRes.Location = new System.Drawing.Point(89, 6);
-            this.buttonRes.Name = "buttonRes";
-            this.buttonRes.Size = new System.Drawing.Size(75, 23);
-            this.buttonRes.TabIndex = 1;
-            this.buttonRes.Text = "资源";
-            this.buttonRes.UseVisualStyleBackColor = true;
-            this.buttonRes.Click += new System.EventHandler(this.buttonRes_Click);
-            // 
-            // buttonChat
-            // 
-            this.buttonChat.Location = new System.Drawing.Point(8, 6);
-            this.buttonChat.Name = "buttonChat";
-            this.buttonChat.Size = new System.Drawing.Size(75, 23);
-            this.buttonChat.TabIndex = 0;
-            this.buttonChat.Text = "聊天";
-            this.buttonChat.UseVisualStyleBackColor = true;
-            this.buttonChat.Click += new System.EventHandler(this.buttonChat_Click);
             // 
             // panelChat
             // 
@@ -77,27 +47,55 @@
             this.panelChat.Size = new System.Drawing.Size(701, 566);
             this.panelChat.TabIndex = 5;
             // 
-            // buttonDraw
-            // 
-            this.buttonDraw.Location = new System.Drawing.Point(170, 6);
-            this.buttonDraw.Name = "buttonDraw";
-            this.buttonDraw.Size = new System.Drawing.Size(75, 23);
-            this.buttonDraw.TabIndex = 3;
-            this.buttonDraw.Text = "绘制户型";
-            this.buttonDraw.UseVisualStyleBackColor = true;
-            this.buttonDraw.Click += new System.EventHandler(this.buttonDraw_Click);
-            // 
             // flowLayoutPanelTop
             // 
-            this.flowLayoutPanelTop.Controls.Add(this.buttonChat);
-            this.flowLayoutPanelTop.Controls.Add(this.buttonRes);
-            this.flowLayoutPanelTop.Controls.Add(this.buttonDraw);
-            this.flowLayoutPanelTop.Controls.Add(this.buttonSetting);
+            this.flowLayoutPanelTop.Controls.Add(this.labelChat);
+            this.flowLayoutPanelTop.Controls.Add(this.labelRes);
+            this.flowLayoutPanelTop.Controls.Add(this.labelDraw);
             this.flowLayoutPanelTop.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelTop.Name = "flowLayoutPanelTop";
             this.flowLayoutPanelTop.Padding = new System.Windows.Forms.Padding(5, 3, 0, 0);
-            this.flowLayoutPanelTop.Size = new System.Drawing.Size(338, 35);
+            this.flowLayoutPanelTop.Size = new System.Drawing.Size(253, 35);
             this.flowLayoutPanelTop.TabIndex = 0;
+            // 
+            // labelChat
+            // 
+            this.labelChat.BackColor = System.Drawing.SystemColors.Control;
+            this.labelChat.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelChat.Location = new System.Drawing.Point(8, 3);
+            this.labelChat.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
+            this.labelChat.Name = "labelChat";
+            this.labelChat.Size = new System.Drawing.Size(52, 29);
+            this.labelChat.TabIndex = 0;
+            this.labelChat.Text = "聊天";
+            this.labelChat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelChat.Click += new System.EventHandler(this.labelChat_Click);
+            // 
+            // labelRes
+            // 
+            this.labelRes.BackColor = System.Drawing.SystemColors.Control;
+            this.labelRes.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelRes.Location = new System.Drawing.Point(83, 3);
+            this.labelRes.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
+            this.labelRes.Name = "labelRes";
+            this.labelRes.Size = new System.Drawing.Size(52, 29);
+            this.labelRes.TabIndex = 1;
+            this.labelRes.Text = "资源";
+            this.labelRes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelRes.Click += new System.EventHandler(this.labelRes_Click);
+            // 
+            // labelDraw
+            // 
+            this.labelDraw.BackColor = System.Drawing.SystemColors.Control;
+            this.labelDraw.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelDraw.Location = new System.Drawing.Point(158, 3);
+            this.labelDraw.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
+            this.labelDraw.Name = "labelDraw";
+            this.labelDraw.Size = new System.Drawing.Size(75, 29);
+            this.labelDraw.TabIndex = 2;
+            this.labelDraw.Text = "绘制户型";
+            this.labelDraw.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelDraw.Click += new System.EventHandler(this.labelDraw_Click);
             // 
             // FormDialog
             // 
@@ -119,11 +117,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonRes;
-        private System.Windows.Forms.Button buttonChat;
         private System.Windows.Forms.Panel panelChat;
-        private System.Windows.Forms.Button buttonSetting;
-        private System.Windows.Forms.Button buttonDraw;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTop;
+        private System.Windows.Forms.Label labelChat;
+        private System.Windows.Forms.Label labelRes;
+        private System.Windows.Forms.Label labelDraw;
     }
 }

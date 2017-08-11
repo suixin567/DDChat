@@ -45,6 +45,7 @@
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClose.FlatAppearance.BorderSize = 0;
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClose.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonClose.Location = new System.Drawing.Point(569, 2);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(30, 30);
@@ -114,6 +115,7 @@
             // 
             this.appContainer.AppFilename = "";
             this.appContainer.AppProcess = null;
+            this.appContainer.BackColor = System.Drawing.Color.SteelBlue;
             this.appContainer.Location = new System.Drawing.Point(106, 78);
             this.appContainer.Name = "appContainer";
             this.appContainer.Size = new System.Drawing.Size(482, 510);
