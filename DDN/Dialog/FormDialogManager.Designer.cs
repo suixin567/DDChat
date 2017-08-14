@@ -65,6 +65,7 @@
             this.buttonMax.TabIndex = 6;
             this.buttonMax.Text = "□";
             this.buttonMax.UseVisualStyleBackColor = true;
+            this.buttonMax.Click += new System.EventHandler(this.buttonMax_Click);
             // 
             // pictureBoxFace
             // 

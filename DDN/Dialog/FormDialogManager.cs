@@ -141,10 +141,11 @@ namespace Dialog
                 }
                 else
                 {
-                    //this.appContainer.Show();
-                    //appContainer.AppFilename = exe;
-                    //appContainer.Start();
-                    openUnitySafePost();
+                    if (UnityManager.Instance.unityMode != 0)
+                    {
+                        openUnitySafePost();
+                    }
+  
                 }
             }
         }
@@ -282,7 +283,17 @@ namespace Dialog
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
+        private void buttonMax_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else {
+                this.WindowState = FormWindowState.Maximized;
+            }
+    
+        }
 
 
         public void AppExitEvent()
@@ -301,5 +312,7 @@ namespace Dialog
             this.Close();
             this.Dispose();
         }
+
+
     }
 }
