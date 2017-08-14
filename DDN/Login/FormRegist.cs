@@ -110,6 +110,10 @@ namespace Login
         public bool IsZeroBegin(string str_handset)
         {
             bool temp = false;
+            if (str_handset.Length==0)
+            {
+                return false;
+            }
             if (str_handset[0].ToString() == "0")
             {
                 return true;

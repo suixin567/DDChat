@@ -71,6 +71,12 @@
     </Compile>
     <Compile Include="MainMgr.cs" />
     <Compile Include="MsgMgr.cs" />
+    <Compile Include="MsgTip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsgTip.Designer.cs">
+      <DependentUpon>MsgTip.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddFriendItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </Compile>
     <EmbeddedResource Include="FormCreateGroup.resx">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsgTip.resx">
+      <DependentUpon>MsgTip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddFriendItem.resx">
       <DependentUpon>AddFriendItem.cs</DependentUpon>

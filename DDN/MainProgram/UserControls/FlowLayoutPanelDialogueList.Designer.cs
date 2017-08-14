@@ -32,14 +32,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelMsgVerifyItem = new System.Windows.Forms.Panel();
+            this.pictureBoxMsgVerifyFace = new System.Windows.Forms.PictureBox();
+            this.labelMsgVerify = new System.Windows.Forms.Label();
+            this.labelMsgVerifyContent = new System.Windows.Forms.Label();
             this.flowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelMsgVerifyItem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMsgVerifyFace)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 143);
+            this.label1.Location = new System.Drawing.Point(50, 159);
             this.label1.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 12);
@@ -49,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 155);
+            this.label2.Location = new System.Drawing.Point(50, 171);
             this.label2.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 12);
@@ -63,6 +69,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanel.Controls.Add(this.panelMsgVerifyItem);
             this.flowLayoutPanel.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel.Controls.Add(this.label1);
             this.flowLayoutPanel.Controls.Add(this.label2);
@@ -75,11 +82,52 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 66);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(165, 137);
+            this.pictureBox1.Size = new System.Drawing.Size(165, 90);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // panelMsgVerifyItem
+            // 
+            this.panelMsgVerifyItem.BackColor = System.Drawing.Color.White;
+            this.panelMsgVerifyItem.Controls.Add(this.labelMsgVerifyContent);
+            this.panelMsgVerifyItem.Controls.Add(this.labelMsgVerify);
+            this.panelMsgVerifyItem.Controls.Add(this.pictureBoxMsgVerifyFace);
+            this.panelMsgVerifyItem.Location = new System.Drawing.Point(3, 3);
+            this.panelMsgVerifyItem.Name = "panelMsgVerifyItem";
+            this.panelMsgVerifyItem.Size = new System.Drawing.Size(500, 57);
+            this.panelMsgVerifyItem.TabIndex = 3;
+            this.panelMsgVerifyItem.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panelMsgVerifyItem_MouseDoubleClick);
+            // 
+            // pictureBoxMsgVerifyFace
+            // 
+            this.pictureBoxMsgVerifyFace.Location = new System.Drawing.Point(12, 6);
+            this.pictureBoxMsgVerifyFace.Name = "pictureBoxMsgVerifyFace";
+            this.pictureBoxMsgVerifyFace.Size = new System.Drawing.Size(45, 45);
+            this.pictureBoxMsgVerifyFace.TabIndex = 0;
+            this.pictureBoxMsgVerifyFace.TabStop = false;
+            this.pictureBoxMsgVerifyFace.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMsgVerifyFace_MouseDoubleClick);
+            // 
+            // labelMsgVerify
+            // 
+            this.labelMsgVerify.AutoSize = true;
+            this.labelMsgVerify.Location = new System.Drawing.Point(63, 14);
+            this.labelMsgVerify.Name = "labelMsgVerify";
+            this.labelMsgVerify.Size = new System.Drawing.Size(53, 12);
+            this.labelMsgVerify.TabIndex = 1;
+            this.labelMsgVerify.Text = "验证消息";
+            this.labelMsgVerify.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.labelMsgVerify_MouseDoubleClick);
+            // 
+            // labelMsgVerifyContent
+            // 
+            this.labelMsgVerifyContent.AutoSize = true;
+            this.labelMsgVerifyContent.Location = new System.Drawing.Point(64, 38);
+            this.labelMsgVerifyContent.Name = "labelMsgVerifyContent";
+            this.labelMsgVerifyContent.Size = new System.Drawing.Size(41, 12);
+            this.labelMsgVerifyContent.TabIndex = 2;
+            this.labelMsgVerifyContent.Text = "......";
+            this.labelMsgVerifyContent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.labelMsgVerifyContent_MouseDoubleClick);
             // 
             // FlowLayoutPanelDialogueList
             // 
@@ -91,6 +139,9 @@
             this.flowLayoutPanel.ResumeLayout(false);
             this.flowLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelMsgVerifyItem.ResumeLayout(false);
+            this.panelMsgVerifyItem.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMsgVerifyFace)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -100,5 +151,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelMsgVerifyItem;
+        private System.Windows.Forms.PictureBox pictureBoxMsgVerifyFace;
+        private System.Windows.Forms.Label labelMsgVerifyContent;
+        private System.Windows.Forms.Label labelMsgVerify;
     }
 }

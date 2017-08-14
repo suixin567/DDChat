@@ -485,5 +485,11 @@ namespace MainProgram
         {
             if (m_labelTip != null) m_labelTip.Dispose();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MsgTip ss = new MsgTip();
+            ss.Show();
+        }
     }
 }

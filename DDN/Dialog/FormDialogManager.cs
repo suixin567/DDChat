@@ -46,7 +46,6 @@ namespace Dialog
             InitializeComponent();
             m_SyncContext = SynchronizationContext.Current;
             this.Show();
-
         }
 
         private void FormDialogManager_Load(object sender, EventArgs e)

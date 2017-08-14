@@ -23,4 +23,3 @@ C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.Properties.Resources.r
 C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.csproj.GenerateResource.Cache
 C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.dll
 C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.pdb
-C:\Users\文强\Desktop\DDN\DDN\ToolLib\obj\Debug\ToolLib.csprojResolveAssemblyReference.cache
