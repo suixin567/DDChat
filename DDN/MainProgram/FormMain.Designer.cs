@@ -36,7 +36,6 @@
             this.timerShowOrHide = new System.Windows.Forms.Timer(this.components);
             this.panelBottom = new System.Windows.Forms.Panel();
             this.buttonShop = new System.Windows.Forms.Button();
-            this.buttonMsg = new System.Windows.Forms.PictureBox();
             this.buttonFindFriend = new System.Windows.Forms.PictureBox();
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonMin = new System.Windows.Forms.Button();
@@ -48,7 +47,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStripNotifyIcon.SuspendLayout();
             this.panelBottom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonMsg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonFindFriend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +84,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelBottom.BackColor = System.Drawing.Color.Transparent;
             this.panelBottom.Controls.Add(this.buttonShop);
-            this.panelBottom.Controls.Add(this.buttonMsg);
             this.panelBottom.Controls.Add(this.buttonFindFriend);
             this.panelBottom.Location = new System.Drawing.Point(4, 613);
             this.panelBottom.Name = "panelBottom";
@@ -113,19 +110,6 @@
             this.buttonShop.Click += new System.EventHandler(this.buttonShop_Click);
             this.buttonShop.MouseLeave += new System.EventHandler(this.buttonShop_MouseLeave);
             this.buttonShop.MouseHover += new System.EventHandler(this.buttonShop_MouseHover);
-            // 
-            // buttonMsg
-            // 
-            this.buttonMsg.Image = ((System.Drawing.Image)(resources.GetObject("buttonMsg.Image")));
-            this.buttonMsg.Location = new System.Drawing.Point(215, 16);
-            this.buttonMsg.Name = "buttonMsg";
-            this.buttonMsg.Size = new System.Drawing.Size(15, 15);
-            this.buttonMsg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.buttonMsg.TabIndex = 16;
-            this.buttonMsg.TabStop = false;
-            this.buttonMsg.Click += new System.EventHandler(this.buttonFormMsgVerify_Click);
-            this.buttonMsg.MouseLeave += new System.EventHandler(this.buttonMsg_MouseLeave);
-            this.buttonMsg.MouseHover += new System.EventHandler(this.buttonMsg_MouseHover);
             // 
             // buttonFindFriend
             // 
@@ -253,7 +237,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.contextMenuStripNotifyIcon.ResumeLayout(false);
             this.panelBottom.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.buttonMsg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonFindFriend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -274,7 +257,6 @@
         private UserControls.TopInfoPanel topInfoPanel1;
         public UserControls.FlowLayoutPanelFriendList flowLayoutPanelFriendList;
         private System.Windows.Forms.Button buttonShop;
-        private System.Windows.Forms.PictureBox buttonMsg;
         private System.Windows.Forms.PictureBox buttonFindFriend;
         private UserControls.MainTabControl mainTabControl1;
         private System.Windows.Forms.Button button1;

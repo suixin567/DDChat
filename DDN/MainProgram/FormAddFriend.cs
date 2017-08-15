@@ -21,6 +21,7 @@ namespace MainProgram
             m_SyncContext = SynchronizationContext.Current;
         }
 
+
         private void FormAddFriend_Load(object sender, EventArgs e)
         {
             int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width/2 - this.Size.Width/2);
@@ -45,15 +46,17 @@ namespace MainProgram
 
             if (textBoxFindFriend.Text != "" && textBoxFindFriend.Text != PlayerPrefs.GetString("username"))
             {
-               HttpReqHelper.requestSync(AppConst.WebUrl+"findFriend?username="+textBoxFindFriend.Text,delegate(string friends) {
+                this.flowLayoutPanelStrangers.Controls.Clear();
+                HttpReqHelper.requestSync(AppConst.WebUrl+"findFriend?username="+textBoxFindFriend.Text,delegate(string friends) {
                    try
                    {
-                       this.flowLayoutPanelStrangers.Controls.Clear();
+                       
                        PersonalInfoModel[] model = Coding<PersonalInfoModel[]>.decode(friends);
                        foreach (var item in model)
                        {
                            AddFriendItem otherItem = new AddFriendItem(item.Username, item.Nickname, item.Face);
-                           this.flowLayoutPanelStrangers.Controls.Add(otherItem);
+                          // this.flowLayoutPanelStrangers.Controls.Add(otherItem);
+                           addItemSafePost(otherItem);
                        }
                    }
                    catch (Exception)
@@ -63,8 +66,15 @@ namespace MainProgram
             }
         }
 
+        void addItemSafePost(AddFriendItem addFriendItem) {
+            m_SyncContext.Post(addItem, addFriendItem);
+        }
+        void addItem(object state) {
+            this.flowLayoutPanelStrangers.Controls.Add((AddFriendItem)state);
+        }
 
-        //显示操作结果
+
+        #region 显示操作结果
         public void showOpreationResultSafePost(string content) {
             m_SyncContext.Post(showOpreationResult,content);
         }
@@ -86,18 +96,19 @@ namespace MainProgram
                 this.labelOpreationResult.Text = "";
             }
         }
+        #endregion
 
         //查找公司
         private void buttonFindCompany_Click(object sender, EventArgs e)
         {
             if (textBoxFindCompany.Text != "")
             {
-                
-               HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + textBoxFindCompany.Text,delegate(string company) {
+                this.flowLayoutPanelStrangers.Controls.Clear();
+                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + textBoxFindCompany.Text,delegate(string company) {
                    Debug.Print("找到的公司" + company);
                    try
                    {
-                       this.flowLayoutPanelStrangers.Controls.Clear();
+                      
                        GroupInfoModel model = Coding<GroupInfoModel>.decode(company);
                        if (model.Gid == 0)
                        {

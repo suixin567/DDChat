@@ -35,12 +35,25 @@ namespace MainProgram
             reFreshSafePost();
         }
 
-        public void reFreshSafePost()
-        {
-            m_SyncContext.Post(reFresh, null);
+
+
+        //增加一条验证信息
+        public void addOneVerifySafePost(MsgModel model) {
+            m_SyncContext.Post(addOneVerify, model);
+        }
+        void addOneVerify(object state) {
+            MsgVerifyItem verifyItem = new MsgVerifyItem((MsgModel)state);
+            this.flowLayoutPanel.Controls.Add(verifyItem);
+            Debug.Print("增加一条验证");
         }
 
+
         //刷新列表
+        public void reFreshSafePost()
+        {
+           // m_SyncContext.Post(reFresh, null);
+        }
+
         void reFresh(object state) {
             this.labelMsgAmount.Text = "消息验证: " + MainMgr.Instance.msgMgr.mList.Count + "条";
             this.flowLayoutPanel.Controls.Clear();
@@ -56,12 +69,11 @@ namespace MainProgram
 
 
 
-
+        #region 操作结果显示
         public void showOpreationResultSafePost(string count)
         {
             m_SyncContext.Post(showOpreationResult, count);
         }
-
 
         int delay = 0;
         int currentCount = 0;
@@ -82,5 +94,6 @@ namespace MainProgram
                 this.labelOpreationResult.Text = "";
             }
         }
+        #endregion
     }
 }

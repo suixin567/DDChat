@@ -10,8 +10,8 @@
     //#else
     //    static string ip = "211.159.186.78";
     //#endif
-    //static string ip = "192.168.1.101";
-    static string ip = "211.159.186.78";
+    static string ip = "192.168.1.101";
+    //static string ip = "211.159.186.78";
     public static string SocketUrl = ip;
     public static string WebUrl = "http://" + SocketUrl + ":7788/";
     public static string WinPicPath = "C:/Users/Public/DDN/win/face/";//win图片保存位置

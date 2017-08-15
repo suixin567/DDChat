@@ -958,18 +958,6 @@
         rkJggg==
 </value>
   </data>
-  <data name="buttonMsg.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAFnSURBVEhLtdPNKwRxAMbx/SccFA5uhBBKIopyIX+C
-        cucgCkU5Ki5cvITiyB8ghRNRXm6U97zLS23Wa4zvM2Y1TT/T7ph96rM1z+HZ2ZnfRizLSgljGQZjGQZj
-        GQZ9pKMVp7jBeUDXjiFkaXgRTWjGHYImin6UY0HDu1DaUYIt+yq5nKHB8YSohrfxCWUC+ZjBm4oEsoJS
-        dNtXP7nwDivLKEMP/B7NC0ZRhEkVTr5waRpW4j+tBScqPLmHvrgSaypc8R1WHlGMXGyocHKEemRiXYUn
-        vsN6AY3oxQCqMA2doFp0Yhg12IM7fw7rTuvQBp1LZRXVyMOcCvKMQeh97KhwYhzWy9LddeBWhStXDndi
-        GIEe2aYK8jscP7ca1Tnuw4OKBPOKKeRAN6nYwwfQaAH0PPUPSjbvmEc2NB7TsIoKjEPPLWg+sIRCzGo4
-        DV3Qneso7Qd0iGOMIUPDKWEsw2Asw2As/8+KfANXoaLkMLx8ygAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="buttonFindFriend.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1

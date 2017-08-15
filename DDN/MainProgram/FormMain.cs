@@ -102,21 +102,42 @@ namespace MainProgram
         }
 
 
-
+        bool isNotifyIconFlashing = false;//icon是否在闪烁
+        MsgTip FormMsgTip = null;//消息提示窗口
         //icon开始闪烁
         public void notifyIonFlashSafePost()
         {
             m_SyncContext.Post(notifyIonFlash, null);
         }
-        //icon开始闪烁
        void notifyIonFlash(object state)
         {
             this.timerNotifyIcon.Start();
             isNotifyIconFlashing = true;
+            if (FormMsgTip == null)
+            {
+                FormMsgTip = new MsgTip();
+                FormMsgTip.Show();
+            }
+            else {
+                if (FormMsgTip.IsDisposed)
+                {
+                    FormMsgTip = new MsgTip();
+                    FormMsgTip.Show();
+                }
+            }
+  
+        }
+
+        //icon停止闪烁
+        public void stopInconFlash() {
+            this.timerNotifyIcon.Stop();
+            isNotifyIconFlashing = false;
+            this.notifyIconFormMain.Icon = MainProgram.Properties.Resources.bird;
+            FormMsgTip.Dispose();
         }
 
 
-       //icon开始闪烁
+        //icon闪烁定时器 
         bool isNotifyIconHide = false;
         private void notifyIconTimer_Tick(object sender, EventArgs e)
         {
@@ -142,8 +163,6 @@ namespace MainProgram
 
 
 
-
-
         //托盘右键退出被点击
         private void MenuItemExit_Click(object sender, EventArgs e)
         {
@@ -151,7 +170,7 @@ namespace MainProgram
             this.buttonExit_Click(null,null);
         }
 
-        bool isNotifyIconFlashing = false;
+  
         //托盘图标被点击
         private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -166,20 +185,14 @@ namespace MainProgram
                     this.StartPosition = FormStartPosition.Manual; //窗体的位置由Location属性决定
                     this.Location = (Point)new Size(x, y);         //窗体的起始位置为(x,y)     
                 }
-                else { //消息面板                
-                    buttonFormMsgVerify_Click(null,null);
+                else { //在闪烁，说明有消息需要处理 
+                    MainMgr.Instance.msgMgr.showFormVerfyOrDialog();
                 }
             }
         }
 
         //打开消息管理器面板
-        private void buttonFormMsgVerify_Click(object sender, EventArgs e)
-        {
-            isNotifyIconFlashing = false;//停止icon闪烁
-            this.timerNotifyIcon.Stop();
-            this.notifyIconFormMain.Icon = MainProgram.Properties.Resources.bird;
-
-            //创建消息管理器面板
+        public void opFormMsgVerify() {
             if (formMessageVerify == null)
             {
                 formMessageVerify = new FormMessageVerify();
@@ -192,10 +205,12 @@ namespace MainProgram
                     formMessageVerify = new FormMessageVerify();
                     formMessageVerify.Show();
                 }
-                formMessageVerify.Activate();
-                formMessageVerify.reFreshSafePost();
             }
+            formMessageVerify.Activate();
         }
+
+
+
 
         private void timerShowOrHide_Tick(object sender, EventArgs e)
         {
@@ -353,15 +368,15 @@ namespace MainProgram
         /// <summary>  
         /// 设置透明按钮样式  
         /// </summary>  
-        private void SetBtnStyle(Button btn)
-        {
-            btn.FlatStyle = FlatStyle.Flat;//样式  
-            btn.ForeColor = Color.Transparent;//前景  
-            btn.BackColor = Color.Transparent;//去背景  
-            btn.FlatAppearance.BorderSize = 0;//去边线  
-            btn.FlatAppearance.MouseOverBackColor = Color.Red;//鼠标经过  
-            btn.FlatAppearance.MouseDownBackColor = Color.Transparent;//鼠标按下  
-        }
+        //private void SetBtnStyle(Button btn)
+        //{
+        //    btn.FlatStyle = FlatStyle.Flat;//样式  
+        //    btn.ForeColor = Color.Transparent;//前景  
+        //    btn.BackColor = Color.Transparent;//去背景  
+        //    btn.FlatAppearance.BorderSize = 0;//去边线  
+        //    btn.FlatAppearance.MouseOverBackColor = Color.Red;//鼠标经过  
+        //    btn.FlatAppearance.MouseDownBackColor = Color.Transparent;//鼠标按下  
+        //}
         //最小化
         private void buttonMin_Click(object sender, EventArgs e)
         {
@@ -423,47 +438,47 @@ namespace MainProgram
             if (m_labelTip != null) m_labelTip.Dispose();
         }
 
-        private void buttonDraw_MouseHover(object sender, EventArgs e)
-        {
-            Label labelTip = new Label();
-            this.Controls.Add(labelTip);
-            labelTip.Text = "绘制户型";
-            labelTip.Size = new Size(60, 20);
-            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
-            labelTip.ForeColor = Color.White;
-            labelTip.TextAlign = ContentAlignment.MiddleCenter;
-            labelTip.BackColor = Color.DodgerBlue;
-            Point po = new Point(this.panelBottom.Location.X + 80, this.panelBottom.Location.Y - 15);
-            labelTip.Location = po;
-            labelTip.BringToFront();
-            m_labelTip = labelTip;
-        }
+        //private void buttonDraw_MouseHover(object sender, EventArgs e)
+        //{
+        //    Label labelTip = new Label();
+        //    this.Controls.Add(labelTip);
+        //    labelTip.Text = "绘制户型";
+        //    labelTip.Size = new Size(60, 20);
+        //    labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+        //    labelTip.ForeColor = Color.White;
+        //    labelTip.TextAlign = ContentAlignment.MiddleCenter;
+        //    labelTip.BackColor = Color.DodgerBlue;
+        //    Point po = new Point(this.panelBottom.Location.X + 80, this.panelBottom.Location.Y - 15);
+        //    labelTip.Location = po;
+        //    labelTip.BringToFront();
+        //    m_labelTip = labelTip;
+        //}
 
-        private void buttonDraw_MouseLeave(object sender, EventArgs e)
-        {
-            if (m_labelTip != null) m_labelTip.Dispose();
-        }
+        //private void buttonDraw_MouseLeave(object sender, EventArgs e)
+        //{
+        //    if (m_labelTip != null) m_labelTip.Dispose();
+        //}
 
-        private void buttonMsg_MouseHover(object sender, EventArgs e)
-        {
-            Label labelTip = new Label();
-            this.Controls.Add(labelTip);
-            labelTip.Text = "验证消息";
-            labelTip.Size = new Size(60, 25);
-            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
-            labelTip.ForeColor = Color.White;
-            labelTip.TextAlign = ContentAlignment.MiddleCenter;
-            labelTip.BackColor = Color.DodgerBlue;
-            Point po = new Point(this.panelBottom.Location.X + 190, this.panelBottom.Location.Y - 15);
-            labelTip.Location = po;
-            labelTip.BringToFront();
-            m_labelTip = labelTip;            
-        }
+        //private void buttonMsg_MouseHover(object sender, EventArgs e)
+        //{
+        //    Label labelTip = new Label();
+        //    this.Controls.Add(labelTip);
+        //    labelTip.Text = "验证消息";
+        //    labelTip.Size = new Size(60, 25);
+        //    labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+        //    labelTip.ForeColor = Color.White;
+        //    labelTip.TextAlign = ContentAlignment.MiddleCenter;
+        //    labelTip.BackColor = Color.DodgerBlue;
+        //    Point po = new Point(this.panelBottom.Location.X + 190, this.panelBottom.Location.Y - 15);
+        //    labelTip.Location = po;
+        //    labelTip.BringToFront();
+        //    m_labelTip = labelTip;            
+        //}
 
-        private void buttonMsg_MouseLeave(object sender, EventArgs e)
-        {
-            if (m_labelTip != null) m_labelTip.Dispose();
-        }
+        //private void buttonMsg_MouseLeave(object sender, EventArgs e)
+        //{
+        //    if (m_labelTip != null) m_labelTip.Dispose();
+        //}
 
         private void buttonFindFriend_MouseHover(object sender, EventArgs e)
         {
@@ -488,8 +503,6 @@ namespace MainProgram
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MsgTip ss = new MsgTip();
-            ss.Show();
         }
     }
 }

@@ -155,6 +155,12 @@
     <Compile Include="UserControls\MainTabControl.Designer.cs">
       <DependentUpon>MainTabControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MsgTipItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MsgTipItem.Designer.cs">
+      <DependentUpon>MsgTipItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MsgVerifyItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -173,6 +179,12 @@
     </Compile>
     <Compile Include="UserControls\TopInfoPanel.Designer.cs">
       <DependentUpon>TopInfoPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VerifyMsgMgr.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\VerifyMsgMgr.Designer.cs">
+      <DependentUpon>VerifyMsgMgr.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormCreateGroup.resx">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
@@ -220,6 +232,9 @@
     <EmbeddedResource Include="UserControls\MainTabControl.resx">
       <DependentUpon>MainTabControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MsgTipItem.resx">
+      <DependentUpon>MsgTipItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MsgVerifyItem.resx">
       <DependentUpon>MsgVerifyItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TopInfoPanel.resx">
       <DependentUpon>TopInfoPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\VerifyMsgMgr.resx">
+      <DependentUpon>VerifyMsgMgr.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
