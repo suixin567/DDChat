@@ -37,11 +37,11 @@ namespace MainProgram
         public SynchronizationContext m_SyncContext = null;
 
         public FormAddFriend FormAddFriend = null;//添加好友的窗体
-        public FormMessageVerify formMessageVerify;//消息管理窗体
         public FlowLayoutPanelDialogueList flowLayoutPanelDialogueList;//会话列表面板
         public FlowLayoutPanelGroupList flowLayoutPanelGroupList;//群列表面板
         public FlowLayoutPanelResourcesList flowLayoutPanelResourcesList;//资源列表面板
-        
+
+
         public FormMain()
         {
             InitializeComponent();
@@ -112,20 +112,7 @@ namespace MainProgram
        void notifyIonFlash(object state)
         {
             this.timerNotifyIcon.Start();
-            isNotifyIconFlashing = true;
-            if (FormMsgTip == null)
-            {
-                FormMsgTip = new MsgTip();
-                FormMsgTip.Show();
-            }
-            else {
-                if (FormMsgTip.IsDisposed)
-                {
-                    FormMsgTip = new MsgTip();
-                    FormMsgTip.Show();
-                }
-            }
-  
+            isNotifyIconFlashing = true;  
         }
 
         //icon停止闪烁
@@ -133,7 +120,6 @@ namespace MainProgram
             this.timerNotifyIcon.Stop();
             isNotifyIconFlashing = false;
             this.notifyIconFormMain.Icon = MainProgram.Properties.Resources.bird;
-            FormMsgTip.Dispose();
         }
 
 
@@ -186,29 +172,11 @@ namespace MainProgram
                     this.Location = (Point)new Size(x, y);         //窗体的起始位置为(x,y)     
                 }
                 else { //在闪烁，说明有消息需要处理 
-                    MainMgr.Instance.msgMgr.showFormVerfyOrDialog();
+               //     MainMgr.Instance.msgMgr.showFormVerfyOrDialog();
+                  MainMgr.Instance.msgTip .processTipMsg();
                 }
             }
         }
-
-        //打开消息管理器面板
-        public void opFormMsgVerify() {
-            if (formMessageVerify == null)
-            {
-                formMessageVerify = new FormMessageVerify();
-                formMessageVerify.Show();
-            }
-            else
-            {
-                if (formMessageVerify.IsDisposed)
-                {
-                    formMessageVerify = new FormMessageVerify();
-                    formMessageVerify.Show();
-                }
-            }
-            formMessageVerify.Activate();
-        }
-
 
 
 

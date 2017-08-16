@@ -32,7 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.verifyMsgMgr1 = new MainProgram.UserControls.VerifyMsgMgr();
+            this.verifyMsgMgr1 = new MainProgram.UserControls.VerifyMsgItem();
             this.flowLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -109,6 +109,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private VerifyMsgMgr verifyMsgMgr1;
+        private VerifyMsgItem verifyMsgMgr1;
     }
 }

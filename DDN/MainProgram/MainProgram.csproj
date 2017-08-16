@@ -180,12 +180,13 @@
     <Compile Include="UserControls\TopInfoPanel.Designer.cs">
       <DependentUpon>TopInfoPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\VerifyMsgMgr.cs">
+    <Compile Include="UserControls\VerifyMsgItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\VerifyMsgMgr.Designer.cs">
-      <DependentUpon>VerifyMsgMgr.cs</DependentUpon>
+    <Compile Include="UserControls\VerifyMsgItem.Designer.cs">
+      <DependentUpon>VerifyMsgItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="VerifyMsgMgr.cs" />
     <EmbeddedResource Include="FormCreateGroup.resx">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,8 +247,8 @@
     <EmbeddedResource Include="UserControls\TopInfoPanel.resx">
       <DependentUpon>TopInfoPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\VerifyMsgMgr.resx">
-      <DependentUpon>VerifyMsgMgr.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\VerifyMsgItem.resx">
+      <DependentUpon>VerifyMsgItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

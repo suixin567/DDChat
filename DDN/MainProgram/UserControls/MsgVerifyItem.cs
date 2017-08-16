@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Mgr;
 using System.Drawing.Drawing2D;
 using System.Threading;
 
@@ -17,14 +10,14 @@ namespace MainProgram.UserControls
     public partial class MsgVerifyItem : UserControl
     {
         public SynchronizationContext m_SyncContext = null;
-        MsgModel m_MsgModel=new MsgModel();//可能申请加好友，可能申请入群等等。
-        public bool isProcessed = false;
+        public VerifyMsgModel m_MsgModel =new VerifyMsgModel();
+
         public MsgVerifyItem()
         {
             InitializeComponent();
         }
 
-        public MsgVerifyItem(MsgModel msgModel)
+        public MsgVerifyItem(VerifyMsgModel msgModel)
         {
             InitializeComponent();
             m_SyncContext = SynchronizationContext.Current;
@@ -45,12 +38,22 @@ namespace MainProgram.UserControls
                     this.labelTime.Text = m_MsgModel.Time;
                     this.buttonYes.Hide();
                     this.buttonIgnore.Hide();
+                    this.labelProcessMark.Hide();
                     pullOtherFaceAndName(AppConst.WebUrl + "baseInfo?username=" + m_MsgModel.To);
                     break;
                 case MsgProtocol.ONE_ADD_YOU_SRES://有人想加你
                     this.labelUsername.Text = m_MsgModel.From;
                     this.labelContent.Text = m_MsgModel.Content;
                     this.labelTime.Text = m_MsgModel.Time;
+                    if (m_MsgModel.IsDealed == true)//已处理
+                    {
+                        this.labelProcessMark.Text = "已处理";
+                        this.buttonYes.Hide();
+                        this.buttonIgnore.Hide();
+                    }
+                    else {
+                        this.labelProcessMark.Hide();
+                    }
                     pullOtherFaceAndName(AppConst.WebUrl + "baseInfo?username=" + m_MsgModel.From);
                     break;
                 case MsgProtocol.ADD_GROUP_SRES://申请加群的响应
@@ -65,27 +68,6 @@ namespace MainProgram.UserControls
                     Debug.Print("这条协议还没有做处理"+ m_MsgModel.MsgType);
                     break;
             }
-
-
-         
-            ////跟据消息类型 进行不同的展示
-            //switch (m_MsgModel.MsgType)
-            //{
-            //    case MsgProtocol.ONE_AGREED_YOU://别人同意了你的好友申请
-            //        this.buttonYes.Hide();
-            //        this.buttonIgnore.Hide();
-            //        break;
-            //    case MsgProtocol.YOU_BE_DELETED://被删除好友
-            //        this.buttonYes.Hide();
-            //        this.buttonIgnore.Hide();
-            //        break;
-            //    case MsgProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意进群
-            //        this.buttonYes.Hide();
-            //        this.buttonIgnore.Hide();
-            //        break;
-            //    default:
-            //        break;
-            //}
         }
 
 
@@ -140,7 +122,19 @@ namespace MainProgram.UserControls
         {
             this.pictureBoxFace.Image = (Image)state;
         }
+        //安全设置自己为已被处理
+        public void setProcessedSafePost()
+        {
+            m_SyncContext.Post(setProcessed, null);
+        }
+        void setProcessed(object state)
+        {
+            this.buttonYes.Hide();
+            this.buttonIgnore.Hide();
 
+            this.labelProcessMark.Text = "已处理";
+            this.labelProcessMark.Show();
+        }
 
 
         //通过验证

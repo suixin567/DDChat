@@ -85,4 +85,4 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\Dialog.dll
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\Dialog.pdb
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.MsgTip.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.MsgTipItem.resources
-C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.VerifyMsgMgr.resources
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.VerifyMsgItem.resources

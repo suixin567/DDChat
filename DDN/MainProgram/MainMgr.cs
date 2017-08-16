@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainProgram.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -26,6 +27,7 @@ namespace MainProgram
         #region 属性
         public FormMain formMain;
         public MsgMgr msgMgr;
+        public MsgTip msgTip = null;
 
         private PersonalInfoModel baseInfo;
         public PersonalInfoModel BaseInfo {
@@ -54,6 +56,8 @@ namespace MainProgram
            ServerForUnity.Instance.Start();          
            formMain = new FormMain();
            formMain.Show();
+           msgTip = new MsgTip();
+          
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+using MainProgram.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -65,10 +66,9 @@ namespace MainProgram
 
     public class MsgMgr
     {
-        public List<MsgModel> mList = new List<MsgModel>();
+        //需要tip的消息
         public MsgMgr()
         {
-            //Debug.Print("消息管理器的构造函数！！！！");
             //拉取离线消息
             pullOfflineMsg();
         }
@@ -85,11 +85,6 @@ namespace MainProgram
                 Debug.Print("MsgMgr.onMessage解析错误" + e.ToString());               
             }
             onNewMessage(mModel);
-            //刷新验证消息确认窗体
-            if (MainMgr.Instance.formMain.formMessageVerify != null && MainMgr.Instance.formMain.formMessageVerify.IsDisposed == false)
-            {
-                MainMgr.Instance.formMain.formMessageVerify.reFreshSafePost();
-            }
         }
 
 
@@ -99,41 +94,29 @@ namespace MainProgram
             {
                 case MsgProtocol.ADD_FRIEND_SRES://添加好友的响应  (《《《无需闪烁》》》)
                     MainMgr.Instance.formMain.FormAddFriend.showOpreationResultSafePost("好友申请已经发出，请等待对方处理。");
-                    //验证消息窗体加入这条信息
-                    Debug.Print("准备增加一条验证");
-                    MainMgr.Instance.formMain.formMessageVerify.addOneVerifySafePost(mModel);
+                    //验证消息窗体加入这条信息         
+                    VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
                     break;
-
                 case MsgProtocol.ONE_ADD_YOU_SRES://有人添加你      (闪烁~~~)      (需要操作。点击同意按钮)       
-                    foreach (var item in mList)
-                    {
-                        if (item.From == mModel.From && item.MsgType == MsgProtocol.ONE_ADD_YOU_SRES)
-                        {//要判断是否有同样的申请，过滤一下
-                            return;
-                        }
-                    }                  
-                    this.mList.Add(mModel);
-                    MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁  
+                                                  //foreach (var item in mList)
+                                                  //{
+                                                  //    if (item.From == mModel.From && item.MsgType == MsgProtocol.ONE_ADD_YOU_SRES)
+                                                  //    {//要判断是否有同样的申请，过滤一下
+                                                  //        return;
+                                                  //    }
+                                                  //}                                                 
+                    VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
+                    msgTip(mModel);
                     break;
-                case MsgProtocol.AGREE_ADD_FRIEND_SRES://我同意别人的加好友申请的响应，删除mlist ,并添加好友 (《《《无需闪烁》》》)
-                    //标记那条申请加我的消息 为已处理        
-                    //for (int i = 0; i < mList.Count; i++)
-                    //{
-                    //    if (mList[i].MsgType == MsgProtocol.ONE_ADD_YOU_SRES && mList[i].From == mModel.To)
-                    //    {
-                    //      //  mList.RemoveAt(i);
-
-                    //    }
-                    //}
-                 //   MainMgr.Instance.formMain.formMessageVerify.reFreshSafePost();
-                    MainMgr.Instance.formMain.formMessageVerify.showOpreationResultSafePost(mModel.To + "是你的好友了");
+                case MsgProtocol.AGREE_ADD_FRIEND_SRES://我同意别人的加好友申请的响应，删除mlist ,并添加好友 (《《《无需闪烁》》》)                                             
+                    VerifyMsgMgr.Instance.formMessageVerify.showOpreationResultSafePost(mModel.To + "是你的好友了");
                     MainMgr.Instance.formMain.flowLayoutPanelFriendList.addFriendItemSafePost(mModel.To);
+                    //把验证消息里的这条消息标记为已处理
+                    VerifyMsgMgr.Instance.markProcessed(mModel);
                     break;
                 case MsgProtocol.ONE_AGREED_YOU://别人同意了你的申请   (闪烁~~~)  
-                    MainMgr.Instance.formMain.formMessageVerify.addOneVerifySafePost(mModel);
                     MainMgr.Instance.formMain.flowLayoutPanelFriendList.addFriendItemSafePost(mModel.From);//添加好友
-                   // this.mList.Add(mModel);
-                    MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁
+                    msgTip(mModel);
                     break;
                 case MsgProtocol.DELETE_FRIEND_SRES://删除好友的响应，删除好友item及好友列表  (《《《无需闪烁》》》)
                     MainMgr.Instance.formMain.flowLayoutPanelFriendList.removeFriendItemSafePost(mModel.To);
@@ -141,9 +124,7 @@ namespace MainProgram
                     break;
                 case MsgProtocol.YOU_BE_DELETED://你被别人删除好友了,删除item、list、添加消息列表     (闪烁~~~)  
                     MainMgr.Instance.formMain.flowLayoutPanelFriendList.removeFriendItemSafePost(mModel.From);
-                    this.mList.Add(mModel);
-                    MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁
-                    Debug.Print("收到我被删除的消息" + mModel.MsgType);
+                  //  msgTip(mModel);
                     break;
 
 
@@ -164,7 +145,7 @@ namespace MainProgram
                     if (mModel.Content == "申请已经发出，请等待群主审核。")
                     {
                         MainMgr.Instance.formMain.FormAddFriend.showOpreationResultSafePost(mModel.Content);
-                        MainMgr.Instance.formMain.formMessageVerify.addOneVerifySafePost(mModel);
+                   //     VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
                         return;
                     }
                     MyGroupModel myAddGroupModel = Coding<MyGroupModel>.decode(mModel.Content);
@@ -175,30 +156,24 @@ namespace MainProgram
                     MainMgr.Instance.formMain.FormAddFriend.showOpreationResultSafePost("成功加入！");
                     break;
                 case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人想申请入群       (闪烁~~~)          (需要操作。点击同意入群按钮)                             
-                    foreach (var item in mList)
-                    {
-                        if (item.From == mModel.From && item.MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES)
-                        {//要判断是否有同样的申请，过滤一下
-                            return;
-                        }
-                    }
-                    MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁 
-                    this.mList.Add(mModel);
-                    break;
-                case MsgProtocol.AGREE_ADD_GROUP_SRES://群主同意申请入群的响应  (《《《无需闪烁》》》)
-                    MainMgr.Instance.formMain.formMessageVerify.showOpreationResultSafePost(mModel.From + "加入成功！");
-                    ////移除那条申请入群的消息            
-                    //for (int i = 0; i < mList.Count; i++)
+                    //foreach (var item in mList)
                     //{
-                    //    if (mList[i].MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES && mList[i].From == mModel.From)
-                    //    {
-                    //        mList.RemoveAt(i);
+                    //    if (item.From == mModel.From && item.MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES)
+                    //    {//要判断是否有同样的申请，过滤一下
+                    //        return;
                     //    }
                     //}
+                    //   MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁 
+                    //  this.mList.Add(mModel);
+                    msgTip(mModel);
+                    break;
+                case MsgProtocol.AGREE_ADD_GROUP_SRES://群主同意申请入群的响应  (《《《无需闪烁》》》)
+                //    VerifyMsgMgr.Instance.formMessageVerify.showOpreationResultSafePost(mModel.From + "加入成功！");
                     break;
                 case MsgProtocol.YOU_BE_AGREED_ENTER_GROUP://你被同意入群             (闪烁~~~)  
-                    MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁 
-                    this.mList.Add(mModel);
+                                                           //  MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁 
+                                                           // this.mList.Add(mModel);
+                    msgTip(mModel);
                     //增加item
                     MyGroupModel beAgreedEnterGroupModel = new MyGroupModel();
                     beAgreedEnterGroupModel.GroupID = int.Parse(mModel.To);
@@ -263,19 +238,11 @@ namespace MainProgram
             });           
         }
 
-        //处理待处理消息
-        public void showFormVerfyOrDialog()
-        {
-            MainMgr.Instance.formMain.opFormMsgVerify();
-            for (int i = 0; i < mList.Count; i++)
-            {
-                
-                MainMgr.Instance.formMain.formMessageVerify.addOneVerifySafePost(mList[i]);
-            }
-            //清除待处理消息
-            mList.Clear();
-            MainMgr.Instance.formMain.stopInconFlash();
+
+        void msgTip(MsgModel mode) {
+            MainMgr.Instance.msgTip. addNewTip(mode);
         }
 
+    
     }
 }

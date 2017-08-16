@@ -1,6 +1,6 @@
 ﻿namespace MainProgram.UserControls
 {
-    partial class VerifyMsgMgr
+    partial class VerifyMsgItem
     {
         /// <summary> 
         /// 必需的设计器变量。
@@ -30,7 +30,7 @@
         {
             this.pictureBoxFace = new System.Windows.Forms.PictureBox();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.labelContent = new System.Windows.Forms.Label();
+            this.labelCont = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,24 +56,24 @@
             this.labelTitle.Text = "验证消息";
             this.labelTitle.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.labelTitle_MouseDoubleClick);
             // 
-            // labelContent
+            // labelCont
             // 
-            this.labelContent.AutoSize = true;
-            this.labelContent.Location = new System.Drawing.Point(63, 39);
-            this.labelContent.Name = "labelContent";
-            this.labelContent.Size = new System.Drawing.Size(41, 12);
-            this.labelContent.TabIndex = 3;
-            this.labelContent.Text = "......";
-            this.labelContent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.labelContent_MouseDoubleClick);
+            this.labelCont.AutoSize = true;
+            this.labelCont.Location = new System.Drawing.Point(63, 39);
+            this.labelCont.Name = "labelCont";
+            this.labelCont.Size = new System.Drawing.Size(41, 12);
+            this.labelCont.TabIndex = 3;
+            this.labelCont.Text = "......";
+            this.labelCont.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.labelContent_MouseDoubleClick);
             // 
-            // VerifyMsgMgr
+            // VerifyMsgItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.labelContent);
+            this.Controls.Add(this.labelCont);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.pictureBoxFace);
-            this.Name = "VerifyMsgMgr";
+            this.Name = "VerifyMsgItem";
             this.Size = new System.Drawing.Size(500, 57);
             this.Load += new System.EventHandler(this.VerifyMsgMgr_Load);
             this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.VerifyMsgMgr_MouseDoubleClick);
@@ -87,6 +87,6 @@
 
         private System.Windows.Forms.PictureBox pictureBoxFace;
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.Label labelContent;
+        private System.Windows.Forms.Label labelCont;
     }
 }

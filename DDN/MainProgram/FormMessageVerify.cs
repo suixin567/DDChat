@@ -32,40 +32,21 @@ namespace MainProgram
             this.StartPosition = FormStartPosition.Manual; //窗体的位置由Location属性决定
             this.Location = (Point)new Size(x, y);         //窗体的起始位置为(x,y) 
             labelOpreationResult.Text = "";
-            reFreshSafePost();
+            reFresh();
         }
+  
 
-
-
-        //增加一条验证信息
-        public void addOneVerifySafePost(MsgModel model) {
-            m_SyncContext.Post(addOneVerify, model);
-        }
-        void addOneVerify(object state) {
-            MsgVerifyItem verifyItem = new MsgVerifyItem((MsgModel)state);
-            this.flowLayoutPanel.Controls.Add(verifyItem);
-            Debug.Print("增加一条验证");
-        }
-
-
-        //刷新列表
-        public void reFreshSafePost()
+        public void reFresh()
         {
-           // m_SyncContext.Post(reFresh, null);
-        }
-
-        void reFresh(object state) {
-            this.labelMsgAmount.Text = "消息验证: " + MainMgr.Instance.msgMgr.mList.Count + "条";
+            this.labelMsgAmount.Text = "消息验证: " + VerifyMsgMgr.Instance.vmList.Count + "条";
             this.flowLayoutPanel.Controls.Clear();
-
-            for (int i = MainMgr.Instance.msgMgr.mList.Count - 1; i >= 0; i--)
+            for (int i = VerifyMsgMgr.Instance.vmList.Count - 1; i >= 0; i--)
             {
-                MsgModel model = MainMgr.Instance.msgMgr.mList[i];
+                VerifyMsgModel model = VerifyMsgMgr.Instance.vmList[i];
                 MsgVerifyItem verifyItem = new MsgVerifyItem(model);
                 this.flowLayoutPanel.Controls.Add(verifyItem);
             }
         }
-
 
 
 
@@ -95,5 +76,10 @@ namespace MainProgram
             }
         }
         #endregion
+
+        private void FormMessageVerify_Activated(object sender, EventArgs e)
+        {
+            reFresh();
+        }
     }
 }

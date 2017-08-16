@@ -36,6 +36,7 @@
             this.buttonIgnore = new System.Windows.Forms.Button();
             this.labelTime = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
+            this.labelProcessMark = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,11 +108,21 @@
             this.labelUsername.TabIndex = 9;
             this.labelUsername.Text = "591821945";
             // 
+            // labelProcessMark
+            // 
+            this.labelProcessMark.AutoSize = true;
+            this.labelProcessMark.Location = new System.Drawing.Point(526, 38);
+            this.labelProcessMark.Name = "labelProcessMark";
+            this.labelProcessMark.Size = new System.Drawing.Size(41, 12);
+            this.labelProcessMark.TabIndex = 10;
+            this.labelProcessMark.Text = "已处理";
+            // 
             // MsgVerifyItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Controls.Add(this.labelProcessMark);
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.labelTime);
             this.Controls.Add(this.buttonIgnore);
@@ -137,5 +148,6 @@
         private System.Windows.Forms.Button buttonIgnore;
         private System.Windows.Forms.Label labelTime;
         public System.Windows.Forms.Label labelUsername;
+        private System.Windows.Forms.Label labelProcessMark;
     }
 }

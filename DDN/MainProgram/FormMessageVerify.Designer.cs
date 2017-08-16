@@ -85,6 +85,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMessageVerify";
             this.Text = "消息验证";
+            this.Activated += new System.EventHandler(this.FormMessageVerify_Activated);
             this.Load += new System.EventHandler(this.FormMessageVerify_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -92,7 +93,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
+        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.Label labelMsgAmount;
         private System.Windows.Forms.Label labelOpreationResult;
         private System.Windows.Forms.Timer timerOpreationResult;
