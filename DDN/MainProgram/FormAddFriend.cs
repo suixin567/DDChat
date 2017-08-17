@@ -73,6 +73,14 @@ namespace MainProgram
             this.flowLayoutPanelStrangers.Controls.Add((AddFriendItem)state);
         }
 
+        void addGroupItemSafePost(AddGroupItem _addGroupItem)
+        {
+            m_SyncContext.Post(addGroupItem, _addGroupItem);
+        }
+        void addGroupItem(object state)
+        {
+            this.flowLayoutPanelStrangers.Controls.Add((AddGroupItem)state);
+        }
 
         #region 显示操作结果
         public void showOpreationResultSafePost(string content) {
@@ -115,8 +123,9 @@ namespace MainProgram
                            return;
                        }
                        AddGroupItem otherItem = new AddGroupItem(model.Name, model.Gid, model.Face);
-                       this.flowLayoutPanelStrangers.Controls.Add(otherItem);
-                   }
+                        //this.flowLayoutPanelStrangers.Controls.Add(otherItem);
+                        addGroupItemSafePost(otherItem);
+                    }
                    catch (Exception)
                    {
                    }

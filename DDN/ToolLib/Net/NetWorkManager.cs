@@ -286,17 +286,21 @@ public class NetWorkManager
         /// </summary>
         void reLogin()
         {
-            //if (GameInfo.IS_LOGIN == 1)
-            //{//已经登陆需要重新登陆
-            //    Debug.Print("发送重新登陆请求...");
-            //    LoginDTO dto = new LoginDTO();
-            //    dto.userName = GameInfo.ACC_ID;
-            //    dto.passWord = GameInfo.ACC_PSD;
-            //    string message = Coding<LoginDTO>.encode(dto);
-            //   // Debug.Print(message);
-            //    sendMessage(Protocol.LOGIN, 0, LoginProtocol.RELOGIN_CREQ, message);
-            //}
-        }
+       // if (GameInfo.IS_LOGIN == 1)
+       // {
+            //已经登陆需要重新登陆
+            Debug.Print("发送重新登陆请求...");
+            LoginDTO dto = new LoginDTO();
+     //   { "stringKey":"account","stringValue":"777777"}
+      //  { "stringKey":"passWord","stringValue":"777777"}
+
+        dto.userName = PlayerPrefs.GetString("account");// GameInfo.ACC_ID;
+        dto.passWord = PlayerPrefs.GetString("passWord");// GameInfo.ACC_PSD;
+            string message = Coding<LoginDTO>.encode(dto);
+            // Debug.Print(message);
+            sendMessage(Protocol.LOGIN, 0, LoginProtocol.RELOGIN_CREQ, message);
+       // }
+    }
 
         public List<SocketModel> getList()
         {

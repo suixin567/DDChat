@@ -62,13 +62,24 @@ namespace MainProgram
             //用户已做处理，清空待处理
             for (int i = 0; i < tipMsgList.Count; i++)
             {
-                if (tipMsgList[i].MsgType < 100)//验证类消息
+                switch (tipMsgList[i].MsgType)
                 {
-                    VerifyMsgMgr.Instance.openFormMesageVerify();
+                    case MsgProtocol.ONE_ADD_YOU_SRES://有人申请加好友
+                        VerifyMsgMgr.Instance.openFormMesageVerify();
+                        break;
+                    case MsgProtocol.ONE_AGREED_YOU://别人同意你加好友
+                        //打开这个人的聊天对话
+                        break;
+                    case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人想加群
+                        VerifyMsgMgr.Instance.openFormMesageVerify();
+                        break;
+                    case MsgProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意入群
+                        //打开这个群的聊天对话
+                        break;
+                    default:
+                        Debug.Print("MsgTip:未知消息类型" + tipMsgList[i].MsgType);
+                        break;
                 }
-                else {
-                    //这是个聊天，打开聊天对话框
-                }             
             }
             tipMsgList.Clear();
             this.flowLayoutPanel1.Controls.Clear();

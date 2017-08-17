@@ -102,6 +102,34 @@ namespace MainProgram
             }
         }
 
+        //标记一条申请申请入群的信息为已经被处理  
+        public void markAddGroupProcessed(MsgModel mode)
+        {
+            foreach (var item in vmList)
+            {
+                Debug.Print(item.MsgType + item.From + item.To + item.Time);
+                Debug.Print(mode.MsgType + mode.From + mode.To + mode.Time);
+                if (item.MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES)
+                {
+                    if (item.From == mode.From && item.To == mode.To)
+                    {
+                        item.IsDealed = true;
+                    }
+                }
+            }
+            foreach (var item in formMessageVerify.flowLayoutPanel.Controls)
+            {
+                MsgVerifyItem mvi = (MsgVerifyItem)item;
+                if (mvi.m_MsgModel.MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES)
+                {
+                    if (mvi.m_MsgModel.From == mode.From && mvi.m_MsgModel.To == mode.To)
+                    {
+                        mvi.setProcessedSafePost();
+                    }
+                }
+            }
+        }
+
         //打开验证消息窗体
         public void openFormMesageVerify()
         {

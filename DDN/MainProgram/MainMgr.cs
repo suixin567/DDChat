@@ -52,11 +52,12 @@ namespace MainProgram
         #endregion
 
         public void Init() {
-           msgMgr = new MsgMgr();
+            msgTip = new MsgTip();
+            msgMgr = new MsgMgr();
            ServerForUnity.Instance.Start();          
            formMain = new FormMain();
            formMain.Show();
-           msgTip = new MsgTip();
+           
           
         }
     }

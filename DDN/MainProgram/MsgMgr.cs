@@ -137,6 +137,7 @@ namespace MainProgram
                     MainMgr.Instance.formMain.flowLayoutPanelGroupList.formCreateGroup.showOpreationResultSafePost("创建成功！，群号是：" + myGroupModel.GroupID);
                     break;
                 case MsgProtocol.ADD_GROUP_SRES://加群的响应 (《《《无需闪烁》》》)
+                    Debug.Print("申请加群的响应" + mModel.Content);
                     if (mModel.Content == "too many member")
                     {//群员太多
                         MainMgr.Instance.formMain.FormAddFriend.showOpreationResultSafePost("此群员已满，加入失败！");
@@ -145,7 +146,8 @@ namespace MainProgram
                     if (mModel.Content == "申请已经发出，请等待群主审核。")
                     {
                         MainMgr.Instance.formMain.FormAddFriend.showOpreationResultSafePost(mModel.Content);
-                   //     VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
+                        //验证消息窗体加入这条信息         
+                        VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
                         return;
                     }
                     MyGroupModel myAddGroupModel = Coding<MyGroupModel>.decode(mModel.Content);
@@ -156,19 +158,20 @@ namespace MainProgram
                     MainMgr.Instance.formMain.FormAddFriend.showOpreationResultSafePost("成功加入！");
                     break;
                 case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人想申请入群       (闪烁~~~)          (需要操作。点击同意入群按钮)                             
-                    //foreach (var item in mList)
-                    //{
-                    //    if (item.From == mModel.From && item.MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES)
-                    //    {//要判断是否有同样的申请，过滤一下
-                    //        return;
-                    //    }
-                    //}
-                    //   MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁 
-                    //  this.mList.Add(mModel);
+                                                         //foreach (var item in mList)
+                                                         //{
+                                                         //    if (item.From == mModel.From && item.MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES)
+                                                         //    {//要判断是否有同样的申请，过滤一下
+                                                         //        return;
+                                                         //    }
+                                                         //}
+                    VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
                     msgTip(mModel);
                     break;
                 case MsgProtocol.AGREE_ADD_GROUP_SRES://群主同意申请入群的响应  (《《《无需闪烁》》》)
-                //    VerifyMsgMgr.Instance.formMessageVerify.showOpreationResultSafePost(mModel.From + "加入成功！");
+                    VerifyMsgMgr.Instance.formMessageVerify.showOpreationResultSafePost(mModel.From + "加入成功！");
+                    //把验证消息里的这条消息标记为已处理
+                    VerifyMsgMgr.Instance.markAddGroupProcessed(mModel);
                     break;
                 case MsgProtocol.YOU_BE_AGREED_ENTER_GROUP://你被同意入群             (闪烁~~~)  
                                                            //  MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁 

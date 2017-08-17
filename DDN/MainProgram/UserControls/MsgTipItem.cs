@@ -48,7 +48,18 @@ namespace MainProgram.UserControls
                     this.labelContent.Text = "附加消息：" + m_mode.Content;
                     pullOtherFaceAndName(AppConst.WebUrl + "baseInfo?username=" + m_mode.From);
                     break;
+                case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人申请入群
+                    this.labelNickName.Text = "";
+                    this.labelContent.Text = "验证消息";
+                    //头像应为一个喇叭图片TODO:
+                    break;
+                case MsgProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意入群
+                    labelNickName.Text = "群名字";
+                    labelContent.Text = "已加入群聊，来聊天吧！";
+                    //头像应为群图片TODO:
+                    break;
                 default:
+                    Debug.Print("MsgTipItem：未知协议类型" + m_mode.MsgType);
                     break;
             }
         }

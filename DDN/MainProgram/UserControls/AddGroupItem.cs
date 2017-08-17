@@ -59,7 +59,6 @@ namespace MainProgram.UserControls
 
         private void buttonJoin_Click(object sender, EventArgs e)
         {
-            Debug.Print("加入公司");
             if (MainMgr.Instance.formMain.flowLayoutPanelGroupList.getGroupList().Contains(m_GID))
             {
                 ((FormAddFriend)this.FindForm()).showOpreationResultSafePost("你已经加入这个群了，无需重复加入。");

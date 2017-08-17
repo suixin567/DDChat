@@ -62,7 +62,24 @@ namespace MainProgram.UserControls
                     this.labelTime.Text = m_MsgModel.Time;
                     this.buttonYes.Hide();
                     this.buttonIgnore.Hide();
-                 //   pullOtherFaceAndName(AppConst.WebUrl + "baseGroupInfo?username=" + m_MsgModel.To);
+                    //TODO: 应拉取这个群的头像和群名字
+                    break;
+                case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人想加入群
+                    this.labelNickName.Text = "申请人的昵称 申请加入群 群的昵称";
+                    this.labelUsername.Text = m_MsgModel.From;
+                    this.labelContent.Text = "消息内容："+ m_MsgModel.Content;
+                    this.labelTime.Text = m_MsgModel.Time;
+                    if (m_MsgModel.IsDealed == true)//已处理
+                    {
+                        this.labelProcessMark.Text = "已处理";
+                        this.buttonYes.Hide();
+                        this.buttonIgnore.Hide();
+                    }
+                    else
+                    {
+                        this.labelProcessMark.Hide();
+                    }
+                    //TODO: 以及申请人的头像还没有
                     break;
                 default:
                     Debug.Print("这条协议还没有做处理"+ m_MsgModel.MsgType);
