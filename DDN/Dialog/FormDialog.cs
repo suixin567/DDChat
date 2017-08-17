@@ -1,5 +1,6 @@
 ﻿using SmileWei.EmbeddedApp;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using UnityModule;
@@ -21,10 +22,8 @@ namespace Dialog
             InitializeComponent();
             m_dialogType = type;
             m_groupOrFriendId = dialogId;
-            m_title = dialogName;
+            m_title = dialogName;//TODO:如果传来的是空字符串，应该请求一下数据,群的名字必须要有才行，否则拉取不了群的资源！！！！！！！！！！！！！！！！！！！！！！
             this.m_face = face;
-
-
         }
 
         private void FormDialog_Load(object sender, EventArgs e)
@@ -40,7 +39,9 @@ namespace Dialog
                 case 2://个人
                     this.labelChat.Dispose();
                     break;
-                case 3://朋友                   
+                case 3://朋友     
+                    this.labelRes.Dispose();
+                    this.labelDraw.Dispose();              
                     break;
                 default:
                     break;
@@ -80,23 +81,6 @@ namespace Dialog
                 }
         }
 
-        
-        private void buttonRes_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-        
-        private void buttonChat_Click(object sender, EventArgs e)
-        {
-        
-        }
-
-
-        private void buttonDraw_Click(object sender, EventArgs e)
-        {
-         
-        }
 
         //设置激活窗体时触发
         private void FormDialog_VisibleChanged(object sender, EventArgs e)
@@ -145,7 +129,12 @@ namespace Dialog
                     FormDialogManager.Instance.appContainer.Show();
                     UnityManager.Instance.changeUnityScene(4);
                     break;
-                default:
+                case 3://朋友
+                    this.panelChat.Show();
+                    FormDialogManager.Instance.appContainer.Hide();
+                    break;
+                default:                                  
+                    Debug.Print("FormDialog：未知类型");
                     break;
             }
             resize(null,null);

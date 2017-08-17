@@ -1,4 +1,5 @@
-﻿using MainProgram.UserControls;
+﻿using Dialog;
+using MainProgram.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,12 +70,15 @@ namespace MainProgram
                         break;
                     case MsgProtocol.ONE_AGREED_YOU://别人同意你加好友
                         //打开这个人的聊天对话
+                        FormDialogManager.Instance.openDialog(3, int .Parse(tipMsgList[i].From), "", null);
                         break;
                     case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人想加群
                         VerifyMsgMgr.Instance.openFormMesageVerify();
                         break;
                     case MsgProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意入群
                         //打开这个群的聊天对话
+                        FormDialogManager.Instance.openDialog(1, int.Parse(tipMsgList[i].To), "", null);
+                        
                         break;
                     default:
                         Debug.Print("MsgTip:未知消息类型" + tipMsgList[i].MsgType);

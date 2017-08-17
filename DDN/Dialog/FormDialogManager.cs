@@ -114,15 +114,19 @@ namespace Dialog
                     }
                     changeActiveWindow("self");
                     break;
-                    //case 3://请求打开朋友
-                    //    UnityManager.Instance.resourceMode = 3;
-                    //    if (formFriendDictionary.ContainsKey(id) == false)
-                    //    {
-                    //        FormDialog formFriend = new FormDialog(dialogType, id);
-                    //        formFriend.Show();
-                    //        formFriendDictionary.Add(id, formFriend);
-                    //    }
-                    //    break;
+                case 3://请求打开朋友
+                 
+                    if (formListDictionary.ContainsKey("friend"+dialogId) == false)
+                    {
+                        FormDialog formFriend = new FormDialog(dialogType, dialogId, dialogName,face);
+                        setParent(formFriend);
+                        formListDictionary.Add("friend" + dialogId, formFriend);
+                        //创建选项卡
+                        ButtonTab btnTab1 = new ButtonTab(3, "friend" + dialogId, dialogName, face);
+                        this.flowLayoutPanelTab.Controls.Add(btnTab1);
+                    }
+                    changeActiveWindow("friend"+dialogId);
+                    break;
             }
         }
 

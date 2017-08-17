@@ -11,6 +11,7 @@ using System.Diagnostics;
 using Mgr;
 using System.Threading;
 using System.Drawing.Drawing2D;
+using Dialog;
 
 namespace MainProgram.UserControls
 {
@@ -119,26 +120,6 @@ namespace MainProgram.UserControls
             MainMgr.Instance.msgMgr.sendMessage(MsgProtocol.FRIEND, mm);
         }
 
-        //好友Item被双击
-        private void FriendItem_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            Label labelTip = new Label();
-            ((FormMain)FindForm()).flowLayoutPanelFriendList.Controls.Add(labelTip);
-            labelTip.Text = "暂时不能和对方聊天";
-            labelTip.Size = new Size(140, 25);
-            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
-            labelTip.ForeColor = Color.White;
-            labelTip.TextAlign = ContentAlignment.MiddleCenter;
-            labelTip.BackColor = Color.DodgerBlue;
-            Point po = new Point(this.Location.X +10, this.Location.Y+10 );
-            labelTip.Location = po;
-            labelTip.BringToFront();
-            Thread th = new Thread(new ParameterizedThreadStart(closeTip));
-            th.Start(labelTip);
-        }
-
-
-
         void closeTip(object tip) {
             Thread.Sleep(2000);
             disponseTipSafePost(((Label)tip));
@@ -155,55 +136,79 @@ namespace MainProgram.UserControls
             ((Label)state).Dispose();
         }
 
+
+
+        //好友Item被双击
+        private void FriendItem_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FormDialogManager.Instance.openDialog(3,int.Parse(m_friendModel.Username) , m_friendModel.Nickname, friendFacePictureBox.Image);
+            //Label labelTip = new Label();
+            //((FormMain)FindForm()).flowLayoutPanelFriendList.Controls.Add(labelTip);
+            //labelTip.Text = "暂时不能和对方聊天";
+            //labelTip.Size = new Size(140, 25);
+            //labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+            //labelTip.ForeColor = Color.White;
+            //labelTip.TextAlign = ContentAlignment.MiddleCenter;
+            //labelTip.BackColor = Color.DodgerBlue;
+            //Point po = new Point(this.Location.X + 10, this.Location.Y + 10);
+            //labelTip.Location = po;
+            //labelTip.BringToFront();
+            //Thread th = new Thread(new ParameterizedThreadStart(closeTip));
+            //th.Start(labelTip);
+        }
+
         private void friendFacePictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Label labelTip = new Label();
-            ((FormMain)FindForm()).flowLayoutPanelFriendList.Controls.Add(labelTip);
-            labelTip.Text = "暂时不能和对方聊天";
-            labelTip.Size = new Size(140, 25);
-            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
-            labelTip.ForeColor = Color.White;
-            labelTip.TextAlign = ContentAlignment.MiddleCenter;
-            labelTip.BackColor = Color.DodgerBlue;
-            Point po = new Point(this.Location.X + 10, this.Location.Y + 10);
-            labelTip.Location = po;
-            labelTip.BringToFront();
-            Thread th = new Thread(new ParameterizedThreadStart(closeTip));
-            th.Start(labelTip);
+            FriendItem_MouseDoubleClick(null,null);
+            //Label labelTip = new Label();
+            //((FormMain)FindForm()).flowLayoutPanelFriendList.Controls.Add(labelTip);
+            //labelTip.Text = "暂时不能和对方聊天";
+            //labelTip.Size = new Size(140, 25);
+            //labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+            //labelTip.ForeColor = Color.White;
+            //labelTip.TextAlign = ContentAlignment.MiddleCenter;
+            //labelTip.BackColor = Color.DodgerBlue;
+            //Point po = new Point(this.Location.X + 10, this.Location.Y + 10);
+            //labelTip.Location = po;
+            //labelTip.BringToFront();
+            //Thread th = new Thread(new ParameterizedThreadStart(closeTip));
+            //th.Start(labelTip);
         }
 
         private void friendNickName_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Label labelTip = new Label();
-            ((FormMain)FindForm()).flowLayoutPanelFriendList.Controls.Add(labelTip);
-            labelTip.Text = "暂时不能和对方聊天";
-            labelTip.Size = new Size(140, 25);
-            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
-            labelTip.ForeColor = Color.White;
-            labelTip.TextAlign = ContentAlignment.MiddleCenter;
-            labelTip.BackColor = Color.DodgerBlue;
-            Point po = new Point(this.Location.X + 10, this.Location.Y + 10);
-            labelTip.Location = po;
-            labelTip.BringToFront();
-            Thread th = new Thread(new ParameterizedThreadStart(closeTip));
-            th.Start(labelTip);
+            FriendItem_MouseDoubleClick(null, null);
+            //Label labelTip = new Label();
+            //((FormMain)FindForm()).flowLayoutPanelFriendList.Controls.Add(labelTip);
+            //labelTip.Text = "暂时不能和对方聊天";
+            //labelTip.Size = new Size(140, 25);
+            //labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+            //labelTip.ForeColor = Color.White;
+            //labelTip.TextAlign = ContentAlignment.MiddleCenter;
+            //labelTip.BackColor = Color.DodgerBlue;
+            //Point po = new Point(this.Location.X + 10, this.Location.Y + 10);
+            //labelTip.Location = po;
+            //labelTip.BringToFront();
+            //Thread th = new Thread(new ParameterizedThreadStart(closeTip));
+            //th.Start(labelTip);
         }
 
         private void LabelDescription_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Label labelTip = new Label();
-            ((FormMain)FindForm()).flowLayoutPanelFriendList.Controls.Add(labelTip);
-            labelTip.Text = "暂时不能和对方聊天";
-            labelTip.Size = new Size(140, 25);
-            labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
-            labelTip.ForeColor = Color.White;
-            labelTip.TextAlign = ContentAlignment.MiddleCenter;
-            labelTip.BackColor = Color.DodgerBlue;
-            Point po = new Point(this.Location.X + 10, this.Location.Y + 10);
-            labelTip.Location = po;
-            labelTip.BringToFront();
-            Thread th = new Thread(new ParameterizedThreadStart(closeTip));
-            th.Start(labelTip);
+            FriendItem_MouseDoubleClick(null, null);
+            //Label labelTip = new Label();
+            //((FormMain)FindForm()).flowLayoutPanelFriendList.Controls.Add(labelTip);
+            //labelTip.Text = "暂时不能和对方聊天";
+            //labelTip.Size = new Size(140, 25);
+            //labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+            //labelTip.ForeColor = Color.White;
+            //labelTip.TextAlign = ContentAlignment.MiddleCenter;
+            //labelTip.BackColor = Color.DodgerBlue;
+            //Point po = new Point(this.Location.X + 10, this.Location.Y + 10);
+            //labelTip.Location = po;
+            //labelTip.BringToFront();
+            //Thread th = new Thread(new ParameterizedThreadStart(closeTip));
+            //th.Start(labelTip);
         }
     }
 }
