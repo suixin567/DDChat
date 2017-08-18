@@ -1,12 +1,12 @@
-C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.csprojResolveAssemblyReference.cache
-C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.Properties.Resources.resources
-C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.csproj.GenerateResource.Cache
-C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.FormUnityUpdate.resources
 C:\Users\文强\Desktop\DDN\DDN\UnityModule\bin\Debug\UnityModule.dll.config
 C:\Users\文强\Desktop\DDN\DDN\UnityModule\bin\Debug\UnityModule.dll
 C:\Users\文强\Desktop\DDN\DDN\UnityModule\bin\Debug\UnityModule.pdb
 C:\Users\文强\Desktop\DDN\DDN\UnityModule\bin\Debug\ToolLib.dll
 C:\Users\文强\Desktop\DDN\DDN\UnityModule\bin\Debug\LitJson.dll
 C:\Users\文强\Desktop\DDN\DDN\UnityModule\bin\Debug\ToolLib.pdb
+C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.csprojResolveAssemblyReference.cache
+C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.Properties.Resources.resources
+C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.FormUnityUpdate.resources
+C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.csproj.GenerateResource.Cache
 C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.dll
 C:\Users\文强\Desktop\DDN\DDN\UnityModule\obj\Debug\UnityModule.pdb
