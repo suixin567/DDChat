@@ -2,6 +2,8 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using UnityModule;
 
@@ -15,6 +17,8 @@ namespace Dialog
         public string m_title = "";
         Image m_face = null;
         public int UIState = 1;//对话窗的UI模式，0代表展示资源的状态，1代表聊天状态 ,2代表绘制状态
+        public FormFace formFace;
+        int Fmx, Fmy; //主窗口坐标
         #endregion
 
         public FormDialog(int type , int dialogId, string dialogName, Image face)
@@ -24,6 +28,8 @@ namespace Dialog
             m_groupOrFriendId = dialogId;
             m_title = dialogName;//TODO:如果传来的是空字符串，应该请求一下数据,群的名字必须要有才行，否则拉取不了群的资源！！！！！！！！！！！！！！！！！！！！！！
             this.m_face = face;
+            Fmx = FormDialogManager.Instance.Left;
+            Fmy = FormDialogManager.Instance.Top;
         }
 
         private void FormDialog_Load(object sender, EventArgs e)
@@ -47,8 +53,20 @@ namespace Dialog
                     break;
             }
             labelChat.BackColor = Color.SteelBlue;
+            //信息编辑框属性
+            Rich_Edit.BackColor = Color.FromArgb(213, 224, 230);
+            Rich_Edit.BorderStyle = BorderStyle.None;
+            Rich_Edit.ScrollBars = RichTextBoxScrollBars.None;
+          //  Rich_Edit.KeyUp += new KeyEventHandler(RichEdit_KeyUp);
+            Rich_Edit.TextChanged += new EventHandler(RichEdit_TextChanged);
         }
 
+        //编辑框文字改变，失去焦点在获得，引发编辑框和显示内容框重绘，从而显示动画和背景透明图片
+        private void RichEdit_TextChanged(object sender, EventArgs e)
+        {
+            this.Focus();
+            Rich_Edit.Focus();
+        }
 
         void resize(object sender, EventArgs e)
         {
@@ -183,5 +201,38 @@ namespace Dialog
             FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
             FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
         }
+
+
+        //打开表情面板
+        private void pictureBoxaFaceBtn_Click(object sender, EventArgs e)
+        {
+            if (formFace == null)
+            {
+                formFace = new FormFace(this);
+                formFace.TopLevel = false;
+                formFace.Parent = FormDialogManager.Instance;
+                formFace.Left =110;
+                formFace.Top = 350;
+                formFace.BringToFront();
+                formFace.Show();
+            }
+        }
+
+
+        //发送按钮
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            showOnePop(Rich_Edit.Rtf);
+        }
+
+        void showOnePop(string content) {
+            ChatPop chatPop = new ChatPop(content);
+            this.flowLayoutPanel1.Controls.Add(chatPop);
+        }
+
+
+
+
+      
     }
 }

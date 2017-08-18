@@ -30,23 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDialog));
             this.panelChat = new System.Windows.Forms.Panel();
-            this.Takeconter_panel = new System.Windows.Forms.Panel();
-            this.TakeScrollBar_panel = new System.Windows.Forms.Panel();
-            this.TakeScrollHard_panel = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelTakeEdit = new System.Windows.Forms.Panel();
-            this.panelEdit = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxaFaceBtn = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSend = new System.Windows.Forms.Button();
             this.flowLayoutPanelTop = new System.Windows.Forms.FlowLayoutPanel();
             this.labelChat = new System.Windows.Forms.Label();
             this.labelRes = new System.Windows.Forms.Label();
             this.labelDraw = new System.Windows.Forms.Label();
+            this.Rich_Edit = new Thedog.PicRichTextBox();
             this.panelChat.SuspendLayout();
-            this.Takeconter_panel.SuspendLayout();
-            this.TakeScrollBar_panel.SuspendLayout();
             this.panelTakeEdit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxaFaceBtn)).BeginInit();
             this.flowLayoutPanelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,98 +52,68 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelChat.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panelChat.Controls.Add(this.Takeconter_panel);
+            this.panelChat.Controls.Add(this.flowLayoutPanel1);
             this.panelChat.Controls.Add(this.panelTakeEdit);
             this.panelChat.Location = new System.Drawing.Point(0, 35);
             this.panelChat.Name = "panelChat";
             this.panelChat.Size = new System.Drawing.Size(700, 566);
             this.panelChat.TabIndex = 5;
             // 
-            // Takeconter_panel
+            // flowLayoutPanel1
             // 
-            this.Takeconter_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Takeconter_panel.BackColor = System.Drawing.Color.White;
-            this.Takeconter_panel.Controls.Add(this.TakeScrollBar_panel);
-            this.Takeconter_panel.Location = new System.Drawing.Point(0, 0);
-            this.Takeconter_panel.Name = "Takeconter_panel";
-            this.Takeconter_panel.Size = new System.Drawing.Size(700, 448);
-            this.Takeconter_panel.TabIndex = 3;
-            // 
-            // TakeScrollBar_panel
-            // 
-            this.TakeScrollBar_panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TakeScrollBar_panel.BackgroundImage")));
-            this.TakeScrollBar_panel.Controls.Add(this.TakeScrollHard_panel);
-            this.TakeScrollBar_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TakeScrollBar_panel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.TakeScrollBar_panel.Location = new System.Drawing.Point(689, 0);
-            this.TakeScrollBar_panel.Name = "TakeScrollBar_panel";
-            this.TakeScrollBar_panel.Size = new System.Drawing.Size(11, 448);
-            this.TakeScrollBar_panel.TabIndex = 4;
-            // 
-            // TakeScrollHard_panel
-            // 
-            this.TakeScrollHard_panel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TakeScrollHard_panel.BackgroundImage")));
-            this.TakeScrollHard_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TakeScrollHard_panel.Location = new System.Drawing.Point(0, 3);
-            this.TakeScrollHard_panel.Name = "TakeScrollHard_panel";
-            this.TakeScrollHard_panel.Size = new System.Drawing.Size(11, 25);
-            this.TakeScrollHard_panel.TabIndex = 3;
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(11, 16);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(600, 392);
+            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.WrapContents = false;
             // 
             // panelTakeEdit
             // 
             this.panelTakeEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTakeEdit.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.panelTakeEdit.Controls.Add(this.panelEdit);
-            this.panelTakeEdit.Controls.Add(this.pictureBox1);
+            this.panelTakeEdit.Controls.Add(this.Rich_Edit);
+            this.panelTakeEdit.Controls.Add(this.pictureBoxaFaceBtn);
             this.panelTakeEdit.Controls.Add(this.button2);
-            this.panelTakeEdit.Controls.Add(this.button1);
-            this.panelTakeEdit.Location = new System.Drawing.Point(0, 451);
+            this.panelTakeEdit.Controls.Add(this.buttonSend);
+            this.panelTakeEdit.Location = new System.Drawing.Point(0, 433);
             this.panelTakeEdit.Name = "panelTakeEdit";
-            this.panelTakeEdit.Size = new System.Drawing.Size(700, 115);
+            this.panelTakeEdit.Size = new System.Drawing.Size(700, 133);
             this.panelTakeEdit.TabIndex = 0;
             // 
-            // panelEdit
+            // pictureBoxaFaceBtn
             // 
-            this.panelEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelEdit.Location = new System.Drawing.Point(0, 29);
-            this.panelEdit.Name = "panelEdit";
-            this.panelEdit.Size = new System.Drawing.Size(700, 57);
-            this.panelEdit.TabIndex = 3;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxaFaceBtn.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxaFaceBtn.Image")));
+            this.pictureBoxaFaceBtn.Location = new System.Drawing.Point(3, 3);
+            this.pictureBoxaFaceBtn.Name = "pictureBoxaFaceBtn";
+            this.pictureBoxaFaceBtn.Size = new System.Drawing.Size(20, 20);
+            this.pictureBoxaFaceBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxaFaceBtn.TabIndex = 2;
+            this.pictureBoxaFaceBtn.TabStop = false;
+            this.pictureBoxaFaceBtn.Click += new System.EventHandler(this.pictureBoxaFaceBtn_Click);
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(536, 87);
+            this.button2.Location = new System.Drawing.Point(536, 105);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "关闭";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonSend
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(617, 87);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "发送";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSend.Location = new System.Drawing.Point(617, 105);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(75, 23);
+            this.buttonSend.TabIndex = 0;
+            this.buttonSend.Text = "发送";
+            this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // flowLayoutPanelTop
             // 
@@ -199,6 +165,17 @@
             this.labelDraw.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelDraw.Click += new System.EventHandler(this.labelDraw_Click);
             // 
+            // Rich_Edit
+            // 
+            this.Rich_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Rich_Edit.Location = new System.Drawing.Point(0, 25);
+            this.Rich_Edit.Name = "Rich_Edit";
+            this.Rich_Edit.Size = new System.Drawing.Size(700, 78);
+            this.Rich_Edit.TabIndex = 0;
+            this.Rich_Edit.Text = "";
+            // 
             // FormDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -214,10 +191,8 @@
             this.Load += new System.EventHandler(this.FormDialog_Load);
             this.VisibleChanged += new System.EventHandler(this.FormDialog_VisibleChanged);
             this.panelChat.ResumeLayout(false);
-            this.Takeconter_panel.ResumeLayout(false);
-            this.TakeScrollBar_panel.ResumeLayout(false);
             this.panelTakeEdit.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxaFaceBtn)).EndInit();
             this.flowLayoutPanelTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -231,11 +206,9 @@
         private System.Windows.Forms.Label labelDraw;
         private System.Windows.Forms.Panel panelTakeEdit;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panelEdit;
-        private System.Windows.Forms.Panel Takeconter_panel;
-        private System.Windows.Forms.Panel TakeScrollBar_panel;
-        private System.Windows.Forms.Panel TakeScrollHard_panel;
+        private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.PictureBox pictureBoxaFaceBtn;
+        public Thedog.PicRichTextBox Rich_Edit;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
