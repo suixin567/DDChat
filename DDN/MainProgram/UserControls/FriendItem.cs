@@ -116,8 +116,8 @@ namespace MainProgram.UserControls
                 return;
             }
             Debug.Print("删除好友");
-            MsgModel mm = new MsgModel(MsgProtocol.DELETE_FRIEND_CREQ, PlayerPrefs.GetString("username"), FriendUsername, "我把你删除好友了，再见。", DateTime.Now.ToString());
-            MainMgr.Instance.msgMgr.sendMessage(MsgProtocol.FRIEND, mm);
+            MsgModel mm = new MsgModel(MessageProtocol.DELETE_FRIEND_CREQ, PlayerPrefs.GetString("username"), FriendUsername, "我把你删除好友了，再见。", DateTime.Now.ToString());
+            MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.FRIEND, mm);
         }
 
         void closeTip(object tip) {

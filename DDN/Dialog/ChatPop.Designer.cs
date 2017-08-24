@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panelPop = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.richTextBoxEx1 = new Dialog.RichTextBoxEx();
+            this.labelNameAndTime = new System.Windows.Forms.Label();
             this.panelPop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,15 +43,6 @@
             this.panelPop.Size = new System.Drawing.Size(44, 40);
             this.panelPop.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "某某某  2017/8/18 11:41:49";
-            // 
             // richTextBoxEx1
             // 
             this.richTextBoxEx1.Location = new System.Drawing.Point(3, 3);
@@ -60,12 +51,21 @@
             this.richTextBoxEx1.TabIndex = 0;
             this.richTextBoxEx1.Text = "";
             // 
+            // labelNameAndTime
+            // 
+            this.labelNameAndTime.AutoSize = true;
+            this.labelNameAndTime.Location = new System.Drawing.Point(6, 4);
+            this.labelNameAndTime.Name = "labelNameAndTime";
+            this.labelNameAndTime.Size = new System.Drawing.Size(161, 12);
+            this.labelNameAndTime.TabIndex = 1;
+            this.labelNameAndTime.Text = "某某某  2017/8/18 11:41:49";
+            // 
             // ChatPop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelNameAndTime);
             this.Controls.Add(this.panelPop);
             this.Name = "ChatPop";
             this.Size = new System.Drawing.Size(170, 62);
@@ -80,6 +80,6 @@
 
         private System.Windows.Forms.Panel panelPop;
         private RichTextBoxEx richTextBoxEx1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelNameAndTime;
     }
 }

@@ -67,8 +67,8 @@ namespace MainProgram
                 createGroupModel.VerifyModel = 1;
             }
             string msgContent = Coding<CreateGroupModel>.encode(createGroupModel);
-            MsgModel mm = new MsgModel(MsgProtocol.CREATE_GROUP_CREQ, PlayerPrefs.GetString("username"), "", msgContent, DateTime.Now.ToString());
-            MainMgr.Instance.msgMgr.sendMessage(MsgProtocol.GROUP, mm);
+            MsgModel mm = new MsgModel(MessageProtocol.CREATE_GROUP_CREQ, PlayerPrefs.GetString("username"), "", msgContent, DateTime.Now.ToString());
+            MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, mm);
             this.textBoxGroupName.Text = "";
         }
 

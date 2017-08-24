@@ -62,8 +62,8 @@ namespace MainProgram.UserControls
                 return;
             }
 
-            MsgModel mm = new MsgModel(MsgProtocol.ADD_FRIEND_CREQ, PlayerPrefs.GetString("username"), this.labelUsername.Text, "我们加个好友吧！", DateTime.Now.ToString());
-            MainMgr.Instance.msgMgr.sendMessage(MsgProtocol.FRIEND, mm);
+            MsgModel mm = new MsgModel(MessageProtocol.ADD_FRIEND_CREQ, PlayerPrefs.GetString("username"), this.labelUsername.Text, "我们加个好友吧！", DateTime.Now.ToString());
+            MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.FRIEND, mm);
             this.Dispose();   
         }
 

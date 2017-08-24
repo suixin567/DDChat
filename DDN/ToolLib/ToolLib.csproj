@@ -53,6 +53,7 @@
     <Compile Include="7zHelper.cs" />
     <Compile Include="AnalyzeMFile.cs" />
     <Compile Include="AppConst.cs" />
+    <Compile Include="AppInfo.cs" />
     <Compile Include="Coding.cs" />
     <Compile Include="DataModel.cs" />
     <Compile Include="HttpReqHelper.cs" />

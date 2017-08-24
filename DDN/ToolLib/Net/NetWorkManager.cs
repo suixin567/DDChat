@@ -22,7 +22,7 @@ public class NetWorkManager
                 return instance;
             }
         }
-        public static int maxReceiveSize = 4000;
+        public static int maxReceiveSize = AppConst.maxReceiveSize;
         private Socket socket;
         private string url = AppConst.SocketUrl;
         private int port = 10101;

@@ -40,23 +40,28 @@ namespace MainProgram.UserControls
 
             switch (m_mode.MsgType)
             {
-                case MsgProtocol.ONE_ADD_YOU_SRES://有人添加你
+                case MessageProtocol.ONE_ADD_YOU_SRES://有人添加你
                     this.labelContent.Text = "附加消息："+m_mode.Content;
                     pullOtherFaceAndName(AppConst.WebUrl + "baseInfo?username=" + m_mode.From);
                     break;
-                case MsgProtocol.ONE_AGREED_YOU://别人同意你的好友申请
+                case MessageProtocol.ONE_AGREED_YOU://别人同意你的好友申请
                     this.labelContent.Text = "附加消息：" + m_mode.Content;
                     pullOtherFaceAndName(AppConst.WebUrl + "baseInfo?username=" + m_mode.From);
                     break;
-                case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人申请入群
+                case MessageProtocol.ONE_WANT_ADD_GROUP_SRES://有人申请入群
                     this.labelNickName.Text = "";
                     this.labelContent.Text = "验证消息";
                     //头像应为一个喇叭图片TODO:
                     break;
-                case MsgProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意入群
+                case MessageProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意入群
                     labelNickName.Text = "群名字";
                     labelContent.Text = "已加入群聊，来聊天吧！";
                     //头像应为群图片TODO:
+                    break;
+                case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://朋友和我聊天
+                    labelNickName.Text = m_mode.From;
+                    labelContent.Text = m_mode.Content;
+                 //   pictureBox.Image = "发来消息的人的头像"  TODO:
                     break;
                 default:
                     Debug.Print("MsgTipItem：未知协议类型" + m_mode.MsgType);

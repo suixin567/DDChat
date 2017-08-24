@@ -91,8 +91,8 @@ namespace MainProgram.UserControls
                 MainMgr.Instance.formMain.flowLayoutPanelGroupList.showOpreationResultSafePost("群主不可以退出群");
                 return;
             }
-            MsgModel mm = new MsgModel(MsgProtocol.QUIT_GROUP_CREQ, PlayerPrefs.GetString("username"), m_myGroupModel.GroupID.ToString(), "不想继续留在这个群了，再见！", DateTime.Now.ToString());
-            MainMgr.Instance.msgMgr.sendMessage(MsgProtocol.GROUP, mm);
+            MsgModel mm = new MsgModel(MessageProtocol.QUIT_GROUP_CREQ, PlayerPrefs.GetString("username"), m_myGroupModel.GroupID.ToString(), "不想继续留在这个群了，再见！", DateTime.Now.ToString());
+            MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, mm);
         }
         //双击
         private void GroupItem_MouseDoubleClick(object sender, MouseEventArgs e)

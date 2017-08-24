@@ -65,8 +65,8 @@ namespace MainProgram.UserControls
                 return;
             }
 
-            MsgModel mm = new MsgModel(MsgProtocol.ADD_GROUP_CREQ, PlayerPrefs.GetString("username"), m_GID.ToString(), "让我也加入你们吧！", DateTime.Now.ToString());
-            MainMgr.Instance.msgMgr.sendMessage(MsgProtocol.GROUP, mm);
+            MsgModel mm = new MsgModel(MessageProtocol.ADD_GROUP_CREQ, PlayerPrefs.GetString("username"), m_GID.ToString(), "让我也加入你们吧！", DateTime.Now.ToString());
+            MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, mm);
             this.Dispose();
         }
     }

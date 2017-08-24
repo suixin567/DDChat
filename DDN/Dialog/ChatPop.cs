@@ -19,12 +19,13 @@ namespace Dialog
             InitializeComponent();
         }
 
-        public ChatPop(string content)
+        public ChatPop(MsgModel mm)
         {
             InitializeComponent();
             //得到尺寸
-          Size contentsize =  Calc_PanelWidth(content);
-          this.richTextBoxEx1.Rtf = content;
+          Size contentsize =  Calc_PanelWidth(mm.Content);
+            this.labelNameAndTime.Text = mm.From + " " + mm.Time;
+          this.richTextBoxEx1.Rtf = mm.Content;
           this.richTextBoxEx1.Size =contentsize;
            
         }

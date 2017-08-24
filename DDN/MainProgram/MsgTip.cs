@@ -65,20 +65,23 @@ namespace MainProgram
             {
                 switch (tipMsgList[i].MsgType)
                 {
-                    case MsgProtocol.ONE_ADD_YOU_SRES://有人申请加好友
+                    case MessageProtocol.ONE_ADD_YOU_SRES://有人申请加好友
                         VerifyMsgMgr.Instance.openFormMesageVerify();
                         break;
-                    case MsgProtocol.ONE_AGREED_YOU://别人同意你加好友
+                    case MessageProtocol.ONE_AGREED_YOU://别人同意你加好友
                         //打开这个人的聊天对话
                         FormDialogManager.Instance.openDialog(3, int .Parse(tipMsgList[i].From), "", null);
                         break;
-                    case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人想加群
+                    case MessageProtocol.ONE_WANT_ADD_GROUP_SRES://有人想加群
                         VerifyMsgMgr.Instance.openFormMesageVerify();
                         break;
-                    case MsgProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意入群
+                    case MessageProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意入群
                         //打开这个群的聊天对话
                         FormDialogManager.Instance.openDialog(1, int.Parse(tipMsgList[i].To), "", null);
-                        
+                        break;
+                    case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://朋友和我聊天
+                        FormDialogManager.Instance.openDialog(3, int.Parse(tipMsgList[i].From), "", null);
+                        FormDialogManager.Instance.onChatMsg(tipMsgList[i]);
                         break;
                     default:
                         Debug.Print("MsgTip:未知消息类型" + tipMsgList[i].MsgType);

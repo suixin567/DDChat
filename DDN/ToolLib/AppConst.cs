@@ -16,7 +16,7 @@
     public static string WebUrl = "http://" + SocketUrl + ":7788/";
     public static string WinPicPath = "C:/Users/Public/DDN/win/face/";//win图片保存位置
                                                                       //public static string StandaloneDBPath = "C:/Users/Public/standalone.db";//单机模式数据库位置
-
+    public static int maxReceiveSize = 4000;
 
 
     //      public const int maxSocketSize = 5000;

@@ -65,7 +65,7 @@ namespace Experiment
                 smtp.Send(mail);   //同步发送  
                 retrunBool = true;
             }
-            catch (Exception ex)
+            catch 
             {
                 retrunBool = false;
             }

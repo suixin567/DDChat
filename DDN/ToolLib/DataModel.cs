@@ -42,3 +42,23 @@ public struct GroupInfoModel
 
 }
 
+
+public class MsgModel
+{
+    public int MsgType;
+    public string From;
+    public string To;
+    public string Content;
+    public string Time;
+
+    public MsgModel() { }
+
+    public MsgModel(int type, string from, string to, string content, string time)
+    {
+        this.MsgType = type;
+        this.From = from;
+        this.To = to;
+        this.Content = content;
+        this.Time = time;
+    }
+}

@@ -32,14 +32,13 @@
             this.panelChat = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelTakeEdit = new System.Windows.Forms.Panel();
+            this.Rich_Edit = new Thedog.PicRichTextBox();
             this.pictureBoxaFaceBtn = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.buttonSend = new System.Windows.Forms.Button();
             this.flowLayoutPanelTop = new System.Windows.Forms.FlowLayoutPanel();
             this.labelChat = new System.Windows.Forms.Label();
             this.labelRes = new System.Windows.Forms.Label();
             this.labelDraw = new System.Windows.Forms.Label();
-            this.Rich_Edit = new Thedog.PicRichTextBox();
             this.panelChat.SuspendLayout();
             this.panelTakeEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxaFaceBtn)).BeginInit();
@@ -63,9 +62,9 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(11, 16);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(600, 392);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(700, 430);
             this.flowLayoutPanel1.TabIndex = 1;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -76,12 +75,23 @@
             this.panelTakeEdit.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.panelTakeEdit.Controls.Add(this.Rich_Edit);
             this.panelTakeEdit.Controls.Add(this.pictureBoxaFaceBtn);
-            this.panelTakeEdit.Controls.Add(this.button2);
             this.panelTakeEdit.Controls.Add(this.buttonSend);
             this.panelTakeEdit.Location = new System.Drawing.Point(0, 433);
             this.panelTakeEdit.Name = "panelTakeEdit";
             this.panelTakeEdit.Size = new System.Drawing.Size(700, 133);
             this.panelTakeEdit.TabIndex = 0;
+            // 
+            // Rich_Edit
+            // 
+            this.Rich_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Rich_Edit.Location = new System.Drawing.Point(0, 25);
+            this.Rich_Edit.Name = "Rich_Edit";
+            this.Rich_Edit.Size = new System.Drawing.Size(700, 78);
+            this.Rich_Edit.TabIndex = 0;
+            this.Rich_Edit.Text = "";
+            this.Rich_Edit.TextChanged += new System.EventHandler(this.Rich_Edit_TextChanged);
             // 
             // pictureBoxaFaceBtn
             // 
@@ -93,16 +103,6 @@
             this.pictureBoxaFaceBtn.TabIndex = 2;
             this.pictureBoxaFaceBtn.TabStop = false;
             this.pictureBoxaFaceBtn.Click += new System.EventHandler(this.pictureBoxaFaceBtn_Click);
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(536, 105);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "关闭";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // buttonSend
             // 
@@ -165,17 +165,6 @@
             this.labelDraw.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelDraw.Click += new System.EventHandler(this.labelDraw_Click);
             // 
-            // Rich_Edit
-            // 
-            this.Rich_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Rich_Edit.Location = new System.Drawing.Point(0, 25);
-            this.Rich_Edit.Name = "Rich_Edit";
-            this.Rich_Edit.Size = new System.Drawing.Size(700, 78);
-            this.Rich_Edit.TabIndex = 0;
-            this.Rich_Edit.Text = "";
-            // 
             // FormDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -205,7 +194,6 @@
         private System.Windows.Forms.Label labelRes;
         private System.Windows.Forms.Label labelDraw;
         private System.Windows.Forms.Panel panelTakeEdit;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.PictureBox pictureBoxaFaceBtn;
         public Thedog.PicRichTextBox Rich_Edit;

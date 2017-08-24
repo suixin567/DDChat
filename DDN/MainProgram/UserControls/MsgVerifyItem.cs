@@ -32,7 +32,7 @@ namespace MainProgram.UserControls
             //控件赋值
             switch (m_MsgModel.MsgType)
             {
-                case MsgProtocol.ADD_FRIEND_SRES://添加好友的响应
+                case MessageProtocol.ADD_FRIEND_SRES://添加好友的响应
                     this.labelUsername.Text = m_MsgModel.To;
                     this.labelContent.Text = "消息内容：已发送好友申请，等待对方验证。";
                     this.labelTime.Text = m_MsgModel.Time;
@@ -41,7 +41,7 @@ namespace MainProgram.UserControls
                     this.labelProcessMark.Hide();
                     pullOtherFaceAndName(AppConst.WebUrl + "baseInfo?username=" + m_MsgModel.To);
                     break;
-                case MsgProtocol.ONE_ADD_YOU_SRES://有人想加你
+                case MessageProtocol.ONE_ADD_YOU_SRES://有人想加你
                     this.labelUsername.Text = m_MsgModel.From;
                     this.labelContent.Text = m_MsgModel.Content;
                     this.labelTime.Text = m_MsgModel.Time;
@@ -56,7 +56,7 @@ namespace MainProgram.UserControls
                     }
                     pullOtherFaceAndName(AppConst.WebUrl + "baseInfo?username=" + m_MsgModel.From);
                     break;
-                case MsgProtocol.ADD_GROUP_SRES://申请加群的响应
+                case MessageProtocol.ADD_GROUP_SRES://申请加群的响应
                     this.labelUsername.Text = m_MsgModel.To;
                     this.labelContent.Text = "消息内容：已发送入群申请，等待群主验证。";
                     this.labelTime.Text = m_MsgModel.Time;
@@ -64,7 +64,7 @@ namespace MainProgram.UserControls
                     this.buttonIgnore.Hide();
                     //TODO: 应拉取这个群的头像和群名字
                     break;
-                case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人想加入群
+                case MessageProtocol.ONE_WANT_ADD_GROUP_SRES://有人想加入群
                     this.labelNickName.Text = "申请人的昵称 申请加入群 群的昵称";
                     this.labelUsername.Text = m_MsgModel.From;
                     this.labelContent.Text = "消息内容："+ m_MsgModel.Content;
@@ -159,13 +159,13 @@ namespace MainProgram.UserControls
         {
             switch (m_MsgModel.MsgType)
             {
-                case MsgProtocol.ONE_ADD_YOU_SRES://有人申请加好友
-                    MsgModel model = new MsgModel(MsgProtocol.AGREE_ADD_FRIEND_CREQ, PlayerPrefs.GetString("username"), this.m_MsgModel.From, "我通过了你的好友申请", DateTime.Now.ToString());
-                    MainMgr.Instance.msgMgr.sendMessage(MsgProtocol.FRIEND, model);
+                case MessageProtocol.ONE_ADD_YOU_SRES://有人申请加好友
+                    MsgModel model = new MsgModel(MessageProtocol.AGREE_ADD_FRIEND_CREQ, PlayerPrefs.GetString("username"), this.m_MsgModel.From, "我通过了你的好友申请", DateTime.Now.ToString());
+                    MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.FRIEND, model);
                     break;
-                case MsgProtocol.ONE_WANT_ADD_GROUP_SRES://有人申请入群
-                    MsgModel model2 = new MsgModel(MsgProtocol.AGREE_ADD_GROUP_CREQ, this.m_MsgModel.From, this.m_MsgModel.To, "我通过了你的入群申请", DateTime.Now.ToString());
-                    MainMgr.Instance.msgMgr.sendMessage(MsgProtocol.GROUP, model2);
+                case MessageProtocol.ONE_WANT_ADD_GROUP_SRES://有人申请入群
+                    MsgModel model2 = new MsgModel(MessageProtocol.AGREE_ADD_GROUP_CREQ, this.m_MsgModel.From, this.m_MsgModel.To, "我通过了你的入群申请", DateTime.Now.ToString());
+                    MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, model2);
                     break;
                 default:
                     break;

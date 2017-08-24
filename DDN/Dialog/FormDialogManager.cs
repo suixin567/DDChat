@@ -8,6 +8,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using ToolLib;
 using UnityModule;
 
 
@@ -45,7 +46,7 @@ namespace Dialog
         {
             InitializeComponent();
             m_SyncContext = SynchronizationContext.Current;
-            this.Show();
+            
         }
 
         private void FormDialogManager_Load(object sender, EventArgs e)
@@ -75,6 +76,8 @@ namespace Dialog
         //dialogId 表示群号 或者好友的id
         public void openDialog(int dialogType, int dialogId = -1, string dialogName = "", Image face = null)
         {
+            this.Show();
+            AppInfo.isFormDialogMgrShow = true;
             switch (dialogType)
             {
                 case 0://请求打开商城
@@ -235,6 +238,49 @@ namespace Dialog
 
         }
 
+
+        //把一条消息放在相应的对话窗口里
+        public void onChatMsg(MsgModel mm) {
+
+            switch (mm.MsgType)
+            {
+                case MessageProtocol.CHAT_ME_TO_FRIEND_SRES:
+                    foreach (var item in formListDictionary)
+                    {
+                        if (item.Key == "friend" + mm.To)//自己发出去的消息
+                        {
+                            item.Value.showOnePopSafePost(mm);
+                        }
+                    }
+                    break;
+                case MessageProtocol.CHAT_FRIEND_TO_ME_SRES:
+                    foreach (var item in formListDictionary)
+                    {
+                        if (item.Key == "friend" + mm.From)//自己发出去的消息
+                        {
+                            item.Value.showOnePopSafePost(mm);
+                        }
+                    }
+                    break;
+                default:
+                    Debug.Print("聊天协议错误");
+                    break;
+            }
+       
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
         const int Guying_HTLEFT = 10;
         const int Guying_HTRIGHT = 11;
         const int Guying_HTTOP = 12;
@@ -312,6 +358,7 @@ namespace Dialog
             }
             UnityManager.Instance.updateUnityEvent -= this.onUnityCanRunEvent;
             instance = null;
+            AppInfo.isFormDialogMgrShow = false;
             this.Close();
             this.Dispose();
         }

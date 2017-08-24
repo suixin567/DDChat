@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 using UnityModule;
 
@@ -12,6 +13,7 @@ namespace Dialog
     public partial class FormDialog : Form
     {
         #region 属性
+        public SynchronizationContext m_SyncContext = null;
         int m_dialogType = -1;
         int m_groupOrFriendId = -1;
         public string m_title = "";
@@ -24,6 +26,7 @@ namespace Dialog
         public FormDialog(int type , int dialogId, string dialogName, Image face)
         {
             InitializeComponent();
+            m_SyncContext = SynchronizationContext.Current;
             m_dialogType = type;
             m_groupOrFriendId = dialogId;
             m_title = dialogName;//TODO:如果传来的是空字符串，应该请求一下数据,群的名字必须要有才行，否则拉取不了群的资源！！！！！！！！！！！！！！！！！！！！！！
@@ -203,6 +206,11 @@ namespace Dialog
         }
 
 
+        /// ////////////////////////////////////////////////////////
+        /// ////////////////////////*聊*天*////////////////////////////////
+        /// ////////////////////////////////////////////////////////
+       
+
         //打开表情面板
         private void pictureBoxaFaceBtn_Click(object sender, EventArgs e)
         {
@@ -219,19 +227,46 @@ namespace Dialog
         }
 
 
-        //发送按钮
-        private void buttonSend_Click(object sender, EventArgs e)
-        {
-            showOnePop(Rich_Edit.Rtf);
+        public void showOnePopSafePost(MsgModel mm) {
+            m_SyncContext.Post(showOnePop , mm);
         }
-
-        void showOnePop(string content) {
-            ChatPop chatPop = new ChatPop(content);
+       void showOnePop(object content)
+        {
+            ChatPop chatPop = new ChatPop((MsgModel)content);
             this.flowLayoutPanel1.Controls.Add(chatPop);
         }
 
+        //发送按钮
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            switch (this.m_dialogType)
+            {
+                case 1://和群聊天.
+                    break;
+                case 3://和朋友聊天
+                    if (Rich_Edit.Rtf.Length> AppConst.maxReceiveSize)
+                    {
+                        Debug.Print("发送的消息过长！！！"+ AppConst.maxReceiveSize);
+                        return;
+                    }                 
+                    MsgModel mm = new MsgModel(MessageProtocol.CHAT_ME_TO_FRIEND_CREQ, PlayerPrefs.GetString("username"), m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
+                    string message = Coding<MsgModel>.encode(mm);
+                    Debug.Print("发出的聊天消息是:" + Rich_Edit.Rtf);
+                    NetWorkManager.Instance.sendMessage(Protocol.MESSAGE, -1, MessageProtocol.CHAT, message);
+                    break;
+                default:
+                    break;
+            }
+        }
+        //当编辑的文本发生变化
+        private void Rich_Edit_TextChanged(object sender, EventArgs e)
+        {
+           // Debug.Print("编辑的文本是：" + Rich_Edit.Text + "长度" + Rich_Edit.Text.Length);
+           // Debug.Print("编辑的富文本是：" + Rich_Edit.Rtf);
+        }
 
-
+        string noRtfString = "";
+        public const string fennu = "/fn";
 
       
     }

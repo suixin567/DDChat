@@ -81,7 +81,7 @@ namespace MainProgram
             {
                 Debug.Print(item.MsgType + item.From+ item.To+ item.Time);
                 Debug.Print(mode.MsgType + mode.From + mode.To + mode.Time);
-                if (item.MsgType == MsgProtocol.ONE_ADD_YOU_SRES)
+                if (item.MsgType == MessageProtocol.ONE_ADD_YOU_SRES)
                 {
                     if (item.From == mode.To && item.To == mode.From)
                     {
@@ -92,7 +92,7 @@ namespace MainProgram
             foreach (var item in formMessageVerify.flowLayoutPanel.Controls)
             {
                 MsgVerifyItem mvi =(MsgVerifyItem)item;
-                if (mvi.m_MsgModel.MsgType == MsgProtocol.ONE_ADD_YOU_SRES)
+                if (mvi.m_MsgModel.MsgType == MessageProtocol.ONE_ADD_YOU_SRES)
                 {
                     if (mvi.m_MsgModel.From == mode.To && mvi.m_MsgModel.To == mode.From)
                     {
@@ -109,7 +109,7 @@ namespace MainProgram
             {
                 Debug.Print(item.MsgType + item.From + item.To + item.Time);
                 Debug.Print(mode.MsgType + mode.From + mode.To + mode.Time);
-                if (item.MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES)
+                if (item.MsgType == MessageProtocol.ONE_WANT_ADD_GROUP_SRES)
                 {
                     if (item.From == mode.From && item.To == mode.To)
                     {
@@ -120,7 +120,7 @@ namespace MainProgram
             foreach (var item in formMessageVerify.flowLayoutPanel.Controls)
             {
                 MsgVerifyItem mvi = (MsgVerifyItem)item;
-                if (mvi.m_MsgModel.MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES)
+                if (mvi.m_MsgModel.MsgType == MessageProtocol.ONE_WANT_ADD_GROUP_SRES)
                 {
                     if (mvi.m_MsgModel.From == mode.From && mvi.m_MsgModel.To == mode.To)
                     {

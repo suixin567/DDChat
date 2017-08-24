@@ -103,7 +103,7 @@ namespace MainProgram
 
 
         bool isNotifyIconFlashing = false;//icon是否在闪烁
-        MsgTip FormMsgTip = null;//消息提示窗口
+
         //icon开始闪烁
         public void notifyIonFlashSafePost()
         {
