@@ -39,9 +39,9 @@
             this.labelRes = new System.Windows.Forms.Label();
             this.labelDraw = new System.Windows.Forms.Label();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAd = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanelGroupMember = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelGroupMember = new System.Windows.Forms.Label();
             this.groupMember12 = new Dialog.GroupMember();
             this.groupMember1 = new Dialog.GroupMember();
             this.groupMember2 = new Dialog.GroupMember();
@@ -55,13 +55,13 @@
             this.groupMember10 = new Dialog.GroupMember();
             this.groupMember11 = new Dialog.GroupMember();
             this.groupMember13 = new Dialog.GroupMember();
-            this.Rich_Edit = new Thedog.PicRichTextBox();
             this.groupMember14 = new Dialog.GroupMember();
+            this.Rich_Edit = new Thedog.PicRichTextBox();
             this.panelChat.SuspendLayout();
             this.panelTakeEdit.SuspendLayout();
             this.flowLayoutPanelTop.SuspendLayout();
             this.panelRight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAd)).BeginInit();
             this.flowLayoutPanelGroupMember.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -182,25 +182,25 @@
             this.panelRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelRight.BackColor = System.Drawing.Color.SteelBlue;
-            this.panelRight.Controls.Add(this.label1);
+            this.panelRight.Controls.Add(this.labelGroupMember);
             this.panelRight.Controls.Add(this.flowLayoutPanelGroupMember);
-            this.panelRight.Controls.Add(this.pictureBox1);
+            this.panelRight.Controls.Add(this.pictureBoxAd);
             this.panelRight.Location = new System.Drawing.Point(502, 0);
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(200, 566);
             this.panelRight.TabIndex = 2;
             // 
-            // pictureBox1
+            // pictureBoxAd
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pictureBoxAd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 216);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxAd.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAd.Image")));
+            this.pictureBoxAd.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxAd.Name = "pictureBoxAd";
+            this.pictureBoxAd.Size = new System.Drawing.Size(200, 216);
+            this.pictureBoxAd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAd.TabIndex = 0;
+            this.pictureBoxAd.TabStop = false;
             // 
             // flowLayoutPanelGroupMember
             // 
@@ -226,16 +226,16 @@
             this.flowLayoutPanelGroupMember.Size = new System.Drawing.Size(200, 343);
             this.flowLayoutPanelGroupMember.TabIndex = 1;
             // 
-            // label1
+            // labelGroupMember
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(4, 222);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 5, 0, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 14);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "群成员 0/0";
+            this.labelGroupMember.AutoSize = true;
+            this.labelGroupMember.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelGroupMember.Location = new System.Drawing.Point(4, 222);
+            this.labelGroupMember.Margin = new System.Windows.Forms.Padding(3, 5, 0, 5);
+            this.labelGroupMember.Name = "labelGroupMember";
+            this.labelGroupMember.Size = new System.Drawing.Size(77, 14);
+            this.labelGroupMember.TabIndex = 0;
+            this.labelGroupMember.Text = "群成员 0/0";
             // 
             // groupMember12
             // 
@@ -354,6 +354,15 @@
             this.groupMember13.Size = new System.Drawing.Size(200, 30);
             this.groupMember13.TabIndex = 36;
             // 
+            // groupMember14
+            // 
+            this.groupMember14.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupMember14.Location = new System.Drawing.Point(0, 403);
+            this.groupMember14.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.groupMember14.Name = "groupMember14";
+            this.groupMember14.Size = new System.Drawing.Size(200, 30);
+            this.groupMember14.TabIndex = 37;
+            // 
             // Rich_Edit
             // 
             this.Rich_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -365,15 +374,6 @@
             this.Rich_Edit.TabIndex = 0;
             this.Rich_Edit.Text = "";
             this.Rich_Edit.TextChanged += new System.EventHandler(this.Rich_Edit_TextChanged);
-            // 
-            // groupMember14
-            // 
-            this.groupMember14.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.groupMember14.Location = new System.Drawing.Point(0, 403);
-            this.groupMember14.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.groupMember14.Name = "groupMember14";
-            this.groupMember14.Size = new System.Drawing.Size(200, 30);
-            this.groupMember14.TabIndex = 37;
             // 
             // FormDialog
             // 
@@ -395,7 +395,7 @@
             this.flowLayoutPanelTop.ResumeLayout(false);
             this.panelRight.ResumeLayout(false);
             this.panelRight.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAd)).EndInit();
             this.flowLayoutPanelGroupMember.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -413,9 +413,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label labelTip;
         private System.Windows.Forms.Panel panelRight;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxAd;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelGroupMember;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelGroupMember;
         private GroupMember groupMember12;
         private GroupMember groupMember1;
         private GroupMember groupMember2;

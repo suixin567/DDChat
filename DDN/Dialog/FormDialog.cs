@@ -23,6 +23,12 @@ namespace Dialog
         int Fmx, Fmy; //主窗口坐标
         #endregion
 
+        struct groupMembers {
+            public string Master;
+            public string Manager;
+            public string Member;
+        }
+
         public FormDialog(int type , int dialogId, string dialogName, Image face)
         {
             InitializeComponent();
@@ -44,13 +50,26 @@ namespace Dialog
                 case 0://商城
                     break;
                 case 1://群
+                    this.labelGroupMember.Show();
+                    this.flowLayoutPanelGroupMember.Show();
+                    //拉取群成员
+                    HttpReqHelper.requestSync(AppConst.WebUrl + "groupMembers?gid=" + m_groupOrFriendId, delegate(string membersJson) {
+                        Debug.Print("收到群成员是："+ membersJson);
+                        groupMembers members = Coding<groupMembers>.decode(membersJson);
+                        Debug.Print("群主是：" + members.Master);
+                        Debug.Print("管理是：" + members.Manager);
+                        Debug.Print("成员是：" + members.Member);
+                    });
                     break;
                 case 2://个人
                     this.labelChat.Dispose();
                     break;
                 case 3://朋友     
                     this.labelRes.Dispose();
-                    this.labelDraw.Dispose();              
+                    this.labelDraw.Dispose();
+                    this.labelGroupMember.Hide();
+                    this.flowLayoutPanelGroupMember.Hide();
+                    this.pictureBoxAd.Size = new Size(pictureBoxAd.Size.Width, pictureBoxAd.Size.Height*2);
                     break;
                 default:
                     break;
