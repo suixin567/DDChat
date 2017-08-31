@@ -17,3 +17,7 @@ C:\Users\文强\Desktop\DDN\DDN\Mgr\obj\Release\Mgr.Properties.Resources.resourc
 C:\Users\文强\Desktop\DDN\DDN\Mgr\obj\Release\Mgr.csproj.GenerateResource.Cache
 C:\Users\文强\Desktop\DDN\DDN\Mgr\obj\Release\Mgr.exe
 C:\Users\文强\Desktop\DDN\DDN\Mgr\obj\Release\Mgr.pdb
+C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Release\UnityModule.dll
+C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Release\Dialog.dll
+C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Release\UnityModule.pdb
+C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Release\Dialog.pdb

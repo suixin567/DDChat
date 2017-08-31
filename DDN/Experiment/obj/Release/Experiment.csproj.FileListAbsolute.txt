@@ -9,3 +9,5 @@ C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Release\Experiment.Properties.Res
 C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Release\Experiment.csproj.GenerateResource.Cache
 C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Release\Experiment.exe
 C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Release\Experiment.pdb
+C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Release\Experiment.csprojResolveAssemblyReference.cache
+C:\Users\文强\Desktop\DDN\DDN\Experiment\obj\Release\Experiment.DLLCopyTool.resources

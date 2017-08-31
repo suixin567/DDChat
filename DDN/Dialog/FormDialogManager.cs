@@ -76,6 +76,11 @@ namespace Dialog
         //dialogId 表示群号 或者好友的id
         public void openDialog(int dialogType, int dialogId = -1, string dialogName = "", Image face = null)
         {
+            if (NetWorkManager.Instance.IsConnected == false)
+            {
+                MessageBox.Show("没有网络，请联网后重试","叮叮鸟提示：");
+                return;
+            }
             this.Show();
             AppInfo.isFormDialogMgrShow = true;
             switch (dialogType)

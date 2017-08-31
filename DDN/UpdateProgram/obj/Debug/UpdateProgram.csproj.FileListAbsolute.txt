@@ -27,6 +27,7 @@ C:\Users\Administrator\Desktop\DDN\DDN\UpdateProgram\obj\Debug\UpdateProgram.pdb
 C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\bin\Debug\UpdateProgram.dll.config
 C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\bin\Debug\UpdateProgram.dll
 C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\bin\Debug\UpdateProgram.pdb
+C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\obj\Debug\UpdateProgram.csprojResolveAssemblyReference.cache
 C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\obj\Debug\UpdateProgram.FormUpdate.resources
 C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\obj\Debug\UpdateProgram.Properties.Resources.resources
 C:\Users\文强\Desktop\DDN\DDN\UpdateProgram\obj\Debug\UpdateProgram.csproj.GenerateResource.Cache

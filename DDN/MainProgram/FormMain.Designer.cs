@@ -44,7 +44,6 @@
             this.mainTabControl1 = new MainProgram.UserControls.MainTabControl();
             this.flowLayoutPanelFriendList = new MainProgram.UserControls.FlowLayoutPanelFriendList();
             this.topInfoPanel1 = new MainProgram.UserControls.TopInfoPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStripNotifyIcon.SuspendLayout();
             this.panelBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buttonFindFriend)).BeginInit();
@@ -199,16 +198,6 @@
             this.topInfoPanel1.Size = new System.Drawing.Size(230, 80);
             this.topInfoPanel1.TabIndex = 16;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(103, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -216,7 +205,6 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(280, 650);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.mainTabControl1);
             this.Controls.Add(this.flowLayoutPanelFriendList);
@@ -259,7 +247,6 @@
         private System.Windows.Forms.Button buttonShop;
         private System.Windows.Forms.PictureBox buttonFindFriend;
         private UserControls.MainTabControl mainTabControl1;
-        private System.Windows.Forms.Button button1;
     }
 }
 

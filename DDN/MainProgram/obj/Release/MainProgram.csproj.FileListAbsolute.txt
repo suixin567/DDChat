@@ -32,7 +32,6 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Release\LitJson.dll
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Release\ToolLib.pdb
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\MainProgram.csprojResolveAssemblyReference.cache
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\MainProgram.FormCreateGroup.resources
-C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\UnityControl.FormUnityUpdate.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\MainProgram.UserControls.AddFriendItem.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\MainProgram.FormAddFriend.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\MainProgram.FormMessageVerify.resources
@@ -52,3 +51,10 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\MainProgram.UserControls
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\MainProgram.csproj.GenerateResource.Cache
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\MainProgram.dll
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\MainProgram.pdb
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Release\Dialog.dll
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Release\UnityModule.dll
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Release\Dialog.pdb
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Release\UnityModule.pdb
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\MainProgram.MsgTip.resources
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\MainProgram.UserControls.MsgTipItem.resources
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Release\MainProgram.UserControls.VerifyMsgItem.resources

@@ -85,37 +85,52 @@ public class NetWorkManager
         }
 
 
-        //sock异步线程读取完毕后调用此方法 形参ar会在异步线程结束后被自动传递过来
-        private void ReceiveCallBack(IAsyncResult ar)
+    //sock异步线程读取完毕后调用此方法 形参ar会在异步线程结束后被自动传递过来
+    private void ReceiveCallBack(IAsyncResult ar)
+    {
+        // Debug.Print("收到消息啦啦啦");
+        int carriageLen = 0;//单个车厢的长度
+        try
         {
-           // Debug.Print("收到消息啦啦啦");
-            int carriageLen = 0;//单个车厢的长度
-            try
+            //单个车厢长度
+            carriageLen = socket.EndReceive(ar);
+            if (carriageLen >= maxReceiveSize)
             {
-                //单个车厢长度
-                carriageLen = socket.EndReceive(ar);
-                if (carriageLen>=maxReceiveSize) {
-                    Debug.Print("收到超长数据！！！");
-                }
-                //Debug.Log("车厢长度:" + carriageLen);
-                //把车厢摆放到铁轨上
-                Buffer.BlockCopy(dataCarriage, 0, dataTrack, dataTrackIndex, carriageLen);
-                dataTrackIndex += carriageLen;
-                getTrain();
-            }
-            catch (SocketException)
-            {
+                Debug.Print("收到超长数据！！！");
+                MessageBox.Show("收到超长数据！！！" + carriageLen);
                 IsConnected = false;
-                Debug.Print("服务器关闭了，我会知道");
                 socket.Close();
                 return;
             }
-            //获得服务器消息后 再次继续监听
-            if (IsConnected)
+            //Debug.Log("车厢长度:" + carriageLen);
+            //把车厢摆放到铁轨上
+            Buffer.BlockCopy(dataCarriage, 0, dataTrack, dataTrackIndex, carriageLen);
+            dataTrackIndex += carriageLen;
+            getTrain();
+        }
+        catch (SocketException)
+        {
+
+            Debug.Print("服务器关闭了，我会知道");
+            IsConnected = false;
+            socket.Close();
+            return;
+        }
+        //获得服务器消息后 再次继续监听
+        if (IsConnected)
+        {
+            try
             {
                 socket.BeginReceive(dataCarriage, 0, maxReceiveSize, SocketFlags.None, ReceiveCallBack, dataCarriage);
             }
+            catch (Exception err)
+            {
+                //   MessageBox.Show("继续监听出错：" + err.ToString());
+                Debug.Print("注意！！！继续监听出错：" + err.ToString());
+            }
+           
         }
+    }
 
         //取出一个火车
         void getTrain()
@@ -166,8 +181,24 @@ public class NetWorkManager
                     //Debug.LogError("包头长度："+ headLen);
                     getTrain();//递归调用
                 }
+            try
+            {
                 SocketModel model = Codec.Decode(dataTrain);
-                messages.Add(model); 
+                if (model != null)
+                {
+                    messages.Add(model);
+                }
+                else {
+                    Debug.Print("socket is empty!!!");
+                }
+               
+            }
+            catch (Exception decodeerr)
+            {
+                Debug.Print("decodeerr" + decodeerr.ToString());
+            }
+              
+               
              //   OnMessage(model);
             }
             else
@@ -208,120 +239,93 @@ public class NetWorkManager
         /// <summary>
         /// 重新发送上次失败的消息
         /// </summary>
-        public void reSend()
-        {
-            //    StartCoroutine(reSendLogic());
-        }
-
-        //IEnumerator reSendLogic() {
-        //    while (true) {
-        //        yield return new WaitForSeconds(Time.deltaTime);
-        //        if (reSendQueue.Count > 0)
-        //        {
-        //            SocketModel sm = reSendQueue.Dequeue();                
-        //            byte[] removeZero = Codec.Encode(sm);
-        //            try
-        //            {
-        //                if (removeZero != null)
-        //                {
-        //                    socket.Send(removeZero);
-        //                }
-        //            }
-        //             catch
-        //             {
-        //                    Debug.Print("消息重新发送失败...尝试再次重连中...");
-        //                    reSendQueue.Enqueue(sm);//加入重新发送列表
-        //                //    StartCoroutine(reConnectLogic());
-        //              }
-        //        }
-        //        else
-        //        {//没有需要重新发送的消息后就跳出循环
-        //            break;
-        //        }
-        //    }
+        //public void reSend()
+        //{
+        //    //    StartCoroutine(reSendLogic());
         //}
-        void sendHeartPackage()
+
+    //IEnumerator reSendLogic() {
+    //    while (true) {
+    //        yield return new WaitForSeconds(Time.deltaTime);
+    //        if (reSendQueue.Count > 0)
+    //        {
+    //            SocketModel sm = reSendQueue.Dequeue();                
+    //            byte[] removeZero = Codec.Encode(sm);
+    //            try
+    //            {
+    //                if (removeZero != null)
+    //                {
+    //                    socket.Send(removeZero);
+    //                }
+    //            }
+    //             catch
+    //             {
+    //                    Debug.Print("消息重新发送失败...尝试再次重连中...");
+    //                    reSendQueue.Enqueue(sm);//加入重新发送列表
+    //                //    StartCoroutine(reConnectLogic());
+    //              }
+    //        }
+    //        else
+    //        {//没有需要重新发送的消息后就跳出循环
+    //            break;
+    //        }
+    //    }
+    //}
+    void sendHeartPackage()
+    {
+        while (true)
         {
-            while (true)
+            if (IsConnected)
             {
-                if (IsConnected)
-                {
-                    sendMessage(Protocol.HEART_PACKAGE_CREQ, 0, 0, "im here");
+                sendMessage(Protocol.HEART_PACKAGE_CREQ, 0, 0, "im here");
                 //    Debug.Print("每秒发送心跳包");
-                }
-                else
-                {//断线后重新连接                 
-                    reConnect();
-                }
-                Thread.Sleep(1000);
             }
+            else
+            {//断线后重新连接                 
+                reConnect();
+            }
+            Thread.Sleep(1000);
         }
-
-
-
-        void reConnect()
-        {
-            Debug.Print("与服务器断开连接，尝试重连中...");
-            try
-            {
-                //if (GameInfo.LOGIN_MODEL==1) {
-                //    yield break;
-                //}
-                socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                socket.Connect(url, port);
-                //异步进行socket的读取,读取完毕之后进行回调                                   ，最后一个参数用于给回调函数传递子线程参数，这里不需要
-                socket.BeginReceive(dataCarriage, 0, maxReceiveSize, SocketFlags.None, ReceiveCallBack, null);//最多只能接受maxReceiveSize大小数据
-                IsConnected = true;
-                Debug.Print("重连成功...");
-                reLogin();//重新登陆
-            }
-            catch (Exception e)
-            {
-                Debug.Print("重连失败:" + e.Message);
-            }
-        }
-
-        /// <summary>
-        /// 重新登陆
-        /// </summary>
-        void reLogin()
-        {
-       // if (GameInfo.IS_LOGIN == 1)
-       // {
-            //已经登陆需要重新登陆
-            Debug.Print("发送重新登陆请求...");
-            LoginDTO dto = new LoginDTO();
-     //   { "stringKey":"account","stringValue":"777777"}
-      //  { "stringKey":"passWord","stringValue":"777777"}
-
-        dto.userName = PlayerPrefs.GetString("account");// GameInfo.ACC_ID;
-        dto.passWord = PlayerPrefs.GetString("passWord");// GameInfo.ACC_PSD;
-            string message = Coding<LoginDTO>.encode(dto);
-            // Debug.Print(message);
-            sendMessage(Protocol.LOGIN, 0, LoginProtocol.RELOGIN_CREQ, message);
-       // }
     }
 
-        public List<SocketModel> getList()
-        {
-            return messages;
-        }
 
-            //消息 处理
-        //public void OnMessage(SocketModel model)
-        //{
-        //    switch (model.Type)
-        //    {
-        //        case Protocol.LOGIN:                 
-        //        //    Manager.Instance.formLogin.OnMessage(model);
-        //     //       Login.LoginMgr.Instance.formLogin.OnMessage(model);
-        //            break;
-        //        case Protocol.MESSAGE://消息相关
-        //      //      Manager.Instance.msgMgr.onMessage(model);
-        //            break;              
-        //        default:
-        //            Debug.Print("网络协议类型错误：" + model.Type, 5);
-        //            break;
-        //    }
-        //}
+
+    void reConnect()
+    {
+        Debug.Print("与服务器断开连接，尝试重连中...");
+        try
+        {
+            socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            socket.Connect(url, port);
+            //异步进行socket的读取,读取完毕之后进行回调                                   ，最后一个参数用于给回调函数传递子线程参数，这里不需要
+            socket.BeginReceive(dataCarriage, 0, maxReceiveSize, SocketFlags.None, ReceiveCallBack, null);//最多只能接受maxReceiveSize大小数据
+            IsConnected = true;
+            Debug.Print("重连成功...");
+            reLogin();//重新登陆
+        }
+        catch (Exception e)
+        {
+            Debug.Print("重连失败:" + e.Message);
+        }
+    }
+
+    /// <summary>
+    /// 重新登陆
+    /// </summary>
+    void reLogin()
+    {
+        //已经登陆需要重新登陆
+        Debug.Print("发送重新登陆请求...");
+        LoginDTO dto = new LoginDTO();
+        dto.userName = PlayerPrefs.GetString("account");// GameInfo.ACC_ID;
+        dto.passWord = PlayerPrefs.GetString("passWord");// GameInfo.ACC_PSD;
+        string message = Coding<LoginDTO>.encode(dto);
+        sendMessage(Protocol.LOGIN, 0, LoginProtocol.RELOGIN_CREQ, message);
+    }
+
+    public List<SocketModel> getList()
+    {
+        return messages;
+    }
+
     }

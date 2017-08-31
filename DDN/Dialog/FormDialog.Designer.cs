@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDialog));
             this.panelChat = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelTakeEdit = new System.Windows.Forms.Panel();
+            this.labelTip = new System.Windows.Forms.Label();
             this.Rich_Edit = new Thedog.PicRichTextBox();
-            this.pictureBoxaFaceBtn = new System.Windows.Forms.PictureBox();
             this.buttonSend = new System.Windows.Forms.Button();
             this.flowLayoutPanelTop = new System.Windows.Forms.FlowLayoutPanel();
             this.labelChat = new System.Windows.Forms.Label();
@@ -41,7 +40,6 @@
             this.labelDraw = new System.Windows.Forms.Label();
             this.panelChat.SuspendLayout();
             this.panelTakeEdit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxaFaceBtn)).BeginInit();
             this.flowLayoutPanelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,13 +71,23 @@
             this.panelTakeEdit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTakeEdit.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panelTakeEdit.Controls.Add(this.labelTip);
             this.panelTakeEdit.Controls.Add(this.Rich_Edit);
-            this.panelTakeEdit.Controls.Add(this.pictureBoxaFaceBtn);
             this.panelTakeEdit.Controls.Add(this.buttonSend);
             this.panelTakeEdit.Location = new System.Drawing.Point(0, 433);
             this.panelTakeEdit.Name = "panelTakeEdit";
             this.panelTakeEdit.Size = new System.Drawing.Size(700, 133);
             this.panelTakeEdit.TabIndex = 0;
+            // 
+            // labelTip
+            // 
+            this.labelTip.AutoSize = true;
+            this.labelTip.ForeColor = System.Drawing.Color.Red;
+            this.labelTip.Location = new System.Drawing.Point(479, 111);
+            this.labelTip.Name = "labelTip";
+            this.labelTip.Size = new System.Drawing.Size(113, 12);
+            this.labelTip.TabIndex = 3;
+            this.labelTip.Text = "发送的消息太长了！";
             // 
             // Rich_Edit
             // 
@@ -92,17 +100,6 @@
             this.Rich_Edit.TabIndex = 0;
             this.Rich_Edit.Text = "";
             this.Rich_Edit.TextChanged += new System.EventHandler(this.Rich_Edit_TextChanged);
-            // 
-            // pictureBoxaFaceBtn
-            // 
-            this.pictureBoxaFaceBtn.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxaFaceBtn.Image")));
-            this.pictureBoxaFaceBtn.Location = new System.Drawing.Point(3, 3);
-            this.pictureBoxaFaceBtn.Name = "pictureBoxaFaceBtn";
-            this.pictureBoxaFaceBtn.Size = new System.Drawing.Size(20, 20);
-            this.pictureBoxaFaceBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxaFaceBtn.TabIndex = 2;
-            this.pictureBoxaFaceBtn.TabStop = false;
-            this.pictureBoxaFaceBtn.Click += new System.EventHandler(this.pictureBoxaFaceBtn_Click);
             // 
             // buttonSend
             // 
@@ -181,7 +178,7 @@
             this.VisibleChanged += new System.EventHandler(this.FormDialog_VisibleChanged);
             this.panelChat.ResumeLayout(false);
             this.panelTakeEdit.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxaFaceBtn)).EndInit();
+            this.panelTakeEdit.PerformLayout();
             this.flowLayoutPanelTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -195,8 +192,8 @@
         private System.Windows.Forms.Label labelDraw;
         private System.Windows.Forms.Panel panelTakeEdit;
         private System.Windows.Forms.Button buttonSend;
-        private System.Windows.Forms.PictureBox pictureBoxaFaceBtn;
         public Thedog.PicRichTextBox Rich_Edit;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label labelTip;
     }
 }

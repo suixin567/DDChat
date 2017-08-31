@@ -62,6 +62,7 @@ namespace Dialog
             Rich_Edit.ScrollBars = RichTextBoxScrollBars.None;
           //  Rich_Edit.KeyUp += new KeyEventHandler(RichEdit_KeyUp);
             Rich_Edit.TextChanged += new EventHandler(RichEdit_TextChanged);
+            labelTip.Text = "";
         }
 
         //编辑框文字改变，失去焦点在获得，引发编辑框和显示内容框重绘，从而显示动画和背景透明图片
@@ -247,12 +248,23 @@ namespace Dialog
                     if (Rich_Edit.Rtf.Length> AppConst.maxReceiveSize)
                     {
                         Debug.Print("发送的消息过长！！！"+ AppConst.maxReceiveSize);
+                        labelTip.Text = "发送的消息太长了";
+                        System.Windows.Forms.Timer disPlayLabelTipTimer = new System.Windows.Forms.Timer();
+                        disPlayLabelTipTimer.Interval = 3000;
+                        disPlayLabelTipTimer.Enabled = true;
+                        disPlayLabelTipTimer.Tick += new EventHandler((send,ev)=> {
+                            labelTip.Text = "";
+                            ((System.Windows.Forms.Timer)send).Stop();
+                            ((System.Windows.Forms.Timer)send).Dispose();
+                        });
+                        disPlayLabelTipTimer.Start();
                         return;
                     }                 
                     MsgModel mm = new MsgModel(MessageProtocol.CHAT_ME_TO_FRIEND_CREQ, PlayerPrefs.GetString("username"), m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
                     string message = Coding<MsgModel>.encode(mm);
                     Debug.Print("发出的聊天消息是:" + Rich_Edit.Rtf);
                     NetWorkManager.Instance.sendMessage(Protocol.MESSAGE, -1, MessageProtocol.CHAT, message);
+                    Rich_Edit.Rtf = "";
                     break;
                 default:
                     break;

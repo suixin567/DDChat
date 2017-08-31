@@ -38,4 +38,3 @@ C:\Users\文强\Desktop\DDN\DDN\Login\obj\Debug\Mgr.Properties.Resources.resourc
 C:\Users\文强\Desktop\DDN\DDN\Login\obj\Debug\Login.csproj.GenerateResource.Cache
 C:\Users\文强\Desktop\DDN\DDN\Login\obj\Debug\Login.dll
 C:\Users\文强\Desktop\DDN\DDN\Login\obj\Debug\Login.pdb
-C:\Users\文强\Desktop\DDN\DDN\Login\obj\Debug\Login.csprojResolveAssemblyReference.cache
