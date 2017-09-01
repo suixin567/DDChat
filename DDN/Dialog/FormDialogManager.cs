@@ -267,6 +267,22 @@ namespace Dialog
                         }
                     }
                     break;
+                case MessageProtocol.CHAT_GROUP_TO_ME_SRES://收到群聊
+                    //foreach (var item in formListDictionary)
+                    //{
+                    //    if (item.Key == "friend" + mm.From)//自己发出去的消息
+                    //    {
+                    //        item.Value.showOnePopSafePost(mm);
+                    //    }
+                    //}
+                    if (formListDictionary.ContainsKey("group" + mm.To))
+                    {
+                        formListDictionary["group" + mm.To].showOnePopSafePost(mm);
+                    }
+                    else {
+                        Debug.Print("发生错误：收到群聊，却找不到这个群的对话窗体。");
+                    }
+                    break;
                 default:
                     Debug.Print("聊天协议错误");
                     break;

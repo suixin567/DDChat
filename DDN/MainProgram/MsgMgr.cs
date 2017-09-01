@@ -150,6 +150,23 @@ namespace MainProgram
                         FormDialogManager.Instance.onChatMsg(mModel);
                     }                                      
                     break;
+                    //群聊相关
+                case MessageProtocol.CHAT_ME_TO_GROUP_SRES://我发群聊的响应
+
+                    break;
+                case MessageProtocol.CHAT_GROUP_TO_ME_SRES://收到群聊
+                    Debug.Print("收到群聊消息" + mModel.Content);
+                    if (AppInfo.isFormDialogMgrShow == false)
+                    {
+                        Debug.Print("弹出提示");
+                        msgTip(mModel);
+                    }
+                    else
+                    {
+                        Debug.Print("直接打开窗体");
+                        FormDialogManager.Instance.onChatMsg(mModel);
+                    }
+                    break;
                 default:
                     Debug.Print("未知消息协议类型" + mModel.MsgType);
                     break;

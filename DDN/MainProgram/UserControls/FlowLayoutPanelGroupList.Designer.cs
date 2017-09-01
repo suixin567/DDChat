@@ -106,9 +106,9 @@
             this.buttonGroup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGroup.Location = new System.Drawing.Point(6, 23);
             this.buttonGroup.Name = "buttonGroup";
-            this.buttonGroup.Size = new System.Drawing.Size(68, 23);
+            this.buttonGroup.Size = new System.Drawing.Size(75, 23);
             this.buttonGroup.TabIndex = 3;
-            this.buttonGroup.Text = "群组 0";
+            this.buttonGroup.Text = "我的群 0";
             this.buttonGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonGroup.UseVisualStyleBackColor = true;
             this.buttonGroup.Click += new System.EventHandler(this.buttonGroup_Click);

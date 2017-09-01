@@ -32,12 +32,15 @@ using System.Threading.Tasks;
     public const int QUIT_GROUP_CREQ = 38;//退出一个群
     public const int QUIT_GROUP_SRES = 39;//退出一个群的响应
 
+    //关于聊天
     public const int CHAT_ME_TO_FRIEND_CREQ = 100;//和好友聊天
     public const int CHAT_ME_TO_FRIEND_SRES = 101;//和好友聊天的响应
     public const int CHAT_FRIEND_TO_ME_SRES = 102;//好友和我聊天
 
-    public const int CHAT_ME_TO_GROUP = 110;
-    public const int CHAT_GROUP_TO_ME = 111;
+    //群聊
+    public const int CHAT_ME_TO_GROUP_CREQ = 110;
+    public const int CHAT_ME_TO_GROUP_SRES = 111;
+    public const int CHAT_GROUP_TO_ME_SRES = 112;
 
 
 }

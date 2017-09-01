@@ -101,7 +101,7 @@ namespace MainProgram.UserControls
             {
                 this.flowLayoutPanel.Controls.Add(groupItem);
                 amount++;
-                this.buttonGroup.Text = "公司 " + amount;
+                this.buttonGroup.Text = "我的群 " + amount;
             }
         }
         //创建公司

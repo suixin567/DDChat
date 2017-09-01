@@ -55,18 +55,22 @@ namespace Mgr
             while (true)
             {
                 List<SocketModel> list = NetWorkManager.Instance.getList();
-                if (list.Count > 0)
+                if (list!=null)
                 {
-                  //  Debug.Print("待处理消息长度是：" + list.Count);
-                    for (int i = 0; i < list.Count; i++)
+                    if (list.Count > 0)
                     {
-                        SocketModel model = list[i];
-                        if (model!=null)
+                        //  Debug.Print("待处理消息长度是：" + list.Count);
+                        for (int i = 0; i < list.Count; i++)
                         {
-                            OnMessage(model);
-                        }                     
+                            SocketModel model = list[i];
+                            if (model != null)
+                            {
+                                OnMessage(model);
+                            }
+                        }
                     }
                 }
+                
                 Thread.Sleep(1);
             }
         }
