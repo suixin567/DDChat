@@ -325,7 +325,9 @@ public class NetWorkManager
 
     public List<SocketModel> getList()
     {
-        return messages;
+        List<SocketModel> tempList = new List<SocketModel>(messages.ToArray());
+        messages.Clear();
+        return tempList;
     }
 
     }
