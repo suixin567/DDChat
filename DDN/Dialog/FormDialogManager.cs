@@ -344,14 +344,28 @@ namespace Dialog
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+
+        //最大化
+        bool isMaxSize = false;
+        Size nnormalSize = new Size();
+        Point normalPoint = new Point();
         private void buttonMax_Click(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
+            isMaxSize = !isMaxSize;
+            if (isMaxSize)//变最大
             {
-                this.WindowState = FormWindowState.Normal;
+                //记录之前的大小
+                normalPoint = this.Location;
+                nnormalSize = this.Size;
+                this.Size = new Size(System.Windows.Forms.SystemInformation.WorkingArea.Width, System.Windows.Forms.SystemInformation.WorkingArea.Height);
+                this.StartPosition = FormStartPosition.Manual;
+                this.Location = (Point)new Size(0, 0);
             }
             else {
-                this.WindowState = FormWindowState.Maximized;
+                // this.WindowState = FormWindowState.Normal;   
+                this.Location = normalPoint;
+                this.Size = nnormalSize;
             }
     
         }
