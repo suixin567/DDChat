@@ -8,6 +8,6 @@ namespace ToolLib
 {
    public class AppInfo
     {
-        public static bool isFormDialogMgrShow = false;   
+     //   public static bool isFormDialogMgrShow = false;   
     }
 }

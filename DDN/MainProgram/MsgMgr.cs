@@ -140,13 +140,13 @@ namespace MainProgram
                     FormDialogManager.Instance.onChatMsg(mModel);
                     break;
                 case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://别人和我聊天,聊天框已经打开则直接显示气泡，否则进入消息提示窗
-                    if (AppInfo.isFormDialogMgrShow==false)
+                    if ( FormDialogManager.Instance.isDialogOpend(mModel)==false)
                     {
                         Debug.Print("弹出提示");
                         msgTip(mModel);
                     }
                     else {
-                        Debug.Print("直接打开窗体");
+                        Debug.Print("直接显示气泡");
                         FormDialogManager.Instance.onChatMsg(mModel);
                     }                                      
                     break;
@@ -156,14 +156,14 @@ namespace MainProgram
                     break;
                 case MessageProtocol.CHAT_GROUP_TO_ME_SRES://收到群聊
                     Debug.Print("收到群聊消息" + mModel.Content);
-                    if (AppInfo.isFormDialogMgrShow == false)
+                    if (FormDialogManager.Instance.isDialogOpend(mModel) == false)
                     {
                         Debug.Print("弹出提示");
                         msgTip(mModel);
                     }
                     else
                     {
-                        Debug.Print("直接打开窗体");
+                        Debug.Print("直接显示气泡");
                         FormDialogManager.Instance.onChatMsg(mModel);
                     }
                     break;
@@ -224,7 +224,7 @@ namespace MainProgram
 
 
         void msgTip(MsgModel mode) {
-            MainMgr.Instance.msgTip. addNewTip(mode);
+            MainMgr.Instance.msgTip.addNewTip(mode);
         }
 
     

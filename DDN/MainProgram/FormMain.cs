@@ -78,8 +78,9 @@ namespace MainProgram
        //     SetBtnStyle(this.buttonMin);
             //icon闪烁计时器停止
             this.timerNotifyIcon.Stop();
-           
-            //////////////
+
+          //  this.Font = new Font("Arial", 9);
+            ////////获取图片的测试//////
             //ResourceManager rm = new ResourceManager("DDN.FormMain", Assembly.GetExecutingAssembly());
             //Image img = (Image)rm.GetObject("pic");
             //pictureBox2.Image = img;

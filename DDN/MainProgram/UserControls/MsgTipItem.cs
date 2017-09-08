@@ -63,6 +63,11 @@ namespace MainProgram.UserControls
                     labelContent.Text = m_mode.Content;
                  //   pictureBox.Image = "发来消息的人的头像"  TODO:
                     break;
+                case MessageProtocol.CHAT_GROUP_TO_ME_SRES://群向我聊天
+                    labelNickName.Text = m_mode.To;
+                    labelContent.Text = m_mode.Content;
+                    //   pictureBox.Image = "发来消息的群的头像"  TODO:
+                    break;
                 default:
                     Debug.Print("MsgTipItem：未知协议类型" + m_mode.MsgType);
                     break;

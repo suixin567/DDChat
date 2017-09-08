@@ -244,6 +244,10 @@ namespace Dialog
         {
             ChatPop chatPop = new ChatPop((MsgModel)content);
             this.flowLayoutPanel1.Controls.Add(chatPop);
+            //  this.flowLayoutPanel1.Controls.SetChildIndex(chatPop, 0);
+            //this.flowLayoutPanel1.VerticalScroll.Value = 1;
+            Point newPoint = new Point(0, 100000);
+            flowLayoutPanel1.AutoScrollPosition = newPoint;
         }
 
         //发送按钮

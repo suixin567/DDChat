@@ -71,8 +71,11 @@ namespace SmileWei.EmbeddedApp
                     ), "内嵌程序加载失败");
                 if (m_AppProcess != null)
                 {
-                    if (!m_AppProcess.HasExited)
+                    if (!m_AppProcess.HasExited) {
+                        Debug.Print("何时会运行到这里？");
                         m_AppProcess.Kill();
+                    }
+                     
                     m_AppProcess = null;
                 }
             }
@@ -124,8 +127,11 @@ namespace SmileWei.EmbeddedApp
             {
                 try
                 {
-                    if (!m_AppProcess.HasExited)
+                    if (!m_AppProcess.HasExited) {
+                        m_AppProcess.CloseMainWindow();//组合关闭不会在win7报错。
                         m_AppProcess.Kill();
+                    }
+                        
                 }
                 catch (Exception)
                 {

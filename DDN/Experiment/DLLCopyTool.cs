@@ -83,5 +83,17 @@ namespace Experiment
                 Debug.Print("复制完毕" + destinationFile);
             }
         }
+        int i = 0;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //i++;
+            //this.flowLayoutPanel1.VerticalScroll.Value = 100;
+            //Debug.Print(i.ToString());
+
+            Point newPoint = new Point(0, 100000);
+            flowLayoutPanel1.AutoScrollPosition = newPoint;
+            //newPoint = new Point(0, this.flowLayoutPanel1.Height - flowLayoutPanel1.AutoScrollPosition.Y);
+            //flowLayoutPanel1.AutoScrollPosition = newPoint;
+        }
     }
 }

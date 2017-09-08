@@ -40,8 +40,8 @@
             this.labelChat = new System.Windows.Forms.Label();
             this.labelRes = new System.Windows.Forms.Label();
             this.labelDraw = new System.Windows.Forms.Label();
-            this.Rich_Edit = new Thedog.PicRichTextBox();
             this.groupMemberPanel1 = new Dialog.GroupMemberPanel();
+            this.Rich_Edit = new Thedog.PicRichTextBox();
             this.panelChat.SuspendLayout();
             this.panelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAd)).BeginInit();
@@ -185,6 +185,15 @@
             this.labelDraw.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelDraw.Click += new System.EventHandler(this.labelDraw_Click);
             // 
+            // groupMemberPanel1
+            // 
+            this.groupMemberPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupMemberPanel1.Location = new System.Drawing.Point(0, 218);
+            this.groupMemberPanel1.Name = "groupMemberPanel1";
+            this.groupMemberPanel1.Size = new System.Drawing.Size(200, 348);
+            this.groupMemberPanel1.TabIndex = 1;
+            // 
             // Rich_Edit
             // 
             this.Rich_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -196,15 +205,6 @@
             this.Rich_Edit.TabIndex = 0;
             this.Rich_Edit.Text = "";
             this.Rich_Edit.TextChanged += new System.EventHandler(this.Rich_Edit_TextChanged);
-            // 
-            // groupMemberPanel1
-            // 
-            this.groupMemberPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupMemberPanel1.Location = new System.Drawing.Point(0, 218);
-            this.groupMemberPanel1.Name = "groupMemberPanel1";
-            this.groupMemberPanel1.Size = new System.Drawing.Size(200, 348);
-            this.groupMemberPanel1.TabIndex = 1;
             // 
             // FormDialog
             // 

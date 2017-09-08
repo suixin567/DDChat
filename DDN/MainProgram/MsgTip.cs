@@ -42,14 +42,14 @@ namespace MainProgram
 
         private void MsgTip_Load(object sender, EventArgs e)
         {
-            int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width - this.Size.Width - this.Size.Width/2);
+            int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width - this.Size.Width - this.Size.Width / 2);
             int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height - this.Size.Height);
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = (Point)new Size(x, y);           
+            this.Location = (Point)new Size(x, y);
         }
 
         //添加新提示
-       public void addNewTip(MsgModel mode) {
+        public void addNewTip(MsgModel mode) {
             tipMsgList.Add(mode);
             MsgTipItem tipItem = new MsgTipItem(mode);
             addItemSafePost(tipItem);
@@ -70,7 +70,7 @@ namespace MainProgram
                         break;
                     case MessageProtocol.ONE_AGREED_YOU://别人同意你加好友
                         //打开这个人的聊天对话
-                        FormDialogManager.Instance.openDialog(3, int .Parse(tipMsgList[i].From), "", null);
+                        FormDialogManager.Instance.openDialog(3, int.Parse(tipMsgList[i].From), "", null);
                         break;
                     case MessageProtocol.ONE_WANT_ADD_GROUP_SRES://有人想加群
                         VerifyMsgMgr.Instance.openFormMesageVerify();
@@ -82,6 +82,10 @@ namespace MainProgram
                     case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://朋友和我聊天
                         FormDialogManager.Instance.openDialog(3, int.Parse(tipMsgList[i].From), "", null);
                         FormDialogManager.Instance.onChatMsg(tipMsgList[i]);
+                        break;
+                    case MessageProtocol.CHAT_GROUP_TO_ME_SRES://群和我聊天
+                        FormDialogManager.Instance.openDialog(1, int.Parse(tipMsgList[i].To), "", null);
+                        FormDialogManager.Instance.onChatMsg(tipMsgList[i]);//展示消息
                         break;
                     default:
                         Debug.Print("MsgTip:未知消息类型" + tipMsgList[i].MsgType);
@@ -110,15 +114,18 @@ namespace MainProgram
 
 
         void showFormSafePost() {
-            m_SyncContext.Post(showForm,null);
+            m_SyncContext.Post(showForm, null);
         }
 
-       void showForm(object state)
+        void showForm(object state)
         {
             int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width - this.Size.Width - this.Size.Width / 2);
             int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height - this.Size.Height);
             this.Location = (Point)new Size(x, y);
             this.Show();
         }
+    
+
     }
+  
 }

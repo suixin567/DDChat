@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -82,7 +80,6 @@ namespace Dialog
                 return;
             }
             this.Show();
-            AppInfo.isFormDialogMgrShow = true;
             switch (dialogType)
             {
                 case 0://请求打开商城
@@ -255,26 +252,20 @@ namespace Dialog
                         if (item.Key == "friend" + mm.To)//自己发出去的消息
                         {
                             item.Value.showOnePopSafePost(mm);
+                            return;
                         }
                     }
                     break;
-                case MessageProtocol.CHAT_FRIEND_TO_ME_SRES:
-                    foreach (var item in formListDictionary)
+                case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://朋友发来的消息
+                    if (formListDictionary.ContainsKey("friend" + mm.From))
                     {
-                        if (item.Key == "friend" + mm.From)//自己发出去的消息
-                        {
-                            item.Value.showOnePopSafePost(mm);
-                        }
+                        formListDictionary["friend" + mm.From].showOnePopSafePost(mm);
+                    }
+                    else {
+                        Debug.Print("发生错误：收到朋友和我聊天，却找不到这个人的对话窗体。");
                     }
                     break;
-                case MessageProtocol.CHAT_GROUP_TO_ME_SRES://收到群聊
-                    //foreach (var item in formListDictionary)
-                    //{
-                    //    if (item.Key == "friend" + mm.From)//自己发出去的消息
-                    //    {
-                    //        item.Value.showOnePopSafePost(mm);
-                    //    }
-                    //}
+                case MessageProtocol.CHAT_GROUP_TO_ME_SRES://收到群聊                  
                     if (formListDictionary.ContainsKey("group" + mm.To))
                     {
                         formListDictionary["group" + mm.To].showOnePopSafePost(mm);
@@ -371,17 +362,29 @@ namespace Dialog
             buttonClose_Click(null, null);
         }
 
+        //关闭对话框
         private void buttonClose_Click(object sender, EventArgs e)
         {
             if (this.appContainer.AppProcess != null)
             {
-                this.appContainer.AppProcess.Close();
+                this.appContainer.Stop();
             }
             UnityManager.Instance.updateUnityEvent -= this.onUnityCanRunEvent;
             instance = null;
-            AppInfo.isFormDialogMgrShow = false;
             this.Close();
             this.Dispose();
+        }
+
+        //查看某个窗体是否已经打开，需要遍历朋友聊天窗体，和群聊天窗体。
+        public bool isDialogOpend(MsgModel mm) {
+            foreach (var item in formListDictionary)
+            {
+                if (item.Key == "friend" + mm.To || item.Key == "friend" + mm.From || item.Key == "group" + mm.To)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
 
