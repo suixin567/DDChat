@@ -53,7 +53,7 @@ namespace MainProgram
 
         public void Init() {
             msgTip = new MsgTip();
-            msgMgr = new MsgMgr();
+            msgMgr = new MsgMgr();//这个必须立即实例化，其实目前就有bug
            ServerForUnity.Instance.Start();          
            formMain = new FormMain();
            formMain.Show();

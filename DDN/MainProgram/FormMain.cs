@@ -83,23 +83,7 @@ namespace MainProgram
             ////////获取图片的测试//////
             //ResourceManager rm = new ResourceManager("DDN.FormMain", Assembly.GetExecutingAssembly());
             //Image img = (Image)rm.GetObject("pic");
-            //pictureBox2.Image = img;
-          
-
-            
-
-            //处理离线消息
-            if (MainMgr.Instance.msgMgr.offlineMsgArr != null)
-            {
-                if (MainMgr.Instance.msgMgr.offlineMsgArr.Length > 0)
-                {
-                    foreach (var item in MainMgr.Instance.msgMgr.offlineMsgArr)
-                    {
-                        MainMgr.Instance.msgMgr.onNewMessage(item);
-                    }
-                }
-                MainMgr.Instance.msgMgr.offlineMsgArr = null;
-            }
+            //pictureBox2.Image = img;                            
         }
 
 

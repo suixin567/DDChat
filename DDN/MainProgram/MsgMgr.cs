@@ -15,8 +15,18 @@ namespace MainProgram
         //需要tip的消息
         public MsgMgr()
         {
-            //拉取离线消息
-            pullOfflineMsg();
+            //延迟拉取离线消息
+            System.Windows.Forms.Timer timerTry = new System.Windows.Forms.Timer();
+            timerTry.Interval = 2000;
+            timerTry.Enabled = true;
+            timerTry.Start();
+            timerTry.Tick += (sen, eve) =>
+            {
+
+                pullOfflineMsg();
+                ((System.Windows.Forms.Timer)sen).Stop();
+                ((System.Windows.Forms.Timer)sen).Dispose();
+            };
         }
 
         public void onMessage(SocketModel sm)
@@ -43,7 +53,7 @@ namespace MainProgram
                     //验证消息窗体加入这条信息         
                     VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
                     break;
-                case MessageProtocol.ONE_ADD_YOU_SRES://有人添加你      (闪烁~~~)      (需要操作。点击同意按钮)       
+                case MessageProtocol.ONE_ADD_YOU_SRES://有人添加你      (闪烁~~~)      (需要操作。点击同意按钮)      
                                                   //foreach (var item in mList)
                                                   //{
                                                   //    if (item.From == mModel.From && item.MsgType == MsgProtocol.ONE_ADD_YOU_SRES)
@@ -184,20 +194,35 @@ namespace MainProgram
 
 
 
-        public MsgModel[] offlineMsgArr;
+        public MsgModel[] offlineMsgArr =null;
         //拉取离线消息
         void pullOfflineMsg()
         {
            HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=0&username=" + PlayerPrefs.GetString("username"),delegate(string offlineMsg) {
                Debug.Print("我的离线消息------>>>>>>" + offlineMsg);
+             //  MessageBox.Show("MsgMgr.pullOfflineMsg()解析离线消息" + offlineMsg);
                try
                {
-                   offlineMsgArr = Coding<MsgModel[]>.decode(offlineMsg);
+                   offlineMsgArr = Coding<MsgModel[]>.decode(offlineMsg);                
                }
                catch (Exception e)
                {
                    Debug.Print("MsgMgr.pullOfflineMsg()解析离线消息失败" + e.ToString());
+            //       MessageBox.Show("MsgMgr.pullOfflineMsg()解析离线消息失败" + e.ToString());
                }
+
+
+
+               //处理离线消息
+               if (offlineMsgArr != null)
+               {
+                   foreach (var item in MainMgr.Instance.msgMgr.offlineMsgArr)
+                   {
+                       MainMgr.Instance.msgMgr.onNewMessage(item);
+                   }               
+               }
+             
+
 
                //告诉服务器可以删除离线消息
                if (offlineMsgArr != null)
@@ -207,9 +232,7 @@ namespace MainProgram
                        clearOfflineMsg();
                    }
                }
-           });
-
-           
+           });           
         }
 
         void clearOfflineMsg()

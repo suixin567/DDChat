@@ -80,6 +80,7 @@ namespace Dialog
                 return;
             }
             this.Show();
+            this.WindowState = FormWindowState.Normal;
             switch (dialogType)
             {
                 case 0://请求打开商城
@@ -280,16 +281,6 @@ namespace Dialog
             }
        
         }
-
-
-
-
-
-
-
-
-
-
 
 
 
