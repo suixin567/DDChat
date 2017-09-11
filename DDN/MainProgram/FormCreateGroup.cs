@@ -61,10 +61,10 @@ namespace MainProgram
             CreateGroupModel createGroupModel = new CreateGroupModel();
 
             createGroupModel.Groupname = this.textBoxGroupName.Text;           
-            if (this.radioButtonNoVerify.Checked) {
-                createGroupModel.VerifyModel = 0;
-            } else {
+            if (this.radioButtonNoVerify.Checked) {//不需要验证按钮被勾选
                 createGroupModel.VerifyModel = 1;
+            } else {
+                createGroupModel.VerifyModel = 0;
             }
             string msgContent = Coding<CreateGroupModel>.encode(createGroupModel);
             MsgModel mm = new MsgModel(MessageProtocol.CREATE_GROUP_CREQ, PlayerPrefs.GetString("username"), "", msgContent, DateTime.Now.ToString());

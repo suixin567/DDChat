@@ -68,6 +68,30 @@ namespace MainProgram
         //添加一条验证信息到列表
         public void addOneVerifyMsg(MsgModel mm)
         {
+            //应过滤重复类型消息
+            foreach (var item in vmList)
+            {
+                //有人申请加好友
+                if (mm.MsgType == MessageProtocol.ONE_ADD_YOU_SRES && mm.MsgType== item.MsgType && mm.From == item.From)
+                {
+                    return;
+                }
+                //有人申请入群
+                if (mm.MsgType == MessageProtocol.ONE_WANT_ADD_GROUP_SRES && mm.MsgType == item.MsgType && mm.From == item.From && mm.To == item.To)
+                {
+                    return;
+                }
+                //我申请加别人好友
+                if (mm.MsgType == MessageProtocol.ADD_FRIEND_SRES && mm.MsgType == item.MsgType && mm.To == item.To)
+                {
+                    return;
+                }
+                //我申请加入一个群
+                if (mm.MsgType == MessageProtocol.ADD_GROUP_SRES && mm.MsgType == item.MsgType && mm.To == item.To)
+                {
+                    return;
+                }
+            }
             this.vmList.Add(new VerifyMsgModel(mm));
             //if (verifyMsgItem!=null)
             //{

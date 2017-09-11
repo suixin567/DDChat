@@ -42,19 +42,36 @@ namespace MainProgram
 
         private void MsgTip_Load(object sender, EventArgs e)
         {
+            this.Size = new Size(this.Size.Width , this.flowLayoutPanel1.Size.Height+40);
             int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width - this.Size.Width - this.Size.Width / 2);
             int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height - this.Size.Height);
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = (Point)new Size(x, y);
+            this.Location = new Point(x,y);
         }
 
         //添加新提示
         public void addNewTip(MsgModel mode) {
+            //这里应该过滤一些重复的提示消息，如：重复的申请好友提示、申请入群
+            foreach (var item in tipMsgList)
+            {
+                //过滤同一个人发来的重复的好友申请。
+                if (item.MsgType == mode.MsgType && item.From == mode.From && mode.MsgType == MessageProtocol.ONE_ADD_YOU_SRES)
+                {
+                    return;
+                }
+                //过滤同一个人发来的重复的入同一个群的申请。
+                if (item.MsgType == mode.MsgType && item.From == mode.From && item.To == mode.To && mode.MsgType == MessageProtocol.ONE_WANT_ADD_GROUP_SRES)
+                {
+                    return;
+                }
+            }
+            //添加一个新的提示
             tipMsgList.Add(mode);
             MsgTipItem tipItem = new MsgTipItem(mode);
             addItemSafePost(tipItem);
             MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁
             showFormSafePost();
+            
         }
 
         //处理提示消息
@@ -119,9 +136,10 @@ namespace MainProgram
 
         void showForm(object state)
         {
+            this.Size = new Size(this.Size.Width, this.flowLayoutPanel1.Size.Height + 40);
             int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width - this.Size.Width - this.Size.Width / 2);
             int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height - this.Size.Height);
-            this.Location = (Point)new Size(x, y);
+            this.Location = new Point(x,y);// (Point)new Size(x, y);
             this.Show();
         }
     

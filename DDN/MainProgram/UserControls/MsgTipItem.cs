@@ -34,6 +34,10 @@ namespace MainProgram.UserControls
 
         private void MsgTipItem_Load(object sender, EventArgs e)
         {
+            if (m_mode==null)
+            {
+                return;
+            }
             GraphicsPath path = new GraphicsPath();
             path.AddArc(pictureBox.DisplayRectangle, 0, 360);
             pictureBox.Region = new Region(path);

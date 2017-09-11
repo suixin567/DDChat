@@ -27,8 +27,8 @@ namespace DDN
         //#else
         //        static string ip = "211.159.186.78:7788";
         //#endif
-        static string ip = "211.159.186.78:7788";
-       // static string ip = "192.168.1.101:7788";
+       // static string ip = "211.159.186.78:7788";
+        static string ip = "192.168.1.101:7788";
         string oriSerInfos;
         string[] serInfos;
         public SynchronizationContext m_SyncContext = null;
