@@ -1,11 +1,6 @@
-﻿
-using Dialog;
-using MainProgram.UserControls;
+﻿using Dialog;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Windows.Forms;
-using ToolLib;
 
 namespace MainProgram
 {
@@ -22,7 +17,6 @@ namespace MainProgram
             timerTry.Start();
             timerTry.Tick += (sen, eve) =>
             {
-
                 pullOfflineMsg();
                 ((System.Windows.Forms.Timer)sen).Stop();
                 ((System.Windows.Forms.Timer)sen).Dispose();
@@ -53,14 +47,7 @@ namespace MainProgram
                     //验证消息窗体加入这条信息         
                     VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
                     break;
-                case MessageProtocol.ONE_ADD_YOU_SRES://有人添加你      (闪烁~~~)      (需要操作。点击同意按钮)      
-                                                  //foreach (var item in mList)
-                                                  //{
-                                                  //    if (item.From == mModel.From && item.MsgType == MsgProtocol.ONE_ADD_YOU_SRES)
-                                                  //    {//要判断是否有同样的申请，过滤一下
-                                                  //        return;
-                                                  //    }
-                                                  //}                                                 
+                case MessageProtocol.ONE_ADD_YOU_SRES://有人添加你      (闪烁~~~)      (需要操作。点击同意按钮)                                                                
                     VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
                     msgTip(mModel);
                     break;
@@ -114,13 +101,6 @@ namespace MainProgram
                     MainMgr.Instance.formMain.FormAddFriend.showOpreationResultSafePost("成功加入！");
                     break;
                 case MessageProtocol.ONE_WANT_ADD_GROUP_SRES://有人想申请入群       (闪烁~~~)          (需要操作。点击同意入群按钮)                             
-                                                         //foreach (var item in mList)
-                                                         //{
-                                                         //    if (item.From == mModel.From && item.MsgType == MsgProtocol.ONE_WANT_ADD_GROUP_SRES)
-                                                         //    {//要判断是否有同样的申请，过滤一下
-                                                         //        return;
-                                                         //    }
-                                                         //}
                     VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
                     msgTip(mModel);
                     break;
@@ -142,7 +122,13 @@ namespace MainProgram
                 case MessageProtocol.QUIT_GROUP_SRES://退群响应  (《《《无需闪烁》》》)
                     MainMgr.Instance.formMain.flowLayoutPanelGroupList.removeItemSafePost(int.Parse(mModel.To));
                     break;
-
+                case MessageProtocol.REFRESH_GROUP_MEMBERS://通知客户端刷新一个群的成员列表
+                    Debug.Print("刷新一个群的成员列表：" + mModel.Content);
+                    //判断此群的对话框是否已经打开
+                    if (FormDialogManager.Instance.isDialogOpend("group"+ mModel.Content) == true) {
+                        FormDialogManager.Instance.formListDictionary["group" + mModel.Content].groupMemberPanel1.refreshMembers(mModel.Content);
+                    }
+                        break;
 
                 ////聊天相关
                 case MessageProtocol.CHAT_ME_TO_FRIEND_SRES://我和别人聊天的响应
@@ -150,7 +136,7 @@ namespace MainProgram
                     FormDialogManager.Instance.onChatMsg(mModel);
                     break;
                 case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://别人和我聊天,聊天框已经打开则直接显示气泡，否则进入消息提示窗
-                    if ( FormDialogManager.Instance.isDialogOpend(mModel)==false)
+                    if (FormDialogManager.Instance.isDialogOpend("friend"+mModel.From)==false)
                     {
                         Debug.Print("弹出提示");
                         msgTip(mModel);
@@ -161,12 +147,11 @@ namespace MainProgram
                     }                                      
                     break;
                     //群聊相关
-                case MessageProtocol.CHAT_ME_TO_GROUP_SRES://我发群聊的响应
-
+                case MessageProtocol.CHAT_ME_TO_GROUP_SRES://我发群聊的响应                 
                     break;
                 case MessageProtocol.CHAT_GROUP_TO_ME_SRES://收到群聊
                     Debug.Print("收到群聊消息" + mModel.Content);
-                    if (FormDialogManager.Instance.isDialogOpend(mModel) == false)
+                    if (FormDialogManager.Instance.isDialogOpend("group"+mModel.To) == false)
                     {
                         Debug.Print("弹出提示");
                         msgTip(mModel);
@@ -189,8 +174,6 @@ namespace MainProgram
             Debug.Print("消息管理器发出的消息是:" + message);
             NetWorkManager.Instance.sendMessage(Protocol.MESSAGE, -1, command, message);
         }
-
-
 
 
 
@@ -250,6 +233,5 @@ namespace MainProgram
             MainMgr.Instance.msgTip.addNewTip(mode);
         }
 
-    
     }
 }

@@ -31,6 +31,7 @@ using System.Threading.Tasks;
     public const int YOU_BE_AGREED_ENTER_GROUP = 37;//你被同意入群
     public const int QUIT_GROUP_CREQ = 38;//退出一个群
     public const int QUIT_GROUP_SRES = 39;//退出一个群的响应
+    public const int REFRESH_GROUP_MEMBERS = 40;//通知客户端刷新一个群的成员列表
 
     //关于聊天
     public const int CHAT_ME_TO_FRIEND_CREQ = 100;//和好友聊天

@@ -47,10 +47,8 @@ namespace Dialog
                     break;
                 case 1://群
                     this.groupMemberPanel1.Show();
-                    //拉取群成员
-                    HttpReqHelper.requestSync(AppConst.WebUrl + "groupMembers?gid=" + m_groupOrFriendId, delegate(string membersJson) {
-                    this.groupMemberPanel1.initMember(membersJson);
-                    });
+                    //拉取群成员      
+                    this.groupMemberPanel1.refreshMembers(m_groupOrFriendId.ToString());
                     break;
                 case 2://个人
                     this.labelChat.Dispose();

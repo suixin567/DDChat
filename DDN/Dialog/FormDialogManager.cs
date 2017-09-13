@@ -381,10 +381,10 @@ namespace Dialog
         }
 
         //查看某个窗体是否已经打开，需要遍历朋友聊天窗体，和群聊天窗体。
-        public bool isDialogOpend(MsgModel mm) {
+        public bool isDialogOpend(string friendOrGroupID) {
             foreach (var item in formListDictionary)
             {
-                if (item.Key == "friend" + mm.To || item.Key == "friend" + mm.From || item.Key == "group" + mm.To)
+                if (item.Key == friendOrGroupID)
                 {
                     return true;
                 }

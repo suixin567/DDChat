@@ -243,6 +243,6 @@
         private System.Windows.Forms.Label labelTip;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.PictureBox pictureBoxAd;
-        private GroupMemberPanel groupMemberPanel1;
+        public GroupMemberPanel groupMemberPanel1;
     }
 }

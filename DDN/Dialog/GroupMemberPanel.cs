@@ -40,33 +40,43 @@ namespace Dialog
             this.flowLayoutPanelGroupMember.Controls.Clear();
         }
 
-        public void initMember(string membersJson) {
-            Debug.Print("收到群成员是：" + membersJson);
-            GroupMembers members = Coding<GroupMembers>.decode(membersJson);
-            Debug.Print("群主是：" + members.Master);
-            GroupMember master = new GroupMember(members.Master,2);
-            addMemberSafePost(master);
-            Debug.Print("管理是：" + members.Manager);
-            string[] mans = members.Manager.Split(',');
-            foreach (var item in mans)
-            {
-                if (item!="")
+
+        //刷新群成员列表
+        public void refreshMembers(string groupId) {            
+            //拉取群成员
+            HttpReqHelper.requestSync(AppConst.WebUrl + "groupMembers?gid=" + groupId, delegate (string membersJson) {
+                //先清空
+                clearMemberSafePost();
+                Debug.Print("收到群成员是：" + membersJson);
+                GroupMembers members = Coding<GroupMembers>.decode(membersJson);
+                Debug.Print("群主是：" + members.Master);
+                GroupMember master = new GroupMember(members.Master, 2);
+                addMemberSafePost(master);
+                Debug.Print("管理是：" + members.Manager);
+                string[] mans = members.Manager.Split(',');
+                foreach (var item in mans)
                 {
-                  //  GroupMember manger = new GroupMember(item,1);
-                  //  addMemberSafePost(manger);
+                    if (item != "")
+                    {
+                        //  GroupMember manger = new GroupMember(item,1);
+                        //  addMemberSafePost(manger);
+                    }
                 }
-            }
-            Debug.Print("成员是：" + members.Member);
-            string[] mems = members.Member.Split(',');
-            foreach (var item in mems)
-            {
-                if (item != "")
+                Debug.Print("成员是：" + members.Member);
+                string[] mems = members.Member.Split(',');
+                foreach (var item in mems)
                 {
-                    GroupMember member = new GroupMember(item,0);
-                    addMemberSafePost(member);
+                    if (item != "")
+                    {
+                        GroupMember member = new GroupMember(item, 0);
+                        addMemberSafePost(member);
+                    }
                 }
-            }
+            });
         }
+
+
+
 
 
         public void addMemberSafePost(GroupMember gm)
@@ -78,6 +88,19 @@ namespace Dialog
             m_memberAmount++;
             this.labelGroupMember.Text = "群成员 "+ m_memberAmount;
             this.flowLayoutPanelGroupMember.Controls.Add((GroupMember)mem);
+        }
+
+
+        public void clearMemberSafePost()
+        {
+            m_SyncContext.Post(clearMember, null);
+        }
+
+        void clearMember(object state)
+        {
+            m_memberAmount=0;
+            this.labelGroupMember.Text = "群成员 " + m_memberAmount;
+            this.flowLayoutPanelGroupMember.Controls.Clear();
         }
     }
 }
