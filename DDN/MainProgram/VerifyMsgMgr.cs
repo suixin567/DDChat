@@ -18,6 +18,7 @@ namespace MainProgram
         public string Time;
         public bool IsDealed;
 
+
         public VerifyMsgModel() { }
 
         public VerifyMsgModel(int type, string from, string to, string content, string time, bool isDealed)
@@ -72,31 +73,31 @@ namespace MainProgram
             foreach (var item in vmList)
             {
                 //有人申请加好友
-                if (mm.MsgType == MessageProtocol.ONE_ADD_YOU_SRES && mm.MsgType== item.MsgType && mm.From == item.From)
+                if (mm.MsgType == MessageProtocol.ONE_ADD_YOU_SRES && mm.MsgType== item.MsgType && mm.From == item.From && item.IsDealed==false)
                 {
                     return;
                 }
                 //有人申请入群
-                if (mm.MsgType == MessageProtocol.ONE_WANT_ADD_GROUP_SRES && mm.MsgType == item.MsgType && mm.From == item.From && mm.To == item.To)
+                if (mm.MsgType == MessageProtocol.ONE_WANT_ADD_GROUP_SRES && mm.MsgType == item.MsgType && mm.From == item.From && mm.To == item.To && item.IsDealed == false)
                 {
                     return;
                 }
                 //我申请加别人好友
-                if (mm.MsgType == MessageProtocol.ADD_FRIEND_SRES && mm.MsgType == item.MsgType && mm.To == item.To)
+                if (mm.MsgType == MessageProtocol.ADD_FRIEND_SRES && mm.MsgType == item.MsgType && mm.To == item.To && item.IsDealed == false)
                 {
                     return;
                 }
                 //我申请加入一个群
-                if (mm.MsgType == MessageProtocol.ADD_GROUP_SRES && mm.MsgType == item.MsgType && mm.To == item.To)
+                if (mm.MsgType == MessageProtocol.ADD_GROUP_SRES && mm.MsgType == item.MsgType && mm.To == item.To && item.IsDealed == false)
                 {
                     return;
                 }
             }
             this.vmList.Add(new VerifyMsgModel(mm));
-            //if (verifyMsgItem!=null)
-            //{
-            //    verifyMsgItem.setContentSafePost(mm.From +":"+ mm.Content);
-            //}
+            if (verifyMsgItem != null)
+            {
+                verifyMsgItem.setContentSafePost(mm.From + ":" + mm.Content);
+            }
         }
 
         //标记一条申请加我好友的信息为已经被处理  
@@ -153,6 +154,7 @@ namespace MainProgram
                 }
             }
         }
+
 
         //打开验证消息窗体
         public void openFormMesageVerify()

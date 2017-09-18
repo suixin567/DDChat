@@ -42,7 +42,7 @@ namespace MainProgram
         {
             switch (mModel.MsgType)
             {
-                case MessageProtocol.ADD_FRIEND_SRES://添加好友的响应  (《《《无需闪烁》》》)
+                case MessageProtocol.ADD_FRIEND_SRES://我添加好友的响应  (《《《无需闪烁》》》)
                     MainMgr.Instance.formMain.FormAddFriend.showOpreationResultSafePost("好友申请已经发出，请等待对方处理。");
                     //验证消息窗体加入这条信息         
                     VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);

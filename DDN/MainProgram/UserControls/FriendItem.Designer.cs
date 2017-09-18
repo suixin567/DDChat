@@ -54,7 +54,7 @@
             // 
             this.friendNickName.AutoSize = true;
             this.friendNickName.BackColor = System.Drawing.SystemColors.Info;
-            this.friendNickName.Location = new System.Drawing.Point(71, 13);
+            this.friendNickName.Location = new System.Drawing.Point(70, 10);
             this.friendNickName.Name = "friendNickName";
             this.friendNickName.Size = new System.Drawing.Size(41, 12);
             this.friendNickName.TabIndex = 1;
@@ -64,7 +64,7 @@
             // LabelDescription
             // 
             this.LabelDescription.AutoSize = true;
-            this.LabelDescription.Location = new System.Drawing.Point(74, 38);
+            this.LabelDescription.Location = new System.Drawing.Point(70, 35);
             this.LabelDescription.Name = "LabelDescription";
             this.LabelDescription.Size = new System.Drawing.Size(41, 12);
             this.LabelDescription.TabIndex = 2;

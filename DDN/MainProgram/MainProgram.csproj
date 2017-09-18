@@ -101,6 +101,12 @@
     <Compile Include="UserControls\AddGroupItem.Designer.cs">
       <DependentUpon>AddGroupItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\DialogueItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DialogueItem.Designer.cs">
+      <DependentUpon>DialogueItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FlowLayoutPanelGroupList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddGroupItem.resx">
       <DependentUpon>AddGroupItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DialogueItem.resx">
+      <DependentUpon>DialogueItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FlowLayoutPanelGroupList.resx">
       <DependentUpon>FlowLayoutPanelGroupList.cs</DependentUpon>

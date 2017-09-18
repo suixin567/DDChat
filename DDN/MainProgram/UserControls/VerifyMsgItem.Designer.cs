@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VerifyMsgItem));
             this.pictureBoxFace = new System.Windows.Forms.PictureBox();
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelCont = new System.Windows.Forms.Label();
@@ -36,9 +37,11 @@
             // 
             // pictureBoxFace
             // 
+            this.pictureBoxFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxFace.Image")));
             this.pictureBoxFace.Location = new System.Drawing.Point(12, 6);
             this.pictureBoxFace.Name = "pictureBoxFace";
             this.pictureBoxFace.Size = new System.Drawing.Size(45, 45);
+            this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxFace.TabIndex = 1;
             this.pictureBoxFace.TabStop = false;
             this.pictureBoxFace.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxFace_MouseDoubleClick);

@@ -28,34 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.verifyMsgMgr1 = new MainProgram.UserControls.VerifyMsgItem();
+            this.dialogueItem1 = new MainProgram.UserControls.DialogueItem();
+            this.dialogueItem2 = new MainProgram.UserControls.DialogueItem();
+            this.dialogueItem3 = new MainProgram.UserControls.DialogueItem();
             this.flowLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 159);
-            this.label1.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "暂时还不支持聊天功能";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 171);
-            this.label2.Margin = new System.Windows.Forms.Padding(50, 0, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "聊天功能正在开发中";
             // 
             // flowLayoutPanel
             // 
@@ -65,9 +44,9 @@
             this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanel.Controls.Add(this.verifyMsgMgr1);
-            this.flowLayoutPanel.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel.Controls.Add(this.label1);
-            this.flowLayoutPanel.Controls.Add(this.label2);
+            this.flowLayoutPanel.Controls.Add(this.dialogueItem1);
+            this.flowLayoutPanel.Controls.Add(this.dialogueItem2);
+            this.flowLayoutPanel.Controls.Add(this.dialogueItem3);
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
@@ -75,20 +54,41 @@
             this.flowLayoutPanel.TabIndex = 0;
             this.flowLayoutPanel.WrapContents = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 66);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(165, 90);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // verifyMsgMgr1
             // 
-            this.verifyMsgMgr1.Location = new System.Drawing.Point(3, 3);
+            this.verifyMsgMgr1.BackColor = System.Drawing.SystemColors.Window;
+            this.verifyMsgMgr1.Location = new System.Drawing.Point(0, 0);
+            this.verifyMsgMgr1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.verifyMsgMgr1.Name = "verifyMsgMgr1";
             this.verifyMsgMgr1.Size = new System.Drawing.Size(500, 57);
             this.verifyMsgMgr1.TabIndex = 3;
+            // 
+            // dialogueItem1
+            // 
+            this.dialogueItem1.BackColor = System.Drawing.SystemColors.Window;
+            this.dialogueItem1.Location = new System.Drawing.Point(0, 59);
+            this.dialogueItem1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.dialogueItem1.Name = "dialogueItem1";
+            this.dialogueItem1.Size = new System.Drawing.Size(500, 57);
+            this.dialogueItem1.TabIndex = 4;
+            // 
+            // dialogueItem2
+            // 
+            this.dialogueItem2.BackColor = System.Drawing.SystemColors.Window;
+            this.dialogueItem2.Location = new System.Drawing.Point(0, 118);
+            this.dialogueItem2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.dialogueItem2.Name = "dialogueItem2";
+            this.dialogueItem2.Size = new System.Drawing.Size(500, 57);
+            this.dialogueItem2.TabIndex = 5;
+            // 
+            // dialogueItem3
+            // 
+            this.dialogueItem3.BackColor = System.Drawing.SystemColors.Window;
+            this.dialogueItem3.Location = new System.Drawing.Point(0, 177);
+            this.dialogueItem3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.dialogueItem3.Name = "dialogueItem3";
+            this.dialogueItem3.Size = new System.Drawing.Size(500, 57);
+            this.dialogueItem3.TabIndex = 6;
             // 
             // FlowLayoutPanelDialogueList
             // 
@@ -98,17 +98,15 @@
             this.Name = "FlowLayoutPanelDialogueList";
             this.Size = new System.Drawing.Size(227, 382);
             this.flowLayoutPanel.ResumeLayout(false);
-            this.flowLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private VerifyMsgItem verifyMsgMgr1;
+        private DialogueItem dialogueItem1;
+        private DialogueItem dialogueItem2;
+        private DialogueItem dialogueItem3;
     }
 }

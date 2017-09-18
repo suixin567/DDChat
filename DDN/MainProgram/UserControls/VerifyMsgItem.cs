@@ -22,10 +22,11 @@ namespace MainProgram.UserControls
         {
             InitializeComponent();
             m_SyncContext = SynchronizationContext.Current;
-            VerifyMsgMgr.Instance.verifyMsgItem = this;
+            //让verigyMsgMgr关联到自己。随后verigyMsgMgr一旦有新的消息则可以让自己显示出来。
+            VerifyMsgMgr.Instance.verifyMsgItem = this;      
         }
 
-
+        //load里不需要做什么。
         private void VerifyMsgMgr_Load(object sender, EventArgs e)
         { 
       
