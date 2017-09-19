@@ -97,6 +97,7 @@
             this.Controls.Add(this.flowLayoutPanel);
             this.Name = "FlowLayoutPanelDialogueList";
             this.Size = new System.Drawing.Size(227, 382);
+            this.Load += new System.EventHandler(this.FlowLayoutPanelDialogueList_Load);
             this.flowLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 

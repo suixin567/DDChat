@@ -47,7 +47,7 @@ namespace MainProgram.UserControls
             m_SyncContext = SynchronizationContext.Current;
             //获取这个好友的基本信息
             HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + FriendUsername,delegate(string friendInfo) {
-                Debug.Print("收到一名朋友的信息" + friendInfo);
+             //   Debug.Print("收到一名朋友的信息" + friendInfo);
                 try
                 {
                     m_friendModel = Coding<PersonalInfoModel>.decode(friendInfo);
@@ -66,25 +66,11 @@ namespace MainProgram.UserControls
                         if (face != null)
                         {
                             friendFacePictureBox.Image = face;
-                       //     faceRegionSafePost();
                         }
                     });                   
                 }
             });           
         }
-
-        //void faceRegionSafePost()
-        //{           
-        //    m_SyncContext.Post(faceRegion, null);
-        //}
-        //void faceRegion(object state)
-        //{
-        //    GraphicsPath path = new GraphicsPath();
-        //    path.AddArc(friendFacePictureBox.DisplayRectangle, 360, 360);
-        //    friendFacePictureBox.Region = new Region(path);
-        //}
-
-
 
 
         void initLabelSafePost() {
@@ -160,55 +146,16 @@ namespace MainProgram.UserControls
         private void friendFacePictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             FriendItem_MouseDoubleClick(null,null);
-            //Label labelTip = new Label();
-            //((FormMain)FindForm()).flowLayoutPanelFriendList.Controls.Add(labelTip);
-            //labelTip.Text = "暂时不能和对方聊天";
-            //labelTip.Size = new Size(140, 25);
-            //labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
-            //labelTip.ForeColor = Color.White;
-            //labelTip.TextAlign = ContentAlignment.MiddleCenter;
-            //labelTip.BackColor = Color.DodgerBlue;
-            //Point po = new Point(this.Location.X + 10, this.Location.Y + 10);
-            //labelTip.Location = po;
-            //labelTip.BringToFront();
-            //Thread th = new Thread(new ParameterizedThreadStart(closeTip));
-            //th.Start(labelTip);
         }
 
         private void friendNickName_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             FriendItem_MouseDoubleClick(null, null);
-            //Label labelTip = new Label();
-            //((FormMain)FindForm()).flowLayoutPanelFriendList.Controls.Add(labelTip);
-            //labelTip.Text = "暂时不能和对方聊天";
-            //labelTip.Size = new Size(140, 25);
-            //labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
-            //labelTip.ForeColor = Color.White;
-            //labelTip.TextAlign = ContentAlignment.MiddleCenter;
-            //labelTip.BackColor = Color.DodgerBlue;
-            //Point po = new Point(this.Location.X + 10, this.Location.Y + 10);
-            //labelTip.Location = po;
-            //labelTip.BringToFront();
-            //Thread th = new Thread(new ParameterizedThreadStart(closeTip));
-            //th.Start(labelTip);
         }
 
         private void LabelDescription_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             FriendItem_MouseDoubleClick(null, null);
-            //Label labelTip = new Label();
-            //((FormMain)FindForm()).flowLayoutPanelFriendList.Controls.Add(labelTip);
-            //labelTip.Text = "暂时不能和对方聊天";
-            //labelTip.Size = new Size(140, 25);
-            //labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
-            //labelTip.ForeColor = Color.White;
-            //labelTip.TextAlign = ContentAlignment.MiddleCenter;
-            //labelTip.BackColor = Color.DodgerBlue;
-            //Point po = new Point(this.Location.X + 10, this.Location.Y + 10);
-            //labelTip.Location = po;
-            //labelTip.BringToFront();
-            //Thread th = new Thread(new ParameterizedThreadStart(closeTip));
-            //th.Start(labelTip);
         }
     }
 }

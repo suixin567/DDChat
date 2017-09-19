@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DialogueItem));
             this.PictureBoxDialogueFace = new System.Windows.Forms.PictureBox();
             this.LabelNickName = new System.Windows.Forms.Label();
             this.LabelHistory = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.移除会话ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxDialogueFace)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PictureBoxDialogueFace
@@ -51,9 +55,9 @@
             this.LabelNickName.BackColor = System.Drawing.SystemColors.Info;
             this.LabelNickName.Location = new System.Drawing.Point(70, 10);
             this.LabelNickName.Name = "LabelNickName";
-            this.LabelNickName.Size = new System.Drawing.Size(41, 12);
+            this.LabelNickName.Size = new System.Drawing.Size(77, 12);
             this.LabelNickName.TabIndex = 2;
-            this.LabelNickName.Text = "叮叮鸟";
+            this.LabelNickName.Text = "聊天对象昵称";
             // 
             // LabelHistory
             // 
@@ -64,11 +68,26 @@
             this.LabelHistory.TabIndex = 3;
             this.LabelHistory.Text = "......";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.移除会话ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            // 
+            // 移除会话ToolStripMenuItem
+            // 
+            this.移除会话ToolStripMenuItem.Name = "移除会话ToolStripMenuItem";
+            this.移除会话ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.移除会话ToolStripMenuItem.Text = "移除会话";
+            this.移除会话ToolStripMenuItem.Click += new System.EventHandler(this.移除会话ToolStripMenuItem_Click);
+            // 
             // DialogueItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.LabelHistory);
             this.Controls.Add(this.LabelNickName);
             this.Controls.Add(this.PictureBoxDialogueFace);
@@ -77,6 +96,7 @@
             this.Size = new System.Drawing.Size(500, 57);
             this.Load += new System.EventHandler(this.DialogueItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxDialogueFace)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,5 +107,7 @@
         private System.Windows.Forms.PictureBox PictureBoxDialogueFace;
         private System.Windows.Forms.Label LabelNickName;
         private System.Windows.Forms.Label LabelHistory;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 移除会话ToolStripMenuItem;
     }
 }

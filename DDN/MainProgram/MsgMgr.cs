@@ -134,6 +134,8 @@ namespace MainProgram
                 case MessageProtocol.CHAT_ME_TO_FRIEND_SRES://我和别人聊天的响应
                     Debug.Print("我和别人聊天的响应" + mModel.From + mModel.To+mModel.Content);
                     FormDialogManager.Instance.onChatMsg(mModel);
+                    //更新对话item
+                    MainMgr.Instance.formMain.flowLayoutPanelDialogueList.reFreshContent("friend"+mModel.To,mModel.Content);
                     break;
                 case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://别人和我聊天,聊天框已经打开则直接显示气泡，否则进入消息提示窗
                     if (FormDialogManager.Instance.isDialogOpend("friend"+mModel.From)==false)

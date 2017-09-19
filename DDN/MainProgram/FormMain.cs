@@ -457,7 +457,9 @@ namespace MainProgram
        
         private void button1_Click(object sender, EventArgs e)
         {
-            
+       //     Debug.Print(MainMgr.Instance.formMain.flowLayoutPanelDialogueList.getDialogueAmount().ToString());
+         //   DialogueItem item = new DialogueItem("",null,"");
+
         }
     }
 }
