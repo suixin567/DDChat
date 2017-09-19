@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
+﻿
 //个人信息
-        public struct PersonalInfoModel
-        {
-            public string Username;
-            public string Nickname;
-            public string Face;
-            public string Description;
+public struct PersonalInfoModel
+{
+    public string Username;
+    public string Nickname;
+    public string Face;
+    public string Description;
+}
 
-        }
 //创建群数据结构
 public class CreateGroupModel
 {
@@ -22,11 +16,12 @@ public class CreateGroupModel
 }
 
 //我的群数据结构
-public class MyGroupModel {
-
+public class MyGroupModel
+{
     public int GroupID;
     public int ReceiveModel;
 }
+
 //群信息
 public struct GroupInfoModel
 {
@@ -39,7 +34,6 @@ public struct GroupInfoModel
     public string Member;
     public int Verifymode;
     public string Createdtime;
-
 }
 
 

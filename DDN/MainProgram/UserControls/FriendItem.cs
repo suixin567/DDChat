@@ -46,30 +46,45 @@ namespace MainProgram.UserControls
 
             m_SyncContext = SynchronizationContext.Current;
             //获取这个好友的基本信息
-            HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + FriendUsername,delegate(string friendInfo) {
-             //   Debug.Print("收到一名朋友的信息" + friendInfo);
-                try
-                {
-                    m_friendModel = Coding<PersonalInfoModel>.decode(friendInfo);
-                    initLabelSafePost();
-                }
-                catch (Exception err)
-                {
-                    Debug.Print("FriendItem.FriendItem_Load解析失败" + err.ToString());
-                    return;
-                }
-                
+            DataMgr.Instance.getPersonalByID(FriendUsername,delegate(PersonalInfoModel friendModel) {
+            //    Debug.Print("收到一名朋友的信息" + friendModel.Nickname);
+                m_friendModel = friendModel;
+                initLabelSafePost();
                 //下载头像
                 if (m_friendModel.Face != "")
                 {
-                    HttpReqHelper.loadFaceSync(m_friendModel.Face,delegate(Image face) {
+                    HttpReqHelper.loadFaceSync(m_friendModel.Face, delegate (Image face) {
                         if (face != null)
                         {
                             friendFacePictureBox.Image = face;
                         }
-                    });                   
+                    });
                 }
-            });           
+            });
+
+            //HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + FriendUsername,delegate(string friendInfo) {             
+            //    try
+            //    {
+            //        m_friendModel = Coding<PersonalInfoModel>.decode(friendInfo);
+            //        initLabelSafePost();
+            //    }
+            //    catch (Exception err)
+            //    {
+            //        Debug.Print("FriendItem.FriendItem_Load解析失败" + err.ToString());
+            //        return;
+            //    }
+                
+                //下载头像
+            //    if (m_friendModel.Face != "")
+            //    {
+            //        HttpReqHelper.loadFaceSync(m_friendModel.Face,delegate(Image face) {
+            //            if (face != null)
+            //            {
+            //                friendFacePictureBox.Image = face;
+            //            }
+            //        });                   
+            //    }
+            //});           
         }
 
 
@@ -77,7 +92,7 @@ namespace MainProgram.UserControls
             m_SyncContext.Post(initLabel,null);
         }
         void initLabel(object state)
-        {
+        {     
             friendNickName.Text = m_friendModel.Nickname;
             LabelDescription.Text = m_friendModel.Description;
         }

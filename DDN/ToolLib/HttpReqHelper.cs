@@ -35,7 +35,6 @@ public class HttpReqHelper
 
 
     public delegate void RequestInfoEvent(string callback);
-
     public static void requestSync(string url, RequestInfoEvent callBack)
     {
         string responseString = "";
