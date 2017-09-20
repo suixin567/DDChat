@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MainProgram
 {
@@ -51,7 +48,7 @@ namespace MainProgram
                         personalDic.Add(personalId,model);
                         if (callBack != null)
                         {
-                            callBack(personalDic[personalId]);
+                            callBack(model);
                         }
                     }
                     catch (Exception err)
@@ -65,8 +62,6 @@ namespace MainProgram
                 });            
             }            
         }
-
-
 
 
 
@@ -86,12 +81,14 @@ namespace MainProgram
                 HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + groupId, delegate (string info) {
                     try
                     {
+                     
                         GroupInfoModel model = Coding<GroupInfoModel>.decode(info);
+                        Debug.Print("收到信息"+ groupId+"  " + model.Face);
                         groupDic.Add(groupId, model);
                         if (callBack != null)
                         {
-                            callBack(groupDic[groupId]);
-                        }
+                            callBack(model);
+                        }                       
                     }
                     catch (Exception err)
                     {

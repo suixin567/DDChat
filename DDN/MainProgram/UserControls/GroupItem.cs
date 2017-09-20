@@ -49,31 +49,50 @@ namespace MainProgram.UserControls
             }
 
             //获取这个群的基本信息
-            HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + m_myGroupModel.GroupID, delegate (string info) {
-                Debug.Print("群model是" + info);                
-                try
-                {
-                    m_groupInfoModel = Coding<GroupInfoModel>.decode(info);                                 
-                    initLabelSafePost();
-                    //下载头像
-                    if (m_groupInfoModel.Face != "")
-                    {
-                        HttpReqHelper.loadFaceSync(m_groupInfoModel.Face, delegate (Image face) {
-                            if (face != null)
-                            {
-                                this.pictureBoxGroupFace.Image = face;
-                            }
-                        });
-                    }
-                }
-                catch (Exception err)
-                {
-                    Debug.Print("GroupItem.GroupItm()解析失败" + err.ToString());
-                    return;
-                }               
-            });
+            DataMgr.Instance.getGroupByID(m_myGroupModel.GroupID.ToString(),delegate(GroupInfoModel model) {
+                m_groupInfoModel = model;
+                initLabelSafePost();
+                //下载头像
 
+                if (m_groupInfoModel.Face != "" && m_groupInfoModel.Face != null)
+                {
+                    HttpReqHelper.loadFaceSync(m_groupInfoModel.Face, delegate (Image face)
+                    {
+                        if (face != null)
+                        {
+                            this.pictureBoxGroupFace.Image = face;
+                        }
+                    });
+                }
+                else {
+                    Debug.Print("err---------错误的头像！！！"+ m_groupInfoModel.Face);
+                }
+            });
+            //HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + m_myGroupModel.GroupID, delegate (string info) {
+            //    Debug.Print("群model是" + info);                
+            //    try
+            //    {
+            //        m_groupInfoModel = Coding<GroupInfoModel>.decode(info);                                 
+            //        initLabelSafePost();
+            //        //下载头像
+            //        if (m_groupInfoModel.Face != "")
+            //        {
+            //            HttpReqHelper.loadFaceSync(m_groupInfoModel.Face, delegate (Image face) {
+            //                if (face != null)
+            //                {
+            //                    this.pictureBoxGroupFace.Image = face;
+            //                }
+            //            });
+            //        }
+            //    }
+            //    catch (Exception err)
+            //    {
+            //        Debug.Print("GroupItem.GroupItm()解析失败" + err.ToString());
+            //        return;
+            //    }               
+            //});
         }
+
         void initLabelSafePost()
         {
             m_SyncContext.Post(initLabel, null);
@@ -81,7 +100,7 @@ namespace MainProgram.UserControls
         void initLabel(object state)
         {
             labelName.Text = m_groupInfoModel.Name;
-            Debug.Print("群名字是" + m_groupInfoModel.Name);
+           // Debug.Print("群名字是" + m_groupInfoModel.Name);
         }
 
         private void 退出这个群ToolStripMenuItem_Click(object sender, EventArgs e)

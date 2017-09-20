@@ -87,6 +87,18 @@ public class HttpReqHelper
         bool isFaceExit = false;
         foreach (var item in texturesList)
         {
+            if (item==null)
+            {
+                Debug.Print("item为空");
+                callBack(null);
+                return;
+            }
+            if (face == null)
+            {
+                Debug.Print("face为空");
+                callBack(null);
+                return;
+            }
             if (item.EndsWith(face)) {
                 isFaceExit = true;
                 break;
