@@ -10,13 +10,14 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 using System.Drawing.Drawing2D;
+using ToolLib;
 
 namespace MainProgram.UserControls
 {
     public partial class MsgTipItem : UserControl
     {
         public SynchronizationContext m_SyncContext = null;
-        MsgModel m_mode;
+        public MsgModel m_mode;
         delegate void SetTextCallback(string text);
         delegate void SetImgCallback(Image img);
         public MsgTipItem()
@@ -146,14 +147,12 @@ namespace MainProgram.UserControls
         }
         void setImage(object state)
         {
-            Debug.Print("我被设置tupian了" + (string)state);
             this.pictureBox.Image = (Image)state;
         }
 
         //被点击
         private void MsgTipItem_Click(object sender, EventArgs e)
         {
-            Debug.Print("被点击");
             MsgTip FormMsgTip = (MsgTip)this.FindForm();
             //处理这些待处理消息
             FormMsgTip.processTipMsg();

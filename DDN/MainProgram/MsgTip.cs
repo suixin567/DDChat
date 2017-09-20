@@ -86,22 +86,70 @@ namespace MainProgram
                         VerifyMsgMgr.Instance.openFormMesageVerify();
                         break;
                     case MessageProtocol.ONE_AGREED_YOU://别人同意你加好友
+                        Image face1 = null;
+                        string nickName1 = "";
+                        foreach (var item in this.flowLayoutPanel1.Controls)
+                        {
+                            MsgTipItem mi = (MsgTipItem)item;
+                            if (mi.m_mode.MsgType == MessageProtocol.ONE_AGREED_YOU && mi.m_mode.From == tipMsgList[i].From)//找到这个item
+                            {
+                                face1 = mi.pictureBox.Image;
+                                nickName1 = mi.labelNickName.Text;
+                                break;
+                            }
+                        }
                         //打开这个人的聊天对话
-                        FormDialogManager.Instance.openDialog(3, int.Parse(tipMsgList[i].From), "", null);
+                        FormDialogManager.Instance.openDialog(3, int.Parse(tipMsgList[i].From), nickName1, face1);
                         break;
                     case MessageProtocol.ONE_WANT_ADD_GROUP_SRES://有人想加群
                         VerifyMsgMgr.Instance.openFormMesageVerify();
                         break;
                     case MessageProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意入群
+                        Image face2 = null;
+                        string nickName2 = "";
+                        foreach (var item in this.flowLayoutPanel1.Controls)
+                        {
+                            MsgTipItem mi = (MsgTipItem)item;
+                            if (mi.m_mode.MsgType == MessageProtocol.YOU_BE_AGREED_ENTER_GROUP && mi.m_mode.To == tipMsgList[i].To)//找到这个item
+                            {
+                                face2 = mi.pictureBox.Image;
+                                nickName2 = mi.labelNickName.Text;
+                                break;
+                            }
+                        }
                         //打开这个群的聊天对话
-                        FormDialogManager.Instance.openDialog(1, int.Parse(tipMsgList[i].To), "", null);
+                        FormDialogManager.Instance.openDialog(1, int.Parse(tipMsgList[i].To), nickName2, face2);
                         break;
                     case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://朋友和我聊天
-                        FormDialogManager.Instance.openDialog(3, int.Parse(tipMsgList[i].From), "", null);
+                        Image face3 = null;
+                        string nickName3 = "";
+                        foreach (var item in this.flowLayoutPanel1.Controls)
+                        {
+                            MsgTipItem mi = (MsgTipItem)item;
+                            if (mi.m_mode.MsgType == MessageProtocol.CHAT_FRIEND_TO_ME_SRES && mi.m_mode.From == tipMsgList[i].From)//找到这个item
+                            {
+                                face3 = mi.pictureBox.Image;
+                                nickName3 = mi.labelNickName.Text;
+                                break;
+                            }
+                        }
+                        FormDialogManager.Instance.openDialog(3, int.Parse(tipMsgList[i].From), nickName3, face3);
                         FormDialogManager.Instance.onChatMsg(tipMsgList[i]);
                         break;
                     case MessageProtocol.CHAT_GROUP_TO_ME_SRES://群和我聊天
-                        FormDialogManager.Instance.openDialog(1, int.Parse(tipMsgList[i].To), "", null);
+                        Image face4 = null;
+                        string nickName4 = "";
+                        foreach (var item in this.flowLayoutPanel1.Controls)
+                        {
+                            MsgTipItem mi = (MsgTipItem)item;
+                            if (mi.m_mode.MsgType == MessageProtocol.CHAT_GROUP_TO_ME_SRES && mi.m_mode.To== tipMsgList[i].To)//找到这个item
+                            {
+                                face4 = mi.pictureBox.Image;
+                                nickName4 = mi.labelNickName.Text;
+                                break;
+                            }                            
+                        }
+                        FormDialogManager.Instance.openDialog(1, int.Parse(tipMsgList[i].To), nickName4, face4);
                         FormDialogManager.Instance.onChatMsg(tipMsgList[i]);//展示消息
                         break;
                     default:

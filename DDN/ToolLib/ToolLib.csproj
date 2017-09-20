@@ -55,6 +55,7 @@
     <Compile Include="AppConst.cs" />
     <Compile Include="AppInfo.cs" />
     <Compile Include="Coding.cs" />
+    <Compile Include="DataMgr.cs" />
     <Compile Include="DataModel.cs" />
     <Compile Include="HttpReqHelper.cs" />
     <Compile Include="ImageTool.cs" />

@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Threading;
 using System.Diagnostics;
+using ToolLib;
 
 namespace MainProgram.UserControls
 {

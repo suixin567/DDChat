@@ -29,15 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDialogManager));
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonMax = new System.Windows.Forms.Button();
-            this.pictureBoxFace = new System.Windows.Forms.PictureBox();
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonMin = new System.Windows.Forms.Button();
             this.flowLayoutPanelTab = new System.Windows.Forms.FlowLayoutPanel();
             this.appContainer = new SmileWei.EmbeddedApp.AppContainer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonClose
@@ -67,21 +64,11 @@
             this.buttonMax.UseVisualStyleBackColor = true;
             this.buttonMax.Click += new System.EventHandler(this.buttonMax_Click);
             // 
-            // pictureBoxFace
-            // 
-            this.pictureBoxFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxFace.Image")));
-            this.pictureBoxFace.Location = new System.Drawing.Point(100, 4);
-            this.pictureBoxFace.Name = "pictureBoxFace";
-            this.pictureBoxFace.Size = new System.Drawing.Size(45, 45);
-            this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxFace.TabIndex = 7;
-            this.pictureBoxFace.TabStop = false;
-            // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelTitle.Location = new System.Drawing.Point(156, 16);
+            this.labelTitle.Location = new System.Drawing.Point(104, 16);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(56, 16);
             this.labelTitle.TabIndex = 8;
@@ -129,7 +116,6 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(600, 600);
             this.Controls.Add(this.labelTitle);
-            this.Controls.Add(this.pictureBoxFace);
             this.Controls.Add(this.flowLayoutPanelTab);
             this.Controls.Add(this.buttonMin);
             this.Controls.Add(this.buttonMax);
@@ -140,7 +126,6 @@
             this.Name = "FormDialogManager";
             this.Text = "FormDialogManager";
             this.Load += new System.EventHandler(this.FormDialogManager_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +135,6 @@
         public SmileWei.EmbeddedApp.AppContainer appContainer;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonMax;
-        private System.Windows.Forms.PictureBox pictureBoxFace;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Button buttonMin;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTab;

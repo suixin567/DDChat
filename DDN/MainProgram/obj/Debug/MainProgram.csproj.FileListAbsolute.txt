@@ -69,6 +69,7 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.A
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormAddFriend.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormMessageVerify.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.AddGroupItem.resources
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.DialogueItem.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.FlowLayoutPanelGroupList.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.FlowLayoutPanelDialogueList.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.FlowLayoutPanelFriendList.resources
@@ -86,4 +87,3 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.V
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.csproj.GenerateResource.Cache
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.dll
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.pdb
-C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.DialogueItem.resources

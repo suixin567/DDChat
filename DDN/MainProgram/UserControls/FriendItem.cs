@@ -12,6 +12,7 @@ using Mgr;
 using System.Threading;
 using System.Drawing.Drawing2D;
 using Dialog;
+using ToolLib;
 
 namespace MainProgram.UserControls
 {

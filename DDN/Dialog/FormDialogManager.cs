@@ -54,9 +54,9 @@ namespace Dialog
             int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = (Point)new Size(x, y);
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(pictureBoxFace.DisplayRectangle, 0, 360);
-            pictureBoxFace.Region = new Region(path);
+            //GraphicsPath path = new GraphicsPath();
+            //path.AddArc(pictureBoxFace.DisplayRectangle, 0, 360);
+            //pictureBoxFace.Region = new Region(path);
             this.appContainer.Hide();
             //unity检查更新
             UnityManager.Instance.updateUnityEvent += this.onUnityCanRunEvent;
@@ -227,10 +227,10 @@ namespace Dialog
                 {
                     btnTab.BackColor = btnTab.oriColor;
                     //顶部信息切换
-                    if (btnTab.m_face != null)
-                    {
-                        this.pictureBoxFace.Image = btnTab.m_face;
-                    }
+                    //if (btnTab.m_face != null)
+                    //{
+                    //    this.pictureBoxFace.Image = btnTab.m_face;
+                    //}
                     this.labelTitle.Text = btnTab.m_dialogTitle;
                 }
                 else

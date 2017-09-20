@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace MainProgram
+namespace ToolLib
 {
     //数据的管理类，一个人或者群的基本信息都缓储存在这里。
     //例如：根据一个id获取这个人的昵称和头像。

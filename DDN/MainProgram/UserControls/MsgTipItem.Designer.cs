@@ -86,8 +86,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelNickName;
+        public System.Windows.Forms.Label labelNickName;
         private System.Windows.Forms.Label labelContent;
-        private System.Windows.Forms.PictureBox pictureBox;
+        public System.Windows.Forms.PictureBox pictureBox;
     }
 }

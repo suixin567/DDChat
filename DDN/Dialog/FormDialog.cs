@@ -6,6 +6,7 @@ using System.Drawing.Drawing2D;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using ToolLib;
 using UnityModule;
 
 namespace Dialog
@@ -31,8 +32,8 @@ namespace Dialog
             m_SyncContext = SynchronizationContext.Current;
             m_dialogType = type;
             m_groupOrFriendId = dialogId;
-            m_title = dialogName;//TODO:如果传来的是空字符串，应该请求一下数据,群的名字必须要有才行，否则拉取不了群的资源！！！！！！！！！！！！！！！！！！！！！！
-            this.m_face = face;
+            m_title = dialogName;
+            m_face = face;
             Fmx = FormDialogManager.Instance.Left;
             Fmy = FormDialogManager.Instance.Top;
         }
