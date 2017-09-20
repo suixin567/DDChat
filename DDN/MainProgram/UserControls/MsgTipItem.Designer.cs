@@ -38,7 +38,7 @@
             // labelNickName
             // 
             this.labelNickName.AutoSize = true;
-            this.labelNickName.Location = new System.Drawing.Point(51, 4);
+            this.labelNickName.Location = new System.Drawing.Point(45, 5);
             this.labelNickName.Name = "labelNickName";
             this.labelNickName.Size = new System.Drawing.Size(23, 12);
             this.labelNickName.TabIndex = 0;
@@ -48,7 +48,7 @@
             // labelContent
             // 
             this.labelContent.AutoSize = true;
-            this.labelContent.Location = new System.Drawing.Point(53, 26);
+            this.labelContent.Location = new System.Drawing.Point(45, 25);
             this.labelContent.Name = "labelContent";
             this.labelContent.Size = new System.Drawing.Size(23, 12);
             this.labelContent.TabIndex = 1;
@@ -58,7 +58,7 @@
             // pictureBox
             // 
             this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
-            this.pictureBox.Location = new System.Drawing.Point(3, 5);
+            this.pictureBox.Location = new System.Drawing.Point(1, 5);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(40, 40);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -73,8 +73,9 @@
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.labelContent);
             this.Controls.Add(this.labelNickName);
+            this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.Name = "MsgTipItem";
-            this.Size = new System.Drawing.Size(185, 50);
+            this.Size = new System.Drawing.Size(200, 50);
             this.Load += new System.EventHandler(this.MsgTipItem_Load);
             this.Click += new System.EventHandler(this.MsgTipItem_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();

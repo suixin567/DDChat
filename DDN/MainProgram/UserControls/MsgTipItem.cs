@@ -45,69 +45,97 @@ namespace MainProgram.UserControls
             switch (m_mode.MsgType)
             {
                 case MessageProtocol.ONE_ADD_YOU_SRES://有人添加你
+                    //头像为一个喇叭图片
+                    this.pictureBox.Image = MainProgram.Properties.Resources.msg;
                     this.labelContent.Text = "附加消息："+m_mode.Content;
-                    pullOtherFaceAndName(AppConst.WebUrl + "baseInfo?username=" + m_mode.From);
+                    //设置昵称
+                    DataMgr.Instance.getPersonalByID(m_mode.From,delegate(PersonalInfoModel model) {
+                        this.SetText(model.Nickname);
+                    });                                    
                     break;
                 case MessageProtocol.ONE_AGREED_YOU://别人同意你的好友申请
+                    //头像为一个喇叭图片
+                    this.pictureBox.Image = MainProgram.Properties.Resources.msg;
                     this.labelContent.Text = "附加消息：" + m_mode.Content;
-                    pullOtherFaceAndName(AppConst.WebUrl + "baseInfo?username=" + m_mode.From);
+                    //设置昵称
+                    DataMgr.Instance.getPersonalByID(m_mode.From, delegate (PersonalInfoModel model) {
+                        this.SetText(model.Nickname);
+                    });
                     break;
                 case MessageProtocol.ONE_WANT_ADD_GROUP_SRES://有人申请入群
-                    this.labelNickName.Text = "";
-                    this.labelContent.Text = "验证消息";
-                    //头像应为一个喇叭图片TODO:
+                    //头像为一个喇叭图片
+                    this.pictureBox.Image = MainProgram.Properties.Resources.msg;
+                    this.labelContent.Text = "验证消息：" + m_mode.Content;
+                    //xx申请加入xx
+                    string personal = "";
+                    string group = "";
+                    int count = 0;
+                    //获取昵称
+                    DataMgr.Instance.getPersonalByID(m_mode.From, delegate (PersonalInfoModel model) {
+                        personal = model.Nickname;
+                        count++;
+                        if (count==2)
+                        {
+                            this.SetText(personal + " 申请加入 " + group);
+                        }
+                    });
+                    //获取群名
+                    DataMgr.Instance.getGroupByID(m_mode.To, delegate (GroupInfoModel model) {
+                        group = model.Name;
+                        count++;
+                        if (count == 2)
+                        {
+                            this.SetText(personal + " 申请加入 " + group);
+                        }
+                    });                  
                     break;
                 case MessageProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意入群
-                    labelNickName.Text = "群名字";
+                    //头像为一个喇叭图片
+                    this.pictureBox.Image = MainProgram.Properties.Resources.msg;
+                    //获取群名
+                    DataMgr.Instance.getGroupByID(m_mode.To, delegate (GroupInfoModel model)
+                    {
+                        group = model.Name;
+                        this.SetText(model.Name);
+                    });
                     labelContent.Text = "已加入群聊，来聊天吧！";
-                    //头像应为群图片TODO:
                     break;
                 case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://朋友和我聊天
-                    labelNickName.Text = m_mode.From;
-                    labelContent.Text = m_mode.Content;
-                 //   pictureBox.Image = "发来消息的人的头像"  TODO:
+                    //获取昵称
+                    DataMgr.Instance.getPersonalByID(m_mode.From, delegate (PersonalInfoModel model)
+                    {
+                        this.SetText(model.Nickname);
+                        //请求好友头像
+                        HttpReqHelper.loadFaceSync(model.Face, delegate (Image face)
+                        {
+                            if (face != null)
+                            {
+                                this.SetImg(face);
+                            }
+                        });
+                    });                   
+                    labelContent.Text = m_mode.Content;                  
                     break;
                 case MessageProtocol.CHAT_GROUP_TO_ME_SRES://群向我聊天
-                    labelNickName.Text = m_mode.To;
-                    labelContent.Text = m_mode.Content;
-                    //   pictureBox.Image = "发来消息的群的头像"  TODO:
+                    //获取群昵称
+                    DataMgr.Instance.getGroupByID(m_mode.To, delegate (GroupInfoModel model)
+                    {
+                        this.SetText(model.Name);
+                        //请求群头像
+                        HttpReqHelper.loadFaceSync(model.Face, delegate (Image face)
+                        {
+                            if (face != null)
+                            {
+                                this.SetImg(face);
+                            }
+                        });
+                    });
+                    labelContent.Text = m_mode.Content;                 
                     break;
                 default:
                     Debug.Print("MsgTipItem：未知协议类型" + m_mode.MsgType);
                     break;
             }
-        }
-
-
-        //拉取对方的头像和昵称
-        void pullOtherFaceAndName(string url)
-        {
-            //对方信息（昵称和头像）
-            HttpReqHelper.requestSync(url, delegate (string info)
-            {
-                if (info != "null")
-                {
-                    PersonalInfoModel model = new PersonalInfoModel();
-                    try
-                    {
-                        model = Coding<PersonalInfoModel>.decode(info);
-                    }
-                    catch (Exception err)
-                    {
-                        Debug.Print("MsgVerifyItem.FriendVerifyItem_Load解析错误" + err.ToString());
-                        return;
-                    }
-                    this.SetText(model.Nickname);
-                    //请求头像
-                    HttpReqHelper.loadFaceSync(model.Face, delegate (Image face)
-                    {
-                        if (face != null)
-                        {
-                            this.SetImg(face);
-                        }
-                    });
-                }
-            });
         }
 
 
@@ -155,6 +183,7 @@ namespace MainProgram.UserControls
         /// <param name="text"></param>
         private void SetText(string text)
         {
+            Debug.Print(text);
             // InvokeRequired required compares the thread ID of the 
             // calling thread to the thread ID of the creating thread. 
             // If these threads are different, it returns true. 

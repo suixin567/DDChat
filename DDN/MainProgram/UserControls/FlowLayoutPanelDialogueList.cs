@@ -34,7 +34,7 @@ namespace MainProgram.UserControls
         }
 
 
-        //更新一个对话item （新建或者更新）
+        //更新一个对话item （新建或者更新）friendAndGroupID已包含friend或者group前缀
         public void reFreshContent(string friendAndGroupID , string content) {
             if (DialogueDic.ContainsKey(friendAndGroupID))//已有
             {

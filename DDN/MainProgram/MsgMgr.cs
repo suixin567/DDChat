@@ -146,7 +146,9 @@ namespace MainProgram
                     else {
                         Debug.Print("直接显示气泡");
                         FormDialogManager.Instance.onChatMsg(mModel);
-                    }                                      
+                    }
+                    //更新对话item
+                    MainMgr.Instance.formMain.flowLayoutPanelDialogueList.reFreshContent("friend" + mModel.From, mModel.Content);
                     break;
                     //群聊相关
                 case MessageProtocol.CHAT_ME_TO_GROUP_SRES://我发群聊的响应                 
@@ -163,6 +165,8 @@ namespace MainProgram
                         Debug.Print("直接显示气泡");
                         FormDialogManager.Instance.onChatMsg(mModel);
                     }
+                    //更新对话item
+                    MainMgr.Instance.formMain.flowLayoutPanelDialogueList.reFreshContent("group" + mModel.To, mModel.Content);
                     break;
                 default:
                     Debug.Print("未知消息协议类型" + mModel.MsgType);
