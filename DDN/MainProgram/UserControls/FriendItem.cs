@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Mgr;
 using System.Threading;
 using System.Drawing.Drawing2D;
 using Dialog;
@@ -63,29 +56,6 @@ namespace MainProgram.UserControls
                 }
             });
 
-            //HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + FriendUsername,delegate(string friendInfo) {             
-            //    try
-            //    {
-            //        m_friendModel = Coding<PersonalInfoModel>.decode(friendInfo);
-            //        initLabelSafePost();
-            //    }
-            //    catch (Exception err)
-            //    {
-            //        Debug.Print("FriendItem.FriendItem_Load解析失败" + err.ToString());
-            //        return;
-            //    }
-                
-                //下载头像
-            //    if (m_friendModel.Face != "")
-            //    {
-            //        HttpReqHelper.loadFaceSync(m_friendModel.Face,delegate(Image face) {
-            //            if (face != null)
-            //            {
-            //                friendFacePictureBox.Image = face;
-            //            }
-            //        });                   
-            //    }
-            //});           
         }
 
 

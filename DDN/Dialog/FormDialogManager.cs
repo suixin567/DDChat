@@ -238,7 +238,34 @@ namespace Dialog
                     btnTab.BackColor = Color.SteelBlue;
                 }
             }
+        }
 
+        //关闭一个对话窗体
+        public void closeDialogueWindow(string windowId) {
+            this.Activate();
+            //销毁窗体
+            foreach (var item in formListDictionary)
+            {
+                if (item.Key == windowId)
+                {
+                    item.Value.Close();
+                    item.Value.Dispose();
+                    //  activeDialog = item.Value;//设置激活对话
+                    Debug.Print("关闭这个对话" + windowId);
+                    formListDictionary.Remove(windowId);
+                    break;
+                }               
+            }
+            //设置一个新的激活窗体
+            if (flowLayoutPanelTab.Controls.Count > 0)
+            {
+                string nextActiveId = ((ButtonTab)flowLayoutPanelTab.Controls[flowLayoutPanelTab.Controls.Count - 1]).m_id;
+                changeActiveWindow(nextActiveId);
+            }
+            else {
+                buttonClose_Click(null,null);
+            }
+           
         }
 
 
