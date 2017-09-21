@@ -87,3 +87,4 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.V
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.csproj.GenerateResource.Cache
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.dll
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.pdb
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormPersionalInfo.resources

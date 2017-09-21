@@ -49,6 +49,8 @@
             this.friendFacePictureBox.TabIndex = 0;
             this.friendFacePictureBox.TabStop = false;
             this.friendFacePictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.friendFacePictureBox_MouseDoubleClick);
+            this.friendFacePictureBox.MouseEnter += new System.EventHandler(this.friendFacePictureBox_MouseEnter);
+            this.friendFacePictureBox.MouseLeave += new System.EventHandler(this.friendFacePictureBox_MouseLeave);
             // 
             // friendNickName
             // 

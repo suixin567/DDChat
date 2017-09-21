@@ -143,5 +143,36 @@ namespace MainProgram.UserControls
         {
             FriendItem_MouseDoubleClick(null, null);
         }
+
+        
+        //鼠标进入头像范围内，则展示资料
+        private void friendFacePictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            FormPersionalInfo.Instance.SetFormPersionalInfo(PointToScreen(this.friendFacePictureBox.Location), m_friendModel.Nickname, m_friendModel.Username, m_friendModel.Description);
+            FormPersionalInfo.Instance.enterItem();
+        }
+
+        //鼠标离开后关闭资料展示
+        private void friendFacePictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            FormPersionalInfo.Instance.leaveItem();
+            System.Windows.Forms.Timer closeTimer = new System.Windows.Forms.Timer();
+            closeTimer.Enabled = true;
+            closeTimer.Interval = 1000;
+            closeTimer.Tick += (sen, eve) =>
+            {
+                ((System.Windows.Forms.Timer)sen).Stop();
+                ((System.Windows.Forms.Timer)sen).Dispose();
+                //Rectangle rectangle = new Rectangle(FormPersionalInfo.Instance.Location, FormPersionalInfo.Instance.Size);
+                //Rectangle rectangle2 = new Rectangle(PointToScreen(this.friendFacePictureBox.Location), this.friendFacePictureBox.Size);
+                //if (rectangle.Contains(MousePosition) == false && rectangle2.Contains(MousePosition) == false)
+                //{
+                //    FormPersionalInfo.Instance.HideFormPersionalInfo();
+                //}                        
+                    FormPersionalInfo.Instance.HideFormPersionalInfo();                      
+            };
+            closeTimer.Start();
+        }
+       
     }
 }

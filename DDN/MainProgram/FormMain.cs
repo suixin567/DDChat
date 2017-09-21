@@ -79,11 +79,14 @@ namespace MainProgram
             //icon闪烁计时器停止
             this.timerNotifyIcon.Stop();
 
-          //  this.Font = new Font("Arial", 9);
+            //  this.Font = new Font("Arial", 9);
             ////////获取图片的测试//////
             //ResourceManager rm = new ResourceManager("DDN.FormMain", Assembly.GetExecutingAssembly());
             //Image img = (Image)rm.GetObject("pic");
-            //pictureBox2.Image = img;                            
+            //pictureBox2.Image = img;    
+            //展示个人资料的窗体
+            FormPersionalInfo.Instance.Show();
+            FormPersionalInfo.Instance.Hide();
         }
 
 
@@ -461,5 +464,6 @@ namespace MainProgram
          //   DialogueItem item = new DialogueItem("",null,"");
 
         }
+      
     }
 }
