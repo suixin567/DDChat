@@ -13,6 +13,9 @@ namespace MainProgram
 {
     public partial class FormShowPersonalInfo : Form
     {
+
+        PersonalInfoModel m_PersonalInfoModel;
+
         public FormShowPersonalInfo()
         {
             InitializeComponent();
@@ -25,6 +28,7 @@ namespace MainProgram
             this.labelUsername.Text = mode.Username;
             this.labelDisc.Text = mode.Description;
             this.pictureBoxFace.Image = face;
+            m_PersonalInfoModel = mode;
         }
 
         private void FormModifyPersonalInfo_Load(object sender, EventArgs e)
@@ -42,7 +46,7 @@ namespace MainProgram
         {
             if (formModifyPersionalInfo == null || formModifyPersionalInfo.IsDisposed)
             {
-                formModifyPersionalInfo = new FormModifyPersionalInfo();
+                formModifyPersionalInfo = new FormModifyPersionalInfo(m_PersonalInfoModel);
                 formModifyPersionalInfo.Show();
             }
             else {

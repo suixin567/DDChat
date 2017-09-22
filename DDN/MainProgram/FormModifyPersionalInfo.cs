@@ -1,22 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MainProgram
 {
     public partial class FormModifyPersionalInfo : Form
     {
+
+        string oldNickName;
+        string oldBoxDisc;
+
+
         public FormModifyPersionalInfo()
         {
             InitializeComponent();
         }
+
+        public FormModifyPersionalInfo(PersonalInfoModel mode)
+        {
+            InitializeComponent();
+            this.textBoxNickName.Text = mode.Nickname;
+            this.textBoxDisc.Text = mode.Description;
+            oldNickName = mode.Nickname;
+            oldBoxDisc = mode.Description;
+        }
+
 
         private void FormModifyPersionalInfo_Load(object sender, EventArgs e)
         {
@@ -52,6 +62,21 @@ namespace MainProgram
         private void buttonMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void buttonClose2_Click(object sender, EventArgs e)
+        {
+            buttonClose_Click(null,null);
+        }
+
+
+        //保存按钮
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (this.textBoxNickName.Text!= oldNickName || this.textBoxDisc.Text!=oldBoxDisc)
+            {
+                Debug.Print("可以保存了");
+            }
         }
     }
 }
