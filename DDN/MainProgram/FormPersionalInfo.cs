@@ -29,13 +29,8 @@ namespace MainProgram
 
 
 
-
-        public bool isCanHide = false;//是否可以隐藏
-       
-
-        public void init() {
-
-        }
+        public string m_id;
+        System.Windows.Forms.Timer closeTimer = new System.Windows.Forms.Timer();
 
         public FormPersionalInfo()
         {
@@ -44,62 +39,68 @@ namespace MainProgram
 
         private void FormPersionalInfo_Load(object sender, EventArgs e)
         {
-
+            closeTimer.Enabled = true;
+            closeTimer.Interval = 1000;
+            closeTimer.Tick += CloseTimer_Tick;
         }
 
-        public void SetFormPersionalInfo(Point location ,string nickName, string username,string discription)
+        //关闭面板 定时器
+        private void CloseTimer_Tick(object sender, EventArgs e)
         {
+                this.Hide();
+        }
+
+        public void SetFormPersionalInfo(int type ,Point location ,string nickName, string username,string discription)
+        {
+            switch (type)
+            {
+                case 1://群
+                    this.labelNickName.Text = nickName;
+                    this.labelUsername.Text = "群号(" + username + ")";
+                    this.labelDiscription.Text = discription;
+                    break;
+                case 3://个人
+                    this.labelNickName.Text = nickName;
+                    this.labelUsername.Text = "(" + username + ")";
+                    this.labelDiscription.Text = discription;
+                    break;
+                default:
+                    break;
+            }
             location = new Point(location.X-this.Width-20, location.Y-10);//调整一下位置           
-            this.Location = location;
-            this.labelNickName.Text = nickName;
-            this.labelUsername.Text = "("+username+")";
-            this.labelDiscription.Text = discription;
+            this.Location = location;        
             this.Show();
         }
 
 
-        public void HideFormPersionalInfo()
+        //鼠标进入
+        private void FormPersionalInfo_MouseEnter(object sender, EventArgs e)
         {
-            if (isCanHide)
-            {
-                this.Hide();
-            }             
+            enterItem("FormPersionalInfo");           
         }
 
         //当鼠标离开
         private void FormPersionalInfo_MouseLeave(object sender, EventArgs e)
         {
-            leaveItem();
-            System.Windows.Forms.Timer closeTimer = new System.Windows.Forms.Timer();
-            closeTimer.Enabled = true;
-            closeTimer.Interval = 1500;
-            closeTimer.Tick += (sen, eve) => {
-                ((System.Windows.Forms.Timer)sen).Stop();
-                ((System.Windows.Forms.Timer)sen).Dispose();
-                //Rectangle rectangle = new Rectangle(this.Location, this.Size);
-                //if (rectangle.Contains(MousePosition) == false)
-                //{
-                //    HideFormPersionalInfo();
-                //    Debug.Print("我自己被销毁");
-                //}
-                HideFormPersionalInfo();
-            };
-            closeTimer.Start();
+            Rectangle rectangle = new Rectangle(this.Location, this.Size);
+            if (rectangle.Contains(MousePosition) == false)
+            {
+                leaveItem("FormPersionalInfo");             
+            }          
         }
 
-        public void leaveItem() {
-            this.isCanHide = true;
+        public void leaveItem(string id) {
+            if (id==m_id)
+            {
+                closeTimer.Start();
+            }           
         }
 
-        public void enterItem()
+        public void enterItem(string id)
         {
-            this.isCanHide = false;
+            m_id = id;
+            closeTimer.Stop();
         }
-
-        //鼠标进入
-        private void FormPersionalInfo_MouseEnter(object sender, EventArgs e)
-        {
-            enterItem();
-        }
+     
     }
 }

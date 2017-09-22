@@ -48,6 +48,8 @@
             this.pictureBoxGroupFace.TabIndex = 0;
             this.pictureBoxGroupFace.TabStop = false;
             this.pictureBoxGroupFace.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxGroupFace_MouseDoubleClick);
+            this.pictureBoxGroupFace.MouseEnter += new System.EventHandler(this.pictureBoxGroupFace_MouseEnter);
+            this.pictureBoxGroupFace.MouseLeave += new System.EventHandler(this.pictureBoxGroupFace_MouseLeave);
             // 
             // labelName
             // 

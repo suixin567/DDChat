@@ -138,5 +138,16 @@ namespace MainProgram.UserControls
             //UnityManager.Instance.resourceMode = 1;
             FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name, pictureBoxGroupFace.Image);
         }
+
+        private void pictureBoxGroupFace_MouseEnter(object sender, EventArgs e)
+        {
+            FormPersionalInfo.Instance.SetFormPersionalInfo(1,PointToScreen(this.pictureBoxGroupFace.Location), m_groupInfoModel.Name, m_groupInfoModel.Gid.ToString(), "");
+            FormPersionalInfo.Instance.enterItem(m_groupInfoModel.Gid.ToString());
+        }
+
+        private void pictureBoxGroupFace_MouseLeave(object sender, EventArgs e)
+        {
+            FormPersionalInfo.Instance.leaveItem(m_groupInfoModel.Gid.ToString());
+        }
     }
 }

@@ -48,6 +48,8 @@
             this.PictureBoxDialogueFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBoxDialogueFace.TabIndex = 1;
             this.PictureBoxDialogueFace.TabStop = false;
+            this.PictureBoxDialogueFace.MouseEnter += new System.EventHandler(this.PictureBoxDialogueFace_MouseEnter);
+            this.PictureBoxDialogueFace.MouseLeave += new System.EventHandler(this.PictureBoxDialogueFace_MouseLeave);
             // 
             // LabelNickName
             // 
@@ -73,12 +75,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.移除会话ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(125, 26);
             // 
             // 移除会话ToolStripMenuItem
             // 
             this.移除会话ToolStripMenuItem.Name = "移除会话ToolStripMenuItem";
-            this.移除会话ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.移除会话ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.移除会话ToolStripMenuItem.Text = "移除会话";
             this.移除会话ToolStripMenuItem.Click += new System.EventHandler(this.移除会话ToolStripMenuItem_Click);
             // 

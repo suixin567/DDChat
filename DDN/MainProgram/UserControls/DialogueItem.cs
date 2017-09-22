@@ -12,7 +12,7 @@ namespace MainProgram.UserControls
     {
         #region 属性
         public SynchronizationContext m_SyncContext = null;
-        public string m_friendAndGroupID="";
+        public string m_friendAndGroupID="";//特殊id
         public string m_friendAndGroupNickName="";
         public string m_friendAndGroupContent="";
         #endregion
@@ -113,6 +113,28 @@ namespace MainProgram.UserControls
         private void 移除会话ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainMgr.Instance.formMain.flowLayoutPanelDialogueList.removeDialogueSafePost(m_friendAndGroupID);
+        }
+
+        //鼠标进入头像
+        private void PictureBoxDialogueFace_MouseEnter(object sender, EventArgs e)
+        {
+            Debug.Print(m_friendAndGroupID);
+            if (m_friendAndGroupID.Contains("friend"))
+            {
+                string friendId = m_friendAndGroupID.Substring("friend".Length);
+                FormPersionalInfo.Instance.SetFormPersionalInfo(3, PointToScreen(this.PictureBoxDialogueFace.Location), m_friendAndGroupNickName, friendId, "");               
+            }
+            else {
+                string groupId = m_friendAndGroupID.Substring("group".Length);
+                FormPersionalInfo.Instance.SetFormPersionalInfo(3, PointToScreen(this.PictureBoxDialogueFace.Location), m_friendAndGroupNickName, groupId, "");
+            }
+            FormPersionalInfo.Instance.enterItem(m_friendAndGroupID);
+        }
+
+        //鼠标离开头像
+        private void PictureBoxDialogueFace_MouseLeave(object sender, EventArgs e)
+        {
+            FormPersionalInfo.Instance.leaveItem(m_friendAndGroupID);
         }
     }
 }
