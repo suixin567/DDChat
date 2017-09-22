@@ -5,6 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Threading;
 using System.Diagnostics;
 using ToolLib;
+using Dialog;
 
 namespace MainProgram.UserControls
 {
@@ -80,8 +81,7 @@ namespace MainProgram.UserControls
             }
             else {
                 Debug.Print("错误的对话item类型");
-            }
-            
+            }            
         }
 
         private void DialogueItem_Load(object sender, EventArgs e)
@@ -118,7 +118,6 @@ namespace MainProgram.UserControls
         //鼠标进入头像
         private void PictureBoxDialogueFace_MouseEnter(object sender, EventArgs e)
         {
-            Debug.Print(m_friendAndGroupID);
             if (m_friendAndGroupID.Contains("friend"))
             {
                 string friendId = m_friendAndGroupID.Substring("friend".Length);
@@ -135,6 +134,36 @@ namespace MainProgram.UserControls
         private void PictureBoxDialogueFace_MouseLeave(object sender, EventArgs e)
         {
             FormPersionalInfo.Instance.leaveItem(m_friendAndGroupID);
+        }
+
+        //双击打开对话
+        private void DialogueItem_DoubleClick(object sender, EventArgs e)
+        {
+            if (m_friendAndGroupID.Contains("friend"))
+            {
+                string friendId = m_friendAndGroupID.Substring("friend".Length);
+                FormDialogManager.Instance.openDialog(3, int.Parse(friendId), m_friendAndGroupNickName, this.PictureBoxDialogueFace.Image);
+            }
+            else if(m_friendAndGroupID.Contains("group"))//打开群
+            {
+                string groupId = m_friendAndGroupID.Substring("group".Length);
+                FormDialogManager.Instance.openDialog(1,int.Parse(groupId), m_friendAndGroupNickName, this.PictureBoxDialogueFace.Image);
+            }
+        }
+        //双击打开对话
+        private void PictureBoxDialogueFace_DoubleClick(object sender, EventArgs e)
+        {
+            DialogueItem_DoubleClick(null,null);
+        }
+        //双击打开对话
+        private void LabelNickName_DoubleClick(object sender, EventArgs e)
+        {
+            DialogueItem_DoubleClick(null, null);
+        }
+        //双击打开对话
+        private void LabelHistory_DoubleClick(object sender, EventArgs e)
+        {
+            DialogueItem_DoubleClick(null, null);
         }
     }
 }

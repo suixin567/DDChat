@@ -48,6 +48,7 @@
             this.PictureBoxDialogueFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBoxDialogueFace.TabIndex = 1;
             this.PictureBoxDialogueFace.TabStop = false;
+            this.PictureBoxDialogueFace.DoubleClick += new System.EventHandler(this.PictureBoxDialogueFace_DoubleClick);
             this.PictureBoxDialogueFace.MouseEnter += new System.EventHandler(this.PictureBoxDialogueFace_MouseEnter);
             this.PictureBoxDialogueFace.MouseLeave += new System.EventHandler(this.PictureBoxDialogueFace_MouseLeave);
             // 
@@ -60,6 +61,7 @@
             this.LabelNickName.Size = new System.Drawing.Size(77, 12);
             this.LabelNickName.TabIndex = 2;
             this.LabelNickName.Text = "聊天对象昵称";
+            this.LabelNickName.DoubleClick += new System.EventHandler(this.LabelNickName_DoubleClick);
             // 
             // LabelHistory
             // 
@@ -69,6 +71,7 @@
             this.LabelHistory.Size = new System.Drawing.Size(41, 12);
             this.LabelHistory.TabIndex = 3;
             this.LabelHistory.Text = "......";
+            this.LabelHistory.DoubleClick += new System.EventHandler(this.LabelHistory_DoubleClick);
             // 
             // contextMenuStrip1
             // 
@@ -97,6 +100,7 @@
             this.Name = "DialogueItem";
             this.Size = new System.Drawing.Size(500, 57);
             this.Load += new System.EventHandler(this.DialogueItem_Load);
+            this.DoubleClick += new System.EventHandler(this.DialogueItem_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxDialogueFace)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
