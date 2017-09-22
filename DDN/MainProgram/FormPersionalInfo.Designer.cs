@@ -87,6 +87,7 @@
             this.Name = "FormPersionalInfo";
             this.ShowInTaskbar = false;
             this.Text = "FormPersionalInfo";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.FormPersionalInfo_Load);
             this.MouseEnter += new System.EventHandler(this.FormPersionalInfo_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.FormPersionalInfo_MouseLeave);

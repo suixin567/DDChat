@@ -108,5 +108,17 @@ namespace MainProgram.UserControls
             }
         }
 
+        //个人资料的主面板
+        FormShowPersonalInfo formModifyPersonalInfo = null;
+        //头像被点击
+        private void pictureBoxTopFace_Click(object sender, EventArgs e)
+        {
+            Debug.Print("被点击");
+            if (formModifyPersonalInfo==null || formModifyPersonalInfo.IsDisposed)
+            {
+                formModifyPersonalInfo = new FormShowPersonalInfo(model,this.pictureBoxTopFace.Image);
+                formModifyPersonalInfo.Show();
+            }
+        }
     }
 }

@@ -128,9 +128,7 @@ namespace MainProgram.UserControls
                         Dialog.FormDialogManager.Instance.closeDialogueWindow("group" + groupItem.m_myGroupModel.GroupID);
                         groupItem.Dispose();
                         amount--;
-                        this.buttonGroup.Text = "公司 " + amount;
-                      
-
+                        this.buttonGroup.Text = "公司 " + amount;                      
                         break;
                     }
                 }

@@ -111,9 +111,7 @@ namespace MainProgram.UserControls
                         Dialog.FormDialogManager.Instance.closeDialogueWindow("friend" + friendItem.FriendUsername);
                         friendItem.Dispose();
                         friendAmount--;
-                        this.buttonFriend.Text = "好友 " + friendAmount;
-                        
-                        
+                        this.buttonFriend.Text = "好友 " + friendAmount;                                                
                         break;
                     }
                 }

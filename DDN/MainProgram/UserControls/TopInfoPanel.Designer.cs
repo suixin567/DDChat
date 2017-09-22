@@ -56,6 +56,7 @@
             this.pictureBoxTopFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxTopFace.TabIndex = 2;
             this.pictureBoxTopFace.TabStop = false;
+            this.pictureBoxTopFace.Click += new System.EventHandler(this.pictureBoxTopFace_Click);
             // 
             // labelSelfDescription
             // 

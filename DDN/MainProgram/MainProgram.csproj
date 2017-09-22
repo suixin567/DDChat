@@ -69,6 +69,18 @@
     <Compile Include="FormCreateGroup.Designer.cs">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormModifyPersionalInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModifyPersionalInfo.Designer.cs">
+      <DependentUpon>FormModifyPersionalInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShowPersonalInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShowPersonalInfo.Designer.cs">
+      <DependentUpon>FormShowPersonalInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPersionalInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +213,12 @@
     <Compile Include="VerifyMsgMgr.cs" />
     <EmbeddedResource Include="FormCreateGroup.resx">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModifyPersionalInfo.resx">
+      <DependentUpon>FormModifyPersionalInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowPersonalInfo.resx">
+      <DependentUpon>FormShowPersonalInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPersionalInfo.resx">
       <DependentUpon>FormPersionalInfo.cs</DependentUpon>
