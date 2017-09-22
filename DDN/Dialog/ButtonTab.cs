@@ -88,8 +88,7 @@ namespace Dialog
         }
         //关闭按钮
         private void buttonClose_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
+        {         
             FormDialogManager.Instance.closeDialogueWindow(m_id);
         }
 

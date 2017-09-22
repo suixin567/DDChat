@@ -241,7 +241,8 @@ namespace Dialog
         }
 
         //关闭一个对话窗体
-        public void closeDialogueWindow(string windowId) {
+        public void closeDialogueWindow(string windowId)
+        {
             this.Activate();
             //销毁窗体
             foreach (var item in formListDictionary)
@@ -251,21 +252,30 @@ namespace Dialog
                     item.Value.Close();
                     item.Value.Dispose();
                     //  activeDialog = item.Value;//设置激活对话
-                    Debug.Print("关闭这个对话" + windowId);
-                    formListDictionary.Remove(windowId);
+                   // Debug.Print("关闭这个对话" + windowId);
+                    formListDictionary.Remove(windowId);                  
                     break;
-                }               
+                }
             }
-            //设置一个新的激活窗体
-            if (flowLayoutPanelTab.Controls.Count > 0)
+            foreach (var item in this.flowLayoutPanelTab.Controls)
             {
-                string nextActiveId = ((ButtonTab)flowLayoutPanelTab.Controls[flowLayoutPanelTab.Controls.Count - 1]).m_id;
-                changeActiveWindow(nextActiveId);
+                ButtonTab btn = (ButtonTab)item;
+                if (btn.m_id == windowId)
+                {
+                    btn.Dispose();
+                    //设置一个新的激活窗体
+                    if (flowLayoutPanelTab.Controls.Count > 0)
+                    {
+                        string nextActiveId = ((ButtonTab)flowLayoutPanelTab.Controls[flowLayoutPanelTab.Controls.Count - 1]).m_id;
+                        changeActiveWindow(nextActiveId);
+                    }
+                    else
+                    {
+                        buttonClose_Click(null, null);
+                    }
+                    break;
+                }
             }
-            else {
-                buttonClose_Click(null,null);
-            }
-           
         }
 
 

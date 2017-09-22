@@ -107,13 +107,18 @@ namespace MainProgram.UserControls
                     var friendItem = (FriendItem)item;
                     if (friendItem.FriendUsername == usreName.ToString())
                     {
+                        //关闭对话窗体
+                        Dialog.FormDialogManager.Instance.closeDialogueWindow("friend" + friendItem.FriendUsername);
                         friendItem.Dispose();
                         friendAmount--;
                         this.buttonFriend.Text = "好友 " + friendAmount;
+                        
+                        
                         break;
                     }
                 }
             }
+           
         }
         //获取好友列表
         public List<string> getFriendList()

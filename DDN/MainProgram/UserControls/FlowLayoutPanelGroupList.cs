@@ -124,9 +124,13 @@ namespace MainProgram.UserControls
                     var groupItem = (GroupItem)item;
                     if (groupItem.m_myGroupModel.GroupID ==int.Parse(gid.ToString()) )
                     {
+                        //关闭对话窗体
+                        Dialog.FormDialogManager.Instance.closeDialogueWindow("group" + groupItem.m_myGroupModel.GroupID);
                         groupItem.Dispose();
                         amount--;
                         this.buttonGroup.Text = "公司 " + amount;
+                      
+
                         break;
                     }
                 }
