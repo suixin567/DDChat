@@ -20,18 +20,7 @@ namespace MainProgram
         #region 属性
         public FormMain formMain;
         public MsgMgr msgMgr;
-        public MsgTip msgTip = null;
-
-
-        Image selfFace;
-        public Image SelfFace {
-            get {
-                return selfFace;
-            }set {
-                selfFace = value;
-                formMain.flowLayoutPanelFriendList.InitSelfFace(selfFace);
-            }
-        }        
+        public MsgTip msgTip = null;      
         #endregion
 
         public void Init() {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Diagnostics;
 using System.Threading;
 using System.Drawing.Drawing2D;
 using ToolLib;
@@ -10,10 +9,10 @@ namespace MainProgram.UserControls
 {
     public partial class TopInfoPanel : UserControl
     {
-
+        #region 属性
         SynchronizationContext m_SyncContext = null;
-
         private Image faceImage;
+        #endregion
 
         public TopInfoPanel()
         {
@@ -23,46 +22,31 @@ namespace MainProgram.UserControls
 
         private void TopInfoPanel_Load(object sender, EventArgs e)
         {
+            faceImage = this.pictureBoxTopFace.Image;
             GraphicsPath path = new GraphicsPath();
             path.AddArc(pictureBoxTopFace.DisplayRectangle, 0, 360);
             pictureBoxTopFace.Region = new Region(path);
-
             m_SyncContext = SynchronizationContext.Current;
-           
-           
-                //请求网络数据
-                HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + AppInfo.USER_NAME,delegate(string myinfo) {
-                    try
-                    {
-                       AppInfo.PERSONAL_INFO = Coding<PersonalInfoModel>.decode(myinfo);
-                        //设置托盘显示内容
-                       MainMgr.Instance.formMain.notifyIconFormMain.Text = "叮叮鸟：" + AppInfo.PERSONAL_INFO.Nickname + "（" + AppInfo.PERSONAL_INFO.Username + "）";
-                       MainMgr.Instance.formMain.flowLayoutPanelFriendList.InitSelfInfoSafePost(AppInfo.PERSONAL_INFO);
-                    }
-                    catch (Exception err)
-                    {
-                        Debug.Print("TopInfoPanel.TopInfoPanel_Load()解析失败" + err.ToString());
-                        return;
-                    }
+            //注册资料被修改的事件
+            AppInfo.onPersonalInfoModelChanged += this.initNickLabelSafePost;
 
-                 
-                    //初始化昵称Label
-                    initNickLabelSafePost();
-                    
-                    if (AppInfo.PERSONAL_INFO.Face != "")
-                    {
-                        //请求头像
-                        HttpReqHelper.loadFaceSync(AppInfo.PERSONAL_INFO.Face,delegate(Image face) {
-                            faceImage = face;
-                            if (faceImage != null)
-                            {
-                                pictureBoxTopFace.Image = faceImage;
-                                MainMgr.Instance.SelfFace = faceImage;
-                            }
-                        });                       
-                    }
-                });
-               
+            //请求网络数据，获取个人信息
+            DataMgr.Instance.getPersonalByID(AppInfo.USER_NAME, delegate (PersonalInfoModel model) {
+                AppInfo.PERSONAL_INFO = model;                          
+                //请求头像
+                if (AppInfo.PERSONAL_INFO.Face != "")
+                {                    
+                    HttpReqHelper.loadFaceSync(AppInfo.PERSONAL_INFO.Face, delegate (Image face) {
+                        faceImage = face;
+                        if (faceImage != null)
+                        {
+                            pictureBoxTopFace.Image = faceImage;
+                            //设置自己item的图片
+                            MainMgr.Instance.formMain.flowLayoutPanelFriendList.InitSelfFace(faceImage);
+                        }
+                    });
+                }
+            });                        
                 //在线状态显示               
                 NetWorkManager.Instance.offLineEvent += this.offline;
                 NetWorkManager.Instance.onLineEvent += this.onLine;
@@ -100,13 +84,15 @@ namespace MainProgram.UserControls
             if (NetWorkManager.Instance.IsConnected)
             {
                 this.labelOnlineState.Text = "在线";
-                this.labelOnlineState.ForeColor = Color.Lime; 
+                this.labelOnlineState.ForeColor = Color.Lime;
+                pictureBoxTopFace.Image = faceImage;
             }
             else
             {
                 this.labelOnlineState.Text = "离线";
                 this.labelOnlineState.ForeColor = Color.Red;
                 Image tempImage = ImageTool.grayImage(faceImage);
+                pictureBoxTopFace.Image = tempImage;
             }
         }
 

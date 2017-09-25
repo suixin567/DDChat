@@ -60,7 +60,9 @@ namespace MainProgram
             flowLayoutPanelResourcesList = new FlowLayoutPanelResourcesList();
             this.Controls.Add(flowLayoutPanelResourcesList);
             flowLayoutPanelResourcesList.Location = new Point(10000, 10000);
-            
+
+            //注册资料被修改的事件
+            AppInfo.onPersonalInfoModelChanged += this.setNotifyIconFormMainSafePost;
         }
 
         /// <summary>
@@ -87,6 +89,7 @@ namespace MainProgram
             //展示个人资料的窗体
             FormPersionalInfo.Instance.Show();
             FormPersionalInfo.Instance.Hide();
+              
         }
 
 
@@ -457,6 +460,13 @@ namespace MainProgram
             if (m_labelTip != null) m_labelTip.Dispose();
         }
 
+        //设置托盘显示内容
+        public void setNotifyIconFormMainSafePost() {
+            m_SyncContext.Post(setNotifyIconFormMain,null);
+        }
+        void setNotifyIconFormMain(object state) {
+            notifyIconFormMain.Text = "叮叮鸟：" + AppInfo.PERSONAL_INFO.Nickname + "（" + AppInfo.PERSONAL_INFO.Username + "）";
+        }      
        
         private void button1_Click(object sender, EventArgs e)
         {

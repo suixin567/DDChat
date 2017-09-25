@@ -72,18 +72,34 @@ namespace MainProgram
         }
 
 
-        //保存按钮
+        //保存修改按钮
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (this.textBoxNickName.Text!= oldNickName || this.textBoxDisc.Text!=oldBoxDisc)
+            if (this.textBoxNickName.Text != oldNickName || this.textBoxDisc.Text != oldBoxDisc)
             {
-                string url = AppConst.WebUrl + "modifyBaseInfo?username="+AppInfo.USER_NAME+"&nickName="+this.textBoxNickName+"&disc="+this.textBoxDisc.Text;
+                string url = AppConst.WebUrl + "modifyBaseInfo?username=" + AppInfo.USER_NAME + "&nickname=" + this.textBoxNickName.Text + "&description=" + this.textBoxDisc.Text;
                 Debug.Print(url);
-                HttpReqHelper.requestSync(url, delegate(string result) {
+                HttpReqHelper.requestSync(url, delegate (string result)
+                {
                     //收到修改后的个人信息模型
-                    AppInfo.PERSONAL_INFO = Coding<PersonalInfoModel>.decode(result);
-                    saveOKSafePost();
-                });            
+                    if (result == "true")
+                    {
+                        //修改模型 //修改模型将会发出事件
+                        PersonalInfoModel newModel = new PersonalInfoModel();
+                        newModel.Username = AppInfo.PERSONAL_INFO.Username;
+                        newModel.Nickname = this.textBoxNickName.Text;
+                        newModel.Description = this.textBoxDisc.Text;
+                        newModel.Face = AppInfo.PERSONAL_INFO.Face;
+                        AppInfo.PERSONAL_INFO = newModel;
+                        saveOKSafePost();
+                    }
+                    else
+                    {
+                        Debug.Print("修改失败");
+                    }
+
+
+                });
             }
         }
 
@@ -94,10 +110,6 @@ namespace MainProgram
         void saveOK(object state)
         {
             //刷新个人信息展示面板
-            if (m_FormShowPersonalInfo != null && m_FormShowPersonalInfo.IsDisposed == false)
-            {
-                m_FormShowPersonalInfo.refreshInfo();
-            }         
             this.Close();
             this.Dispose();
         }

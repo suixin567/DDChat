@@ -24,6 +24,8 @@ namespace MainProgram.UserControls
         {
             InitializeComponent();
             m_SyncContext = SynchronizationContext.Current;
+            //注册资料被修改的事件
+            AppInfo.onPersonalInfoModelChanged += this.InitSelfInfoSafePost;
         }
 
         private void FlowLayoutPanelFriendList_Load(object sender, EventArgs e)
@@ -32,19 +34,21 @@ namespace MainProgram.UserControls
             pullFriendList();
         }
 
-        public void InitSelfInfoSafePost(PersonalInfoModel model)
+        //设置自己的昵称
+        public void InitSelfInfoSafePost()
         {
-            m_SyncContext.Post(InitSelfInfo, model.Nickname);
-        }
-
+            m_SyncContext.Post(InitSelfInfo, null);
+        }       
         public void InitSelfInfo(object state) {
-            this.labelSelf.Text = state.ToString()+ " (自己)";
+            this.labelSelf.Text =AppInfo.PERSONAL_INFO.Nickname + " (自己)";
         }
 
+        //设置自己的头像
         public void InitSelfFace(Image face)
         {
             this.pictureBoxSelfFace.Image = face;        
         }
+
 
         void pullFriendList()
         {

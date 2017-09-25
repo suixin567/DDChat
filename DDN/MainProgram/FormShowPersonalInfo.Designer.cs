@@ -49,9 +49,9 @@
             this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonClose.Location = new System.Drawing.Point(676, 5);
+            this.buttonClose.Location = new System.Drawing.Point(675, 0);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(20, 20);
+            this.buttonClose.Size = new System.Drawing.Size(25, 25);
             this.buttonClose.TabIndex = 0;
             this.buttonClose.Text = "×";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -61,9 +61,9 @@
             // 
             this.buttonMin.FlatAppearance.BorderSize = 0;
             this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMin.Location = new System.Drawing.Point(648, 5);
+            this.buttonMin.Location = new System.Drawing.Point(649, 0);
             this.buttonMin.Name = "buttonMin";
-            this.buttonMin.Size = new System.Drawing.Size(20, 20);
+            this.buttonMin.Size = new System.Drawing.Size(25, 25);
             this.buttonMin.TabIndex = 1;
             this.buttonMin.Text = "-";
             this.buttonMin.UseVisualStyleBackColor = true;

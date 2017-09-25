@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows.Forms;
 using ToolLib;
 
@@ -9,6 +10,8 @@ namespace MainProgram
 {
     public partial class FormShowPersonalInfo : Form
     {
+        SynchronizationContext m_SyncContext = null;
+
 
         public FormShowPersonalInfo()
         {
@@ -30,6 +33,9 @@ namespace MainProgram
             int y = (SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = (Point)new Size(x, y);
+            //注册资料被修改的事件
+            AppInfo.onPersonalInfoModelChanged += this.refreshSafePost;
+            m_SyncContext = SynchronizationContext.Current;
         }
 
 
@@ -54,11 +60,18 @@ namespace MainProgram
             //TODO:
         }
 
+
         //刷新展示内容
-        public void refreshInfo() {
-            this.labelNickName.Text = AppInfo.PERSONAL_INFO.Nickname;          
+        void refreshSafePost()
+        {
+            m_SyncContext.Post(refresh, null);
+        }
+        void refresh(object state)
+        {
+            this.labelNickName.Text = AppInfo.PERSONAL_INFO.Nickname;
             this.labelDisc.Text = AppInfo.PERSONAL_INFO.Description;
         }
+
 
 
 
