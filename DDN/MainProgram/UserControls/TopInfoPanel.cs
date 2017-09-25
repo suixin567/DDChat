@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 using System.Drawing.Drawing2D;
+using ToolLib;
 
 namespace MainProgram.UserControls
 {
@@ -13,8 +14,6 @@ namespace MainProgram.UserControls
         SynchronizationContext m_SyncContext = null;
 
         private Image faceImage;
-        PersonalInfoModel model;
-
 
         public TopInfoPanel()
         {
@@ -32,10 +31,13 @@ namespace MainProgram.UserControls
             if (PlayerPrefs.GetString("username") != "")
             {
                 //请求网络数据
-                HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + PlayerPrefs.GetString("username"),delegate(string myinfo) {
+                HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + AppInfo.USER_NAME,delegate(string myinfo) {
                     try
                     {
-                        model = Coding<PersonalInfoModel>.decode(myinfo);
+                       AppInfo.PERSONAL_INFO = Coding<PersonalInfoModel>.decode(myinfo);
+                        //设置托盘显示内容
+                       MainMgr.Instance.formMain.notifyIconFormMain.Text = "叮叮鸟：" + AppInfo.PERSONAL_INFO.Nickname + "（" + AppInfo.PERSONAL_INFO.Username + "）";
+                       MainMgr.Instance.formMain.flowLayoutPanelFriendList.InitSelfInfoSafePost(AppInfo.PERSONAL_INFO);
                     }
                     catch (Exception err)
                     {
@@ -43,14 +45,14 @@ namespace MainProgram.UserControls
                         return;
                     }
 
-                    MainMgr.Instance.BaseInfo = model;
+                 
                     //初始化昵称Label
                     initNickLabelSafePost();
                     
-                    if (model.Face != "")
+                    if (AppInfo.PERSONAL_INFO.Face != "")
                     {
                         //请求头像
-                        HttpReqHelper.loadFaceSync(model.Face,delegate(Image face) {
+                        HttpReqHelper.loadFaceSync(AppInfo.PERSONAL_INFO.Face,delegate(Image face) {
                             faceImage = face;
                             if (faceImage != null)
                             {
@@ -74,8 +76,8 @@ namespace MainProgram.UserControls
         }
         void initNickLabel(object state)
         {
-            this.labelSelfNickName.Text = model.Nickname;
-            this.labelSelfDescription.Text = model.Description;
+            this.labelSelfNickName.Text = AppInfo.PERSONAL_INFO.Nickname;
+            this.labelSelfDescription.Text = AppInfo.PERSONAL_INFO.Description;
             this.labelOnlineState.Location = new Point(labelSelfNickName.Location.X + labelSelfNickName.Width + 7, labelSelfNickName.Location.Y + 2);
         }
 
@@ -113,10 +115,9 @@ namespace MainProgram.UserControls
         //头像被点击
         private void pictureBoxTopFace_Click(object sender, EventArgs e)
         {
-            Debug.Print("被点击");
             if (formModifyPersonalInfo==null || formModifyPersonalInfo.IsDisposed)
             {
-                formModifyPersonalInfo = new FormShowPersonalInfo(model,this.pictureBoxTopFace.Image);
+                formModifyPersonalInfo = new FormShowPersonalInfo(this.pictureBoxTopFace.Image);
                 formModifyPersonalInfo.Show();
             }
         }

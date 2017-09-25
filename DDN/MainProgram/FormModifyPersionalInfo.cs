@@ -2,29 +2,31 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows.Forms;
+using ToolLib;
 
 namespace MainProgram
 {
     public partial class FormModifyPersionalInfo : Form
     {
-
+        #region 属性
         string oldNickName;
         string oldBoxDisc;
+        public SynchronizationContext m_SyncContext = null;
+        FormShowPersonalInfo m_FormShowPersonalInfo;
+        #endregion
 
 
-        public FormModifyPersionalInfo()
+        public FormModifyPersionalInfo(FormShowPersonalInfo formShowPersonalInfo)
         {
             InitializeComponent();
-        }
-
-        public FormModifyPersionalInfo(PersonalInfoModel mode)
-        {
-            InitializeComponent();
-            this.textBoxNickName.Text = mode.Nickname;
-            this.textBoxDisc.Text = mode.Description;
-            oldNickName = mode.Nickname;
-            oldBoxDisc = mode.Description;
+            this.textBoxNickName.Text =AppInfo.PERSONAL_INFO.Nickname;
+            this.textBoxDisc.Text = AppInfo.PERSONAL_INFO.Description;
+            oldNickName = AppInfo.PERSONAL_INFO.Nickname;
+            oldBoxDisc = AppInfo.PERSONAL_INFO.Description;
+            m_SyncContext = SynchronizationContext.Current;
+            m_FormShowPersonalInfo = formShowPersonalInfo;
         }
 
 
@@ -75,8 +77,29 @@ namespace MainProgram
         {
             if (this.textBoxNickName.Text!= oldNickName || this.textBoxDisc.Text!=oldBoxDisc)
             {
-                Debug.Print("可以保存了");
+                string url = AppConst.WebUrl + "modifyBaseInfo?username="+AppInfo.USER_NAME+"&nickName="+this.textBoxNickName+"&disc="+this.textBoxDisc.Text;
+                Debug.Print(url);
+                HttpReqHelper.requestSync(url, delegate(string result) {
+                    //收到修改后的个人信息模型
+                    AppInfo.PERSONAL_INFO = Coding<PersonalInfoModel>.decode(result);
+                    saveOKSafePost();
+                });            
             }
+        }
+
+        public void saveOKSafePost()
+        {
+            m_SyncContext.Post(saveOK, null);
+        }
+        void saveOK(object state)
+        {
+            //刷新个人信息展示面板
+            if (m_FormShowPersonalInfo != null && m_FormShowPersonalInfo.IsDisposed == false)
+            {
+                m_FormShowPersonalInfo.refreshInfo();
+            }         
+            this.Close();
+            this.Dispose();
         }
     }
 }

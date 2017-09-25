@@ -1,34 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToolLib;
 
 namespace MainProgram
 {
     public partial class FormShowPersonalInfo : Form
     {
 
-        PersonalInfoModel m_PersonalInfoModel;
-
         public FormShowPersonalInfo()
         {
             InitializeComponent();
         }
 
-        public FormShowPersonalInfo(PersonalInfoModel mode,Image face)
+        public FormShowPersonalInfo(Image face)
         {
             InitializeComponent();
-            this.labelNickName.Text = mode.Nickname;
-            this.labelUsername.Text = mode.Username;
-            this.labelDisc.Text = mode.Description;
+            this.labelNickName.Text = AppInfo.PERSONAL_INFO.Nickname;
+            this.labelUsername.Text = AppInfo.PERSONAL_INFO.Username;
+            this.labelDisc.Text = AppInfo.PERSONAL_INFO.Description;
             this.pictureBoxFace.Image = face;
-            m_PersonalInfoModel = mode;
         }
 
         private void FormModifyPersonalInfo_Load(object sender, EventArgs e)
@@ -46,7 +39,7 @@ namespace MainProgram
         {
             if (formModifyPersionalInfo == null || formModifyPersionalInfo.IsDisposed)
             {
-                formModifyPersionalInfo = new FormModifyPersionalInfo(m_PersonalInfoModel);
+                formModifyPersionalInfo = new FormModifyPersionalInfo(this);
                 formModifyPersionalInfo.Show();
             }
             else {
@@ -60,6 +53,14 @@ namespace MainProgram
         {
             //TODO:
         }
+
+        //刷新展示内容
+        public void refreshInfo() {
+            this.labelNickName.Text = AppInfo.PERSONAL_INFO.Nickname;          
+            this.labelDisc.Text = AppInfo.PERSONAL_INFO.Description;
+        }
+
+
 
 
         public const int WM_NCLBUTTONDOWN = 0xA1;

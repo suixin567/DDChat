@@ -13,6 +13,7 @@ using Mgr;
 using System.Configuration;
 using System.Net.Mail;
 using System.Net;
+using ToolLib;
 
 namespace Login
 {
@@ -89,8 +90,7 @@ namespace Login
                 dto.passWord = textBoxPassword.Text;
                 string message = Coding<LoginDTO>.encode(dto);
                 NetWorkManager.Instance.sendMessage(Protocol.LOGIN, 0, LoginProtocol.LOGIN_CREQ, message);
-                PlayerPrefs.SetString("account", textBoxUserName.Text);
-                PlayerPrefs.SetString("passWord", textBoxPassword.Text);
+
                 if (checkBoxRemmberPsd.Checked == true)
                 {
                     PlayerPrefs.SetInt("remeberAcc", 1);
@@ -162,11 +162,11 @@ namespace Login
         void loginOK(string userInfo)
         {
             //登陆成功
-          // Debug.Print("FormLogin--->>>登录结果是：" + userInfo);
-        //    GameInfo.IS_LOGIN = 1;//已登录
-            //跳转场景 ,不需要销毁自己
-     //     LoginMgr.Instance.formLogin.DialogResult = DialogResult.OK;    //返回一个登录成功的对话框状态     
-           CloseSafePost();                                                    
+            PlayerPrefs.SetString("account", textBoxUserName.Text);
+            PlayerPrefs.SetString("passWord", textBoxPassword.Text);
+            AppInfo.USER_NAME = textBoxUserName.Text;
+            AppInfo.PASS_WORD = textBoxPassword.Text;
+            CloseSafePost();                                                    
         }
 
         private void FormLoginClose(object sender, FormClosedEventArgs e)

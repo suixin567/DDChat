@@ -36,10 +36,8 @@ namespace Mgr
         }
 
         public void InitApp()
-        {
-       
+        {       
            // Debug.Print("mgr线程" + System.Threading.Thread.CurrentThread.ManagedThreadId.ToString());
-
             PlayerPrefs.Init();
             NetWorkManager.Instance.Start();
             Thread th = new Thread(new ThreadStart(checkNetMsg));
@@ -79,11 +77,11 @@ namespace Mgr
             switch (model.Type)
             {
                 case Protocol.LOGIN:
-                    Debug.Print("formMgr---->>>登陆结果是：" + model.Message+"    比对"+ PlayerPrefs.GetString("account"));
+                 //   Debug.Print("formMgr---->>>登陆结果是：" + model.Message+"    比对"+ PlayerPrefs.GetString("account"));
                     Login.LoginMgr.Instance.formLogin.OnMessage(model);
+                    //登录成功
                     if (model.Command == LoginProtocol.LOGIN_SRES && model.Message !="10" && model.Message != "11" && model.Message != "12")
-                    {
-                        PlayerPrefs.SetString("username", model.Message);
+                    {                      
                         openMainProgramSafePost();
                     }
                     break;
