@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using Mgr;
 using System.Drawing.Drawing2D;
+using ToolLib;
 
 namespace MainProgram.UserControls
 {
@@ -65,7 +66,7 @@ namespace MainProgram.UserControls
                 return;
             }
 
-            MsgModel mm = new MsgModel(MessageProtocol.ADD_GROUP_CREQ, PlayerPrefs.GetString("username"), m_GID.ToString(), "让我也加入你们吧！", DateTime.Now.ToString());
+            MsgModel mm = new MsgModel(MessageProtocol.ADD_GROUP_CREQ, AppInfo.USER_NAME, m_GID.ToString(), "让我也加入你们吧！", DateTime.Now.ToString());
             MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, mm);
             this.Dispose();
         }

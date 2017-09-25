@@ -1,6 +1,7 @@
 ﻿using Dialog;
 using System;
 using System.Diagnostics;
+using ToolLib;
 
 namespace MainProgram
 {
@@ -187,7 +188,7 @@ namespace MainProgram
         //拉取离线消息
         void pullOfflineMsg()
         {
-           HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=0&username=" + PlayerPrefs.GetString("username"),delegate(string offlineMsg) {
+           HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=0&username=" + AppInfo.USER_NAME, delegate(string offlineMsg) {
                Debug.Print("我的离线消息------>>>>>>" + offlineMsg);
              //  MessageBox.Show("MsgMgr.pullOfflineMsg()解析离线消息" + offlineMsg);
                try
@@ -226,7 +227,7 @@ namespace MainProgram
 
         void clearOfflineMsg()
         {
-            HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=1&username=" + PlayerPrefs.GetString("username"),delegate(string offlineMsg) {
+            HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=1&username=" + AppInfo.USER_NAME, delegate(string offlineMsg) {
                 if (offlineMsg == "false")
                 {
                     clearOfflineMsg();

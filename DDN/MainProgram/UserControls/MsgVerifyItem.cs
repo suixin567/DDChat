@@ -160,7 +160,7 @@ namespace MainProgram.UserControls
             switch (m_MsgModel.MsgType)
             {
                 case MessageProtocol.ONE_ADD_YOU_SRES://有人申请加好友
-                    MsgModel model = new MsgModel(MessageProtocol.AGREE_ADD_FRIEND_CREQ, PlayerPrefs.GetString("username"), this.m_MsgModel.From, "我通过了你的好友申请", DateTime.Now.ToString());
+                    MsgModel model = new MsgModel(MessageProtocol.AGREE_ADD_FRIEND_CREQ, AppInfo.USER_NAME, this.m_MsgModel.From, "我通过了你的好友申请", DateTime.Now.ToString());
                     MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.FRIEND, model);
                     break;
                 case MessageProtocol.ONE_WANT_ADD_GROUP_SRES://有人申请入群

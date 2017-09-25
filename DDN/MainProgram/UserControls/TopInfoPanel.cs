@@ -28,8 +28,8 @@ namespace MainProgram.UserControls
             pictureBoxTopFace.Region = new Region(path);
 
             m_SyncContext = SynchronizationContext.Current;
-            if (PlayerPrefs.GetString("username") != "")
-            {
+           
+           
                 //请求网络数据
                 HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + AppInfo.USER_NAME,delegate(string myinfo) {
                     try
@@ -67,7 +67,7 @@ namespace MainProgram.UserControls
                 NetWorkManager.Instance.offLineEvent += this.offline;
                 NetWorkManager.Instance.onLineEvent += this.onLine;
                 changeLabelOnline(faceImage);
-            }
+            
         }
 
 

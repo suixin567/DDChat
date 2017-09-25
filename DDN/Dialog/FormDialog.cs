@@ -271,14 +271,14 @@ namespace Dialog
             switch (this.m_dialogType)
             {
                 case 1://和群聊天
-                    MsgModel groupMm = new MsgModel(MessageProtocol.CHAT_ME_TO_GROUP_CREQ, PlayerPrefs.GetString("username"), m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
+                    MsgModel groupMm = new MsgModel(MessageProtocol.CHAT_ME_TO_GROUP_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
                     string groupMessage = Coding<MsgModel>.encode(groupMm);
                     Debug.Print("发出的聊天消息是:" + Rich_Edit.Rtf);
                     NetWorkManager.Instance.sendMessage(Protocol.MESSAGE, -1, MessageProtocol.CHAT, groupMessage);
                     Rich_Edit.Rtf = "";
                     break;
                 case 3://和朋友聊天              
-                    MsgModel mm = new MsgModel(MessageProtocol.CHAT_ME_TO_FRIEND_CREQ, PlayerPrefs.GetString("username"), m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
+                    MsgModel mm = new MsgModel(MessageProtocol.CHAT_ME_TO_FRIEND_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
                     string message = Coding<MsgModel>.encode(mm);
                     Debug.Print("发出的聊天消息是:" + Rich_Edit.Rtf);
                     NetWorkManager.Instance.sendMessage(Protocol.MESSAGE, -1, MessageProtocol.CHAT, message);

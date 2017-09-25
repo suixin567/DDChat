@@ -2,8 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics;
-using Mgr;
-using UnityModule;
 using System.Drawing.Drawing2D;
 using System.Threading;
 using Dialog;
@@ -52,6 +50,7 @@ namespace MainProgram.UserControls
             //获取这个群的基本信息
             DataMgr.Instance.getGroupByID(m_myGroupModel.GroupID.ToString(),delegate(GroupInfoModel model) {
                 m_groupInfoModel = model;
+            //     Debug.Print("qqqqqqqqqqq群得到消息" + m_groupInfoModel.Name);
                 initLabelSafePost();
                 //下载头像
 
@@ -69,29 +68,7 @@ namespace MainProgram.UserControls
                     Debug.Print("err---------错误的头像！！！"+ m_groupInfoModel.Face);
                 }
             });
-            //HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + m_myGroupModel.GroupID, delegate (string info) {
-            //    Debug.Print("群model是" + info);                
-            //    try
-            //    {
-            //        m_groupInfoModel = Coding<GroupInfoModel>.decode(info);                                 
-            //        initLabelSafePost();
-            //        //下载头像
-            //        if (m_groupInfoModel.Face != "")
-            //        {
-            //            HttpReqHelper.loadFaceSync(m_groupInfoModel.Face, delegate (Image face) {
-            //                if (face != null)
-            //                {
-            //                    this.pictureBoxGroupFace.Image = face;
-            //                }
-            //            });
-            //        }
-            //    }
-            //    catch (Exception err)
-            //    {
-            //        Debug.Print("GroupItem.GroupItm()解析失败" + err.ToString());
-            //        return;
-            //    }               
-            //});
+       
         }
 
         void initLabelSafePost()
@@ -101,17 +78,17 @@ namespace MainProgram.UserControls
         void initLabel(object state)
         {
             labelName.Text = m_groupInfoModel.Name;
-           // Debug.Print("群名字是" + m_groupInfoModel.Name);
+    
         }
 
         private void 退出这个群ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (m_groupInfoModel.Master == PlayerPrefs.GetString("username"))
+            if (m_groupInfoModel.Master == AppInfo.USER_NAME)
             {
                 MainMgr.Instance.formMain.flowLayoutPanelGroupList.showOpreationResultSafePost("群主不可以退出群");
                 return;
             }
-            MsgModel mm = new MsgModel(MessageProtocol.QUIT_GROUP_CREQ, PlayerPrefs.GetString("username"), m_myGroupModel.GroupID.ToString(), "不想继续留在这个群了，再见！", DateTime.Now.ToString());
+            MsgModel mm = new MsgModel(MessageProtocol.QUIT_GROUP_CREQ, AppInfo.USER_NAME, m_myGroupModel.GroupID.ToString(), "不想继续留在这个群了，再见！", DateTime.Now.ToString());
             MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, mm);
         }
         //双击

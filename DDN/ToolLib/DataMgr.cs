@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace ToolLib
 {
@@ -25,8 +27,9 @@ namespace ToolLib
         #endregion
 
         #region 属性
-        Dictionary<string, PersonalInfoModel> personalDic = new Dictionary<string, PersonalInfoModel>();
-        Dictionary<string, GroupInfoModel> groupDic = new Dictionary<string, GroupInfoModel>();
+        ConcurrentDictionary<string, PersonalInfoModel> personalDic = new ConcurrentDictionary<string, PersonalInfoModel>();
+        ConcurrentDictionary<string, GroupInfoModel> groupDic = new ConcurrentDictionary<string, GroupInfoModel>();
+        public static object locker = new object();//添加一个对象作为锁
         #endregion
 
 
@@ -45,7 +48,7 @@ namespace ToolLib
                     try
                     {
                         PersonalInfoModel model = Coding<PersonalInfoModel>.decode(personalInfo);
-                        personalDic.Add(personalId,model);
+                        personalDic.TryAdd(personalId,model);
                         if (callBack != null)
                         {
                             callBack(model);
@@ -83,8 +86,8 @@ namespace ToolLib
                     {
                      
                         GroupInfoModel model = Coding<GroupInfoModel>.decode(info);
-                        Debug.Print("收到信息"+ groupId+"  " + model.Face);
-                        groupDic.Add(groupId, model);
+                      //  Debug.Print("收到信息"+ groupId+"  " + model.Name+ model.Master+"|||"+model.Createdtime+model.Verifymode);
+                        groupDic.TryAdd(groupId, model);
                         if (callBack != null)
                         {
                             callBack(model);
@@ -92,7 +95,7 @@ namespace ToolLib
                     }
                     catch (Exception err)
                     {
-                        Debug.Print("DataMgr.getGroupByID解析失败" + err.ToString());
+                        Debug.Print("!!!DataMgr.getGroupByID解析失败" + err.ToString());
                         if (callBack != null)
                         {
                             callBack(default(GroupInfoModel));

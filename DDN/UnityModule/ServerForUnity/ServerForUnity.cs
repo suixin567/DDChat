@@ -137,8 +137,8 @@ namespace UnityModule
                         UnityManager.Instance.unityMode = 1;
                     }                 
                     //返回个人信息
-                    Debug.Print("返回的个人信息是" + PlayerPrefs.GetString("username") +"网络模式"+UnityManager.Instance.netMode);
-                    SendMessage(UnityProtocol.SELF_INFO, 0,UnityManager.Instance.netMode, PlayerPrefs.GetString("username"));
+                    Debug.Print("返回的个人信息是" + AppInfo.USER_NAME + "网络模式"+UnityManager.Instance.netMode);
+                    SendMessage(UnityProtocol.SELF_INFO, 0,UnityManager.Instance.netMode, AppInfo.USER_NAME);
                     Debug.Print("修改Unity标题" + model.Message);
                     UnityManager.Instance.UnityOpened();
                     //try

@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Mgr;
+using ToolLib;
 
 namespace MainProgram
 {
@@ -67,7 +68,7 @@ namespace MainProgram
                 createGroupModel.VerifyModel = 0;
             }
             string msgContent = Coding<CreateGroupModel>.encode(createGroupModel);
-            MsgModel mm = new MsgModel(MessageProtocol.CREATE_GROUP_CREQ, PlayerPrefs.GetString("username"), "", msgContent, DateTime.Now.ToString());
+            MsgModel mm = new MsgModel(MessageProtocol.CREATE_GROUP_CREQ, AppInfo.USER_NAME, "", msgContent, DateTime.Now.ToString());
             MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, mm);
             this.textBoxGroupName.Text = "";
         }

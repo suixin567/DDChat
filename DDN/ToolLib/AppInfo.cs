@@ -1,6 +1,5 @@
 ﻿
-namespace ToolLib
-{
+
    public class AppInfo
     {
         public static string USER_NAME = "";
@@ -8,4 +7,4 @@ namespace ToolLib
         //个人数据模型
         public static PersonalInfoModel PERSONAL_INFO = new PersonalInfoModel();
     }
-}
+

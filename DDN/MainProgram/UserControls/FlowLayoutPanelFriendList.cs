@@ -48,7 +48,7 @@ namespace MainProgram.UserControls
 
         void pullFriendList()
         {
-             HttpReqHelper.requestSync(AppConst.WebUrl + "friendList?username=" + PlayerPrefs.GetString("username") , delegate(string pullFriendList) {
+             HttpReqHelper.requestSync(AppConst.WebUrl + "friendList?username=" + AppInfo.USER_NAME, delegate(string pullFriendList) {
                  Debug.Print("我的好友列表------>>>>>>" + pullFriendList);
                  string[] friendArr = pullFriendList.Split(',');
                  foreach (var friend in friendArr)

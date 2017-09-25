@@ -10,16 +10,18 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
 using Mgr;
+using ToolLib;
 
 namespace MainProgram.UserControls
 {
     public partial class FlowLayoutPanelGroupList : UserControl
     {
 
+        #region 属性
         public FormCreateGroup formCreateGroup;
-
         public SynchronizationContext m_SyncContext = null;
         public int amount = 0;//群组个数        
+        #endregion
 
         public FlowLayoutPanelGroupList()
         {
@@ -35,7 +37,7 @@ namespace MainProgram.UserControls
         //拉取群列表
         void pullGroupList()
         {
-            HttpReqHelper.requestSync(AppConst.WebUrl + "groupList?username=" + PlayerPrefs.GetString("username"),delegate(string pullGroupList) {
+            HttpReqHelper.requestSync(AppConst.WebUrl + "groupList?username=" + AppInfo.USER_NAME ,delegate(string pullGroupList) {
                 Debug.Print("我的群列表------>>>>>>" + pullGroupList);
                 if (pullGroupList=="") {
                     return;

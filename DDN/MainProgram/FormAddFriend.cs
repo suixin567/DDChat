@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Threading;
 using MainProgram.UserControls;
 using Mgr;
+using ToolLib;
 
 namespace MainProgram
 {
@@ -38,13 +39,13 @@ namespace MainProgram
             showOpreationResultSafePost("输入不能为空。");
             return;
             }
-            if (textBoxFindFriend.Text == PlayerPrefs.GetString("username"))
+            if (textBoxFindFriend.Text == AppInfo.USER_NAME)
             {
              showOpreationResultSafePost("不可以添加自己。");
              return;
             }
 
-            if (textBoxFindFriend.Text != "" && textBoxFindFriend.Text != PlayerPrefs.GetString("username"))
+            if (textBoxFindFriend.Text != "")
             {
                 this.flowLayoutPanelStrangers.Controls.Clear();
                 HttpReqHelper.requestSync(AppConst.WebUrl+"findFriend?username="+textBoxFindFriend.Text,delegate(string friends) {
