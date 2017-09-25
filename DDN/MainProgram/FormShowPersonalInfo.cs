@@ -45,7 +45,7 @@ namespace MainProgram
         {
             if (formModifyPersionalInfo == null || formModifyPersionalInfo.IsDisposed)
             {
-                formModifyPersionalInfo = new FormModifyPersionalInfo(this);
+                formModifyPersionalInfo = new FormModifyPersionalInfo();
                 formModifyPersionalInfo.Show();
             }
             else {
@@ -55,9 +55,18 @@ namespace MainProgram
 
 
         //点击修改头像
+        FormModifyFace formModifyFace = null;
         private void pictureBoxFace_Click(object sender, EventArgs e)
         {
-            //TODO:
+            if (formModifyFace == null || formModifyFace.IsDisposed)
+            {
+                formModifyFace = new FormModifyFace();
+                formModifyFace.Show();
+            }
+            else
+            {
+                formModifyFace.Activate();
+            }
         }
 
 

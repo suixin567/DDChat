@@ -14,11 +14,10 @@ namespace MainProgram
         string oldNickName;
         string oldBoxDisc;
         public SynchronizationContext m_SyncContext = null;
-        FormShowPersonalInfo m_FormShowPersonalInfo;
         #endregion
 
 
-        public FormModifyPersionalInfo(FormShowPersonalInfo formShowPersonalInfo)
+        public FormModifyPersionalInfo()
         {
             InitializeComponent();
             this.textBoxNickName.Text =AppInfo.PERSONAL_INFO.Nickname;
@@ -26,7 +25,7 @@ namespace MainProgram
             oldNickName = AppInfo.PERSONAL_INFO.Nickname;
             oldBoxDisc = AppInfo.PERSONAL_INFO.Description;
             m_SyncContext = SynchronizationContext.Current;
-            m_FormShowPersonalInfo = formShowPersonalInfo;
+          
         }
 
 

@@ -69,6 +69,12 @@
     <Compile Include="FormCreateGroup.Designer.cs">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormModifyFace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModifyFace.Designer.cs">
+      <DependentUpon>FormModifyFace.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormModifyPersionalInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     <Compile Include="VerifyMsgMgr.cs" />
     <EmbeddedResource Include="FormCreateGroup.resx">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModifyFace.resx">
+      <DependentUpon>FormModifyFace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormModifyPersionalInfo.resx">
       <DependentUpon>FormModifyPersionalInfo.cs</DependentUpon>
