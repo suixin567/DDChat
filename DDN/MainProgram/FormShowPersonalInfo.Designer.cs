@@ -32,14 +32,14 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonMin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelAcc = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelDisc = new System.Windows.Forms.Label();
+            this.labelDescription = new System.Windows.Forms.Label();
             this.pictureBoxFace = new System.Windows.Forms.PictureBox();
             this.labelNickName = new System.Windows.Forms.Label();
             this.labelModify = new System.Windows.Forms.Label();
             this.labelChangeFace = new System.Windows.Forms.Label();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             this.SuspendLayout();
@@ -81,14 +81,14 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormModifyPersonalInfo_MouseDown);
             // 
-            // label1
+            // labelAcc
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(366, 128);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "账号：";
+            this.labelAcc.AutoSize = true;
+            this.labelAcc.Location = new System.Drawing.Point(366, 128);
+            this.labelAcc.Name = "labelAcc";
+            this.labelAcc.Size = new System.Drawing.Size(41, 12);
+            this.labelAcc.TabIndex = 3;
+            this.labelAcc.Text = "账号：";
             // 
             // labelUsername
             // 
@@ -99,23 +99,14 @@
             this.labelUsername.TabIndex = 4;
             this.labelUsername.Text = "123456";
             // 
-            // label3
+            // labelDescription
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(366, 157);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "个人签名：";
-            // 
-            // labelDisc
-            // 
-            this.labelDisc.AutoSize = true;
-            this.labelDisc.Location = new System.Drawing.Point(425, 157);
-            this.labelDisc.Name = "labelDisc";
-            this.labelDisc.Size = new System.Drawing.Size(101, 12);
-            this.labelDisc.TabIndex = 6;
-            this.labelDisc.Text = "我还没有个人签名";
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Location = new System.Drawing.Point(366, 168);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(65, 12);
+            this.labelDescription.TabIndex = 5;
+            this.labelDescription.Text = "个人签名：";
             // 
             // pictureBoxFace
             // 
@@ -145,7 +136,7 @@
             this.labelModify.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelModify.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelModify.ForeColor = System.Drawing.Color.SteelBlue;
-            this.labelModify.Location = new System.Drawing.Point(613, 45);
+            this.labelModify.Location = new System.Drawing.Point(451, 68);
             this.labelModify.Name = "labelModify";
             this.labelModify.Size = new System.Drawing.Size(63, 14);
             this.labelModify.TabIndex = 9;
@@ -157,7 +148,7 @@
             this.labelChangeFace.AutoSize = true;
             this.labelChangeFace.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelChangeFace.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelChangeFace.ForeColor = System.Drawing.Color.Blue;
+            this.labelChangeFace.ForeColor = System.Drawing.Color.SteelBlue;
             this.labelChangeFace.Location = new System.Drawing.Point(367, 92);
             this.labelChangeFace.Name = "labelChangeFace";
             this.labelChangeFace.Size = new System.Drawing.Size(77, 12);
@@ -165,19 +156,29 @@
             this.labelChangeFace.Text = "点击更换头像";
             this.labelChangeFace.Click += new System.EventHandler(this.labelChangeFace_Click);
             // 
+            // textBoxDescription
+            // 
+            this.textBoxDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxDescription.Location = new System.Drawing.Point(368, 191);
+            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.ReadOnly = true;
+            this.textBoxDescription.Size = new System.Drawing.Size(301, 146);
+            this.textBoxDescription.TabIndex = 11;
+            // 
             // FormShowPersonalInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 520);
+            this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.labelChangeFace);
             this.Controls.Add(this.labelModify);
             this.Controls.Add(this.labelNickName);
             this.Controls.Add(this.pictureBoxFace);
-            this.Controls.Add(this.labelDisc);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelUsername);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelAcc);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonMin);
             this.Controls.Add(this.buttonClose);
@@ -198,13 +199,13 @@
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonMin;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelAcc;
         private System.Windows.Forms.Label labelUsername;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label labelDisc;
+        private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.PictureBox pictureBoxFace;
         private System.Windows.Forms.Label labelNickName;
         private System.Windows.Forms.Label labelModify;
         private System.Windows.Forms.Label labelChangeFace;
+        private System.Windows.Forms.TextBox textBoxDescription;
     }
 }

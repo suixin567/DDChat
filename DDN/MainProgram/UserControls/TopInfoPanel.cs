@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Drawing.Drawing2D;
 using ToolLib;
+using System.Diagnostics;
 
 namespace MainProgram.UserControls
 {
@@ -60,9 +61,16 @@ namespace MainProgram.UserControls
         }
         void initNickLabel(object state)
         {
-            this.labelSelfNickName.Text = AppInfo.PERSONAL_INFO.Nickname;
+            if (AppInfo.PERSONAL_INFO.Nickname.Length < 5)
+            {
+                this.labelSelfNickName.Text = AppInfo.PERSONAL_INFO.Nickname;
+            }
+            else {
+                this.labelSelfNickName.Text = AppInfo.PERSONAL_INFO.Nickname.Substring(0,4)+"...";
+            }
+                             
             this.labelSelfDescription.Text = AppInfo.PERSONAL_INFO.Description;
-            this.labelOnlineState.Location = new Point(labelSelfNickName.Location.X + labelSelfNickName.Width + 7, labelSelfNickName.Location.Y + 2);
+            this.labelOnlineState.Location = new Point(labelSelfNickName.Location.X + labelSelfNickName.Width + 2, labelSelfNickName.Location.Y + 2);
         }
 
 

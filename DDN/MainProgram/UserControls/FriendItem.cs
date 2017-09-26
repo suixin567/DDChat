@@ -42,7 +42,7 @@ namespace MainProgram.UserControls
             m_SyncContext = SynchronizationContext.Current;
             //获取这个好友的基本信息
             DataMgr.Instance.getPersonalByID(FriendUsername,delegate(PersonalInfoModel friendModel) {
-            //    Debug.Print("收到一名朋友的信息" + friendModel.Nickname);
+                Debug.Print("朋友的信息：" + FriendUsername +"   "+ friendModel .Username+ friendModel.Nickname);
                 m_friendModel = friendModel;
                 initLabelSafePost();
                 //下载头像
@@ -158,6 +158,21 @@ namespace MainProgram.UserControls
         {
             FormPersionalInfo.Instance.leaveItem(m_friendModel.Username);           
         }
-       
+
+        //查看好友资料
+        FormShowPersonalInfo formModifyPersonalInfo = null;
+        private void 查看资料ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (formModifyPersonalInfo == null || formModifyPersonalInfo.IsDisposed)
+            {
+                formModifyPersonalInfo = new FormShowPersonalInfo(m_friendModel,this.friendFacePictureBox.Image);
+                formModifyPersonalInfo.Show();
+            }
+        }
+
+        private void 发送消息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FriendItem_MouseDoubleClick(null,null);
+        }
     }
 }

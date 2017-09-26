@@ -34,6 +34,8 @@
             this.labelName = new System.Windows.Forms.Label();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.退出这个公司ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看群资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.发送群消息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGroupFace)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -64,16 +66,32 @@
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.发送群消息ToolStripMenuItem,
+            this.查看群资料ToolStripMenuItem,
             this.退出这个公司ToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(137, 26);
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 92);
             // 
             // 退出这个公司ToolStripMenuItem
             // 
             this.退出这个公司ToolStripMenuItem.Name = "退出这个公司ToolStripMenuItem";
-            this.退出这个公司ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.退出这个公司ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.退出这个公司ToolStripMenuItem.Text = "退出这个群";
             this.退出这个公司ToolStripMenuItem.Click += new System.EventHandler(this.退出这个群ToolStripMenuItem_Click);
+            // 
+            // 查看群资料ToolStripMenuItem
+            // 
+            this.查看群资料ToolStripMenuItem.Name = "查看群资料ToolStripMenuItem";
+            this.查看群资料ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.查看群资料ToolStripMenuItem.Text = "查看群资料";
+            this.查看群资料ToolStripMenuItem.Click += new System.EventHandler(this.查看群资料ToolStripMenuItem_Click);
+            // 
+            // 发送群消息ToolStripMenuItem
+            // 
+            this.发送群消息ToolStripMenuItem.Name = "发送群消息ToolStripMenuItem";
+            this.发送群消息ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.发送群消息ToolStripMenuItem.Text = "发送群消息";
+            this.发送群消息ToolStripMenuItem.Click += new System.EventHandler(this.发送群消息ToolStripMenuItem_Click);
             // 
             // GroupItem
             // 
@@ -101,5 +119,7 @@
         public System.Windows.Forms.Label labelName;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem 退出这个公司ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 发送群消息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 查看群资料ToolStripMenuItem;
     }
 }

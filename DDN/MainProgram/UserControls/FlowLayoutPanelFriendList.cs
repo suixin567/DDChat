@@ -199,5 +199,10 @@ namespace MainProgram.UserControls
             //UnityManager.Instance.changeUnityScene(4);
             //UnityManager.Instance.resourceMode = 2;
         }
+
+        private void 查看自己的资源ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelSelf_MouseDoubleClick(null,null);
+        }
     }
 }

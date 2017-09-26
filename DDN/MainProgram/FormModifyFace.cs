@@ -136,5 +136,10 @@ namespace MainProgram
             this.Close();
             this.Dispose();
         }
+
+        private void buttonCancle_Click(object sender, EventArgs e)
+        {
+            buttonClose_Click(null,null);
+        }
     }
 }

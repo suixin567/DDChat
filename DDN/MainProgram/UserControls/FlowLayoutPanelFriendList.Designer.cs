@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FlowLayoutPanelFriendList));
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonFriend = new System.Windows.Forms.Button();
@@ -35,9 +36,12 @@
             this.labelTip = new System.Windows.Forms.Label();
             this.labelSelf = new System.Windows.Forms.Label();
             this.pictureBoxSelfFace = new System.Windows.Forms.PictureBox();
+            this.contextMenuStripSelf = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.查看自己的资源ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel.SuspendLayout();
             this.panelSelf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelfFace)).BeginInit();
+            this.contextMenuStripSelf.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel
@@ -76,6 +80,7 @@
             // panelSelf
             // 
             this.panelSelf.BackColor = System.Drawing.Color.White;
+            this.panelSelf.ContextMenuStrip = this.contextMenuStripSelf;
             this.panelSelf.Controls.Add(this.labelTip);
             this.panelSelf.Controls.Add(this.labelSelf);
             this.panelSelf.Controls.Add(this.pictureBoxSelfFace);
@@ -119,6 +124,20 @@
             this.pictureBoxSelfFace.TabStop = false;
             this.pictureBoxSelfFace.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSelfFace_MouseDoubleClick);
             // 
+            // contextMenuStripSelf
+            // 
+            this.contextMenuStripSelf.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.查看自己的资源ToolStripMenuItem});
+            this.contextMenuStripSelf.Name = "contextMenuStripSelf";
+            this.contextMenuStripSelf.Size = new System.Drawing.Size(161, 26);
+            // 
+            // 查看自己的资源ToolStripMenuItem
+            // 
+            this.查看自己的资源ToolStripMenuItem.Name = "查看自己的资源ToolStripMenuItem";
+            this.查看自己的资源ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.查看自己的资源ToolStripMenuItem.Text = "查看自己的资源";
+            this.查看自己的资源ToolStripMenuItem.Click += new System.EventHandler(this.查看自己的资源ToolStripMenuItem_Click);
+            // 
             // FlowLayoutPanelFriendList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -131,6 +150,7 @@
             this.panelSelf.ResumeLayout(false);
             this.panelSelf.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelfFace)).EndInit();
+            this.contextMenuStripSelf.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -143,5 +163,7 @@
         private System.Windows.Forms.PictureBox pictureBoxSelfFace;
         private System.Windows.Forms.Label labelSelf;
         private System.Windows.Forms.Label labelTip;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripSelf;
+        private System.Windows.Forms.ToolStripMenuItem 查看自己的资源ToolStripMenuItem;
     }
 }

@@ -126,5 +126,21 @@ namespace MainProgram.UserControls
         {
             FormPersionalInfo.Instance.leaveItem(m_groupInfoModel.Gid.ToString());
         }
+
+        private void 发送群消息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GroupItem_MouseDoubleClick(null,null);
+        }
+
+        //查看群资料
+        FormShowPersonalInfo formModifyPersonalInfo = null;
+        private void 查看群资料ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (formModifyPersonalInfo == null || formModifyPersonalInfo.IsDisposed)
+            {
+                formModifyPersonalInfo = new FormShowPersonalInfo( m_groupInfoModel, this.pictureBoxGroupFace.Image);
+                formModifyPersonalInfo.Show();
+            }
+        }
     }
 }

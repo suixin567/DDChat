@@ -35,6 +35,8 @@
             this.LabelDescription = new System.Windows.Forms.Label();
             this.contextMenuStripFriendItem = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除好友ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.发送消息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.friendFacePictureBox)).BeginInit();
             this.contextMenuStripFriendItem.SuspendLayout();
             this.SuspendLayout();
@@ -76,16 +78,32 @@
             // contextMenuStripFriendItem
             // 
             this.contextMenuStripFriendItem.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.发送消息ToolStripMenuItem,
+            this.查看资料ToolStripMenuItem,
             this.删除好友ToolStripMenuItem});
             this.contextMenuStripFriendItem.Name = "contextMenuStripFriendItem";
-            this.contextMenuStripFriendItem.Size = new System.Drawing.Size(125, 26);
+            this.contextMenuStripFriendItem.Size = new System.Drawing.Size(153, 92);
             // 
             // 删除好友ToolStripMenuItem
             // 
             this.删除好友ToolStripMenuItem.Name = "删除好友ToolStripMenuItem";
-            this.删除好友ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.删除好友ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.删除好友ToolStripMenuItem.Text = "删除好友";
             this.删除好友ToolStripMenuItem.Click += new System.EventHandler(this.删除好友ToolStripMenuItem_Click);
+            // 
+            // 查看资料ToolStripMenuItem
+            // 
+            this.查看资料ToolStripMenuItem.Name = "查看资料ToolStripMenuItem";
+            this.查看资料ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.查看资料ToolStripMenuItem.Text = "查看资料";
+            this.查看资料ToolStripMenuItem.Click += new System.EventHandler(this.查看资料ToolStripMenuItem_Click);
+            // 
+            // 发送消息ToolStripMenuItem
+            // 
+            this.发送消息ToolStripMenuItem.Name = "发送消息ToolStripMenuItem";
+            this.发送消息ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.发送消息ToolStripMenuItem.Text = "发送消息";
+            this.发送消息ToolStripMenuItem.Click += new System.EventHandler(this.发送消息ToolStripMenuItem_Click);
             // 
             // FriendItem
             // 
@@ -115,5 +133,7 @@
         private System.Windows.Forms.Label LabelDescription;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripFriendItem;
         private System.Windows.Forms.ToolStripMenuItem 删除好友ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 查看资料ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 发送消息ToolStripMenuItem;
     }
 }

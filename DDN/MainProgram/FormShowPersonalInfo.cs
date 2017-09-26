@@ -1,31 +1,71 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
-using ToolLib;
 
 namespace MainProgram
 {
     public partial class FormShowPersonalInfo : Form
     {
-        SynchronizationContext m_SyncContext = null;
 
+        #region 属性
+        SynchronizationContext m_SyncContext = null;
+        int m_windowType = -1; //1群资料卡 2自己的资料卡 3朋友资料卡
+        #endregion
 
         public FormShowPersonalInfo()
         {
             InitializeComponent();
+            m_windowType = 2;
+            m_SyncContext = SynchronizationContext.Current;
             this.labelNickName.Text = AppInfo.PERSONAL_INFO.Nickname;
             this.labelUsername.Text = AppInfo.PERSONAL_INFO.Username;
-            this.labelDisc.Text = AppInfo.PERSONAL_INFO.Description;
+
+            //设置签名信息
+            this.textBoxDescription.Text = AppInfo.PERSONAL_INFO.Description;
             this.pictureBoxFace.Image = AppInfo.SELF_FACE;
 
             //注册头像被修改的事件
             AppInfo.onPersonalFaceChanged += this.refreshFaceSafePost;
             //注册资料被修改的事件
             AppInfo.onPersonalInfoModelChanged += this.refreshSafePost;
+           
+        }
+
+        //朋友资料时调用
+        public FormShowPersonalInfo(PersonalInfoModel friendModel,Image face)
+        {
+            InitializeComponent();
+            m_windowType = 3;
             m_SyncContext = SynchronizationContext.Current;
+            this.labelNickName.Text = friendModel.Nickname;
+            this.labelUsername.Text = friendModel.Username;
+            this.textBoxDescription.Text = friendModel.Description;
+            this.pictureBoxFace.Image = face;
+            //隐藏修改内容
+            this.labelChangeFace.Hide();
+            this.labelModify.Hide(); 
+        }
+
+        //群资料时调用
+        public FormShowPersonalInfo(GroupInfoModel groupModel, Image face)
+        {
+            InitializeComponent();
+            m_windowType = 1;
+            m_SyncContext = SynchronizationContext.Current;
+            this.labelNickName.Text = groupModel.Name;
+            this.labelUsername.Text ="群号:"+ groupModel.Gid;   
+            this.pictureBoxFace.Image = face;
+            //隐藏修改内容
+            this.labelChangeFace.Hide();
+            this.labelModify.Hide();
+          
+            this.labelAcc.Hide();
+            this.labelDescription.Hide();
+            this.textBoxDescription.Hide();
         }
 
         private void FormModifyPersonalInfo_Load(object sender, EventArgs e)
@@ -56,6 +96,10 @@ namespace MainProgram
         FormModifyFace formModifyFace = null;
         private void pictureBoxFace_Click(object sender, EventArgs e)
         {
+            if (m_windowType != 2)
+            {
+                return;
+            }
             if (formModifyFace == null || formModifyFace.IsDisposed)
             {
                 formModifyFace = new FormModifyFace();
@@ -66,6 +110,10 @@ namespace MainProgram
                 formModifyFace.Activate();
             }
         }
+        private void labelChangeFace_Click(object sender, EventArgs e)
+        {
+            pictureBoxFace_Click(null, null);
+        }
 
 
         //刷新展示内容
@@ -75,8 +123,8 @@ namespace MainProgram
         }
         void refresh(object state)
         {
-            this.labelNickName.Text = AppInfo.PERSONAL_INFO.Nickname;
-            this.labelDisc.Text = AppInfo.PERSONAL_INFO.Description;
+            this.labelNickName.Text = AppInfo.PERSONAL_INFO.Nickname;                 
+            this.textBoxDescription.Text = AppInfo.PERSONAL_INFO.Description;          
         }
 
         //刷新头像
@@ -119,9 +167,9 @@ namespace MainProgram
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void labelChangeFace_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            pictureBoxFace_Click(null,null);
+            this.textBoxDescription.Text = "你好胜多负少的雷锋精神第六空间分类考试的解放路口时代峻峰莱克斯顿解放路可视对讲焚枯食淡垃圾分类收拾房间适量的开房记录上岛咖啡 ";
         }
     }
 }
