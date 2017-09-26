@@ -19,40 +19,46 @@ namespace MainProgram.UserControls
         {
             InitializeComponent();
         
-        }       
+        }
 
         private void TopInfoPanel_Load(object sender, EventArgs e)
         {
+
+
             faceImage = this.pictureBoxTopFace.Image;
             GraphicsPath path = new GraphicsPath();
             path.AddArc(pictureBoxTopFace.DisplayRectangle, 0, 360);
             pictureBoxTopFace.Region = new Region(path);
+
             m_SyncContext = SynchronizationContext.Current;
+
             //注册资料被修改的事件
             AppInfo.onPersonalInfoModelChanged += this.initNickLabelSafePost;
             //注册头像被修改的事件
             AppInfo.onPersonalFaceChanged += this.initFaceSafePost;
 
             //请求网络数据，获取个人信息
-            DataMgr.Instance.getPersonalByID(AppInfo.USER_NAME, delegate (PersonalInfoModel model) {
-                AppInfo.PERSONAL_INFO = model;                          
+            DataMgr.Instance.getPersonalByID(AppInfo.USER_NAME, delegate (PersonalInfoModel model)
+            {
+                AppInfo.PERSONAL_INFO = model;
                 //请求头像
                 if (AppInfo.PERSONAL_INFO.Face != "")
-                {                    
-                    HttpReqHelper.loadFaceSync(AppInfo.PERSONAL_INFO.Face, delegate (Image face) {
+                {
+                    HttpReqHelper.loadFaceSync(AppInfo.PERSONAL_INFO.Face, delegate (Image face)
+                    {
                         faceImage = face;
                         if (faceImage != null)
-                        {                                                                        
+                        {
                             AppInfo.SELF_FACE = faceImage;
                         }
                     });
                 }
-            });                        
-                //在线状态显示               
-                NetWorkManager.Instance.offLineEvent += this.offline;
-                NetWorkManager.Instance.onLineEvent += this.onLine;
-                changeLabelOnline(faceImage);
-            
+            });
+
+            //在线状态显示               
+            NetWorkManager.Instance.offLineEvent += this.offline;
+            NetWorkManager.Instance.onLineEvent += this.onLine;
+            changeLabelOnline(faceImage);
         }
 
 
@@ -99,19 +105,19 @@ namespace MainProgram.UserControls
         }
 
         void changeLabelOnline(object state) {
-            if (NetWorkManager.Instance.IsConnected)
-            {
-                this.labelOnlineState.Text = "在线";
-                this.labelOnlineState.ForeColor = Color.Lime;
-                pictureBoxTopFace.Image = faceImage;
-            }
-            else
-            {
-                this.labelOnlineState.Text = "离线";
-                this.labelOnlineState.ForeColor = Color.Red;
-                Image tempImage = ImageTool.grayImage(faceImage);
-                pictureBoxTopFace.Image = tempImage;
-            }
+            //if (NetWorkManager.Instance.IsConnected)
+            //{
+            //    this.labelOnlineState.Text = "在线";
+            //    this.labelOnlineState.ForeColor = Color.Lime;
+            //    pictureBoxTopFace.Image = faceImage;
+            //}
+            //else
+            //{
+            //    this.labelOnlineState.Text = "离线";
+            //    this.labelOnlineState.ForeColor = Color.Red;
+            //    Image tempImage = ImageTool.grayImage(faceImage);
+            //    pictureBoxTopFace.Image = tempImage;
+            //}
         }
 
         //个人资料的主面板
@@ -125,5 +131,39 @@ namespace MainProgram.UserControls
                 formModifyPersonalInfo.Show();
             }
         }
+
+        Label labelTip = null;
+        //鼠标进入头像范围内，则展示资料
+        private void pictureBoxTopFace_MouseEnter(object sender, EventArgs e)
+        {
+            FormPersionalInfo.Instance.SetFormPersionalInfo(3, PointToScreen(this.pictureBoxTopFace.Location), AppInfo.PERSONAL_INFO.Nickname, AppInfo.PERSONAL_INFO.Username, AppInfo.PERSONAL_INFO.Description);
+            FormPersionalInfo.Instance.enterItem("self");
+
+            if (labelTip==null)
+            {
+                labelTip = new Label();
+                ((FormMain)FindForm()).Controls.Add(labelTip);
+                labelTip.Text = "点击修改个人资料!";
+                labelTip.Size = new Size(110, 20);
+                labelTip.Font = new Font("宋体", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(134)));
+                labelTip.ForeColor = Color.Black;
+                labelTip.TextAlign = ContentAlignment.MiddleCenter;
+                labelTip.BackColor = Color.White;
+                Point po = new Point(this.Location.X, this.Location.Y + 65);
+                labelTip.Location = po;
+            }
+            labelTip.BringToFront();
+            labelTip.Show();
+        }
+
+
+        //鼠标离开后关闭资料展示
+        private void pictureBoxTopFace_MouseLeave(object sender, EventArgs e)
+        {
+            FormPersionalInfo.Instance.leaveItem("self");
+            labelTip.Hide();
+        }
+
+     
     }
 }

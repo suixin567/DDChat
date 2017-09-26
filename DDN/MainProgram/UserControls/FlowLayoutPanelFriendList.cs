@@ -204,5 +204,18 @@ namespace MainProgram.UserControls
         {
             panelSelf_MouseDoubleClick(null,null);
         }
+
+        //鼠标进入头像范围内，则展示资料
+        private void pictureBoxSelfFace_MouseEnter(object sender, EventArgs e)
+        {
+            FormPersionalInfo.Instance.SetFormPersionalInfo(3, PointToScreen(this.pictureBoxSelfFace.Location), AppInfo.PERSONAL_INFO.Nickname, AppInfo.PERSONAL_INFO.Username, AppInfo.PERSONAL_INFO.Description);
+            FormPersionalInfo.Instance.enterItem("self");
+        }
+
+        //鼠标离开后关闭资料展示
+        private void pictureBoxSelfFace_MouseLeave(object sender, EventArgs e)
+        {
+            FormPersionalInfo.Instance.leaveItem("self");
+        }
     }
 }

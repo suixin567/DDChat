@@ -33,15 +33,15 @@
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonFriend = new System.Windows.Forms.Button();
             this.panelSelf = new System.Windows.Forms.Panel();
+            this.contextMenuStripSelf = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.查看自己的资源ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelTip = new System.Windows.Forms.Label();
             this.labelSelf = new System.Windows.Forms.Label();
             this.pictureBoxSelfFace = new System.Windows.Forms.PictureBox();
-            this.contextMenuStripSelf = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.查看自己的资源ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel.SuspendLayout();
             this.panelSelf.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelfFace)).BeginInit();
             this.contextMenuStripSelf.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelfFace)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel
@@ -91,6 +91,20 @@
             this.panelSelf.TabIndex = 2;
             this.panelSelf.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panelSelf_MouseDoubleClick);
             // 
+            // contextMenuStripSelf
+            // 
+            this.contextMenuStripSelf.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.查看自己的资源ToolStripMenuItem});
+            this.contextMenuStripSelf.Name = "contextMenuStripSelf";
+            this.contextMenuStripSelf.Size = new System.Drawing.Size(161, 26);
+            // 
+            // 查看自己的资源ToolStripMenuItem
+            // 
+            this.查看自己的资源ToolStripMenuItem.Name = "查看自己的资源ToolStripMenuItem";
+            this.查看自己的资源ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.查看自己的资源ToolStripMenuItem.Text = "查看自己的资源";
+            this.查看自己的资源ToolStripMenuItem.Click += new System.EventHandler(this.查看自己的资源ToolStripMenuItem_Click);
+            // 
             // labelTip
             // 
             this.labelTip.AutoSize = true;
@@ -123,20 +137,8 @@
             this.pictureBoxSelfFace.TabIndex = 0;
             this.pictureBoxSelfFace.TabStop = false;
             this.pictureBoxSelfFace.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxSelfFace_MouseDoubleClick);
-            // 
-            // contextMenuStripSelf
-            // 
-            this.contextMenuStripSelf.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.查看自己的资源ToolStripMenuItem});
-            this.contextMenuStripSelf.Name = "contextMenuStripSelf";
-            this.contextMenuStripSelf.Size = new System.Drawing.Size(161, 26);
-            // 
-            // 查看自己的资源ToolStripMenuItem
-            // 
-            this.查看自己的资源ToolStripMenuItem.Name = "查看自己的资源ToolStripMenuItem";
-            this.查看自己的资源ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.查看自己的资源ToolStripMenuItem.Text = "查看自己的资源";
-            this.查看自己的资源ToolStripMenuItem.Click += new System.EventHandler(this.查看自己的资源ToolStripMenuItem_Click);
+            this.pictureBoxSelfFace.MouseEnter += new System.EventHandler(this.pictureBoxSelfFace_MouseEnter);
+            this.pictureBoxSelfFace.MouseLeave += new System.EventHandler(this.pictureBoxSelfFace_MouseLeave);
             // 
             // FlowLayoutPanelFriendList
             // 
@@ -149,8 +151,8 @@
             this.flowLayoutPanel.ResumeLayout(false);
             this.panelSelf.ResumeLayout(false);
             this.panelSelf.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelfFace)).EndInit();
             this.contextMenuStripSelf.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSelfFace)).EndInit();
             this.ResumeLayout(false);
 
         }

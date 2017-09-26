@@ -49,6 +49,7 @@
             // 
             // pictureBoxTopFace
             // 
+            this.pictureBoxTopFace.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxTopFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxTopFace.Image")));
             this.pictureBoxTopFace.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxTopFace.Name = "pictureBoxTopFace";
@@ -57,11 +58,12 @@
             this.pictureBoxTopFace.TabIndex = 2;
             this.pictureBoxTopFace.TabStop = false;
             this.pictureBoxTopFace.Click += new System.EventHandler(this.pictureBoxTopFace_Click);
+            this.pictureBoxTopFace.MouseEnter += new System.EventHandler(this.pictureBoxTopFace_MouseEnter);
+            this.pictureBoxTopFace.MouseLeave += new System.EventHandler(this.pictureBoxTopFace_MouseLeave);
             // 
             // labelSelfDescription
             // 
-            this.labelSelfDescription.AutoSize = true;
-            this.labelSelfDescription.Location = new System.Drawing.Point(86, 40);
+            this.labelSelfDescription.Location = new System.Drawing.Point(86, 38);
             this.labelSelfDescription.Name = "labelSelfDescription";
             this.labelSelfDescription.Size = new System.Drawing.Size(125, 12);
             this.labelSelfDescription.TabIndex = 3;

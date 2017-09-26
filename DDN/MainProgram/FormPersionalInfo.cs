@@ -96,6 +96,7 @@ namespace MainProgram
             }           
         }
 
+        //标识符
         public void enterItem(string id)
         {
             m_id = id;
