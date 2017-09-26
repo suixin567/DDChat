@@ -79,7 +79,9 @@ namespace MainProgram.UserControls
                 this.labelSelfDescription.Text = AppInfo.PERSONAL_INFO.Description;
                 this.labelOnlineState.Location = new Point(labelSelfNickName.Location.X + labelSelfNickName.Width + 2, labelSelfNickName.Location.Y + 2);
             }
-            catch {}      
+            catch {
+              //  MessageBox.Show("1");
+            }      
         }
 
 
@@ -108,18 +110,24 @@ namespace MainProgram.UserControls
         }
 
         void changeLabelOnline(object state) {
-            if (NetWorkManager.Instance.IsConnected)
+            try
             {
-                this.labelOnlineState.Text = "在线";
-                this.labelOnlineState.ForeColor = Color.Lime;
-                pictureBoxTopFace.Image = faceImage;
+                if (NetWorkManager.Instance.IsConnected)
+                {
+                    this.labelOnlineState.Text = "在线";
+                    this.labelOnlineState.ForeColor = Color.Lime;
+                    pictureBoxTopFace.Image = faceImage;
+                }
+                else
+                {
+                    this.labelOnlineState.Text = "离线";
+                    this.labelOnlineState.ForeColor = Color.Red;
+                    Image tempImage = ImageTool.grayImage(faceImage);
+                    pictureBoxTopFace.Image = tempImage;
+                }
             }
-            else
+            catch
             {
-                this.labelOnlineState.Text = "离线";
-                this.labelOnlineState.ForeColor = Color.Red;
-                Image tempImage = ImageTool.grayImage(faceImage);
-                pictureBoxTopFace.Image = tempImage;
             }
         }
 

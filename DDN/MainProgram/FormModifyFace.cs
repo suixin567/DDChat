@@ -36,7 +36,11 @@ namespace MainProgram
             {
                 MessageBox.Show(ee.Message);
             }
-            this.imagePartSelecter1.SetSourceImage(AppInfo.SELF_FACE);
+            if (AppInfo.SELF_FACE!=null)
+            {
+                this.imagePartSelecter1.SetSourceImage(AppInfo.SELF_FACE);
+            }
+          
             m_SyncContext = SynchronizationContext.Current;
         }
 
@@ -118,6 +122,9 @@ namespace MainProgram
                 //修改新头像
                 AppInfo.SELF_FACE = this.currentImage;
                 saveOKSafePost();
+                //修改本地缓存的头像
+                //本地缓存
+                this.currentImage.Save(AppConst.WinPicPath + "friend"+AppInfo.PERSONAL_INFO.Username+".jpg");
             }
             else
             {
