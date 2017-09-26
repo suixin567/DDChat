@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Drawing.Drawing2D;
 using ToolLib;
-using System.Diagnostics;
 
 namespace MainProgram.UserControls
 {
@@ -23,8 +22,7 @@ namespace MainProgram.UserControls
 
         private void TopInfoPanel_Load(object sender, EventArgs e)
         {
-
-
+         
             faceImage = this.pictureBoxTopFace.Image;
             GraphicsPath path = new GraphicsPath();
             path.AddArc(pictureBoxTopFace.DisplayRectangle, 0, 360);
@@ -67,16 +65,21 @@ namespace MainProgram.UserControls
         }
         void initNickLabel(object state)
         {
-            if (AppInfo.PERSONAL_INFO.Nickname.Length < 5)
+            try
             {
-                this.labelSelfNickName.Text = AppInfo.PERSONAL_INFO.Nickname;
+                if (AppInfo.PERSONAL_INFO.Nickname.Length < 5)
+                {
+                    this.labelSelfNickName.Text = AppInfo.PERSONAL_INFO.Nickname;
+                }
+                else
+                {
+                    this.labelSelfNickName.Text = AppInfo.PERSONAL_INFO.Nickname.Substring(0, 4) + "...";
+                }
+
+                this.labelSelfDescription.Text = AppInfo.PERSONAL_INFO.Description;
+                this.labelOnlineState.Location = new Point(labelSelfNickName.Location.X + labelSelfNickName.Width + 2, labelSelfNickName.Location.Y + 2);
             }
-            else {
-                this.labelSelfNickName.Text = AppInfo.PERSONAL_INFO.Nickname.Substring(0,4)+"...";
-            }
-                             
-            this.labelSelfDescription.Text = AppInfo.PERSONAL_INFO.Description;
-            this.labelOnlineState.Location = new Point(labelSelfNickName.Location.X + labelSelfNickName.Width + 2, labelSelfNickName.Location.Y + 2);
+            catch {}      
         }
 
 
@@ -105,19 +108,19 @@ namespace MainProgram.UserControls
         }
 
         void changeLabelOnline(object state) {
-            //if (NetWorkManager.Instance.IsConnected)
-            //{
-            //    this.labelOnlineState.Text = "在线";
-            //    this.labelOnlineState.ForeColor = Color.Lime;
-            //    pictureBoxTopFace.Image = faceImage;
-            //}
-            //else
-            //{
-            //    this.labelOnlineState.Text = "离线";
-            //    this.labelOnlineState.ForeColor = Color.Red;
-            //    Image tempImage = ImageTool.grayImage(faceImage);
-            //    pictureBoxTopFace.Image = tempImage;
-            //}
+            if (NetWorkManager.Instance.IsConnected)
+            {
+                this.labelOnlineState.Text = "在线";
+                this.labelOnlineState.ForeColor = Color.Lime;
+                pictureBoxTopFace.Image = faceImage;
+            }
+            else
+            {
+                this.labelOnlineState.Text = "离线";
+                this.labelOnlineState.ForeColor = Color.Red;
+                Image tempImage = ImageTool.grayImage(faceImage);
+                pictureBoxTopFace.Image = tempImage;
+            }
         }
 
         //个人资料的主面板

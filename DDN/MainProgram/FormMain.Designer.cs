@@ -242,11 +242,11 @@
         private System.Windows.Forms.Button buttonMin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timerNotifyIcon;
-        private UserControls.TopInfoPanel topInfoPanel1;
         public UserControls.FlowLayoutPanelFriendList flowLayoutPanelFriendList;
         private System.Windows.Forms.Button buttonShop;
         private System.Windows.Forms.PictureBox buttonFindFriend;
         private UserControls.MainTabControl mainTabControl1;
+        private UserControls.TopInfoPanel topInfoPanel1;
     }
 }
 

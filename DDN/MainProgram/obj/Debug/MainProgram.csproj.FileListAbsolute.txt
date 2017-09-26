@@ -56,6 +56,9 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\MainProgram.dll.config
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\MainProgram.dll
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\MainProgram.pdb
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\Dialog.dll
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\ESBasic.dll
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\OMCS.dll
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\PaintFramework.dll
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\ToolLib.dll
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\UnityModule.dll
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\LitJson.dll
@@ -64,6 +67,10 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\ToolLib.pdb
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\UnityModule.pdb
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.csprojResolveAssemblyReference.cache
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormCreateGroup.resources
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormModifyFace.resources
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormModifyPersionalInfo.resources
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormShowPersonalInfo.resources
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormPersionalInfo.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.MsgTip.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.AddFriendItem.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormAddFriend.resources
@@ -87,10 +94,3 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.V
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.csproj.GenerateResource.Cache
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.dll
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.pdb
-C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormPersionalInfo.resources
-C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormShowPersonalInfo.resources
-C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormModifyPersionalInfo.resources
-C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormModifyFace.resources
-C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\ESBasic.dll
-C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\OMCS.dll
-C:\Users\文强\Desktop\DDN\DDN\MainProgram\bin\Debug\PaintFramework.dll

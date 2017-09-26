@@ -12,11 +12,11 @@ public class ImageTool
 
         public static Image grayImage(Image image)
         {
-        //if (image==null)
+        //if (image == null)
         //{
         //    return null;
         //}
-            int Height = image.Height;
+        int Height = image.Height;
             int Width = image.Width;
             Bitmap bitmap = new Bitmap(Width, Height);
             Bitmap MyBitmap = (Bitmap)image;
