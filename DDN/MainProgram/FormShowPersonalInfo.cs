@@ -16,15 +16,16 @@ namespace MainProgram
         public FormShowPersonalInfo()
         {
             InitializeComponent();
-        }
-
-        public FormShowPersonalInfo(Image face)
-        {
-            InitializeComponent();
             this.labelNickName.Text = AppInfo.PERSONAL_INFO.Nickname;
             this.labelUsername.Text = AppInfo.PERSONAL_INFO.Username;
             this.labelDisc.Text = AppInfo.PERSONAL_INFO.Description;
-            this.pictureBoxFace.Image = face;
+            this.pictureBoxFace.Image = AppInfo.SELF_FACE;
+
+            //注册头像被修改的事件
+            AppInfo.onPersonalFaceChanged += this.refreshFaceSafePost;
+            //注册资料被修改的事件
+            AppInfo.onPersonalInfoModelChanged += this.refreshSafePost;
+            m_SyncContext = SynchronizationContext.Current;
         }
 
         private void FormModifyPersonalInfo_Load(object sender, EventArgs e)
@@ -32,10 +33,7 @@ namespace MainProgram
             int x = (SystemInformation.WorkingArea.Width/2 - this.Size.Width/2);
             int y = (SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2);
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = (Point)new Size(x, y);
-            //注册资料被修改的事件
-            AppInfo.onPersonalInfoModelChanged += this.refreshSafePost;
-            m_SyncContext = SynchronizationContext.Current;
+            this.Location = (Point)new Size(x, y);         
         }
 
 
@@ -81,6 +79,15 @@ namespace MainProgram
             this.labelDisc.Text = AppInfo.PERSONAL_INFO.Description;
         }
 
+        //刷新头像
+        void refreshFaceSafePost()
+        {
+            m_SyncContext.Post(refreshFace, null);
+        }
+        void refreshFace(object state)
+        {
+            this.pictureBoxFace.Image = AppInfo.SELF_FACE;           
+        }
 
 
 
@@ -110,6 +117,11 @@ namespace MainProgram
         private void buttonMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void labelChangeFace_Click(object sender, EventArgs e)
+        {
+            pictureBoxFace_Click(null,null);
         }
     }
 }

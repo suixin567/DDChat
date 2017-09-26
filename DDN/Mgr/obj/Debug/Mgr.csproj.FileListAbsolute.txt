@@ -49,3 +49,6 @@ C:\Users\文强\Desktop\DDN\DDN\Mgr\obj\Debug\Mgr.Properties.Resources.resources
 C:\Users\文强\Desktop\DDN\DDN\Mgr\obj\Debug\Mgr.csproj.GenerateResource.Cache
 C:\Users\文强\Desktop\DDN\DDN\Mgr\obj\Debug\Mgr.exe
 C:\Users\文强\Desktop\DDN\DDN\Mgr\obj\Debug\Mgr.pdb
+C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\OMCS.dll
+C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\PaintFramework.dll
+C:\Users\文强\Desktop\DDN\DDN\Mgr\bin\Debug\ESBasic.dll

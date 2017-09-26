@@ -26,6 +26,8 @@ namespace MainProgram.UserControls
             m_SyncContext = SynchronizationContext.Current;
             //注册资料被修改的事件
             AppInfo.onPersonalInfoModelChanged += this.InitSelfInfoSafePost;
+            //注册头像被修改的事件
+            AppInfo.onPersonalFaceChanged += this.InitSelfFace;
         }
 
         private void FlowLayoutPanelFriendList_Load(object sender, EventArgs e)
@@ -44,9 +46,9 @@ namespace MainProgram.UserControls
         }
 
         //设置自己的头像
-        public void InitSelfFace(Image face)
+        public void InitSelfFace()
         {
-            this.pictureBoxSelfFace.Image = face;        
+            this.pictureBoxSelfFace.Image = AppInfo.SELF_FACE;
         }
 
 

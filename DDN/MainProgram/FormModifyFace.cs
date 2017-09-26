@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,9 +13,31 @@ namespace MainProgram
 {
     public partial class FormModifyFace : Form
     {
+
+        #region 属性
+        private Image currentImage = null;
+        public Image CurrentImage
+        {
+            get { return currentImage; }
+        }
+        public SynchronizationContext m_SyncContext = null;
+        #endregion
+
+        //构造
         public FormModifyFace()
         {
             InitializeComponent();
+            try
+            {
+                this.imagePartSelecter1.ImagePartSelected += new ESBasic.CbGeneric<Bitmap>(imagePartSelecter1_ImagePartSelected);
+                this.imagePartSelecter1.Initialize(150);
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
+            this.imagePartSelecter1.SetSourceImage(AppInfo.SELF_FACE);
+            m_SyncContext = SynchronizationContext.Current;
         }
 
         private void FormModifyFace_Load(object sender, EventArgs e)
@@ -24,6 +46,11 @@ namespace MainProgram
             int y = (SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = (Point)new Size(x, y);
+        }
+
+        void imagePartSelecter1_ImagePartSelected(Bitmap obj)
+        {
+            this.currentImage = obj;
         }
 
 
@@ -54,6 +81,60 @@ namespace MainProgram
             this.Dispose();
         }
 
-       
+        //浏览图片
+        private void buttonLoad_Click(object sender, EventArgs e)
+        {
+            string file = ESBasic.Helpers.FileHelper.GetFileToOpen("请选择要使用的图片");
+            if (file == null)
+            {
+                return;
+            }
+
+            Image img = Image.FromFile(file);
+            this.imagePartSelecter1.SetSourceImage(img);
+
+        }
+
+
+        //保存头像
+        private void buttonSaveFace_Click(object sender, EventArgs e)
+        {
+            string responseText;
+            UploadPic httpRequestClient = new UploadPic();
+            httpRequestClient.SetFieldValue("username", AppInfo.PERSONAL_INFO.Username);//加数据
+            byte[] imageBytes;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                currentImage.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                ms.Position = 0;
+                imageBytes = new byte[ms.Length];
+                ms.Read(imageBytes, 0, imageBytes.Length);
+            }
+            httpRequestClient.SetFieldValue("face", "***", "application/octet-stream", imageBytes);
+            httpRequestClient.Upload(AppConst.WebUrl + "modifyFace", out responseText);
+            Debug.Print("上传结果是" + responseText);
+            if (responseText == "true")
+            {
+                //修改新头像
+                AppInfo.SELF_FACE = this.currentImage;
+                saveOKSafePost();
+            }
+            else
+            {
+                MessageBox.Show("更改失败！");
+            }
+          
+        }
+
+        public void saveOKSafePost()
+        {
+            m_SyncContext.Post(saveOK, null);
+        }
+        void saveOK(object state)
+        {
+            //刷新个人信息展示面板
+            this.Close();
+            this.Dispose();
+        }
     }
 }

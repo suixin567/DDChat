@@ -44,6 +44,15 @@
     <Reference Include="Dialog">
       <HintPath>..\Dialog\bin\Debug\Dialog.dll</HintPath>
     </Reference>
+    <Reference Include="ESBasic">
+      <HintPath>Resources\ESBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="OMCS">
+      <HintPath>Resources\OMCS.dll</HintPath>
+    </Reference>
+    <Reference Include="PaintFramework">
+      <HintPath>Resources\PaintFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

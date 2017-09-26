@@ -41,9 +41,10 @@
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonClose.Location = new System.Drawing.Point(569, 2);
+            this.buttonClose.Location = new System.Drawing.Point(570, 0);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(30, 30);
             this.buttonClose.TabIndex = 5;
@@ -56,7 +57,7 @@
             this.buttonMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonMax.FlatAppearance.BorderSize = 0;
             this.buttonMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMax.Location = new System.Drawing.Point(536, 2);
+            this.buttonMax.Location = new System.Drawing.Point(540, 0);
             this.buttonMax.Name = "buttonMax";
             this.buttonMax.Size = new System.Drawing.Size(30, 30);
             this.buttonMax.TabIndex = 6;
@@ -79,7 +80,7 @@
             this.buttonMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonMin.FlatAppearance.BorderSize = 0;
             this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMin.Location = new System.Drawing.Point(503, 2);
+            this.buttonMin.Location = new System.Drawing.Point(508, 0);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(30, 30);
             this.buttonMin.TabIndex = 11;

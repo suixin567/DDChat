@@ -77,7 +77,7 @@ namespace MainProgram
             if (this.textBoxNickName.Text != oldNickName || this.textBoxDisc.Text != oldBoxDisc)
             {
                 string url = AppConst.WebUrl + "modifyBaseInfo?username=" + AppInfo.USER_NAME + "&nickname=" + this.textBoxNickName.Text + "&description=" + this.textBoxDisc.Text;
-                Debug.Print(url);
+//                Debug.Print(url);
                 HttpReqHelper.requestSync(url, delegate (string result)
                 {
                     //收到修改后的个人信息模型

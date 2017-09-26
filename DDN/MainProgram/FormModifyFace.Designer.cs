@@ -32,12 +32,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonMin = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonLoad = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonSaveFace = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.imagePartSelecter1 = new OMCS.Tools.ImagePartSelecter();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -95,49 +95,41 @@
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
-            // button1
+            // buttonLoad
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 32);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "上传本地头像";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(146, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 32);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "挑选推荐头像";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonLoad.BackColor = System.Drawing.Color.White;
+            this.buttonLoad.Location = new System.Drawing.Point(12, 10);
+            this.buttonLoad.Name = "buttonLoad";
+            this.buttonLoad.Size = new System.Drawing.Size(125, 32);
+            this.buttonLoad.TabIndex = 7;
+            this.buttonLoad.Text = "上传本地头像";
+            this.buttonLoad.UseVisualStyleBackColor = false;
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.buttonSaveFace);
             this.panel1.Controls.Add(this.button5);
-            this.panel1.Location = new System.Drawing.Point(0, 586);
+            this.panel1.Location = new System.Drawing.Point(0, 464);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(385, 35);
             this.panel1.TabIndex = 10;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormModifyPersionalInfo_MouseDown);
             // 
-            // button4
+            // buttonSaveFace
             // 
-            this.button4.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(193, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(80, 28);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "确定";
-            this.button4.UseVisualStyleBackColor = false;
+            this.buttonSaveFace.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.buttonSaveFace.ForeColor = System.Drawing.Color.White;
+            this.buttonSaveFace.Location = new System.Drawing.Point(193, 3);
+            this.buttonSaveFace.Name = "buttonSaveFace";
+            this.buttonSaveFace.Size = new System.Drawing.Size(80, 28);
+            this.buttonSaveFace.TabIndex = 2;
+            this.buttonSaveFace.Text = "确定";
+            this.buttonSaveFace.UseVisualStyleBackColor = false;
+            this.buttonSaveFace.Click += new System.EventHandler(this.buttonSaveFace_Click);
             // 
             // button5
             // 
@@ -150,23 +142,29 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.imagePartSelecter1);
+            this.panel2.Controls.Add(this.buttonLoad);
             this.panel2.Location = new System.Drawing.Point(2, 31);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(381, 555);
+            this.panel2.Size = new System.Drawing.Size(381, 430);
             this.panel2.TabIndex = 11;
+            // 
+            // imagePartSelecter1
+            // 
+            this.imagePartSelecter1.BackColor = System.Drawing.Color.Silver;
+            this.imagePartSelecter1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.imagePartSelecter1.Location = new System.Drawing.Point(13, 60);
+            this.imagePartSelecter1.Name = "imagePartSelecter1";
+            this.imagePartSelecter1.Size = new System.Drawing.Size(356, 356);
+            this.imagePartSelecter1.TabIndex = 9;
             // 
             // FormModifyFace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(385, 620);
+            this.ClientSize = new System.Drawing.Size(385, 498);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonMin);
@@ -192,11 +190,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonMin;
         private System.Windows.Forms.Button buttonClose;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonLoad;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonSaveFace;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel2;
+        private OMCS.Tools.ImagePartSelecter imagePartSelecter1;
     }
 }

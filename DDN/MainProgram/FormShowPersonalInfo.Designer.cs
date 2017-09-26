@@ -39,6 +39,7 @@
             this.pictureBoxFace = new System.Windows.Forms.PictureBox();
             this.labelNickName = new System.Windows.Forms.Label();
             this.labelModify = new System.Windows.Forms.Label();
+            this.labelChangeFace = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             this.SuspendLayout();
@@ -83,7 +84,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(366, 88);
+            this.label1.Location = new System.Drawing.Point(366, 128);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 3;
@@ -92,7 +93,7 @@
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
-            this.labelUsername.Location = new System.Drawing.Point(401, 88);
+            this.labelUsername.Location = new System.Drawing.Point(401, 128);
             this.labelUsername.Name = "labelUsername";
             this.labelUsername.Size = new System.Drawing.Size(41, 12);
             this.labelUsername.TabIndex = 4;
@@ -101,7 +102,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(366, 117);
+            this.label3.Location = new System.Drawing.Point(366, 157);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 5;
@@ -110,7 +111,7 @@
             // labelDisc
             // 
             this.labelDisc.AutoSize = true;
-            this.labelDisc.Location = new System.Drawing.Point(425, 117);
+            this.labelDisc.Location = new System.Drawing.Point(425, 157);
             this.labelDisc.Name = "labelDisc";
             this.labelDisc.Size = new System.Drawing.Size(101, 12);
             this.labelDisc.TabIndex = 6;
@@ -120,9 +121,9 @@
             // 
             this.pictureBoxFace.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxFace.Image")));
-            this.pictureBoxFace.Location = new System.Drawing.Point(368, 22);
+            this.pictureBoxFace.Location = new System.Drawing.Point(369, 19);
             this.pictureBoxFace.Name = "pictureBoxFace";
-            this.pictureBoxFace.Size = new System.Drawing.Size(50, 50);
+            this.pictureBoxFace.Size = new System.Drawing.Size(70, 70);
             this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxFace.TabIndex = 7;
             this.pictureBoxFace.TabStop = false;
@@ -132,7 +133,7 @@
             // 
             this.labelNickName.AutoSize = true;
             this.labelNickName.Font = new System.Drawing.Font("宋体", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelNickName.Location = new System.Drawing.Point(423, 38);
+            this.labelNickName.Location = new System.Drawing.Point(450, 44);
             this.labelNickName.Name = "labelNickName";
             this.labelNickName.Size = new System.Drawing.Size(47, 19);
             this.labelNickName.TabIndex = 8;
@@ -151,11 +152,25 @@
             this.labelModify.Text = "编辑资料";
             this.labelModify.Click += new System.EventHandler(this.labelModify_Click);
             // 
+            // labelChangeFace
+            // 
+            this.labelChangeFace.AutoSize = true;
+            this.labelChangeFace.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelChangeFace.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelChangeFace.ForeColor = System.Drawing.Color.Blue;
+            this.labelChangeFace.Location = new System.Drawing.Point(367, 92);
+            this.labelChangeFace.Name = "labelChangeFace";
+            this.labelChangeFace.Size = new System.Drawing.Size(77, 12);
+            this.labelChangeFace.TabIndex = 10;
+            this.labelChangeFace.Text = "点击更换头像";
+            this.labelChangeFace.Click += new System.EventHandler(this.labelChangeFace_Click);
+            // 
             // FormShowPersonalInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 520);
+            this.Controls.Add(this.labelChangeFace);
             this.Controls.Add(this.labelModify);
             this.Controls.Add(this.labelNickName);
             this.Controls.Add(this.pictureBoxFace);
@@ -190,5 +205,6 @@
         private System.Windows.Forms.PictureBox pictureBoxFace;
         private System.Windows.Forms.Label labelNickName;
         private System.Windows.Forms.Label labelModify;
+        private System.Windows.Forms.Label labelChangeFace;
     }
 }

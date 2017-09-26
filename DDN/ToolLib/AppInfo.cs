@@ -2,7 +2,9 @@
 
 
 
-   public class AppInfo
+using System.Drawing;
+
+public class AppInfo
     {
   
     public static string USER_NAME = "";
@@ -26,8 +28,27 @@
             }
         }
     }
+    //当个人头像发生变化事件
+    public delegate void PersonalFaceChange();
+    public static event PersonalFaceChange onPersonalFaceChanged;
+    //个人头像
+    private static Image self_Face;
+    public static Image SELF_FACE
+    {
+        get
+        {
+            return self_Face;
+        }
+        set
+        {
+            self_Face = value;
+            if (onPersonalFaceChanged != null)
+            {
+                onPersonalFaceChanged();
+            }
+        }
+    }
 
-  
 
 }
 

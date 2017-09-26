@@ -29,6 +29,8 @@ namespace MainProgram.UserControls
             m_SyncContext = SynchronizationContext.Current;
             //注册资料被修改的事件
             AppInfo.onPersonalInfoModelChanged += this.initNickLabelSafePost;
+            //注册头像被修改的事件
+            AppInfo.onPersonalFaceChanged += this.initFaceSafePost;
 
             //请求网络数据，获取个人信息
             DataMgr.Instance.getPersonalByID(AppInfo.USER_NAME, delegate (PersonalInfoModel model) {
@@ -39,10 +41,8 @@ namespace MainProgram.UserControls
                     HttpReqHelper.loadFaceSync(AppInfo.PERSONAL_INFO.Face, delegate (Image face) {
                         faceImage = face;
                         if (faceImage != null)
-                        {
-                            pictureBoxTopFace.Image = faceImage;
-                            //设置自己item的图片
-                            MainMgr.Instance.formMain.flowLayoutPanelFriendList.InitSelfFace(faceImage);
+                        {                                                                        
+                            AppInfo.SELF_FACE = faceImage;
                         }
                     });
                 }
@@ -63,6 +63,16 @@ namespace MainProgram.UserControls
             this.labelSelfNickName.Text = AppInfo.PERSONAL_INFO.Nickname;
             this.labelSelfDescription.Text = AppInfo.PERSONAL_INFO.Description;
             this.labelOnlineState.Location = new Point(labelSelfNickName.Location.X + labelSelfNickName.Width + 7, labelSelfNickName.Location.Y + 2);
+        }
+
+
+        void initFaceSafePost()
+        {
+            m_SyncContext.Post(initFace, null);
+        }
+        void initFace(object state)
+        {
+            this.pictureBoxTopFace.Image = AppInfo.SELF_FACE;          
         }
 
 
@@ -103,7 +113,7 @@ namespace MainProgram.UserControls
         {
             if (formModifyPersonalInfo==null || formModifyPersonalInfo.IsDisposed)
             {
-                formModifyPersonalInfo = new FormShowPersonalInfo(this.pictureBoxTopFace.Image);
+                formModifyPersonalInfo = new FormShowPersonalInfo();
                 formModifyPersonalInfo.Show();
             }
         }
