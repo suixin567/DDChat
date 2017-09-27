@@ -40,6 +40,7 @@
             this.labelModify = new System.Windows.Forms.Label();
             this.labelChangeFace = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.buttonOpenDialogue = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             this.SuspendLayout();
@@ -166,11 +167,22 @@
             this.textBoxDescription.Size = new System.Drawing.Size(301, 146);
             this.textBoxDescription.TabIndex = 11;
             // 
+            // buttonOpenDialogue
+            // 
+            this.buttonOpenDialogue.Location = new System.Drawing.Point(454, 438);
+            this.buttonOpenDialogue.Name = "buttonOpenDialogue";
+            this.buttonOpenDialogue.Size = new System.Drawing.Size(162, 33);
+            this.buttonOpenDialogue.TabIndex = 12;
+            this.buttonOpenDialogue.Text = "发消息";
+            this.buttonOpenDialogue.UseVisualStyleBackColor = true;
+            this.buttonOpenDialogue.Click += new System.EventHandler(this.buttonOpenDialogue_Click);
+            // 
             // FormShowPersonalInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 520);
+            this.Controls.Add(this.buttonOpenDialogue);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.labelChangeFace);
             this.Controls.Add(this.labelModify);
@@ -207,5 +219,6 @@
         private System.Windows.Forms.Label labelModify;
         private System.Windows.Forms.Label labelChangeFace;
         private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.Button buttonOpenDialogue;
     }
 }

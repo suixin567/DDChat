@@ -9,51 +9,36 @@ using System.Windows.Forms;
 
 namespace MainProgram
 {
-    public partial class FormShowPersonalInfo : Form
+    public partial class FormShowGroupInfo : Form
     {
 
         #region 属性
         SynchronizationContext m_SyncContext = null;
-        int m_windowType = -1; //1群资料卡 2自己的资料卡 3朋友资料卡
-        PersonalInfoModel m_PersonalInfoModel;
+        GroupInfoModel m_groupModel;
         #endregion
 
-        public FormShowPersonalInfo()
+        public FormShowGroupInfo()
         {
             InitializeComponent();
-            m_windowType = 2;
-            m_SyncContext = SynchronizationContext.Current;
-            this.labelNickName.Text = AppInfo.PERSONAL_INFO.Nickname;
-            this.labelUsername.Text = AppInfo.PERSONAL_INFO.Username;
-
-            //设置签名信息
-            this.textBoxDescription.Text = AppInfo.PERSONAL_INFO.Description;
-            this.pictureBoxFace.Image = AppInfo.SELF_FACE;
-
-            //注册头像被修改的事件
-            AppInfo.onPersonalFaceChanged += this.refreshFaceSafePost;
-            //注册资料被修改的事件
-            AppInfo.onPersonalInfoModelChanged += this.refreshSafePost;
-            this.buttonOpenDialogue.Hide();
-           
         }
 
-        //朋友资料时调用
-        public FormShowPersonalInfo(PersonalInfoModel friendModel,Image face)
+        //群资料时调用
+        public FormShowGroupInfo(GroupInfoModel groupModel, Image face)
         {
             InitializeComponent();
-            m_windowType = 3;
             m_SyncContext = SynchronizationContext.Current;
-            this.labelNickName.Text = friendModel.Nickname;
-            this.labelUsername.Text = friendModel.Username;
-            this.textBoxDescription.Text = friendModel.Description;
+            this.labelNickName.Text = groupModel.Name;
+            this.labelUsername.Text = groupModel.Gid.ToString();
+            this.labelCreatedtime.Text = groupModel.Createdtime; 
             this.pictureBoxFace.Image = face;
-            m_PersonalInfoModel = friendModel;
-            //隐藏修改内容
-            this.labelChangeFace.Hide();
-            this.labelModify.Hide(); 
+            m_groupModel = groupModel;
+            //判断是不是群主，群主才可以修改资料
+            if (m_groupModel.Master != AppInfo.PERSONAL_INFO.Username)
+            {
+                this.labelModify.Hide();
+                this.labelChangeFace.Hide();
+            }
         }
-
 
         private void FormModifyPersonalInfo_Load(object sender, EventArgs e)
         {
@@ -64,37 +49,39 @@ namespace MainProgram
         }
 
 
-        //修改资料按钮被点击
-        FormModifyPersionalInfo formModifyPersionalInfo = null;
+        //修改    群资料按钮被点击
+        FormModifyGroupInfo formModifyGroupInfo = null;
         private void labelModify_Click(object sender, EventArgs e)
         {
-            if (formModifyPersionalInfo == null || formModifyPersionalInfo.IsDisposed)
+            if (formModifyGroupInfo == null || formModifyGroupInfo.IsDisposed)
             {
-                formModifyPersionalInfo = new FormModifyPersionalInfo();
-                formModifyPersionalInfo.Show();
+                formModifyGroupInfo = new FormModifyGroupInfo(m_groupModel,this);
+                formModifyGroupInfo.Show();
             }
             else {
-                formModifyPersionalInfo.Activate();
+                formModifyGroupInfo.Activate();
             }
         }
 
 
         //点击修改头像
-        FormModifyFace formModifyFace = null;
+        FormModifyGroupFace formModifyGroupFace = null;
         private void pictureBoxFace_Click(object sender, EventArgs e)
         {
-            if (m_windowType != 2)
+
+            if (m_groupModel.Master != AppInfo.PERSONAL_INFO.Username)
             {
                 return;
             }
-            if (formModifyFace == null || formModifyFace.IsDisposed)
+
+            if (formModifyGroupFace == null || formModifyGroupFace.IsDisposed)
             {
-                formModifyFace = new FormModifyFace();
-                formModifyFace.Show();
+                formModifyGroupFace = new FormModifyGroupFace(this.pictureBoxFace.Image, m_groupModel.Gid.ToString(),this);
+                formModifyGroupFace.Show();
             }
             else
             {
-                formModifyFace.Activate();
+                formModifyGroupFace.Activate();
             }
         }
         private void labelChangeFace_Click(object sender, EventArgs e)
@@ -104,24 +91,25 @@ namespace MainProgram
 
 
         //刷新展示内容
-        void refreshSafePost()
+        public void refreshSafePost(GroupInfoModel newGroupModel)
         {
-            m_SyncContext.Post(refresh, null);
+            m_SyncContext.Post(refresh, newGroupModel);
         }
         void refresh(object state)
         {
-            this.labelNickName.Text = AppInfo.PERSONAL_INFO.Nickname;                 
-            this.textBoxDescription.Text = AppInfo.PERSONAL_INFO.Description;          
+            GroupInfoModel newGroupModel = (GroupInfoModel)state;
+            this.labelNickName.Text = newGroupModel.Name;                 
+            this.textBoxDescription.Text = "Todo";          
         }
 
-        //刷新头像
-        void refreshFaceSafePost()
+        //头像被修改后要 刷新头像
+       public void refreshFaceSafePost(Image newFace)
         {
-            m_SyncContext.Post(refreshFace, null);
+            m_SyncContext.Post(refreshFace, newFace);
         }
         void refreshFace(object state)
         {
-            this.pictureBoxFace.Image = AppInfo.SELF_FACE;           
+            this.pictureBoxFace.Image = (Image)state;           
         }
 
 
@@ -156,7 +144,7 @@ namespace MainProgram
 
         private void buttonOpenDialogue_Click(object sender, EventArgs e)
         {
-            FormDialogManager.Instance.openDialog(3, int.Parse(m_PersonalInfoModel.Username), m_PersonalInfoModel.Nickname, pictureBoxFace.Image);
+            FormDialogManager.Instance.openDialog(1, m_groupModel.Gid, m_groupModel.Name, pictureBoxFace.Image);
         }
     }
 }

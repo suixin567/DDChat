@@ -59,13 +59,13 @@
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.创建群ToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(125, 26);
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 48);
             // 
             // 创建群ToolStripMenuItem
             // 
             this.创建群ToolStripMenuItem.Name = "创建群ToolStripMenuItem";
-            this.创建群ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.创建群ToolStripMenuItem.Text = "创建公司";
+            this.创建群ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.创建群ToolStripMenuItem.Text = "创建群";
             this.创建群ToolStripMenuItem.Click += new System.EventHandler(this.创建群ToolStripMenuItem_Click);
             // 
             // buttonCreateGroup

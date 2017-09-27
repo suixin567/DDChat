@@ -78,17 +78,35 @@
     <Compile Include="FormCreateGroup.Designer.cs">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormModifyGroupFace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModifyGroupFace.Designer.cs">
+      <DependentUpon>FormModifyGroupFace.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormModifyFace.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormModifyFace.Designer.cs">
       <DependentUpon>FormModifyFace.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormModifyGroupInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModifyGroupInfo.Designer.cs">
+      <DependentUpon>FormModifyGroupInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormModifyPersionalInfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormModifyPersionalInfo.Designer.cs">
       <DependentUpon>FormModifyPersionalInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShowGroupInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShowGroupInfo.Designer.cs">
+      <DependentUpon>FormShowGroupInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="FormShowPersonalInfo.cs">
       <SubType>Form</SubType>
@@ -229,11 +247,20 @@
     <EmbeddedResource Include="FormCreateGroup.resx">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormModifyGroupFace.resx">
+      <DependentUpon>FormModifyGroupFace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormModifyFace.resx">
       <DependentUpon>FormModifyFace.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormModifyGroupInfo.resx">
+      <DependentUpon>FormModifyGroupInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormModifyPersionalInfo.resx">
       <DependentUpon>FormModifyPersionalInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowGroupInfo.resx">
+      <DependentUpon>FormShowGroupInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormShowPersonalInfo.resx">
       <DependentUpon>FormShowPersonalInfo.cs</DependentUpon>

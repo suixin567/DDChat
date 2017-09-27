@@ -133,13 +133,13 @@ namespace MainProgram.UserControls
         }
 
         //查看群资料
-        FormShowPersonalInfo formModifyPersonalInfo = null;
+        FormShowGroupInfo formShowGroupInfo = null;
         private void 查看群资料ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (formModifyPersonalInfo == null || formModifyPersonalInfo.IsDisposed)
+            if (formShowGroupInfo == null || formShowGroupInfo.IsDisposed)
             {
-                formModifyPersonalInfo = new FormShowPersonalInfo( m_groupInfoModel, this.pictureBoxGroupFace.Image);
-                formModifyPersonalInfo.Show();
+                formShowGroupInfo = new FormShowGroupInfo( m_groupInfoModel, this.pictureBoxGroupFace.Image);
+                formShowGroupInfo.Show();
             }
         }
     }
