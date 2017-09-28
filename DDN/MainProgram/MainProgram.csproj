@@ -176,12 +176,6 @@
     <Compile Include="UserControls\FlowLayoutPanelFriendList.Designer.cs">
       <DependentUpon>FlowLayoutPanelFriendList.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\FlowLayoutPanelResourcesList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\FlowLayoutPanelResourcesList.Designer.cs">
-      <DependentUpon>FlowLayoutPanelResourcesList.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\FriendItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,11 +194,11 @@
     <Compile Include="UserControls\GroupItem.Designer.cs">
       <DependentUpon>GroupItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\GroupResItem.cs">
+    <Compile Include="UserControls\GroupManageMemberItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\GroupResItem.Designer.cs">
-      <DependentUpon>GroupResItem.cs</DependentUpon>
+    <Compile Include="UserControls\GroupManageMemberItem.Designer.cs">
+      <DependentUpon>GroupManageMemberItem.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MainTabControl.cs">
       <SubType>UserControl</SubType>
@@ -295,9 +289,6 @@
     <EmbeddedResource Include="UserControls\FlowLayoutPanelFriendList.resx">
       <DependentUpon>FlowLayoutPanelFriendList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\FlowLayoutPanelResourcesList.resx">
-      <DependentUpon>FlowLayoutPanelResourcesList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FriendItem.resx">
       <DependentUpon>FriendItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -308,8 +299,8 @@
     <EmbeddedResource Include="UserControls\GroupItem.resx">
       <DependentUpon>GroupItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\GroupResItem.resx">
-      <DependentUpon>GroupResItem.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\GroupManageMemberItem.resx">
+      <DependentUpon>GroupManageMemberItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainTabControl.resx">
       <DependentUpon>MainTabControl.cs</DependentUpon>

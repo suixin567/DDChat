@@ -44,7 +44,7 @@ namespace ToolLib
                 }
             }
             else {//请求这个人的信息，请求完后要更新至字典中。
-                HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?username=" + personalId, delegate (string personalInfo) {
+                HttpReqHelper.requestSync(AppConst.WebUrl + "baseInfo?protocol="+ HttpPersonalProtocol .BASE_INFO+ "&username=" + personalId, delegate (string personalInfo) {
                     try
                     {
                         PersonalInfoModel model = Coding<PersonalInfoModel>.decode(personalInfo);
@@ -81,7 +81,7 @@ namespace ToolLib
             }
             else
             {//请求这个人的信息，请求完后要更新至字典中。
-                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + groupId, delegate (string info) {
+                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol="+HttpGroupProtocol.GROUP_BASE_INFO+"&gid=" + groupId, delegate (string info) {
                     try
                     {
                      

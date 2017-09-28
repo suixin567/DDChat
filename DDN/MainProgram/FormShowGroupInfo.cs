@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using ToolLib;
 
 namespace MainProgram
 {
@@ -29,8 +30,45 @@ namespace MainProgram
             m_SyncContext = SynchronizationContext.Current;
             this.labelNickName.Text = groupModel.Name;
             this.labelUsername.Text = groupModel.Gid.ToString();
-            this.labelCreatedtime.Text = groupModel.Createdtime; 
+            this.labelCreatedtime.Text = groupModel.Createdtime;
+            this.textBoxDescription.Text = groupModel.Description;
             this.pictureBoxFace.Image = face;
+            this.pictureBoxMasterFace.Image = null;//群主头像
+
+            DataMgr.Instance.getPersonalByID(groupModel.Master, delegate (PersonalInfoModel model)
+            {             
+                SetMasterLabel(model.Nickname);
+                if (model.Face != "" && model.Face != null) //下载群主头像
+                {
+                    HttpReqHelper.loadFaceSync(model.Face, delegate (Image masterface)
+                    {
+                        if (masterface != null)
+                        {
+                            SetMasterFace(masterface);
+                        }
+                    });
+                }
+            });           
+            //成员数量
+            int membersAmount = 0;
+            string[] manarr = groupModel.Manager.Split(',');
+            foreach (var item in manarr)
+            {
+                if (item != "")
+                {
+                    membersAmount++;
+                }
+            }
+            string[] memarr = groupModel.Member.Split(',');
+            foreach (var item in memarr)
+            {
+                if (item!="")
+                {
+                    membersAmount++;
+                }
+            }
+            membersAmount++;//算上群主
+            this.labelMemberAmount.Text = membersAmount.ToString();
             m_groupModel = groupModel;
             //判断是不是群主，群主才可以修改资料
             if (m_groupModel.Master != AppInfo.PERSONAL_INFO.Username)
@@ -47,6 +85,28 @@ namespace MainProgram
             this.StartPosition = FormStartPosition.Manual;
             this.Location = (Point)new Size(x, y);         
         }
+
+        //跨线程设置群主信息
+        delegate void AppendValueDelegate(string strValue);
+        public void SetMasterLabel(string strValue)
+        {
+            this.labelMaster.BeginInvoke(new AppendValueDelegate(MasterLabel), new object[] { strValue });
+        }
+        private void MasterLabel(string strValue)
+        {
+            this.labelMaster.Text = strValue;
+        }
+        //跨线程设置群主头像
+        delegate void MasterFaceDelegate(Image masterFace);
+        public void SetMasterFace(Image masterFace)
+        {
+            this.pictureBoxMasterFace.BeginInvoke(new MasterFaceDelegate(MasterFace), new object[] { masterFace });
+        }
+        private void MasterFace(Image masterFace)
+        {
+            this.pictureBoxMasterFace.Image = masterFace;
+        }
+
 
 
         //修改    群资料按钮被点击
@@ -145,6 +205,101 @@ namespace MainProgram
         private void buttonOpenDialogue_Click(object sender, EventArgs e)
         {
             FormDialogManager.Instance.openDialog(1, m_groupModel.Gid, m_groupModel.Name, pictureBoxFace.Image);
+        }
+
+
+
+        //允许任何人加群被勾选
+        private void checkBoxVerifymode1_Click(object sender, EventArgs e)
+        {
+            if (checkBoxVerifymode1.Checked == true)
+            {
+                //发送请求
+                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupModel.Gid + "&method=1", delegate (string result)
+                {
+                    if (result == "true")
+                    {
+                        //请求成功                      
+                        m_groupModel.Verifymode = 1;
+                        setEnterMethodSafePost();
+                    }
+                    else
+                    {
+                    }
+                });
+            }
+            else {
+                checkBoxVerifymode1.Checked = true;
+            }         
+        }
+
+        //需要群主验证被勾选
+        private void checkBoxVerifymode2_Click(object sender, EventArgs e)
+        {
+            if (checkBoxVerifymode2.Checked == true)
+            {
+                //发送请求
+                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupModel.Gid + "&method=0", delegate (string result)
+                {
+                    if (result == "true")
+                    {
+                        //请求成功
+                        m_groupModel.Verifymode = 0;
+                        setEnterMethodSafePost();
+                    }
+                    else
+                    {
+                    }
+                });
+            }
+            else {
+                checkBoxVerifymode2.Checked = true;
+            }
+        }
+
+        //切换选项卡事件
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex==2)//设置选项卡被点击
+            {
+                if (m_groupModel.Master == AppInfo.PERSONAL_INFO.Username)//自己是群主
+                {
+                    this.labelVerifymode.Hide();
+                    setEnterMethodSafePost();
+                }
+                else {//不是群主，不可编辑
+                    checkBoxVerifymode1.Hide();
+                    checkBoxVerifymode2.Hide();
+                    this.labelVerifymode.Location = checkBoxVerifymode1.Location;
+                    if (m_groupModel.Verifymode == 0)
+                    {
+                        this.labelVerifymode.Text = "需要群主验证";                        
+                    }
+                    else
+                    {
+                        this.labelVerifymode.Text = "允许任何人加入";
+                    }
+                }
+            }
+        }
+
+        //设置进群方式
+        public void setEnterMethodSafePost()
+        {
+            m_SyncContext.Post(setEnterMethod, null);
+        }
+        void setEnterMethod(object state)
+        {
+            if (m_groupModel.Verifymode == 0)
+            {
+                checkBoxVerifymode1.Checked = false;
+                checkBoxVerifymode2.Checked = true;
+            }
+            else
+            {
+                checkBoxVerifymode1.Checked = true;
+                checkBoxVerifymode2.Checked = false;
+            }
         }
     }
 }

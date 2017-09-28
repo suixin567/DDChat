@@ -38,9 +38,6 @@ namespace MainProgram.UserControls
                 formMain.flowLayoutPanelGroupList.Size = oriSize;
                 formMain.flowLayoutPanelGroupList.Anchor = OriAnchor;
 
-                formMain.flowLayoutPanelResourcesList.Location = oriLocation;
-                formMain.flowLayoutPanelResourcesList.Size = oriSize;
-                formMain.flowLayoutPanelResourcesList.Anchor = OriAnchor;
                 switchState();
             }       
         }
@@ -54,7 +51,6 @@ namespace MainProgram.UserControls
                     formMain.flowLayoutPanelDialogueList.Show();
                     formMain.flowLayoutPanelFriendList.Hide();
                     formMain.flowLayoutPanelGroupList.Hide();
-                    formMain.flowLayoutPanelResourcesList.Hide();
                     pictureBoxDia.BackColor = Color.DodgerBlue;
                     pictureBoxFriend.BackColor = Color.Transparent;
                     pictureBoxGroup.BackColor = Color.Transparent;
@@ -65,7 +61,6 @@ namespace MainProgram.UserControls
                     formMain.flowLayoutPanelDialogueList.Hide();
                     formMain.flowLayoutPanelFriendList.Show();
                     formMain.flowLayoutPanelGroupList.Hide();
-                    formMain.flowLayoutPanelResourcesList.Hide();
 
                     pictureBoxDia.BackColor = Color.Transparent;
                     pictureBoxFriend.BackColor = Color.DodgerBlue;
@@ -77,7 +72,6 @@ namespace MainProgram.UserControls
                     formMain.flowLayoutPanelDialogueList.Hide();
                     formMain.flowLayoutPanelFriendList.Hide();
                     formMain.flowLayoutPanelGroupList.Show();
-                    formMain.flowLayoutPanelResourcesList.Hide();
 
                     pictureBoxDia.BackColor = Color.Transparent;
                     pictureBoxFriend.BackColor = Color.Transparent;

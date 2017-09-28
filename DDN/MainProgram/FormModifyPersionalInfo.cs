@@ -76,7 +76,7 @@ namespace MainProgram
         {
             if (this.textBoxNickName.Text != oldNickName || this.textBoxDisc.Text != oldBoxDisc)
             {
-                string url = AppConst.WebUrl + "modifyBaseInfo?username=" + AppInfo.USER_NAME + "&nickname=" + this.textBoxNickName.Text + "&description=" + this.textBoxDisc.Text;
+                string url = AppConst.WebUrl + "baseInfo?protocol="+HttpPersonalProtocol.MODIFY_BASE_INFO+"&username=" + AppInfo.PERSONAL_INFO.Username + "&nickname=" + this.textBoxNickName.Text + "&description=" + this.textBoxDisc.Text;
 //                Debug.Print(url);
                 HttpReqHelper.requestSync(url, delegate (string result)
                 {

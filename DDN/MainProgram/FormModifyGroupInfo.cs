@@ -22,7 +22,7 @@ namespace MainProgram
         {
             InitializeComponent();
             this.textBoxNickName.Text = groupModel.Name;
-            this.textBoxDisc.Text = "todo";
+            this.textBoxDisc.Text = groupModel.Description;
             oldNickName = this.textBoxNickName.Text;
             oldBoxDisc = this.textBoxDisc.Text;
             m_SyncContext = SynchronizationContext.Current;
@@ -78,7 +78,7 @@ namespace MainProgram
         {
             if (this.textBoxNickName.Text != oldNickName || this.textBoxDisc.Text != oldBoxDisc)
             {
-                string url = AppConst.WebUrl + "modifyGroupBaseInfo?gid=" + AppInfo.USER_NAME + "&nickname=" + this.textBoxNickName.Text + "&description=" + this.textBoxDisc.Text;
+                string url = AppConst.WebUrl + "groupBaseInfo?protocol="+HttpGroupProtocol.MODIFY_GROUP_BASE_INFO+"&gid=" + m_groupModel.Gid + "&name=" + this.textBoxNickName.Text + "&description=" + this.textBoxDisc.Text;
 //                Debug.Print(url);
                 HttpReqHelper.requestSync(url, delegate (string result)
                 {

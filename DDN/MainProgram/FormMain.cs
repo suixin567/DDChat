@@ -39,7 +39,6 @@ namespace MainProgram
         public FormAddFriend FormAddFriend = null;//添加好友的窗体
         public FlowLayoutPanelDialogueList flowLayoutPanelDialogueList;//会话列表面板
         public FlowLayoutPanelGroupList flowLayoutPanelGroupList;//群列表面板
-        public FlowLayoutPanelResourcesList flowLayoutPanelResourcesList;//资源列表面板
 
 
         public FormMain()
@@ -55,11 +54,6 @@ namespace MainProgram
             flowLayoutPanelGroupList = new FlowLayoutPanelGroupList();
             this.Controls.Add(flowLayoutPanelGroupList);
             flowLayoutPanelGroupList.Location = new Point(10000, 10000);
-
-            //创建资源面板
-            flowLayoutPanelResourcesList = new FlowLayoutPanelResourcesList();
-            this.Controls.Add(flowLayoutPanelResourcesList);
-            flowLayoutPanelResourcesList.Location = new Point(10000, 10000);
 
             //注册资料被修改的事件
             AppInfo.onPersonalInfoModelChanged += this.setNotifyIconFormMainSafePost;

@@ -115,7 +115,7 @@ namespace MainProgram
                 ms.Read(imageBytes, 0, imageBytes.Length);
             }
             httpRequestClient.SetFieldValue("face", "***", "application/octet-stream", imageBytes);
-            httpRequestClient.Upload(AppConst.WebUrl + "modifyFace", out responseText);
+            httpRequestClient.Upload(AppConst.WebUrl + "baseInfo", out responseText);
             Debug.Print("上传结果是" + responseText);
             if (responseText == "true")
             {

@@ -9,6 +9,20 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Threading;
 
+
+
+//http请求的一些协议
+public class HttpPersonalProtocol
+{
+    public const int BASE_INFO = 1;//获取基本信息
+    public const int MODIFY_BASE_INFO = 2;//修改基本信息
+}
+public class HttpGroupProtocol
+{
+    public const int GROUP_BASE_INFO = 1;//获取群基本信息
+    public const int MODIFY_GROUP_BASE_INFO = 2;//修改群基本信息
+}
+
 public class HttpReqHelper
     {
 

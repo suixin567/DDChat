@@ -27,6 +27,7 @@ public struct GroupInfoModel
 {
     public int Gid;
     public string Name;
+    public string Description;
     public string Face;
     public int Level;
     public string Master;

@@ -113,25 +113,14 @@ namespace MainProgram
             if (textBoxFindCompany.Text != "")
             {
                 this.flowLayoutPanelStrangers.Controls.Clear();
-                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?gid=" + textBoxFindCompany.Text,delegate(string company) {
-                   Debug.Print("找到的公司" + company);
-                   try
-                   {
-                      
-                       GroupInfoModel model = Coding<GroupInfoModel>.decode(company);
-                       if (model.Gid == 0)
-                       {
-                           return;
-                       }
-                       AddGroupItem otherItem = new AddGroupItem(model.Name, model.Gid, model.Face);
-                        //this.flowLayoutPanelStrangers.Controls.Add(otherItem);
-                        addGroupItemSafePost(otherItem);
+                DataMgr.Instance.getGroupByID(textBoxFindCompany.Text,delegate(GroupInfoModel model) {
+                    if (model.Gid == 0)
+                    {
+                        return;
                     }
-                   catch (Exception)
-                   {
-                   }
-               });
-                                          
+                    AddGroupItem otherItem = new AddGroupItem(model.Name, model.Gid, model.Face);
+                    addGroupItemSafePost(otherItem);
+                });                               
             }
         }
 
