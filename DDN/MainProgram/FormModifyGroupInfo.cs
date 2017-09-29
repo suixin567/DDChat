@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using ToolLib;
 
 namespace MainProgram
 {
@@ -87,8 +88,9 @@ namespace MainProgram
                     {
                         //修改模型
                         m_groupModel.Name = this.textBoxNickName.Text;
-                      //  m_groupModel. = this.textBoxNickName.Text;
-                        m_FormShowGroupInfo.refreshSafePost(m_groupModel);                                                                          
+                        m_groupModel.Description = this.textBoxDisc.Text;
+                        m_FormShowGroupInfo.refreshSafePost(m_groupModel);
+                        DataMgr.Instance.modifyGroupInfo(m_groupModel);                                                                     
                         saveOKSafePost();
                     }
                     else

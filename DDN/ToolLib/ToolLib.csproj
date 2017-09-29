@@ -57,6 +57,7 @@
     <Compile Include="Coding.cs" />
     <Compile Include="DataMgr.cs" />
     <Compile Include="DataModel.cs" />
+    <Compile Include="FaceMgr.cs" />
     <Compile Include="HttpReqHelper.cs" />
     <Compile Include="ImageTool.cs" />
     <Compile Include="Net\ByteArray.cs" />

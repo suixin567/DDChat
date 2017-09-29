@@ -1,4 +1,5 @@
 ﻿using Dialog;
+using MainProgram.UserControls;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -15,7 +16,8 @@ namespace MainProgram
 
         #region 属性
         SynchronizationContext m_SyncContext = null;
-        GroupInfoModel m_groupModel;
+        Image m_Face;
+        GroupItem m_groupItem;
         #endregion
 
         public FormShowGroupInfo()
@@ -24,19 +26,30 @@ namespace MainProgram
         }
 
         //群资料时调用
-        public FormShowGroupInfo(GroupInfoModel groupModel, Image face)
+        public FormShowGroupInfo(GroupInfoModel groupModel, Image face, GroupItem groupItem)
         {
             InitializeComponent();
             m_SyncContext = SynchronizationContext.Current;
-            this.labelNickName.Text = groupModel.Name;
-            this.labelUsername.Text = groupModel.Gid.ToString();
-            this.labelCreatedtime.Text = groupModel.Createdtime;
-            this.textBoxDescription.Text = groupModel.Description;
-            this.pictureBoxFace.Image = face;
+            m_Face = face;
+            m_groupItem = groupItem;
+            DataMgr.Instance.modifyGroupInfoEvent += this.onGroupModelMotified;
+        }
+
+        private void FormModifyPersonalInfo_Load(object sender, EventArgs e)
+        {
+            int x = (SystemInformation.WorkingArea.Width/2 - this.Size.Width/2);
+            int y = (SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2);
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = (Point)new Size(x, y);
+            this.labelNickName.Text = m_groupItem.getGroupMode().Name;
+            this.labelUsername.Text = m_groupItem.getGroupMode().Gid.ToString();
+            this.labelCreatedtime.Text = m_groupItem.getGroupMode().Createdtime;
+            this.textBoxDescription.Text = m_groupItem.getGroupMode().Description;
+            this.pictureBoxFace.Image = m_Face;
             this.pictureBoxMasterFace.Image = null;//群主头像
 
-            DataMgr.Instance.getPersonalByID(groupModel.Master, delegate (PersonalInfoModel model)
-            {             
+            DataMgr.Instance.getPersonalByID(m_groupItem.getGroupMode().Master, delegate (PersonalInfoModel model)
+            {
                 SetMasterLabel(model.Nickname);
                 if (model.Face != "" && model.Face != null) //下载群主头像
                 {
@@ -48,10 +61,10 @@ namespace MainProgram
                         }
                     });
                 }
-            });           
+            });
             //成员数量
             int membersAmount = 0;
-            string[] manarr = groupModel.Manager.Split(',');
+            string[] manarr = m_groupItem.getGroupMode().Manager.Split(',');
             foreach (var item in manarr)
             {
                 if (item != "")
@@ -59,35 +72,35 @@ namespace MainProgram
                     membersAmount++;
                 }
             }
-            string[] memarr = groupModel.Member.Split(',');
+            string[] memarr = m_groupItem.getGroupMode().Member.Split(',');
             foreach (var item in memarr)
             {
-                if (item!="")
+                if (item != "")
                 {
                     membersAmount++;
                 }
             }
             membersAmount++;//算上群主
             this.labelMemberAmount.Text = membersAmount.ToString();
-            m_groupModel = groupModel;
+          
             //判断是不是群主，群主才可以修改资料
-            if (m_groupModel.Master != AppInfo.PERSONAL_INFO.Username)
+            if (m_groupItem.getGroupMode().Master != AppInfo.PERSONAL_INFO.Username)
             {
                 this.labelModify.Hide();
                 this.labelChangeFace.Hide();
             }
         }
 
-        private void FormModifyPersonalInfo_Load(object sender, EventArgs e)
+        //当群模型被改变
+        void onGroupModelMotified(int gid)
         {
-            int x = (SystemInformation.WorkingArea.Width/2 - this.Size.Width/2);
-            int y = (SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2);
-            this.StartPosition = FormStartPosition.Manual;
-            this.Location = (Point)new Size(x, y);         
+            if (m_groupItem.getGroupMode().Gid == gid)
+            {              
+            }
         }
 
-        //跨线程设置群主信息
-        delegate void AppendValueDelegate(string strValue);
+            //跨线程设置群主信息
+            delegate void AppendValueDelegate(string strValue);
         public void SetMasterLabel(string strValue)
         {
             this.labelMaster.BeginInvoke(new AppendValueDelegate(MasterLabel), new object[] { strValue });
@@ -115,7 +128,7 @@ namespace MainProgram
         {
             if (formModifyGroupInfo == null || formModifyGroupInfo.IsDisposed)
             {
-                formModifyGroupInfo = new FormModifyGroupInfo(m_groupModel,this);
+                formModifyGroupInfo = new FormModifyGroupInfo(m_groupItem.getGroupMode(), this);
                 formModifyGroupInfo.Show();
             }
             else {
@@ -129,14 +142,14 @@ namespace MainProgram
         private void pictureBoxFace_Click(object sender, EventArgs e)
         {
 
-            if (m_groupModel.Master != AppInfo.PERSONAL_INFO.Username)
+            if (m_groupItem.getGroupMode().Master != AppInfo.PERSONAL_INFO.Username)
             {
                 return;
             }
 
             if (formModifyGroupFace == null || formModifyGroupFace.IsDisposed)
             {
-                formModifyGroupFace = new FormModifyGroupFace(this.pictureBoxFace.Image, m_groupModel.Gid.ToString(),this);
+                formModifyGroupFace = new FormModifyGroupFace(this.pictureBoxFace.Image, m_groupItem.getGroupMode().Gid,this);
                 formModifyGroupFace.Show();
             }
             else
@@ -158,8 +171,8 @@ namespace MainProgram
         void refresh(object state)
         {
             GroupInfoModel newGroupModel = (GroupInfoModel)state;
-            this.labelNickName.Text = newGroupModel.Name;                 
-            this.textBoxDescription.Text = "Todo";          
+            this.labelNickName.Text = newGroupModel.Name;
+            this.textBoxDescription.Text = newGroupModel.Description;
         }
 
         //头像被修改后要 刷新头像
@@ -204,7 +217,7 @@ namespace MainProgram
 
         private void buttonOpenDialogue_Click(object sender, EventArgs e)
         {
-            FormDialogManager.Instance.openDialog(1, m_groupModel.Gid, m_groupModel.Name, pictureBoxFace.Image);
+            FormDialogManager.Instance.openDialog(1, m_groupItem.getGroupMode().Gid, m_groupItem.getGroupMode().Name, pictureBoxFace.Image);
         }
 
 
@@ -215,12 +228,14 @@ namespace MainProgram
             if (checkBoxVerifymode1.Checked == true)
             {
                 //发送请求
-                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupModel.Gid + "&method=1", delegate (string result)
+                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupItem.getGroupMode().Gid + "&method=1", delegate (string result)
                 {
                     if (result == "true")
                     {
-                        //请求成功                      
-                        m_groupModel.Verifymode = 1;
+                        //请求成功    
+                        GroupInfoModel newModel = m_groupItem.getGroupMode();
+                        newModel.Verifymode = 1;                       
+                        DataMgr.Instance.modifyGroupInfo(newModel);
                         setEnterMethodSafePost();
                     }
                     else
@@ -239,12 +254,14 @@ namespace MainProgram
             if (checkBoxVerifymode2.Checked == true)
             {
                 //发送请求
-                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupModel.Gid + "&method=0", delegate (string result)
+                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupItem.getGroupMode().Gid + "&method=0", delegate (string result)
                 {
                     if (result == "true")
                     {
                         //请求成功
-                        m_groupModel.Verifymode = 0;
+                        GroupInfoModel newModel = m_groupItem.getGroupMode();
+                        newModel.Verifymode = 0;
+                        DataMgr.Instance.modifyGroupInfo(newModel);
                         setEnterMethodSafePost();
                     }
                     else
@@ -262,7 +279,7 @@ namespace MainProgram
         {
             if (tabControl1.SelectedIndex==2)//设置选项卡被点击
             {
-                if (m_groupModel.Master == AppInfo.PERSONAL_INFO.Username)//自己是群主
+                if (m_groupItem.getGroupMode().Master == AppInfo.PERSONAL_INFO.Username)//自己是群主
                 {
                     this.labelVerifymode.Hide();
                     setEnterMethodSafePost();
@@ -271,7 +288,7 @@ namespace MainProgram
                     checkBoxVerifymode1.Hide();
                     checkBoxVerifymode2.Hide();
                     this.labelVerifymode.Location = checkBoxVerifymode1.Location;
-                    if (m_groupModel.Verifymode == 0)
+                    if (m_groupItem.getGroupMode().Verifymode == 0)
                     {
                         this.labelVerifymode.Text = "需要群主验证";                        
                     }
@@ -290,7 +307,7 @@ namespace MainProgram
         }
         void setEnterMethod(object state)
         {
-            if (m_groupModel.Verifymode == 0)
+            if (m_groupItem.getGroupMode().Verifymode == 0)
             {
                 checkBoxVerifymode1.Checked = false;
                 checkBoxVerifymode2.Checked = true;

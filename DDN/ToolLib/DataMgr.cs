@@ -7,8 +7,6 @@ using System.Windows.Forms;
 namespace ToolLib
 {
     //数据的管理类，一个人或者群的基本信息都缓储存在这里。
-    //例如：根据一个id获取这个人的昵称和头像。
-    //根据一个id获取一个群的昵称和头像。
     public class DataMgr
     {
         #region 单例
@@ -29,7 +27,8 @@ namespace ToolLib
         #region 属性
         ConcurrentDictionary<string, PersonalInfoModel> personalDic = new ConcurrentDictionary<string, PersonalInfoModel>();
         ConcurrentDictionary<string, GroupInfoModel> groupDic = new ConcurrentDictionary<string, GroupInfoModel>();
-        public static object locker = new object();//添加一个对象作为锁
+        public delegate void ModifyGroupInfo(int gid);
+        public event ModifyGroupInfo modifyGroupInfoEvent;
         #endregion
 
 
@@ -104,7 +103,18 @@ namespace ToolLib
                 });
             }
         }
+
+        //修改一个群的数据
+        public void modifyGroupInfo(GroupInfoModel mode) {
+            if (this.groupDic.ContainsKey(mode.Gid.ToString()))
+            {
+                this.groupDic[mode.Gid.ToString()] = mode;
+                if (modifyGroupInfoEvent!=null)
+                {
+                    modifyGroupInfoEvent(mode.Gid);
+                }
+            }       
+        }
     }
 }
-//一个人的信息被改变后怎么办？ 可以不理会。下载加载时自然会更新的。
 

@@ -12,7 +12,8 @@ namespace MainProgram.UserControls
     public partial class GroupItem : UserControl
     {
         public MyGroupModel m_myGroupModel;
-        public GroupInfoModel m_groupInfoModel;
+        private GroupInfoModel m_groupInfoModel;                 
+        
         public SynchronizationContext m_SyncContext = null;
 
         public GroupItem()
@@ -30,7 +31,9 @@ namespace MainProgram.UserControls
             }
 
             InitializeComponent();
-            m_myGroupModel = myGroupModel;                      
+            m_myGroupModel = myGroupModel;
+            DataMgr.Instance.modifyGroupInfoEvent += this.onGroupModelMotified;
+            FaceMgr.Instance.modifyFaceEvent += this.onGroupFaceModify;
         }
 
      
@@ -88,7 +91,7 @@ namespace MainProgram.UserControls
                 MainMgr.Instance.formMain.flowLayoutPanelGroupList.showOpreationResultSafePost("群主不可以退出群");
                 return;
             }
-            MsgModel mm = new MsgModel(MessageProtocol.QUIT_GROUP_CREQ, AppInfo.USER_NAME, m_myGroupModel.GroupID.ToString(), "不想继续留在这个群了，再见！", DateTime.Now.ToString());
+            MsgModel mm = new MsgModel(MessageProtocol.QUIT_GROUP_CREQ, AppInfo.USER_NAME, m_groupInfoModel.Gid.ToString(), "不想继续留在这个群了，再见！", DateTime.Now.ToString());
             MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, mm);
         }
         //双击
@@ -138,8 +141,44 @@ namespace MainProgram.UserControls
         {
             if (formShowGroupInfo == null || formShowGroupInfo.IsDisposed)
             {
-                formShowGroupInfo = new FormShowGroupInfo( m_groupInfoModel, this.pictureBoxGroupFace.Image);
+                formShowGroupInfo = new FormShowGroupInfo(m_groupInfoModel, this.pictureBoxGroupFace.Image, this);
                 formShowGroupInfo.Show();
+            }
+            else {
+                formShowGroupInfo.Activate();
+            }
+        }
+
+        public GroupInfoModel getGroupMode() {
+            return m_groupInfoModel;
+        }
+
+        //当群模型发生改变
+        void onGroupModelMotified(int gid) {
+            if (m_groupInfoModel.Gid ==gid)
+            {
+                DataMgr.Instance.getGroupByID(m_groupInfoModel.Gid.ToString(), delegate (GroupInfoModel model) {
+                    m_groupInfoModel = model;
+                });
+                //刷新群名字label
+                initLabelSafePost();
+            }                    
+        }
+
+        void onGroupFaceModify(int gid) {
+            if (m_groupInfoModel.Gid == gid)
+            {
+                //刷新face                               
+                if (m_groupInfoModel.Face != "" && m_groupInfoModel.Face != null)
+                {
+                    HttpReqHelper.loadFaceSync(m_groupInfoModel.Face, delegate (Image face)
+                    {
+                        if (face != null)
+                        {
+                            this.pictureBoxGroupFace.Image = face;
+                        }
+                    });
+                }
             }
         }
     }

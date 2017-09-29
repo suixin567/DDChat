@@ -115,6 +115,7 @@ namespace MainProgram.UserControls
                     {
                         //关闭对话窗体
                         Dialog.FormDialogManager.Instance.closeDialogueWindow("friend" + friendItem.FriendUsername);
+                        //删除好友item
                         friendItem.Dispose();
                         friendAmount--;
                         this.buttonFriend.Text = "好友 " + friendAmount;                                                
@@ -122,7 +123,9 @@ namespace MainProgram.UserControls
                     }
                 }
             }
-           
+            //删除对话item
+            MainMgr.Instance.formMain.flowLayoutPanelDialogueList.removeDialogueSafePost("friend" + usreName.ToString());           
+
         }
         //获取好友列表
         public List<string> getFriendList()

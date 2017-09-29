@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToolLib;
 
 namespace MainProgram
 {
@@ -21,7 +22,7 @@ namespace MainProgram
             get { return currentImage; }
         }
         public SynchronizationContext m_SyncContext = null;
-        string m_gid;
+        int m_gid;
         FormShowGroupInfo m_FormShowGroupInfo;
         #endregion
 
@@ -32,7 +33,7 @@ namespace MainProgram
         }
 
         //构造
-        public FormModifyGroupFace(Image oldGroupFace,string gid, FormShowGroupInfo formShowGroupInfo)
+        public FormModifyGroupFace(Image oldGroupFace,int gid, FormShowGroupInfo formShowGroupInfo)
         {
             InitializeComponent();
             try
@@ -115,7 +116,7 @@ namespace MainProgram
         {
             string responseText;
             UploadPic httpRequestClient = new UploadPic();
-            httpRequestClient.SetFieldValue("gid", m_gid);//加数据
+            httpRequestClient.SetFieldValue("gid", m_gid.ToString());//加数据
             byte[] imageBytes;
             using (MemoryStream ms = new MemoryStream())
             {
@@ -131,9 +132,11 @@ namespace MainProgram
             {
                 //修改新头像
                 m_FormShowGroupInfo.refreshFaceSafePost(currentImage);
-                saveOKSafePost();
+            
                 //修改本地缓存的头像
                 this.currentImage.Save(AppConst.WinPicPath + "group"+ m_gid + ".jpg");
+                FaceMgr.Instance.modifyFace(m_gid);
+                saveOKSafePost();
             }
             else
             {
