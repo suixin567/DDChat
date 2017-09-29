@@ -149,14 +149,14 @@ namespace MainProgram.UserControls
         //鼠标进入头像范围内，则展示资料
         private void friendFacePictureBox_MouseEnter(object sender, EventArgs e)
         {
-            FormPersionalInfo.Instance.SetFormPersionalInfo(3,PointToScreen(this.friendFacePictureBox.Location), m_friendModel.Nickname, m_friendModel.Username, m_friendModel.Description);
-            FormPersionalInfo.Instance.enterItem(m_friendModel.Username);
+            FormInfoCard.Instance.SetPersionalCard(PointToScreen(this.friendFacePictureBox.Location), m_friendModel,this.friendFacePictureBox.Image);
+            FormInfoCard.Instance.enterItem(m_friendModel.Username);
         }
 
         //鼠标离开后关闭资料展示
         private void friendFacePictureBox_MouseLeave(object sender, EventArgs e)
         {
-            FormPersionalInfo.Instance.leaveItem(m_friendModel.Username);           
+            FormInfoCard.Instance.leaveItem(m_friendModel.Username);           
         }
 
         //查看好友资料

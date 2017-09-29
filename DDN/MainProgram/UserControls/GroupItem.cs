@@ -121,13 +121,13 @@ namespace MainProgram.UserControls
 
         private void pictureBoxGroupFace_MouseEnter(object sender, EventArgs e)
         {
-            FormPersionalInfo.Instance.SetFormPersionalInfo(1,PointToScreen(this.pictureBoxGroupFace.Location), m_groupInfoModel.Name, m_groupInfoModel.Gid.ToString(), "");
-            FormPersionalInfo.Instance.enterItem(m_groupInfoModel.Gid.ToString());
+            FormInfoCard.Instance.SetGroupCard(PointToScreen(this.pictureBoxGroupFace.Location), m_groupInfoModel, this.pictureBoxGroupFace.Image);
+            FormInfoCard.Instance.enterItem(m_groupInfoModel.Gid.ToString());
         }
 
         private void pictureBoxGroupFace_MouseLeave(object sender, EventArgs e)
         {
-            FormPersionalInfo.Instance.leaveItem(m_groupInfoModel.Gid.ToString());
+            FormInfoCard.Instance.leaveItem(m_groupInfoModel.Gid.ToString());
         }
 
         private void 发送群消息ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -167,10 +167,14 @@ namespace MainProgram.UserControls
 
         void onGroupFaceModify(int gid) {
             if (m_groupInfoModel.Gid == gid)
-            {
+            {              
                 //刷新face                               
                 if (m_groupInfoModel.Face != "" && m_groupInfoModel.Face != null)
                 {
+                    if (m_groupInfoModel.Face=="default.jpg")
+                    {
+                        m_groupInfoModel.Face = "group" + m_groupInfoModel.Gid + ".jpg";
+                    }
                     HttpReqHelper.loadFaceSync(m_groupInfoModel.Face, delegate (Image face)
                     {
                         if (face != null)
@@ -179,6 +183,7 @@ namespace MainProgram.UserControls
                         }
                     });
                 }
+
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace MainProgram
 {
-    partial class FormPersionalInfo
+    partial class FormInfoCard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPersionalInfo));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInfoCard));
+            this.pictureBoxFace = new System.Windows.Forms.PictureBox();
             this.labelNickName = new System.Windows.Forms.Label();
             this.labelDiscription = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pictureBoxFace
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(2, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(115, 115);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxFace.Image")));
+            this.pictureBoxFace.Location = new System.Drawing.Point(2, 3);
+            this.pictureBoxFace.Name = "pictureBoxFace";
+            this.pictureBoxFace.Size = new System.Drawing.Size(115, 115);
+            this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFace.TabIndex = 0;
+            this.pictureBoxFace.TabStop = false;
             // 
             // labelNickName
             // 
@@ -82,7 +82,7 @@
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.labelDiscription);
             this.Controls.Add(this.labelNickName);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxFace);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPersionalInfo";
             this.ShowInTaskbar = false;
@@ -91,7 +91,7 @@
             this.Load += new System.EventHandler(this.FormPersionalInfo_Load);
             this.MouseEnter += new System.EventHandler(this.FormPersionalInfo_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.FormPersionalInfo_MouseLeave);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,7 +99,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxFace;
         private System.Windows.Forms.Label labelNickName;
         private System.Windows.Forms.Label labelDiscription;
         private System.Windows.Forms.Label labelUsername;

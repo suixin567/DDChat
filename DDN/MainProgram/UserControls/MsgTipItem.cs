@@ -55,13 +55,22 @@ namespace MainProgram.UserControls
                     });                                    
                     break;
                 case MessageProtocol.ONE_AGREED_YOU://别人同意你的好友申请
-                    //头像为一个喇叭图片
-                    this.pictureBox.Image = MainProgram.Properties.Resources.msg;
-                    this.labelContent.Text = "附加消息：" + m_mode.Content;
-                    //设置昵称
-                    DataMgr.Instance.getPersonalByID(m_mode.From, delegate (PersonalInfoModel model) {
-                        this.SetText(model.Nickname);
-                    });
+                    //头像为对方头像              
+                    DataMgr.Instance.getPersonalByID(m_mode.From,delegate(PersonalInfoModel mode) {
+                        //设置昵称
+                        this.SetText(mode.Nickname);
+                        //下载头像
+                        if (mode.Face != "")
+                        {
+                            HttpReqHelper.loadFaceSync(mode.Face, delegate (Image face) {
+                                if (face != null)
+                                {
+                                    this.SetImg(face);
+                                }
+                            });
+                        }
+                    });                                    
+                    this.labelContent.Text = "附加消息：" + m_mode.Content;                    
                     break;
                 case MessageProtocol.ONE_WANT_ADD_GROUP_SRES://有人申请入群
                     //头像为一个喇叭图片
@@ -92,12 +101,21 @@ namespace MainProgram.UserControls
                     break;
                 case MessageProtocol.YOU_BE_AGREED_ENTER_GROUP://被同意入群
                     //头像为一个喇叭图片
-                    this.pictureBox.Image = MainProgram.Properties.Resources.msg;
+                   // this.pictureBox.Image = MainProgram.Properties.Resources.msg;
                     //获取群名
                     DataMgr.Instance.getGroupByID(m_mode.To, delegate (GroupInfoModel model)
-                    {
-                        group = model.Name;
+                    {                    
                         this.SetText(model.Name);
+                        //下载头像
+                        if (model.Face != "")
+                        {
+                            HttpReqHelper.loadFaceSync(model.Face, delegate (Image face) {
+                                if (face != null)
+                                {
+                                    this.SetImg(face);
+                                }
+                            });
+                        }
                     });
                     labelContent.Text = "已加入群聊，来聊天吧！";
                     break;

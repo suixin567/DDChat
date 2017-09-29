@@ -126,7 +126,7 @@ public class HttpReqHelper
         else
         {
           //  Debug.Print("图片不存在，网络下载"+ face);
-            loadFaceFromNet(face, callBack);
+            loadFaceFromNet(face, callBack);           
         }       
     }
 

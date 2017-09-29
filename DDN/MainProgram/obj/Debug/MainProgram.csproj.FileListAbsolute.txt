@@ -70,7 +70,6 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormCreateGrou
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormModifyFace.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormModifyPersionalInfo.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormShowPersonalInfo.resources
-C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormPersionalInfo.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.MsgTip.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.AddFriendItem.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormAddFriend.resources
@@ -96,3 +95,4 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormShowGroupI
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormModifyGroupFace.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormModifyGroupInfo.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.GroupManageMemberItem.resources
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormInfoCard.resources

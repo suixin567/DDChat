@@ -81,8 +81,8 @@ namespace MainProgram
             //Image img = (Image)rm.GetObject("pic");
             //pictureBox2.Image = img;    
             //展示个人资料的窗体
-            FormPersionalInfo.Instance.Show();
-            FormPersionalInfo.Instance.Hide();
+            FormInfoCard.Instance.Show();
+            FormInfoCard.Instance.Hide();
               
         }
 

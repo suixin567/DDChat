@@ -27,8 +27,12 @@ namespace ToolLib
         #region 属性
         ConcurrentDictionary<string, PersonalInfoModel> personalDic = new ConcurrentDictionary<string, PersonalInfoModel>();
         ConcurrentDictionary<string, GroupInfoModel> groupDic = new ConcurrentDictionary<string, GroupInfoModel>();
+        //群资料修改事件
         public delegate void ModifyGroupInfo(int gid);
         public event ModifyGroupInfo modifyGroupInfoEvent;
+        //个人资料修改事件
+        public delegate void ModifyPersonalInfo(string username);
+        public event ModifyPersonalInfo modifyPersonalInfoEvent;
         #endregion
 
 
@@ -104,8 +108,22 @@ namespace ToolLib
             }
         }
 
+        //修改一个人的数据
+        public void modifyPersonalInfo(PersonalInfoModel mode)
+        {
+            if (this.personalDic.ContainsKey(mode.Username))
+            {
+                this.personalDic[mode.Username] = mode;
+                if (modifyPersonalInfoEvent != null)
+                {
+                    modifyPersonalInfoEvent(mode.Username);
+                }
+            }
+        }
+
         //修改一个群的数据
-        public void modifyGroupInfo(GroupInfoModel mode) {
+        public void modifyGroupInfo(GroupInfoModel mode)
+        {
             if (this.groupDic.ContainsKey(mode.Gid.ToString()))
             {
                 this.groupDic[mode.Gid.ToString()] = mode;

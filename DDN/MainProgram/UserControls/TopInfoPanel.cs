@@ -147,8 +147,8 @@ namespace MainProgram.UserControls
         //鼠标进入头像范围内，则展示资料
         private void pictureBoxTopFace_MouseEnter(object sender, EventArgs e)
         {
-            FormPersionalInfo.Instance.SetFormPersionalInfo(3, PointToScreen(this.pictureBoxTopFace.Location), AppInfo.PERSONAL_INFO.Nickname, AppInfo.PERSONAL_INFO.Username, AppInfo.PERSONAL_INFO.Description);
-            FormPersionalInfo.Instance.enterItem("self");
+            FormInfoCard.Instance.SetPersionalCard(PointToScreen(this.pictureBoxTopFace.Location), AppInfo.PERSONAL_INFO,this.pictureBoxTopFace.Image);
+            FormInfoCard.Instance.enterItem("self");
 
             if (labelTip==null)
             {
@@ -171,7 +171,7 @@ namespace MainProgram.UserControls
         //鼠标离开后关闭资料展示
         private void pictureBoxTopFace_MouseLeave(object sender, EventArgs e)
         {
-            FormPersionalInfo.Instance.leaveItem("self");
+            FormInfoCard.Instance.leaveItem("self");
             labelTip.Hide();
         }
 

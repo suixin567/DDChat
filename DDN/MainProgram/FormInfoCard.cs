@@ -11,17 +11,17 @@ using System.Windows.Forms;
 
 namespace MainProgram
 {
-    public partial class FormPersionalInfo : Form
+    public partial class FormInfoCard : Form
     {
 
-        private static FormPersionalInfo instance;
-        public static FormPersionalInfo Instance
+        private static FormInfoCard instance;
+        public static FormInfoCard Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new FormPersionalInfo();
+                    instance = new FormInfoCard();
                 }
                 return instance;
             }
@@ -32,7 +32,7 @@ namespace MainProgram
         public string m_id;
         System.Windows.Forms.Timer closeTimer = new System.Windows.Forms.Timer();
 
-        public FormPersionalInfo()
+        public FormInfoCard()
         {
             InitializeComponent();
         }
@@ -50,25 +50,25 @@ namespace MainProgram
                 this.Hide();
         }
 
-        public void SetFormPersionalInfo(int type ,Point location ,string nickName, string username,string discription)
+        public void SetPersionalCard(Point location ,PersonalInfoModel model,Image face)
         {
-            switch (type)
-            {
-                case 1://群
-                    this.labelNickName.Text = nickName;
-                    this.labelUsername.Text = "群号(" + username + ")";
-                    this.labelDiscription.Text = discription;
-                    break;
-                case 3://个人
-                    this.labelNickName.Text = nickName;
-                    this.labelUsername.Text = "(" + username + ")";
-                    this.labelDiscription.Text = discription;
-                    break;
-                default:
-                    break;
-            }
+            this.labelNickName.Text = model.Nickname;
+            this.labelUsername.Text = "(" + model.Username + ")";
+            this.labelDiscription.Text = model.Description;
+            this.pictureBoxFace.Image = face;
             location = new Point(location.X-this.Width-20, location.Y-10);//调整一下位置           
             this.Location = location;        
+            this.Show();
+        }
+
+        public void SetGroupCard(Point location, GroupInfoModel model, Image face)
+        {
+            this.labelNickName.Text = model.Name;
+            this.labelUsername.Text = "群号(" + model.Gid + ")";
+            this.labelDiscription.Text = model.Description;
+            this.pictureBoxFace.Image = face;
+            location = new Point(location.X - this.Width - 20, location.Y - 10);//调整一下位置           
+            this.Location = location;
             this.Show();
         }
 

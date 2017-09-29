@@ -121,19 +121,26 @@ namespace MainProgram.UserControls
             if (m_friendAndGroupID.Contains("friend"))
             {
                 string friendId = m_friendAndGroupID.Substring("friend".Length);
-                FormPersionalInfo.Instance.SetFormPersionalInfo(3, PointToScreen(this.PictureBoxDialogueFace.Location), m_friendAndGroupNickName, friendId, "");               
+                DataMgr.Instance.getPersonalByID(friendId, delegate (PersonalInfoModel model)
+                {
+                    FormInfoCard.Instance.SetPersionalCard(PointToScreen(this.PictureBoxDialogueFace.Location), model, this.PictureBoxDialogueFace.Image);
+                });
             }
-            else {
+            else
+            {
                 string groupId = m_friendAndGroupID.Substring("group".Length);
-                FormPersionalInfo.Instance.SetFormPersionalInfo(3, PointToScreen(this.PictureBoxDialogueFace.Location), m_friendAndGroupNickName, groupId, "");
+                DataMgr.Instance.getGroupByID(groupId, delegate (GroupInfoModel model)
+                {
+                    FormInfoCard.Instance.SetGroupCard(PointToScreen(this.PictureBoxDialogueFace.Location), model, this.PictureBoxDialogueFace.Image);
+                });              
             }
-            FormPersionalInfo.Instance.enterItem(m_friendAndGroupID);
+            FormInfoCard.Instance.enterItem(m_friendAndGroupID);
         }
 
         //鼠标离开头像
         private void PictureBoxDialogueFace_MouseLeave(object sender, EventArgs e)
         {
-            FormPersionalInfo.Instance.leaveItem(m_friendAndGroupID);
+            FormInfoCard.Instance.leaveItem(m_friendAndGroupID);
         }
 
         //双击打开对话
