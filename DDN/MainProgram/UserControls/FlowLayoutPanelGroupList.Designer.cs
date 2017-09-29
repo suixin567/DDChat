@@ -59,12 +59,12 @@
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.创建群ToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip.Size = new System.Drawing.Size(113, 26);
             // 
             // 创建群ToolStripMenuItem
             // 
             this.创建群ToolStripMenuItem.Name = "创建群ToolStripMenuItem";
-            this.创建群ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.创建群ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.创建群ToolStripMenuItem.Text = "创建群";
             this.创建群ToolStripMenuItem.Click += new System.EventHandler(this.创建群ToolStripMenuItem_Click);
             // 
@@ -106,7 +106,7 @@
             this.buttonGroup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGroup.Location = new System.Drawing.Point(6, 23);
             this.buttonGroup.Name = "buttonGroup";
-            this.buttonGroup.Size = new System.Drawing.Size(75, 23);
+            this.buttonGroup.Size = new System.Drawing.Size(83, 23);
             this.buttonGroup.TabIndex = 3;
             this.buttonGroup.Text = "我的群 0";
             this.buttonGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

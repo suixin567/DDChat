@@ -39,9 +39,9 @@
             // pictureBoxFace
             // 
             this.pictureBoxFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxFace.Image")));
-            this.pictureBoxFace.Location = new System.Drawing.Point(2, 3);
+            this.pictureBoxFace.Location = new System.Drawing.Point(2, 2);
             this.pictureBoxFace.Name = "pictureBoxFace";
-            this.pictureBoxFace.Size = new System.Drawing.Size(115, 115);
+            this.pictureBoxFace.Size = new System.Drawing.Size(116, 116);
             this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxFace.TabIndex = 0;
             this.pictureBoxFace.TabStop = false;
@@ -74,7 +74,7 @@
             this.labelUsername.TabIndex = 3;
             this.labelUsername.Text = "(...)";
             // 
-            // FormPersionalInfo
+            // FormInfoCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -84,7 +84,7 @@
             this.Controls.Add(this.labelNickName);
             this.Controls.Add(this.pictureBoxFace);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormPersionalInfo";
+            this.Name = "FormInfoCard";
             this.ShowInTaskbar = false;
             this.Text = "FormPersionalInfo";
             this.TopMost = true;

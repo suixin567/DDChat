@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Drawing.Drawing2D;
 using System.Threading;
+using ToolLib;
 
 namespace MainProgram.UserControls
 {
@@ -38,8 +39,19 @@ namespace MainProgram.UserControls
                     this.labelTime.Text = m_MsgModel.Time;
                     this.buttonYes.Hide();
                     this.buttonIgnore.Hide();
-                    this.labelProcessMark.Hide();
-                    pullOtherFaceAndName(AppConst.WebUrl + "baseInfo?username=" + m_MsgModel.To);
+                    this.labelProcessMark.Hide();     
+                    DataMgr.Instance.getPersonalByID(m_MsgModel.To, delegate (PersonalInfoModel mode)
+                    {
+                        setNickLabelSafePost(mode.Nickname);
+                        //请求头像
+                        HttpReqHelper.loadFaceSync(mode.Face, delegate (Image face)
+                        {
+                            if (face != null)
+                            {
+                              this.pictureBoxFace.Image = face;
+                              //setImageSafePost(face);
+                            }
+                        });});                                        
                     break;
                 case MessageProtocol.ONE_ADD_YOU_SRES://有人想加你
                     this.labelUsername.Text = m_MsgModel.From;
@@ -54,7 +66,18 @@ namespace MainProgram.UserControls
                     else {
                         this.labelProcessMark.Hide();
                     }
-                    pullOtherFaceAndName(AppConst.WebUrl + "baseInfo?username=" + m_MsgModel.From);
+                    DataMgr.Instance.getPersonalByID(m_MsgModel.From, delegate (PersonalInfoModel mode)
+                    {
+                        setNickLabelSafePost(mode.Nickname);
+                        //请求头像
+                        HttpReqHelper.loadFaceSync(mode.Face, delegate (Image face)
+                        {
+                            if (face != null)
+                            {
+                                this.pictureBoxFace.Image = face;
+                            }
+                        });
+                    });
                     break;
                 case MessageProtocol.ADD_GROUP_SRES://申请加群的响应
                     this.labelUsername.Text = m_MsgModel.To;
@@ -62,10 +85,43 @@ namespace MainProgram.UserControls
                     this.labelTime.Text = m_MsgModel.Time;
                     this.buttonYes.Hide();
                     this.buttonIgnore.Hide();
-                    //TODO: 应拉取这个群的头像和群名字
+                    //拉取这个群的头像和群名字
+                    DataMgr.Instance.getGroupByID(m_MsgModel.To, delegate (GroupInfoModel mode)
+                    {
+                        setNickLabelSafePost(mode.Name);
+                        //请求头像
+                        HttpReqHelper.loadFaceSync(mode.Face, delegate (Image face)
+                        {
+                            if (face != null)
+                            {
+                                this.pictureBoxFace.Image = face;
+                            }
+                        });
+                    });
                     break;
                 case MessageProtocol.ONE_WANT_ADD_GROUP_SRES://有人想加入群
-                    this.labelNickName.Text = "申请人的昵称 申请加入群 群的昵称";
+                    //申请人的昵称
+                    string proposer = "";
+                    DataMgr.Instance.getPersonalByID(m_MsgModel.From, delegate (PersonalInfoModel mode)
+                    {
+                        proposer = mode.Nickname;
+                        //请求头像
+                        HttpReqHelper.loadFaceSync(mode.Face, delegate (Image face)
+                        {
+                            if (face != null)
+                            {
+                                this.pictureBoxFace.Image = face;
+                            }
+                        });
+                    });
+                    //群名字
+                    string groupname = "";
+                    //群的昵称与头像
+                    DataMgr.Instance.getGroupByID(m_MsgModel.To, delegate (GroupInfoModel mode)
+                    {
+                        groupname = mode.Name;                    
+                    });
+                    this.labelNickName.Text = proposer+ " 申请加入群 "+groupname;
                     this.labelUsername.Text = m_MsgModel.From;
                     this.labelContent.Text = "消息内容："+ m_MsgModel.Content;
                     this.labelTime.Text = m_MsgModel.Time;
@@ -78,8 +134,7 @@ namespace MainProgram.UserControls
                     else
                     {
                         this.labelProcessMark.Hide();
-                    }
-                    //TODO: 以及申请人的头像还没有
+                    }                 
                     break;
                 default:
                     Debug.Print("这条协议还没有做处理"+ m_MsgModel.MsgType);
@@ -88,40 +143,8 @@ namespace MainProgram.UserControls
         }
 
 
-        //拉取对方的头像和昵称
-        void pullOtherFaceAndName(string url) {
-            //对方信息（昵称和头像）
-            HttpReqHelper.requestSync(url , delegate (string info)
-            {
-                if (info != "null")
-                {
-                    PersonalInfoModel model = new PersonalInfoModel();
-                    try
-                    {
-                        model = Coding<PersonalInfoModel>.decode(info);
-                    }
-                    catch (Exception err)
-                    {
-                        Debug.Print("MsgVerifyItem.FriendVerifyItem_Load解析错误" + err.ToString());
-                        return;
-                    }
-                    //  this.labelNickName.Text = model.Nickname;
-                    setLabelSafePost(model.Nickname);
-                    //请求头像
-                    HttpReqHelper.loadFaceSync(model.Face, delegate (Image face)
-                    {
-                        if (face != null)
-                        {
-                            //        this.pictureBoxFace.Image = face;
-                            setImageSafePost(face);
-                        }
-                    });
-                }
-            });
-        }
-
         //安全设置label
-        public void setLabelSafePost(string content)
+        public void setNickLabelSafePost(string content)
         {
             m_SyncContext.Post(setLabel, content);
         }
