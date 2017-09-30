@@ -45,7 +45,7 @@ namespace MainProgram.UserControls
             //下载头像
             if (m_face != "")
             {
-                HttpReqHelper.loadFaceSync(m_face,delegate(Image face) {
+                FaceMgr.Instance.getFaceByName(m_face,delegate(Image face) {
                     if (face != null)
                     {
                         this.pictureBoxFace.Image = face;

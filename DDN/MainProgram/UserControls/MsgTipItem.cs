@@ -62,7 +62,7 @@ namespace MainProgram.UserControls
                         //下载头像
                         if (mode.Face != "")
                         {
-                            HttpReqHelper.loadFaceSync(mode.Face, delegate (Image face) {
+                            FaceMgr.Instance.getFaceByName(mode.Face, delegate (Image face) {
                                 if (face != null)
                                 {
                                     this.SetImg(face);
@@ -90,7 +90,7 @@ namespace MainProgram.UserControls
                         }
                     });
                     //获取群名
-                    DataMgr.Instance.getGroupByID(m_mode.To, delegate (GroupInfoModel model) {
+                    DataMgr.Instance.getGroupByID(int.Parse(m_mode.To), delegate (GroupInfoModel model) {
                         group = model.Name;
                         count++;
                         if (count == 2)
@@ -103,13 +103,13 @@ namespace MainProgram.UserControls
                     //头像为一个喇叭图片
                    // this.pictureBox.Image = MainProgram.Properties.Resources.msg;
                     //获取群名
-                    DataMgr.Instance.getGroupByID(m_mode.To, delegate (GroupInfoModel model)
+                    DataMgr.Instance.getGroupByID(int.Parse(m_mode.To), delegate (GroupInfoModel model)
                     {                    
                         this.SetText(model.Name);
                         //下载头像
                         if (model.Face != "")
                         {
-                            HttpReqHelper.loadFaceSync(model.Face, delegate (Image face) {
+                            FaceMgr.Instance.getFaceByName(model.Face, delegate (Image face) {
                                 if (face != null)
                                 {
                                     this.SetImg(face);
@@ -125,7 +125,7 @@ namespace MainProgram.UserControls
                     {
                         this.SetText(model.Nickname);
                         //请求好友头像
-                        HttpReqHelper.loadFaceSync(model.Face, delegate (Image face)
+                        FaceMgr.Instance.getFaceByName(model.Face, delegate (Image face)
                         {
                             if (face != null)
                             {
@@ -137,11 +137,11 @@ namespace MainProgram.UserControls
                     break;
                 case MessageProtocol.CHAT_GROUP_TO_ME_SRES://群向我聊天
                     //获取群昵称
-                    DataMgr.Instance.getGroupByID(m_mode.To, delegate (GroupInfoModel model)
+                    DataMgr.Instance.getGroupByID(int.Parse(m_mode.To), delegate (GroupInfoModel model)
                     {
                         this.SetText(model.Name);
                         //请求群头像
-                        HttpReqHelper.loadFaceSync(model.Face, delegate (Image face)
+                        FaceMgr.Instance.getFaceByName(model.Face, delegate (Image face)
                         {
                             if (face != null)
                             {

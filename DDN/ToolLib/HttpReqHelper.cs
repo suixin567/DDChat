@@ -96,7 +96,7 @@ public class HttpReqHelper
     /// </summary>
     /// <param name="img"></param>
     public delegate void RequestPicEvent(Image img);
-    public static void loadFaceSync(string face, RequestPicEvent callBack)
+    public static void loadFaceSyncxxx(string face, RequestPicEvent callBack)
     {
         bool isFaceExit = false;
         foreach (var item in texturesList)

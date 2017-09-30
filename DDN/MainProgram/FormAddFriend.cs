@@ -113,7 +113,7 @@ namespace MainProgram
             if (textBoxFindCompany.Text != "")
             {
                 this.flowLayoutPanelStrangers.Controls.Clear();
-                DataMgr.Instance.getGroupByID(textBoxFindCompany.Text,delegate(GroupInfoModel model) {
+                DataMgr.Instance.getGroupByID(int.Parse(textBoxFindCompany.Text),delegate(GroupInfoModel model) {
                     if (model.Gid == 0)
                     {
                         return;

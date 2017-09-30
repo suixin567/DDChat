@@ -40,7 +40,7 @@ namespace Mgr
             th.Start();
             Login.LoginMgr.Instance.Init();
             m_SyncContext = SynchronizationContext.Current;
-            HttpReqHelper.Init();
+            FaceMgr.Instance.Init();
         }
 
 
@@ -86,11 +86,11 @@ namespace Mgr
                 case Protocol.SETTING://有设置被改变
                     if (model.Command==1)//有群模型发生改变
                     {
-                        DataMgr.Instance.modifyGroupInfo(model.Message);
+                        DataMgr.Instance.modifyGroupInfo(int.Parse(model.Message));
                     }
                     if (model.Command == 2)//有群头像发生改变
                     {
-                        FaceMgr.Instance.modifyGroupFace(model.Message);
+                        FaceMgr.Instance.modifyFace("group"+model.Message+".jpg");
                     }
                     break;
                 default:

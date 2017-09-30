@@ -44,7 +44,7 @@ namespace MainProgram.UserControls
                     {
                         setNickLabelSafePost(mode.Nickname);
                         //请求头像
-                        HttpReqHelper.loadFaceSync(mode.Face, delegate (Image face)
+                        FaceMgr.Instance.getFaceByName(mode.Face, delegate (Image face)
                         {
                             if (face != null)
                             {
@@ -70,7 +70,7 @@ namespace MainProgram.UserControls
                     {
                         setNickLabelSafePost(mode.Nickname);
                         //请求头像
-                        HttpReqHelper.loadFaceSync(mode.Face, delegate (Image face)
+                        FaceMgr.Instance.getFaceByName(mode.Face, delegate (Image face)
                         {
                             if (face != null)
                             {
@@ -86,11 +86,11 @@ namespace MainProgram.UserControls
                     this.buttonYes.Hide();
                     this.buttonIgnore.Hide();
                     //拉取这个群的头像和群名字
-                    DataMgr.Instance.getGroupByID(m_MsgModel.To, delegate (GroupInfoModel mode)
+                    DataMgr.Instance.getGroupByID(int.Parse(m_MsgModel.To), delegate (GroupInfoModel mode)
                     {
                         setNickLabelSafePost(mode.Name);
                         //请求头像
-                        HttpReqHelper.loadFaceSync(mode.Face, delegate (Image face)
+                        FaceMgr.Instance.getFaceByName(mode.Face, delegate (Image face)
                         {
                             if (face != null)
                             {
@@ -106,7 +106,7 @@ namespace MainProgram.UserControls
                     {
                         proposer = mode.Nickname;
                         //请求头像
-                        HttpReqHelper.loadFaceSync(mode.Face, delegate (Image face)
+                        FaceMgr.Instance.getFaceByName(mode.Face, delegate (Image face)
                         {
                             if (face != null)
                             {
@@ -117,7 +117,7 @@ namespace MainProgram.UserControls
                     //群名字
                     string groupname = "";
                     //群的昵称与头像
-                    DataMgr.Instance.getGroupByID(m_MsgModel.To, delegate (GroupInfoModel mode)
+                    DataMgr.Instance.getGroupByID(int.Parse(m_MsgModel.To), delegate (GroupInfoModel mode)
                     {
                         groupname = mode.Name;                    
                     });

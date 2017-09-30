@@ -48,7 +48,7 @@ namespace MainProgram.UserControls
                 //下载头像
                 if (m_friendModel.Face != "")
                 {
-                    HttpReqHelper.loadFaceSync(m_friendModel.Face, delegate (Image face) {
+                    FaceMgr.Instance.getFaceByName(m_friendModel.Face, delegate (Image face) {
                         if (face != null)
                         {
                             friendFacePictureBox.Image = face;

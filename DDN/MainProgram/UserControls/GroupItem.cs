@@ -51,7 +51,7 @@ namespace MainProgram.UserControls
             }
 
             //获取这个群的基本信息
-            DataMgr.Instance.getGroupByID(m_myGroupModel.GroupID.ToString(),delegate(GroupInfoModel model) {
+            DataMgr.Instance.getGroupByID(m_myGroupModel.GroupID,delegate(GroupInfoModel model) {
                 m_groupInfoModel = model;
             //     Debug.Print("qqqqqqqqqqq群得到消息" + m_groupInfoModel.Name);
                 initLabelSafePost();
@@ -59,7 +59,7 @@ namespace MainProgram.UserControls
 
                 if (m_groupInfoModel.Face != "" && m_groupInfoModel.Face != null)
                 {
-                    HttpReqHelper.loadFaceSync(m_groupInfoModel.Face, delegate (Image face)
+                    FaceMgr.Instance.getFaceByName(m_groupInfoModel.Face, delegate (Image face)
                     {
                         if (face != null)
                         {
@@ -145,36 +145,24 @@ namespace MainProgram.UserControls
         }
 
         //当群模型发生改变
-        void onGroupModelMotified(int gid) {
+        void onGroupModelMotified(int gid,GroupInfoModel newMode) {
             if (m_groupInfoModel.Gid ==gid)
             {
-                DataMgr.Instance.getGroupByID(m_groupInfoModel.Gid.ToString(), delegate (GroupInfoModel model) {
-                    m_groupInfoModel = model;
-                });
+                m_groupInfoModel = newMode;              
                 //刷新群名字label
                 initLabelSafePost();
             }                    
         }
 
-        void onGroupFaceModify(int gid) {
-            if (m_groupInfoModel.Gid == gid)
-            {              
-                //刷新face                               
-                if (m_groupInfoModel.Face != "" && m_groupInfoModel.Face != null)
-                {
-                    if (m_groupInfoModel.Face=="default.jpg")
-                    {
-                        m_groupInfoModel.Face = "group" + m_groupInfoModel.Gid + ".jpg";
-                    }
-                    HttpReqHelper.loadFaceSync(m_groupInfoModel.Face, delegate (Image face)
-                    {
-                        if (face != null)
-                        {
-                            this.pictureBoxGroupFace.Image = face;
-                        }
-                    });
-                }
-
+        void onGroupFaceModify(string faceName,Image newFace) {
+            if (m_groupInfoModel.Face == "default.jpg")
+            {
+                m_groupInfoModel.Face = "group" + m_groupInfoModel.Gid + ".jpg";
+            }
+           
+            if (m_groupInfoModel.Face == faceName)
+            {
+                this.pictureBoxGroupFace.Image = newFace;
             }
         }
     }

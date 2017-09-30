@@ -133,9 +133,9 @@ namespace MainProgram
                 //修改新头像
                 m_FormShowGroupInfo.refreshFaceSafePost(currentImage);
             
-                //修改本地缓存的头像
-                this.currentImage.Save(AppConst.WinPicPath + "group"+ m_gid + ".jpg");
-                FaceMgr.Instance.modifyFace(m_gid);
+                ////修改本地缓存的头像
+                //this.currentImage.Save(AppConst.WinPicPath + "group"+ m_gid + ".jpg");
+                //FaceMgr.Instance.modifyFace(m_gid);
                 saveOKSafePost();
             }
             else

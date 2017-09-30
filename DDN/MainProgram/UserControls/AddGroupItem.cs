@@ -49,7 +49,7 @@ namespace MainProgram.UserControls
             //下载头像
             if (m_Face != "")
             {
-                HttpReqHelper.loadFaceSync(m_Face,delegate(Image face) {
+                FaceMgr.Instance.getFaceByName(m_Face,delegate(Image face) {
                     if (face != null)
                     {
                         this.pictureBoxFace.Image = face;

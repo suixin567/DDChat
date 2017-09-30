@@ -53,7 +53,7 @@ namespace MainProgram
                 SetMasterLabel(model.Nickname);
                 if (model.Face != "" && model.Face != null) //下载群主头像
                 {
-                    HttpReqHelper.loadFaceSync(model.Face, delegate (Image masterface)
+                    FaceMgr.Instance.getFaceByName(model.Face, delegate (Image masterface)
                     {
                         if (masterface != null)
                         {
@@ -92,7 +92,7 @@ namespace MainProgram
         }
 
         //当群模型被改变
-        void onGroupModelMotified(int gid)
+        void onGroupModelMotified(int gid,GroupInfoModel mode)
         {
             if (m_groupItem.getGroupMode().Gid == gid)
             {

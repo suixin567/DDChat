@@ -42,7 +42,7 @@ namespace MainProgram.UserControls
                     //下载头像
                     if (model.Face != "" && model.Face != null)
                     {
-                        HttpReqHelper.loadFaceSync(model.Face, delegate (Image face)
+                        FaceMgr.Instance.getFaceByName(model.Face, delegate (Image face)
                         {
                             if (face != null)
                             {
@@ -59,13 +59,13 @@ namespace MainProgram.UserControls
             else if (friendAndGroupID.Contains("group"))
             {
                 //获取这个群的基本信息
-                DataMgr.Instance.getGroupByID(friendAndGroupID.Substring("group".Length), delegate (GroupInfoModel model) {
+                DataMgr.Instance.getGroupByID(int.Parse(friendAndGroupID.Substring("group".Length)), delegate (GroupInfoModel model) {
                     m_friendAndGroupNickName = model.Name;//获取昵称
                     reFreshContentSafePost(null);
                     //下载头像
                     if (model.Face != "" && model.Face != null)
                     {
-                        HttpReqHelper.loadFaceSync(model.Face, delegate (Image face)
+                        FaceMgr.Instance.getFaceByName(model.Face, delegate (Image face)
                         {
                             if (face != null)
                             {
@@ -128,7 +128,7 @@ namespace MainProgram.UserControls
             }
             else
             {
-                string groupId = m_friendAndGroupID.Substring("group".Length);
+                int groupId = int.Parse(m_friendAndGroupID.Substring("group".Length));
                 DataMgr.Instance.getGroupByID(groupId, delegate (GroupInfoModel model)
                 {
                     FormInfoCard.Instance.SetGroupCard(PointToScreen(this.PictureBoxDialogueFace.Location), model, this.PictureBoxDialogueFace.Image);

@@ -26,13 +26,13 @@ namespace ToolLib
 
         #region 属性
         ConcurrentDictionary<string, PersonalInfoModel> personalDic = new ConcurrentDictionary<string, PersonalInfoModel>();
-        ConcurrentDictionary<string, GroupInfoModel> groupDic = new ConcurrentDictionary<string, GroupInfoModel>();
+        ConcurrentDictionary<int, GroupInfoModel> groupDic = new ConcurrentDictionary<int, GroupInfoModel>();
         //群资料修改事件
-        public delegate void ModifyGroupInfo(int gid);
+        public delegate void ModifyGroupInfo(int gid,GroupInfoModel newMode);
         public event ModifyGroupInfo modifyGroupInfoEvent;
         //个人资料修改事件
-        public delegate void ModifyPersonalInfo(string username);
-        public event ModifyPersonalInfo modifyPersonalInfoEvent;
+        //public delegate void ModifyPersonalInfo(string username);
+        //public event ModifyPersonalInfo modifyPersonalInfoEvent;
         #endregion
 
 
@@ -73,7 +73,7 @@ namespace ToolLib
 
         //异步获取一个群的信息
         public delegate void RequestGroupInfoEvent(GroupInfoModel callback);
-        public void getGroupByID(string groupId, RequestGroupInfoEvent callBack)
+        public void getGroupByID(int groupId, RequestGroupInfoEvent callBack)
         {
             if (groupDic.ContainsKey(groupId))
             {
@@ -112,7 +112,7 @@ namespace ToolLib
 
        
         //强制更新一个群的数据
-        public void modifyGroupInfo(string gid)
+        public void modifyGroupInfo(int gid)
         {
             HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=" + HttpGroupProtocol.GROUP_BASE_INFO + "&gid=" + gid, delegate (string info) {
                 try
@@ -125,9 +125,10 @@ namespace ToolLib
                     else {
                         groupDic.TryAdd(gid, model);
                     }
+                    //发送事件
                     if (modifyGroupInfoEvent != null)
                     {
-                        modifyGroupInfoEvent(int.Parse(gid));
+                        modifyGroupInfoEvent(gid, model);
                     }
                 }
                 catch (Exception err)

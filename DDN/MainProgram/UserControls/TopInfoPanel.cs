@@ -42,7 +42,7 @@ namespace MainProgram.UserControls
                 //请求头像
                 if (AppInfo.PERSONAL_INFO.Face != "")
                 {
-                    HttpReqHelper.loadFaceSync(AppInfo.PERSONAL_INFO.Face, delegate (Image face)
+                    FaceMgr.Instance.getFaceByName(AppInfo.PERSONAL_INFO.Face, delegate (Image face)
                     {
                         faceImage = face;
                         if (faceImage != null)
