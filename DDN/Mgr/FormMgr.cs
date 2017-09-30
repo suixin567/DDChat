@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ToolLib;
 
 namespace Mgr
 {
@@ -77,7 +73,6 @@ namespace Mgr
             switch (model.Type)
             {
                 case Protocol.LOGIN:
-                 //   Debug.Print("formMgr---->>>登陆结果是：" + model.Message+"    比对"+ PlayerPrefs.GetString("account"));
                     Login.LoginMgr.Instance.formLogin.OnMessage(model);
                     //登录成功
                     if (model.Command == LoginProtocol.LOGIN_SRES && model.Message !="10" && model.Message != "11" && model.Message != "12")
@@ -87,6 +82,16 @@ namespace Mgr
                     break;
                 case Protocol.MESSAGE://消息相关
                     MainProgram.MainMgr.Instance.msgMgr.onMessage(model);
+                    break;
+                case Protocol.SETTING://有设置被改变
+                    if (model.Command==1)//有群模型发生改变
+                    {
+                        DataMgr.Instance.modifyGroupInfo(model.Message);
+                    }
+                    if (model.Command == 2)//有群头像发生改变
+                    {
+                        FaceMgr.Instance.modifyGroupFace(model.Message);
+                    }
                     break;
                 default:
                     Debug.Print("网络协议类型错误：" + model.Type, 5);

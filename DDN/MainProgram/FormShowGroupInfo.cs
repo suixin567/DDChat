@@ -95,12 +95,13 @@ namespace MainProgram
         void onGroupModelMotified(int gid)
         {
             if (m_groupItem.getGroupMode().Gid == gid)
-            {              
+            {
+                setEnterMethodSafePost();
             }
         }
 
-            //跨线程设置群主信息
-            delegate void AppendValueDelegate(string strValue);
+        //跨线程设置群主信息
+        delegate void AppendValueDelegate(string strValue);
         public void SetMasterLabel(string strValue)
         {
             this.labelMaster.BeginInvoke(new AppendValueDelegate(MasterLabel), new object[] { strValue });
@@ -185,63 +186,13 @@ namespace MainProgram
             this.pictureBoxFace.Image = (Image)state;           
         }
 
-
-
-
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
-        private void FormModifyPersonalInfo_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-
-        //关闭面板
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-        //最小化
-        private void buttonMin_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void buttonOpenDialogue_Click(object sender, EventArgs e)
-        {
-            FormDialogManager.Instance.openDialog(1, m_groupItem.getGroupMode().Gid, m_groupItem.getGroupMode().Name, pictureBoxFace.Image);
-        }
-
-
-
         //允许任何人加群被勾选
         private void checkBoxVerifymode1_Click(object sender, EventArgs e)
         {
             if (checkBoxVerifymode1.Checked == true)
             {
                 //发送请求
-                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupItem.getGroupMode().Gid + "&method=1", delegate (string result)
-                {
-                    if (result == "true")
-                    {
-                        //请求成功    
-                        GroupInfoModel newModel = m_groupItem.getGroupMode();
-                        newModel.Verifymode = 1;                       
-                        DataMgr.Instance.modifyGroupInfo(newModel);
-                        setEnterMethodSafePost();
-                    }
-                    else
-                    {
-                    }
-                });
+                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupItem.getGroupMode().Gid + "&method=1", delegate (string result){});
             }
             else {
                 checkBoxVerifymode1.Checked = true;
@@ -254,20 +205,7 @@ namespace MainProgram
             if (checkBoxVerifymode2.Checked == true)
             {
                 //发送请求
-                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupItem.getGroupMode().Gid + "&method=0", delegate (string result)
-                {
-                    if (result == "true")
-                    {
-                        //请求成功
-                        GroupInfoModel newModel = m_groupItem.getGroupMode();
-                        newModel.Verifymode = 0;
-                        DataMgr.Instance.modifyGroupInfo(newModel);
-                        setEnterMethodSafePost();
-                    }
-                    else
-                    {
-                    }
-                });
+                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupItem.getGroupMode().Gid + "&method=0", delegate (string result){});
             }
             else {
                 checkBoxVerifymode2.Checked = true;
@@ -317,6 +255,43 @@ namespace MainProgram
                 checkBoxVerifymode1.Checked = true;
                 checkBoxVerifymode2.Checked = false;
             }
+        }
+        private void buttonOpenDialogue_Click(object sender, EventArgs e)
+        {
+            FormDialogManager.Instance.openDialog(1, m_groupItem.getGroupMode().Gid, m_groupItem.getGroupMode().Name, pictureBoxFace.Image);
+        }
+
+
+
+
+
+        /// ///////////////////////////////////////////////
+        /// 工具方法
+        /// ///////////////////////////////////////////////
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+        private void FormModifyPersonalInfo_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        //关闭面板
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+        //最小化
+        private void buttonMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

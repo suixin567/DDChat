@@ -33,7 +33,7 @@ namespace ToolLib
 
 
         //修改一个群的头像
-        public void modifyFace(int gid)
+        public void modifyGroupFace(string gid)
         {
             if (modifyFaceEvent != null)
             {

@@ -83,7 +83,7 @@ namespace ToolLib
                 }
             }
             else
-            {//请求这个人的信息，请求完后要更新至字典中。
+            {
                 HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol="+HttpGroupProtocol.GROUP_BASE_INFO+"&gid=" + groupId, delegate (string info) {
                     try
                     {
@@ -108,31 +108,51 @@ namespace ToolLib
             }
         }
 
-        //修改一个人的数据
-        public void modifyPersonalInfo(PersonalInfoModel mode)
+  
+
+       
+        //强制更新一个群的数据
+        public void modifyGroupInfo(string gid)
         {
-            if (this.personalDic.ContainsKey(mode.Username))
-            {
-                this.personalDic[mode.Username] = mode;
-                if (modifyPersonalInfoEvent != null)
+            HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=" + HttpGroupProtocol.GROUP_BASE_INFO + "&gid=" + gid, delegate (string info) {
+                try
                 {
-                    modifyPersonalInfoEvent(mode.Username);
+                    GroupInfoModel model = Coding<GroupInfoModel>.decode(info);
+                    if (groupDic.ContainsKey(gid))
+                    {
+                        groupDic[gid] = model;
+                    }
+                    else {
+                        groupDic.TryAdd(gid, model);
+                    }
+                    if (modifyGroupInfoEvent != null)
+                    {
+                        modifyGroupInfoEvent(int.Parse(gid));
+                    }
                 }
-            }
+                catch (Exception err)
+                {
+                    Debug.Print("!!!DataMgr.modifyGroupInfo失败" + err.ToString());                  
+                }
+            });        
         }
 
-        //修改一个群的数据
-        public void modifyGroupInfo(GroupInfoModel mode)
-        {
-            if (this.groupDic.ContainsKey(mode.Gid.ToString()))
-            {
-                this.groupDic[mode.Gid.ToString()] = mode;
-                if (modifyGroupInfoEvent!=null)
-                {
-                    modifyGroupInfoEvent(mode.Gid);
-                }
-            }       
-        }
+
+
+
+
+        ////修改一个人的数据
+        //public void modifyPersonalInfo(PersonalInfoModel mode)
+        //{
+        //    if (this.personalDic.ContainsKey(mode.Username))
+        //    {
+        //        this.personalDic[mode.Username] = mode;
+        //        if (modifyPersonalInfoEvent != null)
+        //        {
+        //            modifyPersonalInfoEvent(mode.Username);
+        //        }
+        //    }
+        //}
     }
 }
 

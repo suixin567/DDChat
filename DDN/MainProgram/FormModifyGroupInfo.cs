@@ -89,8 +89,10 @@ namespace MainProgram
                         //修改模型
                         m_groupModel.Name = this.textBoxNickName.Text;
                         m_groupModel.Description = this.textBoxDisc.Text;
-                        m_FormShowGroupInfo.refreshSafePost(m_groupModel);
-                        DataMgr.Instance.modifyGroupInfo(m_groupModel);                                                                     
+                        m_FormShowGroupInfo.refreshSafePost(m_groupModel);  
+                        ////广播最新的群模型给所有群员               
+                        //string message = Coding<GroupInfoModel>.encode(m_groupModel);
+                        //NetWorkManager.Instance.sendMessage(Protocol.SETTING, -1, 0, message);
                         saveOKSafePost();
                     }
                     else
