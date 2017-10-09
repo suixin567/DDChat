@@ -22,12 +22,7 @@ namespace Dialog
         #endregion
 
 
-        struct GroupMembers
-        {
-            public string Master;
-            public string Manager;
-            public string Member;
-        }
+
 
         public GroupMemberPanel()
         {

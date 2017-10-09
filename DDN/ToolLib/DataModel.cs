@@ -57,3 +57,11 @@ public class MsgModel
         this.Time = time;
     }
 }
+
+//群成员结构
+public struct GroupMembers
+{
+    public string Master;
+    public string Manager;
+    public string Member;
+}

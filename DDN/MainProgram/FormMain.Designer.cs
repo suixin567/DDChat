@@ -91,9 +91,10 @@
             // 
             // buttonShop
             // 
-            this.buttonShop.BackColor = System.Drawing.Color.SteelBlue;
+            this.buttonShop.BackColor = System.Drawing.Color.Transparent;
             this.buttonShop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonShop.FlatAppearance.BorderSize = 0;
+            this.buttonShop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonShop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShop.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonShop.ForeColor = System.Drawing.Color.White;
@@ -126,6 +127,7 @@
             // buttonExit
             // 
             this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonExit.BackColor = System.Drawing.Color.Transparent;
             this.buttonExit.FlatAppearance.BorderSize = 0;
             this.buttonExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.buttonExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -137,12 +139,13 @@
             this.buttonExit.Size = new System.Drawing.Size(30, 30);
             this.buttonExit.TabIndex = 12;
             this.buttonExit.Text = "×";
-            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // buttonMin
             // 
             this.buttonMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonMin.BackColor = System.Drawing.Color.Transparent;
             this.buttonMin.FlatAppearance.BorderSize = 0;
             this.buttonMin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
             this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -153,11 +156,12 @@
             this.buttonMin.Size = new System.Drawing.Size(30, 30);
             this.buttonMin.TabIndex = 13;
             this.buttonMin.Text = "一";
-            this.buttonMin.UseVisualStyleBackColor = true;
+            this.buttonMin.UseVisualStyleBackColor = false;
             this.buttonMin.Click += new System.EventHandler(this.buttonMin_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(8, 7);
             this.pictureBox1.Name = "pictureBox1";
@@ -203,6 +207,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(280, 650);
             this.ControlBox = false;
             this.Controls.Add(this.panelBottom);
@@ -219,6 +224,7 @@
             this.MaximumSize = new System.Drawing.Size(500, 1500);
             this.MinimumSize = new System.Drawing.Size(280, 500);
             this.Name = "FormMain";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "叮叮鸟";
             this.TopMost = true;

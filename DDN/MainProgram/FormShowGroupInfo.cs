@@ -3,7 +3,6 @@ using MainProgram.UserControls;
 using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
@@ -215,7 +214,8 @@ namespace MainProgram
         //切换选项卡事件
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex==2)//设置选项卡被点击
+            //设置选项卡被点击
+            if (tabControl1.SelectedIndex==2)
             {
                 if (m_groupItem.getGroupMode().Master == AppInfo.PERSONAL_INFO.Username)//自己是群主
                 {
@@ -234,6 +234,18 @@ namespace MainProgram
                     {
                         this.labelVerifymode.Text = "允许任何人加入";
                     }
+                }
+            }
+
+            bool isMemberInited = false;
+            //群成员选项卡被点击
+            if (tabControl1.SelectedIndex == 1)
+            {
+                if (isMemberInited==false)
+                {
+                    //初始化成员列表
+                    refreshMembers(m_groupItem.getGroupMode().Gid);
+                    isMemberInited = true;
                 }
             }
         }
@@ -261,6 +273,43 @@ namespace MainProgram
             FormDialogManager.Instance.openDialog(1, m_groupItem.getGroupMode().Gid, m_groupItem.getGroupMode().Name, pictureBoxFace.Image);
         }
 
+
+
+        //刷新群成员列表
+        public void refreshMembers(int groupId)
+        {
+            //拉取群成员
+            HttpReqHelper.requestSync(AppConst.WebUrl + "groupMembers?gid=" + groupId, delegate (string membersJson) {
+                //先清空
+               
+                Debug.Print("收到群成员是：" + membersJson);
+                //clearMemberSafePost();
+                GroupMembers members = Coding<GroupMembers>.decode(membersJson);
+                Debug.Print("群主是：" + members.Master);
+                //GroupMember master = new GroupMember(members.Master, 2);
+                //addMemberSafePost(master);
+                //Debug.Print("管理是：" + members.Manager);
+                //string[] mans = members.Manager.Split(',');
+                //foreach (var item in mans)
+                //{
+                //    if (item != "")
+                //    {
+                //        //  GroupMember manger = new GroupMember(item,1);
+                //        //  addMemberSafePost(manger);
+                //    }
+                //}
+                //Debug.Print("成员是：" + members.Member);
+                //string[] mems = members.Member.Split(',');
+                //foreach (var item in mems)
+                //{
+                //    if (item != "")
+                //    {
+                //        GroupMember member = new GroupMember(item, 0);
+                //        addMemberSafePost(member);
+                //    }
+                //}
+            });
+        }
 
 
 
@@ -293,5 +342,7 @@ namespace MainProgram
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+
     }
 }
