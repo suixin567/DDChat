@@ -23,10 +23,10 @@ namespace Dialog
         {
             InitializeComponent();
             //得到尺寸
-          Size contentsize =  Calc_PanelWidth(mm.Content);
+      //    Size contentsize =  Calc_PanelWidth(mm.Content);
             this.labelNameAndTime.Text = mm.From + " " + mm.Time;
-          this.richTextBoxEx1.Rtf = mm.Content;
-          this.richTextBoxEx1.Size =contentsize;
+          this.richTextBoxEx1.Text = mm.Content;
+      //    this.richTextBoxEx1.Size =contentsize;
            
         }
 

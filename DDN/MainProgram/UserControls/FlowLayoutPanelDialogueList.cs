@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -12,7 +13,7 @@ namespace MainProgram.UserControls
     {
 
         #region 属性  string: friend123456 \ group1000
-        Dictionary<string, DialogueItem> DialogueDic = new Dictionary<string, DialogueItem>();
+        ConcurrentDictionary<string, DialogueItem> DialogueDic = new ConcurrentDictionary<string, DialogueItem>();
         public SynchronizationContext m_SyncContext = null;
         #endregion
 
@@ -57,7 +58,7 @@ namespace MainProgram.UserControls
         {
             IdAndContent idAndContent = (IdAndContent)state;
             DialogueItem item = new DialogueItem(idAndContent.friendAndGroupID, idAndContent.content);
-            DialogueDic.Add(idAndContent.friendAndGroupID, item);
+            DialogueDic.TryAdd(idAndContent.friendAndGroupID, item);
             this.flowLayoutPanel.Controls.Add(item);
             this.flowLayoutPanel.Controls.SetChildIndex(item, 0);
             //如果个数太多,销毁最后一个
@@ -78,11 +79,26 @@ namespace MainProgram.UserControls
             if (DialogueDic.ContainsKey(friendAndGroupID))
             {
                 //清除dic
-                DialogueDic[friendAndGroupID].Dispose();
-                DialogueDic.Remove(friendAndGroupID);
+                DialogueItem item;
+                DialogueDic.TryRemove(friendAndGroupID,out item);
+                if (item!=null)
+                {
+                    item.Dispose();
+                }                           
             }
         }
 
-
+        private void 清空会话列表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogueDic.Clear();
+            foreach (var item in this.flowLayoutPanel.Controls)
+            {
+                if (item is DialogueItem )
+                {
+                    ((DialogueItem)item).Dispose();
+                }
+              
+            }
+        }
     }
 }

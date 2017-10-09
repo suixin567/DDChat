@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -71,6 +72,7 @@ namespace Dialog
           //  Rich_Edit.KeyUp += new KeyEventHandler(RichEdit_KeyUp);
             Rich_Edit.TextChanged += new EventHandler(RichEdit_TextChanged);
             labelTip.Text = "";
+            SetLineSpace(richTextBoxChat, 300);
         }
 
         //编辑框文字改变，失去焦点在获得，引发编辑框和显示内容框重绘，从而显示动画和背景透明图片
@@ -241,25 +243,39 @@ namespace Dialog
         }
        void showOnePop(object content)
         {
-            ChatPop chatPop = new ChatPop((MsgModel)content);
-            this.flowLayoutPanel1.Controls.Add(chatPop);
-            //  this.flowLayoutPanel1.Controls.SetChildIndex(chatPop, 0);
-            //this.flowLayoutPanel1.VerticalScroll.Value = 1;
-            Point newPoint = new Point(0, 100000);
-            flowLayoutPanel1.AutoScrollPosition = newPoint;
+            MsgModel mm = (MsgModel)content;
+            //展示聊天内容
+            if (mm.From == AppInfo.PERSONAL_INFO.Username)//自己发出去的
+            {
+                this.richTextBoxChat.SelectionColor = Color.Green;
+            }
+            else {
+                this.richTextBoxChat.SelectionColor = Color.Blue;
+            }
+            //获取发言人的昵称
+            DataMgr.Instance.getPersonalByID(mm.From,delegate(PersonalInfoModel fromMode) {
+                this.richTextBoxChat.AppendText(fromMode.Nickname + "("+mm.From+")" + " " + mm.Time + "\n");
+                //具体内容
+                this.richTextBoxChat.SelectionColor = Color.Black;
+                this.richTextBoxChat.AppendText(mm.Content + "\n");
+                //设置滚动条位置
+                this.richTextBoxChat.ScrollToCaret();
+            });                   
         }
 
         //发送按钮
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            if (Rich_Edit.Rtf.Length > AppConst.maxReceiveSize)
+            //   if (Rich_Edit.Rtf.Length > AppConst.maxReceiveSize)
+            if (Rich_Edit.Text.Length > AppConst.maxReceiveSize)
             {
                 Debug.Print("发送的消息过长！！！" + AppConst.maxReceiveSize);
                 labelTip.Text = "发送的消息太长了";
                 System.Windows.Forms.Timer disPlayLabelTipTimer = new System.Windows.Forms.Timer();
                 disPlayLabelTipTimer.Interval = 3000;
                 disPlayLabelTipTimer.Enabled = true;
-                disPlayLabelTipTimer.Tick += new EventHandler((send, ev) => {
+                disPlayLabelTipTimer.Tick += new EventHandler((send, ev) =>
+                {
                     labelTip.Text = "";
                     ((System.Windows.Forms.Timer)send).Stop();
                     ((System.Windows.Forms.Timer)send).Dispose();
@@ -271,16 +287,18 @@ namespace Dialog
             switch (this.m_dialogType)
             {
                 case 1://和群聊天
-                    MsgModel groupMm = new MsgModel(MessageProtocol.CHAT_ME_TO_GROUP_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
+                 //   MsgModel groupMm = new MsgModel(MessageProtocol.CHAT_ME_TO_GROUP_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
+                    MsgModel groupMm = new MsgModel(MessageProtocol.CHAT_ME_TO_GROUP_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Text, DateTime.Now.ToString());
                     string groupMessage = Coding<MsgModel>.encode(groupMm);
-                    Debug.Print("发出的聊天消息是:" + Rich_Edit.Rtf);
+                    Debug.Print("发出的聊天消息是:" + Rich_Edit.Text);
                     NetWorkManager.Instance.sendMessage(Protocol.MESSAGE, -1, MessageProtocol.CHAT, groupMessage);
                     Rich_Edit.Rtf = "";
                     break;
                 case 3://和朋友聊天              
-                    MsgModel mm = new MsgModel(MessageProtocol.CHAT_ME_TO_FRIEND_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
+                  //  MsgModel mm = new MsgModel(MessageProtocol.CHAT_ME_TO_FRIEND_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
+                    MsgModel mm = new MsgModel(MessageProtocol.CHAT_ME_TO_FRIEND_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Text, DateTime.Now.ToString());
                     string message = Coding<MsgModel>.encode(mm);
-                    Debug.Print("发出的聊天消息是:" + Rich_Edit.Rtf);
+                    Debug.Print("发出的聊天消息是:" + Rich_Edit.Text);
                     NetWorkManager.Instance.sendMessage(Protocol.MESSAGE, -1, MessageProtocol.CHAT, message);
                     Rich_Edit.Rtf = "";
                     break;
@@ -296,9 +314,68 @@ namespace Dialog
            // Debug.Print("编辑的富文本是：" + Rich_Edit.Rtf);
         }
 
-        string noRtfString = "";
-        public const string fennu = "/fn";
 
-      
+        public const int WM_USER = 0x0400;
+        public const int EM_GETPARAFORMAT = WM_USER + 61;
+        public const int EM_SETPARAFORMAT = WM_USER + 71;
+        public const long MAX_TAB_STOPS = 32;
+        public const uint PFM_LINESPACING = 0x00000100;
+        [StructLayout(LayoutKind.Sequential)]
+        private struct PARAFORMAT2
+        {
+            public int cbSize;
+            public uint dwMask;
+            public short wNumbering;
+            public short wReserved;
+            public int dxStartIndent;
+            public int dxRightIndent;
+            public int dxOffset;
+            public short wAlignment;
+            public short cTabCount;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+            public int[] rgxTabs;
+            public int dySpaceBefore;
+            public int dySpaceAfter;
+            public int dyLineSpacing;
+            public short sStyle;
+            public byte bLineSpacingRule;
+            public byte bOutlineLevel;
+            public short wShadingWeight;
+            public short wShadingStyle;
+            public short wNumberingStart;
+            public short wNumberingStyle;
+            public short wNumberingTab;
+            public short wBorderSpace;
+            public short wBorderWidth;
+            public short wBorders;
+        }
+
+        [DllImport("user32", CharSet = CharSet.Auto)]
+        private static extern IntPtr SendMessage(HandleRef hWnd, int msg, int wParam, ref PARAFORMAT2 lParam);
+
+        /// <summary>
+        /// 设置行距
+        /// </summary>
+        /// <param name="ctl">控件</param>
+        /// <param name="dyLineSpacing">间距</param>
+        public static void SetLineSpace(Control ctl, int dyLineSpacing)
+        {
+            PARAFORMAT2 fmt = new PARAFORMAT2();
+            fmt.cbSize = Marshal.SizeOf(fmt);
+            fmt.bLineSpacingRule = 4;// bLineSpacingRule;
+            fmt.dyLineSpacing = dyLineSpacing;
+            fmt.dwMask = PFM_LINESPACING;
+            try
+            {
+                SendMessage(new HandleRef(ctl, ctl.Handle), EM_SETPARAFORMAT, 0, ref fmt);
+            }
+            catch
+            {
+
+            }
+        }
+
+
+
     }
 }

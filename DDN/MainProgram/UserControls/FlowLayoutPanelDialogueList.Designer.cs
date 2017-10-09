@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.清空会话列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verifyMsgMgr1 = new MainProgram.UserControls.VerifyMsgItem();
             this.flowLayoutPanel.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel
@@ -40,6 +44,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanel.ContextMenuStrip = this.contextMenuStrip1;
             this.flowLayoutPanel.Controls.Add(this.verifyMsgMgr1);
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -47,6 +52,20 @@
             this.flowLayoutPanel.Size = new System.Drawing.Size(227, 382);
             this.flowLayoutPanel.TabIndex = 0;
             this.flowLayoutPanel.WrapContents = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.清空会话列表ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 26);
+            // 
+            // 清空会话列表ToolStripMenuItem
+            // 
+            this.清空会话列表ToolStripMenuItem.Name = "清空会话列表ToolStripMenuItem";
+            this.清空会话列表ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.清空会话列表ToolStripMenuItem.Text = "清空会话列表";
+            this.清空会话列表ToolStripMenuItem.Click += new System.EventHandler(this.清空会话列表ToolStripMenuItem_Click);
             // 
             // verifyMsgMgr1
             // 
@@ -66,6 +85,7 @@
             this.Size = new System.Drawing.Size(227, 382);
             this.Load += new System.EventHandler(this.FlowLayoutPanelDialogueList_Load);
             this.flowLayoutPanel.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -73,5 +93,7 @@
         #endregion
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private VerifyMsgItem verifyMsgMgr1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 清空会话列表ToolStripMenuItem;
     }
 }

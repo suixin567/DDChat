@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
-using ToolLib;
 
 namespace MainProgram
 {
@@ -96,8 +95,6 @@ namespace MainProgram
                     {
                         Debug.Print("修改失败");
                     }
-
-
                 });
             }
         }

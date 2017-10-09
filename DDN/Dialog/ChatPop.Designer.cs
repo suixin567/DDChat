@@ -40,14 +40,14 @@
             this.panelPop.Controls.Add(this.richTextBoxEx1);
             this.panelPop.Location = new System.Drawing.Point(6, 19);
             this.panelPop.Name = "panelPop";
-            this.panelPop.Size = new System.Drawing.Size(44, 40);
+            this.panelPop.Size = new System.Drawing.Size(53, 43);
             this.panelPop.TabIndex = 0;
             // 
             // richTextBoxEx1
             // 
             this.richTextBoxEx1.Location = new System.Drawing.Point(3, 3);
             this.richTextBoxEx1.Name = "richTextBoxEx1";
-            this.richTextBoxEx1.Size = new System.Drawing.Size(35, 34);
+            this.richTextBoxEx1.Size = new System.Drawing.Size(47, 37);
             this.richTextBoxEx1.TabIndex = 0;
             this.richTextBoxEx1.Text = "";
             // 
@@ -68,7 +68,7 @@
             this.Controls.Add(this.labelNameAndTime);
             this.Controls.Add(this.panelPop);
             this.Name = "ChatPop";
-            this.Size = new System.Drawing.Size(170, 62);
+            this.Size = new System.Drawing.Size(170, 65);
             this.Load += new System.EventHandler(this.ChatPop_Load);
             this.panelPop.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -124,7 +124,7 @@ namespace MainProgram
                     MainMgr.Instance.formMain.flowLayoutPanelGroupList.removeItemSafePost(int.Parse(mModel.To));
                     break;
                 case MessageProtocol.REFRESH_GROUP_MEMBERS://通知客户端刷新一个群的成员列表
-                    Debug.Print("刷新一个群的成员列表：" + mModel.Content);
+                //    Debug.Print("刷新一个群的成员列表：" + mModel.Content);
                     //判断此群的对话框是否已经打开
                     if (FormDialogManager.Instance.isDialogOpend("group"+ mModel.Content) == true) {
                         FormDialogManager.Instance.formListDictionary["group" + mModel.Content].groupMemberPanel1.refreshMembers(mModel.Content);
@@ -133,7 +133,7 @@ namespace MainProgram
 
                 ////聊天相关
                 case MessageProtocol.CHAT_ME_TO_FRIEND_SRES://我和别人聊天的响应
-                    Debug.Print("我和别人聊天的响应" + mModel.From + mModel.To+mModel.Content);
+                   // Debug.Print("我和别人聊天的响应" + mModel.From + mModel.To+mModel.Content);
                     FormDialogManager.Instance.onChatMsg(mModel);
                     //更新对话item
                     MainMgr.Instance.formMain.flowLayoutPanelDialogueList.reFreshContent("friend"+mModel.To,mModel.Content);
@@ -141,11 +141,11 @@ namespace MainProgram
                 case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://别人和我聊天,聊天框已经打开则直接显示气泡，否则进入消息提示窗
                     if (FormDialogManager.Instance.isDialogOpend("friend"+mModel.From)==false)
                     {
-                        Debug.Print("弹出提示");
+                   //     Debug.Print("弹出提示");
                         msgTip(mModel);
                     }
                     else {
-                        Debug.Print("直接显示气泡");
+                    //    Debug.Print("直接显示气泡");
                         FormDialogManager.Instance.onChatMsg(mModel);
                     }
                     //更新对话item
@@ -155,15 +155,15 @@ namespace MainProgram
                 case MessageProtocol.CHAT_ME_TO_GROUP_SRES://我发群聊的响应                 
                     break;
                 case MessageProtocol.CHAT_GROUP_TO_ME_SRES://收到群聊
-                    Debug.Print("收到群聊消息" + mModel.Content);
+                  //  Debug.Print("收到群聊消息" + mModel.Content);
                     if (FormDialogManager.Instance.isDialogOpend("group"+mModel.To) == false)
                     {
-                        Debug.Print("弹出提示");
+                     //   Debug.Print("弹出提示");
                         msgTip(mModel);
                     }
                     else
                     {
-                        Debug.Print("直接显示气泡");
+                     //   Debug.Print("直接显示气泡");
                         FormDialogManager.Instance.onChatMsg(mModel);
                     }
                     //更新对话item

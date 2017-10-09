@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDialog));
             this.panelChat = new System.Windows.Forms.Panel();
+            this.richTextBoxChat = new System.Windows.Forms.RichTextBox();
             this.panelRight = new System.Windows.Forms.Panel();
             this.pictureBoxAd = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelTakeEdit = new System.Windows.Forms.Panel();
             this.labelTip = new System.Windows.Forms.Label();
             this.buttonSend = new System.Windows.Forms.Button();
@@ -54,14 +54,30 @@
             this.panelChat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelChat.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(204)))), ((int)(((byte)(213)))));
+            this.panelChat.Controls.Add(this.richTextBoxChat);
             this.panelChat.Controls.Add(this.panelRight);
-            this.panelChat.Controls.Add(this.flowLayoutPanel1);
             this.panelChat.Controls.Add(this.panelTakeEdit);
             this.panelChat.Location = new System.Drawing.Point(0, 35);
             this.panelChat.Name = "panelChat";
             this.panelChat.Size = new System.Drawing.Size(700, 566);
             this.panelChat.TabIndex = 5;
+            // 
+            // richTextBoxChat
+            // 
+            this.richTextBoxChat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBoxChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(204)))), ((int)(((byte)(213)))));
+            this.richTextBoxChat.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxChat.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.richTextBoxChat.Location = new System.Drawing.Point(15, 0);
+            this.richTextBoxChat.Name = "richTextBoxChat";
+            this.richTextBoxChat.ReadOnly = true;
+            this.richTextBoxChat.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.richTextBoxChat.Size = new System.Drawing.Size(485, 430);
+            this.richTextBoxChat.TabIndex = 3;
+            this.richTextBoxChat.Text = "";
             // 
             // panelRight
             // 
@@ -86,19 +102,6 @@
             this.pictureBoxAd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAd.TabIndex = 0;
             this.pictureBoxAd.TabStop = false;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(500, 430);
-            this.flowLayoutPanel1.TabIndex = 1;
-            this.flowLayoutPanel1.WrapContents = false;
             // 
             // panelTakeEdit
             // 
@@ -201,6 +204,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Rich_Edit.Location = new System.Drawing.Point(0, 25);
             this.Rich_Edit.Name = "Rich_Edit";
+            this.Rich_Edit.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.Rich_Edit.Size = new System.Drawing.Size(500, 78);
             this.Rich_Edit.TabIndex = 0;
             this.Rich_Edit.Text = "";
@@ -239,10 +243,10 @@
         private System.Windows.Forms.Panel panelTakeEdit;
         private System.Windows.Forms.Button buttonSend;
         public Thedog.PicRichTextBox Rich_Edit;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label labelTip;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.PictureBox pictureBoxAd;
         public GroupMemberPanel groupMemberPanel1;
+        private System.Windows.Forms.RichTextBox richTextBoxChat;
     }
 }
