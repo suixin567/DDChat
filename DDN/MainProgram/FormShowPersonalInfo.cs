@@ -34,8 +34,7 @@ namespace MainProgram
             AppInfo.onPersonalFaceChanged += this.refreshFaceSafePost;
             //注册资料被修改的事件
             AppInfo.onPersonalInfoModelChanged += this.refreshSafePost;
-            this.buttonOpenDialogue.Hide();
-           
+            this.buttonOpenDialogue.Hide();           
         }
 
         //朋友资料时调用
@@ -53,6 +52,7 @@ namespace MainProgram
             this.labelChangeFace.Hide();
             this.labelModify.Hide(); 
         }
+
 
 
         private void FormModifyPersonalInfo_Load(object sender, EventArgs e)

@@ -137,7 +137,7 @@
             this.labelModify.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelModify.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelModify.ForeColor = System.Drawing.Color.SteelBlue;
-            this.labelModify.Location = new System.Drawing.Point(451, 68);
+            this.labelModify.Location = new System.Drawing.Point(614, 68);
             this.labelModify.Name = "labelModify";
             this.labelModify.Size = new System.Drawing.Size(63, 14);
             this.labelModify.TabIndex = 9;

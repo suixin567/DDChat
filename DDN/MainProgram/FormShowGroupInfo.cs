@@ -278,40 +278,44 @@ namespace MainProgram
         //刷新群成员列表
         public void refreshMembers(int groupId)
         {
+            this.flowLayoutPanelMembers.Controls.Clear();
             //拉取群成员
             HttpReqHelper.requestSync(AppConst.WebUrl + "groupMembers?gid=" + groupId, delegate (string membersJson) {
-                //先清空
-               
-                Debug.Print("收到群成员是：" + membersJson);
-                //clearMemberSafePost();
+                //先清空               
+                Debug.Print("收到群成员是：" + membersJson);                
                 GroupMembers members = Coding<GroupMembers>.decode(membersJson);
                 Debug.Print("群主是：" + members.Master);
-                //GroupMember master = new GroupMember(members.Master, 2);
-                //addMemberSafePost(master);
-                //Debug.Print("管理是：" + members.Manager);
-                //string[] mans = members.Manager.Split(',');
-                //foreach (var item in mans)
-                //{
-                //    if (item != "")
-                //    {
-                //        //  GroupMember manger = new GroupMember(item,1);
-                //        //  addMemberSafePost(manger);
-                //    }
-                //}
-                //Debug.Print("成员是：" + members.Member);
-                //string[] mems = members.Member.Split(',');
-                //foreach (var item in mems)
-                //{
-                //    if (item != "")
-                //    {
-                //        GroupMember member = new GroupMember(item, 0);
-                //        addMemberSafePost(member);
-                //    }
-                //}
+                GroupManageMemberItem master = new GroupManageMemberItem(members.Master,0);
+                addMemberSafePost(master);
+                Debug.Print("管理是：" + members.Manager);
+                string[] mans = members.Manager.Split(',');
+                foreach (var item in mans)
+                {
+                    if (item != "")
+                    {
+                        GroupManageMemberItem manager = new GroupManageMemberItem(item, 1);
+                        addMemberSafePost(manager);
+                    }
+                }
+                Debug.Print("成员是：" + members.Member);
+                string[] mems = members.Member.Split(',');
+                foreach (var item in mems)
+                {
+                    if (item != "")
+                    {
+                        GroupManageMemberItem member = new GroupManageMemberItem(item, 2);
+                        addMemberSafePost(member);
+                    }
+                }
             });
         }
 
-
+        void addMemberSafePost(GroupManageMemberItem item) {
+            m_SyncContext.Post(addMember, item);
+        }
+        void addMember(object state) {                     
+            this.flowLayoutPanelMembers.Controls.Add((GroupManageMemberItem)state);
+        }
 
 
         /// ///////////////////////////////////////////////

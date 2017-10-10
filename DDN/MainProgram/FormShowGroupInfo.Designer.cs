@@ -42,49 +42,36 @@
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.info = new System.Windows.Forms.TabPage();
+            this.labelMaster = new System.Windows.Forms.Label();
+            this.pictureBoxMasterFace = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.labelMemberAmount = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.labelCreatedtime = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.member = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelMembers = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.setting = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBoxVerifymode1 = new System.Windows.Forms.CheckBox();
+            this.labelVerifymode = new System.Windows.Forms.Label();
             this.checkBoxVerifymode2 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonOpenDialogue = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.labelMemberAmount = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pictureBoxMasterFace = new System.Windows.Forms.PictureBox();
-            this.labelMaster = new System.Windows.Forms.Label();
-            this.labelVerifymode = new System.Windows.Forms.Label();
-            this.checkBoxVerifymode1 = new System.Windows.Forms.CheckBox();
-            this.groupManageMemberItem1 = new MainProgram.UserControls.GroupManageMemberItem();
-            this.groupManageMemberItem2 = new MainProgram.UserControls.GroupManageMemberItem();
-            this.groupManageMemberItem3 = new MainProgram.UserControls.GroupManageMemberItem();
-            this.groupManageMemberItem4 = new MainProgram.UserControls.GroupManageMemberItem();
-            this.groupManageMemberItem5 = new MainProgram.UserControls.GroupManageMemberItem();
-            this.groupManageMemberItem6 = new MainProgram.UserControls.GroupManageMemberItem();
-            this.groupManageMemberItem7 = new MainProgram.UserControls.GroupManageMemberItem();
-            this.groupManageMemberItem11 = new MainProgram.UserControls.GroupManageMemberItem();
-            this.groupManageMemberItem12 = new MainProgram.UserControls.GroupManageMemberItem();
-            this.groupManageMemberItem13 = new MainProgram.UserControls.GroupManageMemberItem();
-            this.groupManageMemberItem14 = new MainProgram.UserControls.GroupManageMemberItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.info.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMasterFace)).BeginInit();
             this.member.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.setting.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMasterFace)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonClose
@@ -250,6 +237,56 @@
             this.info.TabIndex = 0;
             this.info.Text = "资料";
             // 
+            // labelMaster
+            // 
+            this.labelMaster.AutoSize = true;
+            this.labelMaster.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelMaster.Location = new System.Drawing.Point(106, 173);
+            this.labelMaster.Name = "labelMaster";
+            this.labelMaster.Size = new System.Drawing.Size(23, 12);
+            this.labelMaster.TabIndex = 18;
+            this.labelMaster.Text = "...";
+            // 
+            // pictureBoxMasterFace
+            // 
+            this.pictureBoxMasterFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMasterFace.Image")));
+            this.pictureBoxMasterFace.Location = new System.Drawing.Point(70, 164);
+            this.pictureBoxMasterFace.Name = "pictureBoxMasterFace";
+            this.pictureBoxMasterFace.Size = new System.Drawing.Size(30, 30);
+            this.pictureBoxMasterFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMasterFace.TabIndex = 17;
+            this.pictureBoxMasterFace.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(27, 173);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 12);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "群主：";
+            // 
+            // labelMemberAmount
+            // 
+            this.labelMemberAmount.AutoSize = true;
+            this.labelMemberAmount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelMemberAmount.Location = new System.Drawing.Point(73, 203);
+            this.labelMemberAmount.Name = "labelMemberAmount";
+            this.labelMemberAmount.Size = new System.Drawing.Size(11, 12);
+            this.labelMemberAmount.TabIndex = 15;
+            this.labelMemberAmount.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(26, 203);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "成员数：";
+            // 
             // labelCreatedtime
             // 
             this.labelCreatedtime.AutoSize = true;
@@ -274,7 +311,7 @@
             // 
             this.member.BackColor = System.Drawing.SystemColors.Control;
             this.member.Controls.Add(this.button1);
-            this.member.Controls.Add(this.flowLayoutPanel1);
+            this.member.Controls.Add(this.flowLayoutPanelMembers);
             this.member.Controls.Add(this.panel1);
             this.member.Controls.Add(this.label1);
             this.member.Location = new System.Drawing.Point(4, 22);
@@ -295,30 +332,19 @@
             this.button1.Text = "邀请新成员";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanelMembers
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.groupManageMemberItem1);
-            this.flowLayoutPanel1.Controls.Add(this.groupManageMemberItem2);
-            this.flowLayoutPanel1.Controls.Add(this.groupManageMemberItem3);
-            this.flowLayoutPanel1.Controls.Add(this.groupManageMemberItem4);
-            this.flowLayoutPanel1.Controls.Add(this.groupManageMemberItem5);
-            this.flowLayoutPanel1.Controls.Add(this.groupManageMemberItem6);
-            this.flowLayoutPanel1.Controls.Add(this.groupManageMemberItem7);
-            this.flowLayoutPanel1.Controls.Add(this.groupManageMemberItem11);
-            this.flowLayoutPanel1.Controls.Add(this.groupManageMemberItem12);
-            this.flowLayoutPanel1.Controls.Add(this.groupManageMemberItem13);
-            this.flowLayoutPanel1.Controls.Add(this.groupManageMemberItem14);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 61);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(419, 398);
-            this.flowLayoutPanel1.TabIndex = 2;
+            this.flowLayoutPanelMembers.AutoScroll = true;
+            this.flowLayoutPanelMembers.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.flowLayoutPanelMembers.Location = new System.Drawing.Point(8, 61);
+            this.flowLayoutPanelMembers.Name = "flowLayoutPanelMembers";
+            this.flowLayoutPanelMembers.Size = new System.Drawing.Size(419, 398);
+            this.flowLayoutPanelMembers.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightBlue;
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(8, 30);
             this.panel1.Name = "panel1";
@@ -333,15 +359,6 @@
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 2;
             this.label4.Text = "操作";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(138, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "最后发言";
             // 
             // label2
             // 
@@ -385,6 +402,26 @@
             this.panel2.Size = new System.Drawing.Size(413, 446);
             this.panel2.TabIndex = 0;
             // 
+            // checkBoxVerifymode1
+            // 
+            this.checkBoxVerifymode1.AutoSize = true;
+            this.checkBoxVerifymode1.Location = new System.Drawing.Point(71, 18);
+            this.checkBoxVerifymode1.Name = "checkBoxVerifymode1";
+            this.checkBoxVerifymode1.Size = new System.Drawing.Size(108, 16);
+            this.checkBoxVerifymode1.TabIndex = 4;
+            this.checkBoxVerifymode1.Text = "允许任何人加入";
+            this.checkBoxVerifymode1.UseVisualStyleBackColor = true;
+            this.checkBoxVerifymode1.Click += new System.EventHandler(this.checkBoxVerifymode1_Click);
+            // 
+            // labelVerifymode
+            // 
+            this.labelVerifymode.AutoSize = true;
+            this.labelVerifymode.Location = new System.Drawing.Point(196, 19);
+            this.labelVerifymode.Name = "labelVerifymode";
+            this.labelVerifymode.Size = new System.Drawing.Size(89, 12);
+            this.labelVerifymode.TabIndex = 3;
+            this.labelVerifymode.Text = "允许任何人加入";
+            // 
             // checkBoxVerifymode2
             // 
             this.checkBoxVerifymode2.AutoSize = true;
@@ -415,175 +452,6 @@
             this.buttonOpenDialogue.UseVisualStyleBackColor = true;
             this.buttonOpenDialogue.Click += new System.EventHandler(this.buttonOpenDialogue_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(26, 203);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 12);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "成员数：";
-            // 
-            // labelMemberAmount
-            // 
-            this.labelMemberAmount.AutoSize = true;
-            this.labelMemberAmount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelMemberAmount.Location = new System.Drawing.Point(73, 203);
-            this.labelMemberAmount.Name = "labelMemberAmount";
-            this.labelMemberAmount.Size = new System.Drawing.Size(11, 12);
-            this.labelMemberAmount.TabIndex = 15;
-            this.labelMemberAmount.Text = "0";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(27, 173);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 12);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "群主：";
-            // 
-            // pictureBoxMasterFace
-            // 
-            this.pictureBoxMasterFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMasterFace.Image")));
-            this.pictureBoxMasterFace.Location = new System.Drawing.Point(70, 164);
-            this.pictureBoxMasterFace.Name = "pictureBoxMasterFace";
-            this.pictureBoxMasterFace.Size = new System.Drawing.Size(30, 30);
-            this.pictureBoxMasterFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxMasterFace.TabIndex = 17;
-            this.pictureBoxMasterFace.TabStop = false;
-            // 
-            // labelMaster
-            // 
-            this.labelMaster.AutoSize = true;
-            this.labelMaster.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelMaster.Location = new System.Drawing.Point(106, 173);
-            this.labelMaster.Name = "labelMaster";
-            this.labelMaster.Size = new System.Drawing.Size(23, 12);
-            this.labelMaster.TabIndex = 18;
-            this.labelMaster.Text = "...";
-            // 
-            // labelVerifymode
-            // 
-            this.labelVerifymode.AutoSize = true;
-            this.labelVerifymode.Location = new System.Drawing.Point(196, 19);
-            this.labelVerifymode.Name = "labelVerifymode";
-            this.labelVerifymode.Size = new System.Drawing.Size(89, 12);
-            this.labelVerifymode.TabIndex = 3;
-            this.labelVerifymode.Text = "允许任何人加入";
-            // 
-            // checkBoxVerifymode1
-            // 
-            this.checkBoxVerifymode1.AutoSize = true;
-            this.checkBoxVerifymode1.Location = new System.Drawing.Point(71, 18);
-            this.checkBoxVerifymode1.Name = "checkBoxVerifymode1";
-            this.checkBoxVerifymode1.Size = new System.Drawing.Size(108, 16);
-            this.checkBoxVerifymode1.TabIndex = 4;
-            this.checkBoxVerifymode1.Text = "允许任何人加入";
-            this.checkBoxVerifymode1.UseVisualStyleBackColor = true;
-            this.checkBoxVerifymode1.Click += new System.EventHandler(this.checkBoxVerifymode1_Click);
-            // 
-            // groupManageMemberItem1
-            // 
-            this.groupManageMemberItem1.BackColor = System.Drawing.Color.LightBlue;
-            this.groupManageMemberItem1.Location = new System.Drawing.Point(0, 0);
-            this.groupManageMemberItem1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.groupManageMemberItem1.Name = "groupManageMemberItem1";
-            this.groupManageMemberItem1.Size = new System.Drawing.Size(400, 30);
-            this.groupManageMemberItem1.TabIndex = 0;
-            // 
-            // groupManageMemberItem2
-            // 
-            this.groupManageMemberItem2.BackColor = System.Drawing.Color.LightBlue;
-            this.groupManageMemberItem2.Location = new System.Drawing.Point(0, 32);
-            this.groupManageMemberItem2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.groupManageMemberItem2.Name = "groupManageMemberItem2";
-            this.groupManageMemberItem2.Size = new System.Drawing.Size(400, 30);
-            this.groupManageMemberItem2.TabIndex = 1;
-            // 
-            // groupManageMemberItem3
-            // 
-            this.groupManageMemberItem3.BackColor = System.Drawing.Color.LightBlue;
-            this.groupManageMemberItem3.Location = new System.Drawing.Point(0, 64);
-            this.groupManageMemberItem3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.groupManageMemberItem3.Name = "groupManageMemberItem3";
-            this.groupManageMemberItem3.Size = new System.Drawing.Size(400, 30);
-            this.groupManageMemberItem3.TabIndex = 2;
-            // 
-            // groupManageMemberItem4
-            // 
-            this.groupManageMemberItem4.BackColor = System.Drawing.Color.LightBlue;
-            this.groupManageMemberItem4.Location = new System.Drawing.Point(0, 96);
-            this.groupManageMemberItem4.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.groupManageMemberItem4.Name = "groupManageMemberItem4";
-            this.groupManageMemberItem4.Size = new System.Drawing.Size(400, 30);
-            this.groupManageMemberItem4.TabIndex = 3;
-            // 
-            // groupManageMemberItem5
-            // 
-            this.groupManageMemberItem5.BackColor = System.Drawing.Color.LightBlue;
-            this.groupManageMemberItem5.Location = new System.Drawing.Point(0, 128);
-            this.groupManageMemberItem5.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.groupManageMemberItem5.Name = "groupManageMemberItem5";
-            this.groupManageMemberItem5.Size = new System.Drawing.Size(400, 30);
-            this.groupManageMemberItem5.TabIndex = 4;
-            // 
-            // groupManageMemberItem6
-            // 
-            this.groupManageMemberItem6.BackColor = System.Drawing.Color.LightBlue;
-            this.groupManageMemberItem6.Location = new System.Drawing.Point(0, 160);
-            this.groupManageMemberItem6.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.groupManageMemberItem6.Name = "groupManageMemberItem6";
-            this.groupManageMemberItem6.Size = new System.Drawing.Size(400, 30);
-            this.groupManageMemberItem6.TabIndex = 5;
-            // 
-            // groupManageMemberItem7
-            // 
-            this.groupManageMemberItem7.BackColor = System.Drawing.Color.LightBlue;
-            this.groupManageMemberItem7.Location = new System.Drawing.Point(0, 192);
-            this.groupManageMemberItem7.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.groupManageMemberItem7.Name = "groupManageMemberItem7";
-            this.groupManageMemberItem7.Size = new System.Drawing.Size(400, 30);
-            this.groupManageMemberItem7.TabIndex = 6;
-            // 
-            // groupManageMemberItem11
-            // 
-            this.groupManageMemberItem11.BackColor = System.Drawing.Color.LightBlue;
-            this.groupManageMemberItem11.Location = new System.Drawing.Point(0, 224);
-            this.groupManageMemberItem11.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.groupManageMemberItem11.Name = "groupManageMemberItem11";
-            this.groupManageMemberItem11.Size = new System.Drawing.Size(400, 30);
-            this.groupManageMemberItem11.TabIndex = 10;
-            // 
-            // groupManageMemberItem12
-            // 
-            this.groupManageMemberItem12.BackColor = System.Drawing.Color.LightBlue;
-            this.groupManageMemberItem12.Location = new System.Drawing.Point(0, 256);
-            this.groupManageMemberItem12.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.groupManageMemberItem12.Name = "groupManageMemberItem12";
-            this.groupManageMemberItem12.Size = new System.Drawing.Size(400, 30);
-            this.groupManageMemberItem12.TabIndex = 11;
-            // 
-            // groupManageMemberItem13
-            // 
-            this.groupManageMemberItem13.BackColor = System.Drawing.Color.LightBlue;
-            this.groupManageMemberItem13.Location = new System.Drawing.Point(0, 288);
-            this.groupManageMemberItem13.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.groupManageMemberItem13.Name = "groupManageMemberItem13";
-            this.groupManageMemberItem13.Size = new System.Drawing.Size(400, 30);
-            this.groupManageMemberItem13.TabIndex = 12;
-            // 
-            // groupManageMemberItem14
-            // 
-            this.groupManageMemberItem14.BackColor = System.Drawing.Color.LightBlue;
-            this.groupManageMemberItem14.Location = new System.Drawing.Point(0, 320);
-            this.groupManageMemberItem14.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.groupManageMemberItem14.Name = "groupManageMemberItem14";
-            this.groupManageMemberItem14.Size = new System.Drawing.Size(400, 30);
-            this.groupManageMemberItem14.TabIndex = 13;
-            // 
             // FormShowGroupInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -604,15 +472,14 @@
             this.tabControl1.ResumeLayout(false);
             this.info.ResumeLayout(false);
             this.info.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMasterFace)).EndInit();
             this.member.ResumeLayout(false);
             this.member.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.setting.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMasterFace)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -637,7 +504,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
@@ -645,18 +511,7 @@
         private System.Windows.Forms.Button buttonOpenDialogue;
         private System.Windows.Forms.Label labelCreatedtime;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private UserControls.GroupManageMemberItem groupManageMemberItem1;
-        private UserControls.GroupManageMemberItem groupManageMemberItem2;
-        private UserControls.GroupManageMemberItem groupManageMemberItem3;
-        private UserControls.GroupManageMemberItem groupManageMemberItem4;
-        private UserControls.GroupManageMemberItem groupManageMemberItem5;
-        private UserControls.GroupManageMemberItem groupManageMemberItem6;
-        private UserControls.GroupManageMemberItem groupManageMemberItem7;
-        private UserControls.GroupManageMemberItem groupManageMemberItem11;
-        private UserControls.GroupManageMemberItem groupManageMemberItem12;
-        private UserControls.GroupManageMemberItem groupManageMemberItem13;
-        private UserControls.GroupManageMemberItem groupManageMemberItem14;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMembers;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelMemberAmount;
         private System.Windows.Forms.Label label7;
