@@ -147,8 +147,9 @@ namespace MainProgram.UserControls
         //移除成员按钮被点击
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            //MsgModel mm = new MsgModel(MessageProtocol.QUIT_GROUP_CREQ, AppInfo.USER_NAME, ((FormShowGroupInfo)FindForm()).m_groupItem.getGroupMode().Gid.ToString(), "不想继续留在这个群了，再见！", DateTime.Now.ToString());
-            //MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, mm);
+            MsgModel mm = new MsgModel(MessageProtocol.FORCE_REMOVE_GROUP_CREQ, ((FormShowGroupInfo)FindForm()).m_groupItem.getGroupMode().Gid.ToString(), m_memberUsername,
+                "您已被移出群" + ((FormShowGroupInfo)FindForm()).m_groupItem.getGroupMode().Name + "。", DateTime.Now.ToString());
+            MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, mm);
         }
     }
 }

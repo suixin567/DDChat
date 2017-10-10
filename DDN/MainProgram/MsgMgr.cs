@@ -129,7 +129,19 @@ namespace MainProgram
                     if (FormDialogManager.Instance.isDialogOpend("group"+ mModel.Content) == true) {
                         FormDialogManager.Instance.formListDictionary["group" + mModel.Content].groupMemberPanel1.refreshMembers(mModel.Content);
                     }
-                        break;
+                    break;
+                case MessageProtocol.FORCE_REMOVE_GROUP_SRES://把一个人移除出群的响应
+                    Debug.Print("成功移出了这个人。" + mModel.From+mModel.To);
+                    //TODO:应刷新群item里的mode及对话框内相关的mode及显示。
+                    break;
+                case MessageProtocol.BE_REMOVE_GROUP_SRES://被移除出群
+                    Debug.Print("我被移除出群：" + mModel.From);
+                    //TODO:弹一个tip进行说明。删除各个item 关闭对话框 如果这个人还打开着这个群的资料，那么又可以进群聊天。应该规避一下。
+
+                    break;
+
+
+
 
                 ////聊天相关
                 case MessageProtocol.CHAT_ME_TO_FRIEND_SRES://我和别人聊天的响应

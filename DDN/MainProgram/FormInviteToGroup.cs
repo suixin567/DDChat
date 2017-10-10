@@ -54,7 +54,6 @@ namespace MainProgram
                     //是否已经在群中
                     if (item == clickedItem.m_friendUsername)
                     {
-                        Debug.Print("已经在群中");
                         showLoginOpreationResultSafePost("此好友已经是群成员");
                         return;
                     }
@@ -65,12 +64,10 @@ namespace MainProgram
                     //是否已经在群中
                     if (item== clickedItem.m_friendUsername)
                     {
-                        Debug.Print("已经在群中");
                         showLoginOpreationResultSafePost("此好友已经是群成员");
                         return;
                     }
                 }
-
                 //移动到选择框中去
                 InviteItem newInviteItem = new InviteItem(clickedItem.m_friendUsername, clickedItem.m_nickname, clickedItem.m_face, this, true);
                 this.flowLayoutPanelSelected.Controls.Add(newInviteItem);
@@ -78,13 +75,35 @@ namespace MainProgram
             
         }
 
+        //有新item添加
+        private void flowLayoutPanelSelected_ControlAdded(object sender, ControlEventArgs e)
+        {
+            this.buttonYes.Enabled = true;
+        }
+        //有item被移除
+        private void flowLayoutPanelSelected_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (this.flowLayoutPanelSelected.Controls.Count == 0)
+            {
+                this.buttonYes.Enabled = false;
+            }
+
+        }
+
+        //发送邀请好友的命令
+        private void buttonYes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
         /// ///////////////////////////////////////////////
         /// 工具方法
         /// ///////////////////////////////////////////////
         /// 
-
-
-
         void showLoginOpreationResultSafePost(string content)
         {
             m_SyncContext.Post(showOpreationResult, content);
@@ -136,25 +155,6 @@ namespace MainProgram
             this.Dispose();
         }
 
-        //有新item添加
-        private void flowLayoutPanelSelected_ControlAdded(object sender, ControlEventArgs e)
-        {
-            this.buttonYes.Enabled = true;
-        }
-        //有item被移除
-        private void flowLayoutPanelSelected_ControlRemoved(object sender, ControlEventArgs e)
-        {
-            if (this.flowLayoutPanelSelected.Controls.Count==0)
-            {
-                this.buttonYes.Enabled = false;
-            }
-            
-        }
-
-        //发送邀请好友的命令
-        private void buttonYes_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-  public  class MessageProtocol
+﻿  public  class MessageProtocol
     {
     public const int FRIEND = 0; //好友相关
     public const int GROUP = 1; //群组相关
@@ -32,6 +25,15 @@ using System.Threading.Tasks;
     public const int QUIT_GROUP_CREQ = 38;//退出一个群
     public const int QUIT_GROUP_SRES = 39;//退出一个群的响应
     public const int REFRESH_GROUP_MEMBERS = 40;//通知客户端刷新一个群的成员列表
+    public const int FORCE_REMOVE_GROUP_CREQ = 41;//把一个人移除出群
+    public const int FORCE_REMOVE_GROUP_SRES = 42;//把一个人移除出群的响应
+    public const int BE_REMOVE_GROUP_SRES = 43;//被移除出群
+    public const int INVITE_TO_GROUP_CREQ = 44;//申请邀请一个人入群
+    public const int INVITE_TO_GROUP_SRES = 45;//申请邀请一个人入群的响应
+    public const int BE_INVITE_TO_GROUP_SRES = 46;//被邀请加入一个群
+    public const int INVITE_PROCESS_CREQ = 47;//被邀请人的操作（同意或拒绝）
+    public const int INVITE_PROCESS_SRES = 48;//被邀请人的操作的响应
+    public const int OTHER_PROCESS_OF_INVITE_SRES = 49;//邀请别人后，被邀请人的操作的响应
 
     //关于聊天
     public const int CHAT_ME_TO_FRIEND_CREQ = 100;//和好友聊天
