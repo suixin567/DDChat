@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GroupMember));
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.labelContent = new System.Windows.Forms.Label();
+            this.pictureBoxFace = new System.Windows.Forms.PictureBox();
+            this.labelNickName = new System.Windows.Forms.Label();
             this.labelLevel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox
+            // pictureBoxFace
             // 
-            this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
-            this.pictureBox.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox.TabIndex = 0;
-            this.pictureBox.TabStop = false;
+            this.pictureBoxFace.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxFace.Image")));
+            this.pictureBoxFace.Location = new System.Drawing.Point(3, 0);
+            this.pictureBoxFace.Name = "pictureBoxFace";
+            this.pictureBoxFace.Size = new System.Drawing.Size(30, 30);
+            this.pictureBoxFace.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFace.TabIndex = 0;
+            this.pictureBoxFace.TabStop = false;
             // 
-            // labelContent
+            // labelNickName
             // 
-            this.labelContent.AutoSize = true;
-            this.labelContent.Location = new System.Drawing.Point(40, 9);
-            this.labelContent.Name = "labelContent";
-            this.labelContent.Size = new System.Drawing.Size(41, 12);
-            this.labelContent.TabIndex = 1;
-            this.labelContent.Text = "......";
+            this.labelNickName.AutoSize = true;
+            this.labelNickName.Location = new System.Drawing.Point(40, 9);
+            this.labelNickName.Name = "labelNickName";
+            this.labelNickName.Size = new System.Drawing.Size(41, 12);
+            this.labelNickName.TabIndex = 1;
+            this.labelNickName.Text = "......";
             // 
             // labelLevel
             // 
@@ -69,13 +69,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Controls.Add(this.labelLevel);
-            this.Controls.Add(this.labelContent);
-            this.Controls.Add(this.pictureBox);
+            this.Controls.Add(this.labelNickName);
+            this.Controls.Add(this.pictureBoxFace);
             this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.Name = "GroupMember";
             this.Size = new System.Drawing.Size(200, 30);
             this.Load += new System.EventHandler(this.GroupMember_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFace)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -83,8 +83,8 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Label labelContent;
+        private System.Windows.Forms.PictureBox pictureBoxFace;
+        private System.Windows.Forms.Label labelNickName;
         private System.Windows.Forms.Label labelLevel;
     }
 }

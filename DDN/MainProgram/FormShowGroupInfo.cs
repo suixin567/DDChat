@@ -16,7 +16,7 @@ namespace MainProgram
         #region 属性
         SynchronizationContext m_SyncContext = null;
         Image m_Face;
-        GroupItem m_groupItem;
+        public GroupItem m_groupItem;
         #endregion
 
         public FormShowGroupInfo()
@@ -212,6 +212,7 @@ namespace MainProgram
         }
 
         //切换选项卡事件
+        bool isMemberInited = false;
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //设置选项卡被点击
@@ -236,8 +237,7 @@ namespace MainProgram
                     }
                 }
             }
-
-            bool isMemberInited = false;
+            
             //群成员选项卡被点击
             if (tabControl1.SelectedIndex == 1)
             {
@@ -276,18 +276,20 @@ namespace MainProgram
 
 
         //刷新群成员列表
+        int memberAmount = 0;
         public void refreshMembers(int groupId)
         {
             this.flowLayoutPanelMembers.Controls.Clear();
             //拉取群成员
             HttpReqHelper.requestSync(AppConst.WebUrl + "groupMembers?gid=" + groupId, delegate (string membersJson) {
                 //先清空               
-                Debug.Print("收到群成员是：" + membersJson);                
+               // Debug.Print("收到群成员是：" + membersJson);                
                 GroupMembers members = Coding<GroupMembers>.decode(membersJson);
-                Debug.Print("群主是：" + members.Master);
+               // Debug.Print("群主是：" + members.Master);
                 GroupManageMemberItem master = new GroupManageMemberItem(members.Master,0);
                 addMemberSafePost(master);
-                Debug.Print("管理是：" + members.Manager);
+                memberAmount++;
+                //   Debug.Print("管理是：" + members.Manager);
                 string[] mans = members.Manager.Split(',');
                 foreach (var item in mans)
                 {
@@ -295,9 +297,10 @@ namespace MainProgram
                     {
                         GroupManageMemberItem manager = new GroupManageMemberItem(item, 1);
                         addMemberSafePost(manager);
+                        memberAmount++;
                     }
                 }
-                Debug.Print("成员是：" + members.Member);
+             //   Debug.Print("成员是：" + members.Member);
                 string[] mems = members.Member.Split(',');
                 foreach (var item in mems)
                 {
@@ -305,9 +308,21 @@ namespace MainProgram
                     {
                         GroupManageMemberItem member = new GroupManageMemberItem(item, 2);
                         addMemberSafePost(member);
+                        memberAmount++;
                     }
                 }
+
+                //this.labelMemberAmount.Text = memberAmount.ToString();
+                setAmountSafePost();
             });
+        }
+        void setAmountSafePost()
+        {
+            m_SyncContext.Post(setAmount, null);
+        }
+        void setAmount(object state)
+        {            
+            this.labelMemberAmount2.Text ="总人数："+ memberAmount.ToString();
         }
 
         void addMemberSafePost(GroupManageMemberItem item) {
@@ -315,6 +330,21 @@ namespace MainProgram
         }
         void addMember(object state) {                     
             this.flowLayoutPanelMembers.Controls.Add((GroupManageMemberItem)state);
+        }
+
+
+        //添加新成员
+        FormInviteToGroup formInviteToGroup;
+        private void buttonAddMember_Click(object sender, EventArgs e)
+        {
+            if (formInviteToGroup == null || formInviteToGroup.IsDisposed)
+            {
+                formInviteToGroup = new FormInviteToGroup(m_groupItem.getGroupMode().Gid);
+                formInviteToGroup.Show();
+            }
+            else {
+                formInviteToGroup.Activate();
+            }
         }
 
 
@@ -346,7 +376,6 @@ namespace MainProgram
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
 
     }
 }

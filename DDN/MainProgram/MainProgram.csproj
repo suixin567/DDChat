@@ -78,6 +78,12 @@
     <Compile Include="FormCreateGroup.Designer.cs">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormInviteToGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInviteToGroup.Designer.cs">
+      <DependentUpon>FormInviteToGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormModifyGroupFace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,12 @@
     <Compile Include="UserControls\GroupManageMemberItem.Designer.cs">
       <DependentUpon>GroupManageMemberItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\InviteItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\InviteItem.Designer.cs">
+      <DependentUpon>InviteItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MainTabControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -240,6 +252,9 @@
     <Compile Include="VerifyMsgMgr.cs" />
     <EmbeddedResource Include="FormCreateGroup.resx">
       <DependentUpon>FormCreateGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInviteToGroup.resx">
+      <DependentUpon>FormInviteToGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormModifyGroupFace.resx">
       <DependentUpon>FormModifyGroupFace.cs</DependentUpon>
@@ -301,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\GroupManageMemberItem.resx">
       <DependentUpon>GroupManageMemberItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\InviteItem.resx">
+      <DependentUpon>InviteItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainTabControl.resx">
       <DependentUpon>MainTabControl.cs</DependentUpon>

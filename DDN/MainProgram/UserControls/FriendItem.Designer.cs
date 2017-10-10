@@ -128,7 +128,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox friendFacePictureBox;
+        public System.Windows.Forms.PictureBox friendFacePictureBox;
         private System.Windows.Forms.Label friendNickName;
         private System.Windows.Forms.Label LabelDescription;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripFriendItem;

@@ -50,12 +50,12 @@
             this.labelCreatedtime = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.member = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAddMember = new System.Windows.Forms.Button();
             this.flowLayoutPanelMembers = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelMemberAmount2 = new System.Windows.Forms.Label();
             this.setting = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.checkBoxVerifymode1 = new System.Windows.Forms.CheckBox();
@@ -285,7 +285,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 14;
-            this.label7.Text = "成员数：";
+            this.label7.Text = "总人数：";
             // 
             // labelCreatedtime
             // 
@@ -310,10 +310,10 @@
             // member
             // 
             this.member.BackColor = System.Drawing.SystemColors.Control;
-            this.member.Controls.Add(this.button1);
+            this.member.Controls.Add(this.buttonAddMember);
             this.member.Controls.Add(this.flowLayoutPanelMembers);
             this.member.Controls.Add(this.panel1);
-            this.member.Controls.Add(this.label1);
+            this.member.Controls.Add(this.labelMemberAmount2);
             this.member.Location = new System.Drawing.Point(4, 22);
             this.member.Name = "member";
             this.member.Padding = new System.Windows.Forms.Padding(3);
@@ -321,16 +321,17 @@
             this.member.TabIndex = 1;
             this.member.Text = "成员";
             // 
-            // button1
+            // buttonAddMember
             // 
-            this.button1.BackColor = System.Drawing.Color.LightBlue;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(333, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "邀请新成员";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonAddMember.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonAddMember.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAddMember.Location = new System.Drawing.Point(347, 4);
+            this.buttonAddMember.Name = "buttonAddMember";
+            this.buttonAddMember.Size = new System.Drawing.Size(61, 23);
+            this.buttonAddMember.TabIndex = 3;
+            this.buttonAddMember.Text = "添加成员";
+            this.buttonAddMember.UseVisualStyleBackColor = false;
+            this.buttonAddMember.Click += new System.EventHandler(this.buttonAddMember_Click);
             // 
             // flowLayoutPanelMembers
             // 
@@ -369,14 +370,14 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "成员";
             // 
-            // label1
+            // labelMemberAmount2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "群成员 0/200";
+            this.labelMemberAmount2.AutoSize = true;
+            this.labelMemberAmount2.Location = new System.Drawing.Point(6, 10);
+            this.labelMemberAmount2.Name = "labelMemberAmount2";
+            this.labelMemberAmount2.Size = new System.Drawing.Size(77, 12);
+            this.labelMemberAmount2.TabIndex = 0;
+            this.labelMemberAmount2.Text = "群成员 0/200";
             // 
             // setting
             // 
@@ -501,7 +502,7 @@
         private System.Windows.Forms.TabPage info;
         private System.Windows.Forms.TabPage member;
         private System.Windows.Forms.TabPage setting;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelMemberAmount2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
@@ -512,7 +513,7 @@
         private System.Windows.Forms.Label labelCreatedtime;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelMembers;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAddMember;
         private System.Windows.Forms.Label labelMemberAmount;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;

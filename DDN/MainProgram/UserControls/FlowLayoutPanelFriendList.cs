@@ -142,6 +142,8 @@ namespace MainProgram.UserControls
             return friendList;
         }
 
+        
+
         bool isFirendExpend = true;
         //好友展开与折叠
         private void buttonFriend_Click(object sender, EventArgs e)

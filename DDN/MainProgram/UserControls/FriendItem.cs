@@ -11,10 +11,21 @@ namespace MainProgram.UserControls
 {
     public partial class FriendItem : UserControl
     {
+        #region 属性
         public string FriendUsername;
-        PersonalInfoModel m_friendModel = new PersonalInfoModel();
-        public SynchronizationContext m_SyncContext = null;
 
+        private PersonalInfoModel m_friendModel;
+        public PersonalInfoModel m_FriendModel
+        {
+            get {
+                return m_friendModel;
+            }
+            set {
+                m_friendModel = value;
+            }
+        }
+        public SynchronizationContext m_SyncContext = null;
+        #endregion
 
         public FriendItem()
         {

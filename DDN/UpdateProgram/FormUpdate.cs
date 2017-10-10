@@ -79,7 +79,7 @@ namespace UpdateProgram
             catch (Exception err)
             {
                 Debug.Print("更新文件出错了：" + err);
-                MessageBox.Show("更新文件出错...");
+                MessageBox.Show("更新文件出错..."+err.ToString());
                 Environment.Exit(0);
             }
             //更新完毕

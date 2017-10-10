@@ -35,6 +35,7 @@ namespace MainProgram.UserControls
             {
                 case 0:
                     this.labelMemberLevel.Text = "群主";
+                    this.buttonRemove.Hide();
                     break;
                 case 1:
                     this.labelMemberLevel.Text = "管理员";
@@ -44,9 +45,7 @@ namespace MainProgram.UserControls
                     break;
                 default:
                     break;
-            }
-
-            Debug.Print("成员账号"+ m_memberUsername);
+            }        
         }
 
         private void GroupManageMemberItem_Load(object sender, EventArgs e)
@@ -84,7 +83,6 @@ namespace MainProgram.UserControls
         /// <param name="text"></param>
         private void SetText(string text)
         {
-            Debug.Print(text);
             // InvokeRequired required compares the thread ID of the 
             // calling thread to the thread ID of the creating thread. 
             // If these threads are different, it returns true. 
@@ -144,6 +142,13 @@ namespace MainProgram.UserControls
             else {
                 formShowPersonalInfo.Activate();
             }
+        }
+
+        //移除成员按钮被点击
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {
+            //MsgModel mm = new MsgModel(MessageProtocol.QUIT_GROUP_CREQ, AppInfo.USER_NAME, ((FormShowGroupInfo)FindForm()).m_groupItem.getGroupMode().Gid.ToString(), "不想继续留在这个群了，再见！", DateTime.Now.ToString());
+            //MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, mm);
         }
     }
 }

@@ -96,3 +96,5 @@ C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormModifyGrou
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormModifyGroupInfo.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.GroupManageMemberItem.resources
 C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormInfoCard.resources
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.FormInviteToGroup.resources
+C:\Users\文强\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserControls.InviteItem.resources
