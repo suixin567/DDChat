@@ -136,6 +136,73 @@ namespace MainProgram.UserControls
                         this.labelProcessMark.Hide();
                     }                 
                     break;
+
+                case MessageProtocol.BE_INVITE_TO_GROUP_SRES://有人邀请我入群
+                    string sqrNick = "";//申请人的昵称
+                    string groupNick = "";//群昵称
+                    //显示邀请人的头像
+                    DataMgr.Instance.getPersonalByID(m_MsgModel.From, delegate (PersonalInfoModel mode)
+                    {
+                        sqrNick = mode.Nickname;
+                        //请求头像
+                        FaceMgr.Instance.getFaceByName(mode.Face, delegate (Image face)
+                        {
+                            if (face != null)
+                            {
+                                this.pictureBoxFace.Image = face;
+                            }
+                        });
+                    });
+                    DataMgr.Instance.getGroupByID(int.Parse(m_MsgModel.To), delegate (GroupInfoModel groupmode)
+                    {
+                        groupNick = groupmode.Name;
+                    });                    
+                    this.labelNickName.Text = "";
+                    this.labelUsername.Text = "";
+                    this.labelContent.Text = sqrNick + " 邀请你加入群 " + groupNick;
+                    this.labelTime.Text = m_MsgModel.Time;
+                    if (m_MsgModel.IsDealed == true)//已处理
+                    {
+                        this.labelProcessMark.Text = "已处理";
+                        this.buttonYes.Hide();
+                        this.buttonIgnore.Hide();
+                    }
+                    else
+                    {
+                        this.labelProcessMark.Hide();
+                    }
+                    break;
+                case MessageProtocol.OTHER_PROCESS_OF_INVITE_SRES://邀请别人后，被邀请人的操作结果
+                    string beInvitedNick = "";
+                    string groupNick2 = "";
+                    this.labelNickName.Text = "";
+                    this.labelUsername.Text = "";
+                    this.labelTime.Text = m_MsgModel.Time;
+                    DataMgr.Instance.getPersonalByID(m_MsgModel.From,delegate(PersonalInfoModel mode) {
+                        beInvitedNick = mode.Nickname;
+                        //请求头像
+                        FaceMgr.Instance.getFaceByName(mode.Face, delegate (Image face)
+                        {
+                            if (face != null)
+                            {
+                                this.pictureBoxFace.Image = face;
+                            }
+                        });
+                    });
+                    DataMgr.Instance.getGroupByID(int.Parse(m_MsgModel.To),delegate(GroupInfoModel mode) {
+                        groupNick2 = mode.Name;
+                    });
+                    //被邀请人同意了我的邀请
+                    if (m_MsgModel.Content=="yes")
+                    {
+                        this.labelContent.Text = beInvitedNick + " 同意加入群 " + groupNick2;
+                    }
+                    //被邀请人拒绝了我的邀请
+                    if (m_MsgModel.Content == "no")
+                    {
+                        this.labelContent.Text = beInvitedNick + " 拒绝加入群 " + groupNick2;
+                    }                   
+                    break;
                 default:
                     Debug.Print("这条协议还没有做处理"+ m_MsgModel.MsgType);
                     break;
@@ -190,7 +257,12 @@ namespace MainProgram.UserControls
                     MsgModel model2 = new MsgModel(MessageProtocol.AGREE_ADD_GROUP_CREQ, this.m_MsgModel.From, this.m_MsgModel.To, "我通过了你的入群申请", DateTime.Now.ToString());
                     MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, model2);
                     break;
+                case MessageProtocol.BE_INVITE_TO_GROUP_SRES://被邀请入群后的确认或拒绝操作
+                    MsgModel model3 = new MsgModel(MessageProtocol.INVITE_PROCESS_CREQ, this.m_MsgModel.From, this.m_MsgModel.To, "yes", DateTime.Now.ToString());
+                    MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, model3);
+                    break;
                 default:
+                    Debug.Print("未处理的协议类型MsgVerifyItem.buttonYes_Click"); 
                     break;
             }
             

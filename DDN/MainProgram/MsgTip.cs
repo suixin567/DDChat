@@ -59,7 +59,13 @@ namespace MainProgram
                 {
                     return;
                 }
+                //过滤重复的入群邀请
+                if (item.MsgType == mode.MsgType && item.From == mode.From && item.To == mode.To && mode.MsgType == MessageProtocol.BE_INVITE_TO_GROUP_SRES)
+                {
+                    return;
+                }
             }
+
             //添加一个新的提示
             tipMsgList.Add(mode);
             MsgTipItem tipItem = new MsgTipItem(mode);
@@ -146,6 +152,24 @@ namespace MainProgram
                         }
                         FormDialogManager.Instance.openDialog(1, int.Parse(tipMsgList[i].To), nickName4, face4);
                         FormDialogManager.Instance.onChatMsg(tipMsgList[i]);//展示消息
+                        break;
+                    case MessageProtocol.BE_INVITE_TO_GROUP_SRES://被邀请加入一个群
+                        VerifyMsgMgr.Instance.openFormMesageVerify();
+                        break;
+                    case MessageProtocol.INVITE_PROCESS_SRES://被邀请人同意入群的操作的响应，打开群聊天。
+                        string nickName5 = "";
+                        Image face5 = null;                        
+                        foreach (var item in this.flowLayoutPanel1.Controls)
+                        {
+                            MsgTipItem mi = (MsgTipItem)item;
+                            if (mi.m_mode.MsgType == MessageProtocol.INVITE_PROCESS_SRES && mi.m_mode.To == tipMsgList[i].To)//找到这个item
+                            {
+                                face5 = mi.pictureBox.Image;
+                                nickName5 = mi.labelNickName.Text;
+                                break;
+                            }
+                        }
+                        FormDialogManager.Instance.openDialog(1, int.Parse(tipMsgList[i].To), nickName5, face5);
                         break;
                     default:
                         Debug.Print("MsgTip:未知消息类型" + tipMsgList[i].MsgType);

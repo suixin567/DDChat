@@ -8,6 +8,10 @@ namespace MainProgram
 
     public class MsgMgr
     {
+        //邀请成员被处理
+        public delegate void InviteProcessed(string callback);
+        public event InviteProcessed onInviteProcessedEvent;
+
         //需要tip的消息
         public MsgMgr()
         {
@@ -137,8 +141,46 @@ namespace MainProgram
                 case MessageProtocol.BE_REMOVE_GROUP_SRES://被移除出群
                     Debug.Print("我被移除出群：" + mModel.From);
                     //TODO:弹一个tip进行说明。删除各个item 关闭对话框 如果这个人还打开着这个群的资料，那么又可以进群聊天。应该规避一下。
-
                     break;
+                case MessageProtocol.INVITE_TO_GROUP_SRES://申请邀请一个人入群的响应                    
+                    if (onInviteProcessedEvent!=null)
+                    {
+                        onInviteProcessedEvent(mModel.To);
+                    }
+                    break;
+                case MessageProtocol.BE_INVITE_TO_GROUP_SRES://被邀请加入一个群  (闪烁~~~)  
+                    Debug.Print("我被邀请进入一个群"+ mModel.To);
+                    //验证消息窗体加入这条信息
+                    VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);//TODO: 验证消息item的content  会显示77777:88888
+                    msgTip(mModel);
+                    break;
+                case MessageProtocol.INVITE_PROCESS_SRES://被邀请入群的人的操作的响应
+                    //如果之前是同意的操作，则进入一个群
+                    if (mModel.Content=="yes")
+                    {
+                        msgTip(mModel);
+                        //增加群item
+                        MyGroupModel enterGroupModel = new MyGroupModel();
+                        enterGroupModel.GroupID = int.Parse(mModel.To);
+                        enterGroupModel.ReceiveModel = 0;
+                        MainMgr.Instance.formMain.flowLayoutPanelGroupList.addItemSafePost(enterGroupModel);        
+                        //把验证消息里的这条消息标记为已处理
+                        VerifyMsgMgr.Instance.markInviteGroupProcessed(mModel);
+                    }
+                    if (mModel.Content == "no")
+                    {//如果决绝操作则什么也不做TODO:因为还没有拒绝
+                        return;
+                    }
+                    break;
+                case MessageProtocol.OTHER_PROCESS_OF_INVITE_SRES://我邀请别人后，被邀请人的操作结果
+                    //验证消息窗体加入这条信息         
+                    VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
+                    Debug.Print("我的邀请有结果了"+ mModel.Content);              
+                    break;
+
+
+
+
 
 
 

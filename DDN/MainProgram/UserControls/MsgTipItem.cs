@@ -151,6 +151,27 @@ namespace MainProgram.UserControls
                     });
                     labelContent.Text = m_mode.Content;                 
                     break;
+                case MessageProtocol.BE_INVITE_TO_GROUP_SRES://被邀请入群
+                    //头像为一个喇叭图片
+                    this.pictureBox.Image = MainProgram.Properties.Resources.msg;
+                    this.SetText("");
+                    labelContent.Text = "验证消息";
+                    break;
+                case MessageProtocol.INVITE_PROCESS_SRES://被邀请人的操作的响应
+                    DataMgr.Instance.getGroupByID(int.Parse(m_mode.To),delegate(GroupInfoModel mode) {
+                        SetText(mode.Name);
+                        //头像为群头像
+                        //请求群头像
+                        FaceMgr.Instance.getFaceByName(mode.Face, delegate (Image face)
+                        {
+                            if (face != null)
+                            {
+                                this.SetImg(face);
+                            }
+                        });
+                    });                                        
+                    labelContent.Text = "快来聊天吧";
+                    break;
                 default:
                     Debug.Print("MsgTipItem：未知协议类型" + m_mode.MsgType);
                     break;

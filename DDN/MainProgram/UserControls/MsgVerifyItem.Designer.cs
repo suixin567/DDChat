@@ -64,9 +64,9 @@
             this.labelContent.AutoSize = true;
             this.labelContent.Location = new System.Drawing.Point(108, 51);
             this.labelContent.Name = "labelContent";
-            this.labelContent.Size = new System.Drawing.Size(149, 12);
+            this.labelContent.Size = new System.Drawing.Size(83, 12);
             this.labelContent.TabIndex = 2;
-            this.labelContent.Text = "消息内容：申请加我为好友";
+            this.labelContent.Text = "消息内容：...";
             // 
             // buttonYes
             // 
@@ -104,9 +104,9 @@
             this.labelUsername.ForeColor = System.Drawing.Color.Red;
             this.labelUsername.Location = new System.Drawing.Point(108, 31);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(59, 12);
+            this.labelUsername.Size = new System.Drawing.Size(23, 12);
             this.labelUsername.TabIndex = 9;
-            this.labelUsername.Text = "591821945";
+            this.labelUsername.Text = "...";
             // 
             // labelProcessMark
             // 

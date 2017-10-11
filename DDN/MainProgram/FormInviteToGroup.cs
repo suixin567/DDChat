@@ -18,6 +18,26 @@ namespace MainProgram
             InitializeComponent();
             m_belongToGid = belongToGid;
             m_SyncContext = SynchronizationContext.Current;
+            MainMgr.Instance.msgMgr.onInviteProcessedEvent += this.onInviteProcessed;
+        }
+
+        void onInviteProcessed(string gid) {
+            if (m_belongToGid.ToString()==gid)
+            {
+                showLoginOpreationResultSafePost("已申请，等待对方确认。");
+                //延迟销毁
+                System.Timers.Timer timerDistory = new System.Timers.Timer(2000);
+               
+                timerDistory.Enabled = true;
+               
+                timerDistory.Elapsed += (sen, eve) =>
+                {
+                    closeSafePost();
+                    ((System.Timers.Timer)sen).Stop();
+                    ((System.Timers.Timer)sen).Dispose();
+                };
+                timerDistory.Start();
+            }            
         }
 
         private void FormInviteToGroup_Load(object sender, EventArgs e)
@@ -90,10 +110,21 @@ namespace MainProgram
 
         }
 
-        //发送邀请好友的命令
+        //发送邀请好友加入一个群的命令
         private void buttonYes_Click(object sender, EventArgs e)
         {
-
+            this.buttonYes.Enabled = false;
+            string members = "";
+            foreach (var item in this.flowLayoutPanelSelected.Controls)
+            {
+                if (item is InviteItem)
+                {
+                    InviteItem toInviteItem = (InviteItem)item;
+                    members += toInviteItem.m_friendUsername+",";
+                }
+            }
+            MsgModel mm = new MsgModel(MessageProtocol.INVITE_TO_GROUP_CREQ, AppInfo.PERSONAL_INFO.Username , m_belongToGid.ToString(), members, DateTime.Now.ToString());
+            MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, mm);
         }
 
 
@@ -155,6 +186,16 @@ namespace MainProgram
             this.Dispose();
         }
 
-       
+        void closeSafePost()
+        {
+            m_SyncContext.Post(closeForm, null);
+            Debug.Print("11111");
+        }       
+        void closeForm(object content)
+        {
+            Debug.Print("222222");
+            this.Dispose();
+        }
+
     }
 }

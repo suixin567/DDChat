@@ -19,7 +19,7 @@ public class CreateGroupModel
 public class MyGroupModel
 {
     public int GroupID;
-    public int ReceiveModel;
+    public int ReceiveModel;//接收群消息
 }
 
 //群信息

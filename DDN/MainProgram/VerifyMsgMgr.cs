@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MainProgram
 {
@@ -92,12 +89,19 @@ namespace MainProgram
                 {
                     return;
                 }
+                //过滤掉重复的群邀请
+                if (mm.MsgType == MessageProtocol.BE_INVITE_TO_GROUP_SRES && mm.MsgType == item.MsgType && mm.From == item.From && mm.To == item.To && item.IsDealed == false)
+                {
+                    return;
+                }
             }
             this.vmList.Add(new VerifyMsgModel(mm));
-            if (verifyMsgItem != null)
-            {
-                verifyMsgItem.setContentSafePost(mm.From + ":" + mm.Content);
-            }
+
+            //TODO:验证消息ITEM的内容都还没有刷新
+            //if (verifyMsgItem != null)
+            //{
+            //  verifyMsgItem.setContentSafePost(mm.From + ":" + mm.Content);
+            //}
         }
 
         //标记一条申请加我好友的信息为已经被处理  
@@ -125,6 +129,7 @@ namespace MainProgram
                     }
                 }
             }
+
         }
 
         //标记一条申请申请入群的信息为已经被处理  
@@ -155,6 +160,33 @@ namespace MainProgram
             }
         }
 
+        //标记一条邀请我入群的信息为已处理
+        public void markInviteGroupProcessed(MsgModel mode)
+        {
+            foreach (var item in vmList)
+            {
+                Debug.Print(item.MsgType + item.From + item.To + item.Time);
+                Debug.Print(mode.MsgType + mode.From + mode.To + mode.Time);
+                if (item.MsgType == MessageProtocol.BE_INVITE_TO_GROUP_SRES)
+                {
+                    if (item.From == mode.From && item.To == mode.To)
+                    {
+                        item.IsDealed = true;
+                    }
+                }
+            }
+            foreach (var item in formMessageVerify.flowLayoutPanel.Controls)
+            {
+                MsgVerifyItem mvi = (MsgVerifyItem)item;
+                if (mvi.m_MsgModel.MsgType == MessageProtocol.BE_INVITE_TO_GROUP_SRES)
+                {
+                    if (mvi.m_MsgModel.From == mode.From && mvi.m_MsgModel.To == mode.To)
+                    {
+                        mvi.setProcessedSafePost();
+                    }
+                }
+            }
+        }
 
         //打开验证消息窗体
         public void openFormMesageVerify()

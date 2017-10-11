@@ -33,7 +33,7 @@
     public const int BE_INVITE_TO_GROUP_SRES = 46;//被邀请加入一个群
     public const int INVITE_PROCESS_CREQ = 47;//被邀请人的操作（同意或拒绝）
     public const int INVITE_PROCESS_SRES = 48;//被邀请人的操作的响应
-    public const int OTHER_PROCESS_OF_INVITE_SRES = 49;//邀请别人后，被邀请人的操作的响应
+    public const int OTHER_PROCESS_OF_INVITE_SRES = 49;//邀请别人后，被邀请人的操作结果
 
     //关于聊天
     public const int CHAT_ME_TO_FRIEND_CREQ = 100;//和好友聊天
