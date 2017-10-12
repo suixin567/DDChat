@@ -31,7 +31,7 @@ namespace MainProgram
             m_SyncContext = SynchronizationContext.Current;
             m_Face = face;
             m_groupItem = groupItem;
-            DataMgr.Instance.modifyGroupInfoEvent += this.onGroupModelMotified;
+            DataMgr.Instance.updateGroupInfoEvent += this.onGroupModelMotified;
         }
 
         private void FormModifyPersonalInfo_Load(object sender, EventArgs e)

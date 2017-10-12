@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Dialog;
 using System.Diagnostics;
 using System.Threading;
+using ToolLib;
 
 namespace Dialog
 {
@@ -28,6 +29,8 @@ namespace Dialog
         {
             InitializeComponent();
             m_SyncContext = SynchronizationContext.Current;
+            //注册群模型过时事件，以便去拉去最新的群成员。
+            DataMgr.Instance.deprecatedGroupInfoEvent += this.onMemberChanged;
         }
 
         private void GroupMemberPanel_Load(object sender, EventArgs e)
@@ -36,7 +39,11 @@ namespace Dialog
         }
 
 
-        //刷新群成员列表
+        void onMemberChanged(int gid) {
+            refreshMembers(gid.ToString());
+        }
+
+        //拉取或刷新群成员列表
         public void refreshMembers(string groupId) {            
             //拉取群成员
             HttpReqHelper.requestSync(AppConst.WebUrl + "groupMembers?gid=" + groupId, delegate (string membersJson) {

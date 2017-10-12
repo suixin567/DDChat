@@ -27,9 +27,13 @@ namespace ToolLib
         #region 属性
         ConcurrentDictionary<string, PersonalInfoModel> personalDic = new ConcurrentDictionary<string, PersonalInfoModel>();
         ConcurrentDictionary<int, GroupInfoModel> groupDic = new ConcurrentDictionary<int, GroupInfoModel>();
-        //群资料修改事件
-        public delegate void ModifyGroupInfo(int gid,GroupInfoModel newMode);
-        public event ModifyGroupInfo modifyGroupInfoEvent;
+        List<int> invalidGroup = new List<int>();//无效的群信息
+        //群资料已过时事件
+        public delegate void DeprecatedGroupInfo(int gid);
+        public event DeprecatedGroupInfo deprecatedGroupInfoEvent;
+        //群资料已更新事件
+        public delegate void UpdateGroupInfo(int gid,GroupInfoModel newMode);
+        public event UpdateGroupInfo updateGroupInfoEvent;
         //个人资料修改事件
         //public delegate void ModifyPersonalInfo(string username);
         //public event ModifyPersonalInfo modifyPersonalInfoEvent;
@@ -77,24 +81,36 @@ namespace ToolLib
         {
             if (groupDic.ContainsKey(groupId))
             {
-                if (callBack != null)
+                //判断有效性，这样可以保证拉取信息的地方，总可以获得最新的数据
+                if (invalidGroup.Contains(groupId))//已过时，去更新，就算过时了也返回一个旧的数据？
                 {
-                    callBack(groupDic[groupId]);
+                    if (callBack != null)
+                    {
+                        callBack(groupDic[groupId]);
+                    }
+                    forceUpdateGroupInfo(groupId);
                 }
+                else {//有效数据直接返回
+                    if (callBack != null)
+                    {
+                        callBack(groupDic[groupId]);
+                    }
+                }              
             }
             else
             {
                 HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol="+HttpGroupProtocol.GROUP_BASE_INFO+"&gid=" + groupId, delegate (string info) {
                     try
-                    {
-                     
+                    {                     
                         GroupInfoModel model = Coding<GroupInfoModel>.decode(info);
                       //  Debug.Print("收到信息"+ groupId+"  " + model.Name+ model.Master+"|||"+model.Createdtime+model.Verifymode);
                         groupDic.TryAdd(groupId, model);
+                        //返回结果
                         if (callBack != null)
                         {
                             callBack(model);
-                        }                       
+                        }
+                    
                     }
                     catch (Exception err)
                     {
@@ -107,14 +123,27 @@ namespace ToolLib
                 });
             }
         }
+   
 
-  
 
-       
+
+
+        //得知一个群的模型信息过时弃用，那么需要把数据标记为无效。
+        //需要立即更新的模块才需要注册这个事件，不需要立即更新的模块，等需要时再去更新。
+        public void markGroupInfoInvalid(int groupId) {
+            invalidGroup.Add(groupId);
+            if (deprecatedGroupInfoEvent!=null)
+            {
+                deprecatedGroupInfoEvent(groupId);
+            }
+        }
+
+
         //强制更新一个群的数据
-        public void modifyGroupInfo(int gid)
+        public void forceUpdateGroupInfo(int gid)
         {
-            HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=" + HttpGroupProtocol.GROUP_BASE_INFO + "&gid=" + gid, delegate (string info) {
+            HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=" + HttpGroupProtocol.GROUP_BASE_INFO + "&gid=" + gid, delegate (string info)
+            {
                 try
                 {
                     GroupInfoModel model = Coding<GroupInfoModel>.decode(info);
@@ -122,22 +151,35 @@ namespace ToolLib
                     {
                         groupDic[gid] = model;
                     }
-                    else {
+                    else
+                    {
                         groupDic.TryAdd(gid, model);
                     }
                     //发送事件
-                    if (modifyGroupInfoEvent != null)
+                    if (updateGroupInfoEvent != null)
                     {
-                        modifyGroupInfoEvent(gid, model);
+                        updateGroupInfoEvent(gid, model);
                     }
+                    //移除无效列表
+                    invalidGroup.Remove(gid);
                 }
                 catch (Exception err)
                 {
-                    Debug.Print("!!!DataMgr.modifyGroupInfo失败" + err.ToString());                  
+                    Debug.Print("!!!DataMgr.modifyGroupInfo失败" + err.ToString());
                 }
-            });        
+            });
         }
 
+        //判断自己的数据是否已经过时
+        public void isInvalidGroup(int gid) {
+            if (this.invalidGroup.Contains(gid))
+            {
+
+            }
+            else {
+
+            }
+        }
 
 
 

@@ -32,7 +32,7 @@ namespace MainProgram.UserControls
 
             InitializeComponent();
             m_myGroupModel = myGroupModel;
-            DataMgr.Instance.modifyGroupInfoEvent += this.onGroupModelMotified;
+            DataMgr.Instance.updateGroupInfoEvent += this.onGroupModelMotified;
             FaceMgr.Instance.modifyFaceEvent += this.onGroupFaceModify;
         }
 
@@ -70,8 +70,7 @@ namespace MainProgram.UserControls
                 else {
                     Debug.Print("err---------错误的头像！！！"+ m_groupInfoModel.Face);
                 }
-            });
-       
+            });       
         }
 
         void initLabelSafePost()
@@ -97,17 +96,21 @@ namespace MainProgram.UserControls
         //双击
         private void GroupItem_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            //刷新一下数据，有可能已经过时了
+            DataMgr.Instance.getGroupByID(m_myGroupModel.GroupID, delegate (GroupInfoModel model) {
+                m_groupInfoModel = model;
+            });
             FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name,pictureBoxGroupFace.Image);
         }
         //双击
         private void labelName_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name, pictureBoxGroupFace.Image);
+            GroupItem_MouseDoubleClick(null,null);
         }
-
+        //双击
         private void pictureBoxGroupFace_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name, pictureBoxGroupFace.Image);
+            GroupItem_MouseDoubleClick(null, null);
         }
 
         private void pictureBoxGroupFace_MouseEnter(object sender, EventArgs e)
@@ -144,7 +147,7 @@ namespace MainProgram.UserControls
             return m_groupInfoModel;
         }
 
-        //当群模型发生改变
+        //当群模型发生改变（有更新）
         void onGroupModelMotified(int gid,GroupInfoModel newMode) {
             if (m_groupInfoModel.Gid ==gid)
             {

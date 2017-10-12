@@ -128,13 +128,13 @@ namespace MainProgram
                 case MessageProtocol.QUIT_GROUP_SRES://退群响应  (《《《无需闪烁》》》)
                     MainMgr.Instance.formMain.flowLayoutPanelGroupList.removeItemSafePost(int.Parse(mModel.To));
                     break;
-                case MessageProtocol.REFRESH_GROUP_MEMBERS://通知客户端刷新一个群的成员列表
-                //    Debug.Print("刷新一个群的成员列表：" + mModel.Content);
-                    //判断此群的对话框是否已经打开
-                    if (FormDialogManager.Instance.isDialogOpend("group"+ mModel.Content) == true) {
-                        FormDialogManager.Instance.formListDictionary["group" + mModel.Content].groupMemberPanel1.refreshMembers(mModel.Content);
-                    }
-                    break;
+                //case MessageProtocol.REFRESH_GROUP_MEMBERS://通知客户端刷新一个群的成员列表
+                ////    Debug.Print("刷新一个群的成员列表：" + mModel.Content);
+                //    //判断此群的对话框是否已经打开
+                //    if (FormDialogManager.Instance.isDialogOpend("group"+ mModel.Content) == true) {
+                //        FormDialogManager.Instance.formListDictionary["group" + mModel.Content].groupMemberPanel1.refreshMembers(mModel.Content);
+                //    }
+                //    break;
                 case MessageProtocol.FORCE_REMOVE_GROUP_SRES://把一个人移除出群的响应
                     Debug.Print("成功移出了这个人。" + mModel.To);
                     if (onRemoveMemberProcessed!=null)

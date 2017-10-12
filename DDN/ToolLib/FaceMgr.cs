@@ -202,7 +202,7 @@ namespace ToolLib
 
 
         //强制更新一个群的头像，并广播这个头像改变了。
-        public void modifyFace(string faceName)
+        public void faceUpdateFace(string faceName)
         {
             loadFaceFromNet(faceName, delegate(Image newFace) {
 
