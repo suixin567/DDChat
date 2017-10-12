@@ -153,6 +153,9 @@ namespace MainProgram
                         FormDialogManager.Instance.openDialog(1, int.Parse(tipMsgList[i].To), nickName4, face4);
                         FormDialogManager.Instance.onChatMsg(tipMsgList[i]);//展示消息
                         break;
+                    case MessageProtocol.BE_REMOVE_GROUP_SRES://被移除出群
+                        VerifyMsgMgr.Instance.openFormMesageVerify();
+                        break;
                     case MessageProtocol.BE_INVITE_TO_GROUP_SRES://被邀请加入一个群
                         VerifyMsgMgr.Instance.openFormMesageVerify();
                         break;

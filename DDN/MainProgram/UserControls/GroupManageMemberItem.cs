@@ -29,6 +29,8 @@ namespace MainProgram.UserControls
         {
           
             InitializeComponent();
+            //注册被移出群的事件
+            MainMgr.Instance.msgMgr.onRemoveMemberProcessed += this.onRemoveMemberProcessed;
             m_SyncContext = SynchronizationContext.Current;
             m_memberUsername = username;
             switch (memberLevel)
@@ -45,8 +47,27 @@ namespace MainProgram.UserControls
                     break;
                 default:
                     break;
-            }        
+            }
+
         }
+
+        void onRemoveMemberProcessed(string member) {
+           // Debug.Print("发到萨福克郡" + member+" " +m_memberUsername);
+            if (member == m_memberUsername)
+            {
+                closeSafePost();
+            }
+        }
+
+        void closeSafePost()
+        {
+            m_SyncContext.Post(closeForm, null);
+        }
+        void closeForm(object content)
+        {
+            this.Dispose();
+        }
+
 
         private void GroupManageMemberItem_Load(object sender, EventArgs e)
         {
@@ -151,5 +172,6 @@ namespace MainProgram.UserControls
                 "您已被移出群" + ((FormShowGroupInfo)FindForm()).m_groupItem.getGroupMode().Name + "。", DateTime.Now.ToString());
             MainMgr.Instance.msgMgr.sendMessage(MessageProtocol.GROUP, mm);
         }
+     
     }
 }

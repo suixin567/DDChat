@@ -151,6 +151,16 @@ namespace MainProgram.UserControls
                     });
                     labelContent.Text = m_mode.Content;                 
                     break;
+                case MessageProtocol.BE_REMOVE_GROUP_SRES://我被移除出群
+                    //头像为一个喇叭图片
+                    this.pictureBox.Image = MainProgram.Properties.Resources.msg;
+                    //获取群昵称
+                    DataMgr.Instance.getGroupByID(int.Parse(m_mode.From), delegate (GroupInfoModel model)
+                    {
+                        SetText("被管理员移出群: " + model.Name);
+                    });
+                    labelContent.Text = "";
+                    break;
                 case MessageProtocol.BE_INVITE_TO_GROUP_SRES://被邀请入群
                     //头像为一个喇叭图片
                     this.pictureBox.Image = MainProgram.Properties.Resources.msg;

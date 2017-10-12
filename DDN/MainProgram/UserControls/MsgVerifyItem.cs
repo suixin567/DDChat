@@ -136,7 +136,25 @@ namespace MainProgram.UserControls
                         this.labelProcessMark.Hide();
                     }                 
                     break;
-
+                case MessageProtocol.BE_REMOVE_GROUP_SRES://被移除出群
+                    this.labelNickName.Text = "";
+                    this.labelUsername.Text = "";
+                    DataMgr.Instance.getGroupByID(int.Parse(m_MsgModel.From), delegate (GroupInfoModel groupmode)
+                    {
+                        this.labelContent.Text = "您已被管理员移出群： " + groupmode.Name;
+                        //请求群头像
+                        FaceMgr.Instance.getFaceByName(groupmode.Face, delegate (Image face)
+                        {
+                            if (face != null)
+                            {
+                                this.pictureBoxFace.Image = face;
+                            }
+                        });
+                    });
+                    this.labelProcessMark.Text = "已处理";
+                    this.buttonYes.Hide();
+                    this.buttonIgnore.Hide();
+                    break;
                 case MessageProtocol.BE_INVITE_TO_GROUP_SRES://有人邀请我入群
                     string sqrNick = "";//申请人的昵称
                     string groupNick = "";//群昵称

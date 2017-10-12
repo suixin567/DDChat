@@ -282,11 +282,15 @@ namespace MainProgram
             this.flowLayoutPanelMembers.Controls.Clear();
             //拉取群成员
             HttpReqHelper.requestSync(AppConst.WebUrl + "groupMembers?gid=" + groupId, delegate (string membersJson) {
-                //先清空               
-               // Debug.Print("收到群成员是：" + membersJson);                
-                GroupMembers members = Coding<GroupMembers>.decode(membersJson);
-               // Debug.Print("群主是：" + members.Master);
-                GroupManageMemberItem master = new GroupManageMemberItem(members.Master,0);
+                m_SyncContext.Post(addMemberItem, membersJson);
+            });
+        }
+        void addMemberItem(object state)
+        {
+                // Debug.Print("收到群成员是：" + membersJson);                
+                GroupMembers members = Coding<GroupMembers>.decode((string)state);
+                // Debug.Print("群主是：" + members.Master);
+                GroupManageMemberItem master = new GroupManageMemberItem(members.Master, 0);
                 addMemberSafePost(master);
                 memberAmount++;
                 //   Debug.Print("管理是：" + members.Manager);
@@ -300,7 +304,6 @@ namespace MainProgram
                         memberAmount++;
                     }
                 }
-             //   Debug.Print("成员是：" + members.Member);
                 string[] mems = members.Member.Split(',');
                 foreach (var item in mems)
                 {
@@ -311,11 +314,11 @@ namespace MainProgram
                         memberAmount++;
                     }
                 }
-
-                //this.labelMemberAmount.Text = memberAmount.ToString();
                 setAmountSafePost();
-            });
+           
         }
+
+
         void setAmountSafePost()
         {
             m_SyncContext.Post(setAmount, null);

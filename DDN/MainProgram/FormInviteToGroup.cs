@@ -189,11 +189,9 @@ namespace MainProgram
         void closeSafePost()
         {
             m_SyncContext.Post(closeForm, null);
-            Debug.Print("11111");
         }       
         void closeForm(object content)
         {
-            Debug.Print("222222");
             this.Dispose();
         }
 

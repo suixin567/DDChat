@@ -8,6 +8,9 @@ namespace MainProgram
 
     public class MsgMgr
     {
+        //成功移除了一名群成员
+        public delegate void RemoveMemberProcessed(string member);
+        public event RemoveMemberProcessed onRemoveMemberProcessed;
         //邀请成员被处理
         public delegate void InviteProcessed(string callback);
         public event InviteProcessed onInviteProcessedEvent;
@@ -115,8 +118,6 @@ namespace MainProgram
                     VerifyMsgMgr.Instance.markAddGroupProcessed(mModel);
                     break;
                 case MessageProtocol.YOU_BE_AGREED_ENTER_GROUP://你被同意入群             (闪烁~~~)  
-                                                           //  MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁 
-                                                           // this.mList.Add(mModel);
                     msgTip(mModel);
                     //增加item
                     MyGroupModel beAgreedEnterGroupModel = new MyGroupModel();
@@ -135,12 +136,18 @@ namespace MainProgram
                     }
                     break;
                 case MessageProtocol.FORCE_REMOVE_GROUP_SRES://把一个人移除出群的响应
-                    Debug.Print("成功移出了这个人。" + mModel.From+mModel.To);
-                    //TODO:应刷新群item里的mode及对话框内相关的mode及显示。
+                    Debug.Print("成功移出了这个人。" + mModel.To);
+                    if (onRemoveMemberProcessed!=null)
+                    {
+                        onRemoveMemberProcessed(mModel.To);
+                    }
                     break;
-                case MessageProtocol.BE_REMOVE_GROUP_SRES://被移除出群
+                case MessageProtocol.BE_REMOVE_GROUP_SRES://被移除出群      (闪烁~~~)
                     Debug.Print("我被移除出群：" + mModel.From);
                     //TODO:弹一个tip进行说明。删除各个item 关闭对话框 如果这个人还打开着这个群的资料，那么又可以进群聊天。应该规避一下。
+                    //验证消息窗体加入这条信息   
+                    VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
+                    msgTip(mModel);
                     break;
                 case MessageProtocol.INVITE_TO_GROUP_SRES://申请邀请一个人入群的响应                    
                     if (onInviteProcessedEvent!=null)
@@ -151,7 +158,7 @@ namespace MainProgram
                 case MessageProtocol.BE_INVITE_TO_GROUP_SRES://被邀请加入一个群  (闪烁~~~)  
                     Debug.Print("我被邀请进入一个群"+ mModel.To);
                     //验证消息窗体加入这条信息
-                    VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);//TODO: 验证消息item的content  会显示77777:88888
+                    VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
                     msgTip(mModel);
                     break;
                 case MessageProtocol.INVITE_PROCESS_SRES://被邀请入群的人的操作的响应
@@ -168,7 +175,7 @@ namespace MainProgram
                         VerifyMsgMgr.Instance.markInviteGroupProcessed(mModel);
                     }
                     if (mModel.Content == "no")
-                    {//如果决绝操作则什么也不做TODO:因为还没有拒绝
+                    {//如果决绝操作则什么也不做
                         return;
                     }
                     break;
