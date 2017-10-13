@@ -32,7 +32,7 @@ namespace MainProgram.UserControls
 
             InitializeComponent();
             m_myGroupModel = myGroupModel;
-            DataMgr.Instance.updateGroupInfoEvent += this.onGroupModelMotified;
+            DataMgr.Instance.updateGroupInfoEvent += this.onGroupModelUpdated;
             FaceMgr.Instance.modifyFaceEvent += this.onGroupFaceModify;
         }
 
@@ -79,8 +79,7 @@ namespace MainProgram.UserControls
         }
         void initLabel(object state)
         {
-            labelName.Text = m_groupInfoModel.Name;
-    
+            labelName.Text = m_groupInfoModel.Name;    
         }
 
         private void 退出这个群ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -99,8 +98,8 @@ namespace MainProgram.UserControls
             //刷新一下数据，有可能已经过时了
             DataMgr.Instance.getGroupByID(m_myGroupModel.GroupID, delegate (GroupInfoModel model) {
                 m_groupInfoModel = model;
-            });
-            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name,pictureBoxGroupFace.Image);
+                FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name, pictureBoxGroupFace.Image);
+            });           
         }
         //双击
         private void labelName_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -133,12 +132,21 @@ namespace MainProgram.UserControls
         FormShowGroupInfo formShowGroupInfo = null;
         private void 查看群资料ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //刷新一下数据，有可能已经过时了
+            DataMgr.Instance.getGroupByID(m_myGroupModel.GroupID, delegate (GroupInfoModel model) {
+                m_groupInfoModel = model;
+                m_SyncContext.Post(setFormShowGroupInfoSafePost,null);
+            });           
+        }
+
+        void setFormShowGroupInfoSafePost(object state) {            
             if (formShowGroupInfo == null || formShowGroupInfo.IsDisposed)
             {
                 formShowGroupInfo = new FormShowGroupInfo(m_groupInfoModel, this.pictureBoxGroupFace.Image, this);
                 formShowGroupInfo.Show();
             }
-            else {
+            else
+            {
                 formShowGroupInfo.Activate();
             }
         }
@@ -148,7 +156,7 @@ namespace MainProgram.UserControls
         }
 
         //当群模型发生改变（有更新）
-        void onGroupModelMotified(int gid,GroupInfoModel newMode) {
+        void onGroupModelUpdated(int gid,GroupInfoModel newMode) {
             if (m_groupInfoModel.Gid ==gid)
             {
                 m_groupInfoModel = newMode;              

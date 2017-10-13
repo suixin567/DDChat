@@ -31,7 +31,7 @@ namespace MainProgram
             m_SyncContext = SynchronizationContext.Current;
             m_Face = face;
             m_groupItem = groupItem;
-            DataMgr.Instance.updateGroupInfoEvent += this.onGroupModelMotified;
+         //   DataMgr.Instance.deprecatedGroupInfoEvent += this.onGroupModelMotified;
         }
 
         private void FormModifyPersonalInfo_Load(object sender, EventArgs e)
@@ -90,14 +90,14 @@ namespace MainProgram
             }
         }
 
-        //当群模型被改变
-        void onGroupModelMotified(int gid,GroupInfoModel mode)
-        {
-            if (m_groupItem.getGroupMode().Gid == gid)
-            {
-                setEnterMethodSafePost();
-            }
-        }
+        ////当群模型被改变
+        //void onGroupModelMotified(int gid,GroupInfoModel mode)
+        //{
+        //    if (m_groupItem.getGroupMode().Gid == gid)
+        //    {
+        //        setEnterMethodSafePost();
+        //    }
+        //}
 
         //跨线程设置群主信息
         delegate void AppendValueDelegate(string strValue);
@@ -191,7 +191,12 @@ namespace MainProgram
             if (checkBoxVerifymode1.Checked == true)
             {
                 //发送请求
-                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupItem.getGroupMode().Gid + "&method=1", delegate (string result){});
+                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupItem.getGroupMode().Gid + "&method=1", delegate (string result){
+                    if (result =="true")
+                    {
+                        setEnterMethodSafePost(1);
+                    }
+                });
             }
             else {
                 checkBoxVerifymode1.Checked = true;
@@ -204,7 +209,12 @@ namespace MainProgram
             if (checkBoxVerifymode2.Checked == true)
             {
                 //发送请求
-                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupItem.getGroupMode().Gid + "&method=0", delegate (string result){});
+                HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=3&gid=" + m_groupItem.getGroupMode().Gid + "&method=0", delegate (string result){
+                    if (result == "true")
+                    {
+                        setEnterMethodSafePost(0);
+                    }
+                });
             }
             else {
                 checkBoxVerifymode2.Checked = true;
@@ -221,7 +231,7 @@ namespace MainProgram
                 if (m_groupItem.getGroupMode().Master == AppInfo.PERSONAL_INFO.Username)//自己是群主
                 {
                     this.labelVerifymode.Hide();
-                    setEnterMethodSafePost();
+                    setEnterMethodSafePost(m_groupItem.getGroupMode().Verifymode);
                 }
                 else {//不是群主，不可编辑
                     checkBoxVerifymode1.Hide();
@@ -251,23 +261,23 @@ namespace MainProgram
         }
 
         //设置进群方式
-        public void setEnterMethodSafePost()
+        public void setEnterMethodSafePost(int methodIndex)
         {
-            m_SyncContext.Post(setEnterMethod, null);
+            m_SyncContext.Post(setEnterMethod, methodIndex);
         }
         void setEnterMethod(object state)
         {
-            if (m_groupItem.getGroupMode().Verifymode == 0)
+            if ((int)state == 0)
             {
                 checkBoxVerifymode1.Checked = false;
                 checkBoxVerifymode2.Checked = true;
             }
-            else
-            {
+            else {
                 checkBoxVerifymode1.Checked = true;
                 checkBoxVerifymode2.Checked = false;
-            }
+            }          
         }
+
         private void buttonOpenDialogue_Click(object sender, EventArgs e)
         {
             FormDialogManager.Instance.openDialog(1, m_groupItem.getGroupMode().Gid, m_groupItem.getGroupMode().Name, pictureBoxFace.Image);

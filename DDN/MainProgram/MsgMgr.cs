@@ -128,26 +128,19 @@ namespace MainProgram
                 case MessageProtocol.QUIT_GROUP_SRES://退群响应  (《《《无需闪烁》》》)
                     MainMgr.Instance.formMain.flowLayoutPanelGroupList.removeItemSafePost(int.Parse(mModel.To));
                     break;
-                //case MessageProtocol.REFRESH_GROUP_MEMBERS://通知客户端刷新一个群的成员列表
-                ////    Debug.Print("刷新一个群的成员列表：" + mModel.Content);
-                //    //判断此群的对话框是否已经打开
-                //    if (FormDialogManager.Instance.isDialogOpend("group"+ mModel.Content) == true) {
-                //        FormDialogManager.Instance.formListDictionary["group" + mModel.Content].groupMemberPanel1.refreshMembers(mModel.Content);
-                //    }
-                //    break;
                 case MessageProtocol.FORCE_REMOVE_GROUP_SRES://把一个人移除出群的响应
-                    Debug.Print("成功移出了这个人。" + mModel.To);
-                    if (onRemoveMemberProcessed!=null)
+                    if (onRemoveMemberProcessed!=null)//这个事件为了销毁那个item
                     {
                         onRemoveMemberProcessed(mModel.To);
                     }
                     break;
                 case MessageProtocol.BE_REMOVE_GROUP_SRES://被移除出群      (闪烁~~~)
-                    Debug.Print("我被移除出群：" + mModel.From);
-                    //TODO:弹一个tip进行说明。删除各个item 关闭对话框 如果这个人还打开着这个群的资料，那么又可以进群聊天。应该规避一下。
+                    //TODO:如果这个人还打开着这个群的资料，那么又可以进群聊天。应该规避一下。
                     //验证消息窗体加入这条信息   
                     VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
                     msgTip(mModel);
+                    //删除item
+                    MainMgr.Instance.formMain.flowLayoutPanelGroupList.removeItemSafePost(int.Parse(mModel.From));
                     break;
                 case MessageProtocol.INVITE_TO_GROUP_SRES://申请邀请一个人入群的响应                    
                     if (onInviteProcessedEvent!=null)
@@ -155,8 +148,7 @@ namespace MainProgram
                         onInviteProcessedEvent(mModel.To);
                     }
                     break;
-                case MessageProtocol.BE_INVITE_TO_GROUP_SRES://被邀请加入一个群  (闪烁~~~)  
-                    Debug.Print("我被邀请进入一个群"+ mModel.To);
+                case MessageProtocol.BE_INVITE_TO_GROUP_SRES://被邀请加入一个群  (闪烁~~~)
                     //验证消息窗体加入这条信息
                     VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
                     msgTip(mModel);

@@ -82,13 +82,39 @@ namespace ToolLib
             if (groupDic.ContainsKey(groupId))
             {
                 //判断有效性，这样可以保证拉取信息的地方，总可以获得最新的数据
-                if (invalidGroup.Contains(groupId))//已过时，去更新，就算过时了也返回一个旧的数据？
+
+                if (invalidGroup.Contains(groupId))//已过时，去更新，返回最新数据。
                 {
-                    if (callBack != null)
+                    HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=" + HttpGroupProtocol.GROUP_BASE_INFO + "&gid=" + groupId, delegate (string info)
                     {
-                        callBack(groupDic[groupId]);
-                    }
-                    forceUpdateGroupInfo(groupId);
+                        try
+                        {
+                            GroupInfoModel newmodel = Coding<GroupInfoModel>.decode(info);
+                            if (groupDic.ContainsKey(groupId))
+                            {
+                                groupDic[groupId] = newmodel;
+                            }                         
+                            //发送数据已更新的事件
+                            if (updateGroupInfoEvent != null)
+                            {
+                                updateGroupInfoEvent(groupId, newmodel);
+                            }
+                            //移除无效列表
+                            invalidGroup.Remove(groupId);
+                            //返回最新数据
+                            if (callBack != null)
+                            {
+                                callBack(groupDic[groupId]);
+                            }
+                        }
+                        catch (Exception err)
+                        {
+                            Debug.Print("!!!DataMgr.modifyGroupInfo失败" + err.ToString());
+                        }
+                    });
+
+
+
                 }
                 else {//有效数据直接返回
                     if (callBack != null)
@@ -97,7 +123,7 @@ namespace ToolLib
                     }
                 }              
             }
-            else
+            else//还没有这条数据
             {
                 HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol="+HttpGroupProtocol.GROUP_BASE_INFO+"&gid=" + groupId, delegate (string info) {
                     try
@@ -140,7 +166,7 @@ namespace ToolLib
 
 
         //强制更新一个群的数据
-        public void forceUpdateGroupInfo(int gid)
+        private void forceUpdateGroupInfo(int gid)
         {
             HttpReqHelper.requestSync(AppConst.WebUrl + "groupBaseInfo?protocol=" + HttpGroupProtocol.GROUP_BASE_INFO + "&gid=" + gid, delegate (string info)
             {
@@ -169,19 +195,6 @@ namespace ToolLib
                 }
             });
         }
-
-        //判断自己的数据是否已经过时
-        public void isInvalidGroup(int gid) {
-            if (this.invalidGroup.Contains(gid))
-            {
-
-            }
-            else {
-
-            }
-        }
-
-
 
 
         ////修改一个人的数据
