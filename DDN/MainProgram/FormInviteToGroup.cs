@@ -90,9 +90,15 @@ namespace MainProgram
                 }
                 //移动到选择框中去
                 InviteItem newInviteItem = new InviteItem(clickedItem.m_friendUsername, clickedItem.m_nickname, clickedItem.m_face, this, true);
-                this.flowLayoutPanelSelected.Controls.Add(newInviteItem);
-            });
-            
+                addItemSelectedSafePost(newInviteItem);
+            });            
+        }
+
+        void addItemSelectedSafePost(InviteItem item) {
+            m_SyncContext.Post(addItemSelected,item);
+        }
+        void addItemSelected(object state) {
+            this.flowLayoutPanelSelected.Controls.Add((InviteItem)state);
         }
 
         //有新item添加

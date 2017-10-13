@@ -60,6 +60,7 @@
             this.flowLayoutPanel.Size = new System.Drawing.Size(246, 502);
             this.flowLayoutPanel.TabIndex = 0;
             this.flowLayoutPanel.WrapContents = false;
+            this.flowLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel_Paint);
             // 
             // buttonFriend
             // 

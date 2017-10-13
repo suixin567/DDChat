@@ -15,6 +15,7 @@ using System.Threading;
 using MainProgram.UserControls;
 using UnityModule;
 using Dialog;
+using System.Drawing.Drawing2D;
 
 namespace MainProgram
 {
@@ -82,10 +83,10 @@ namespace MainProgram
             //pictureBox2.Image = img;    
             //展示个人资料的窗体
             FormInfoCard.Instance.Show();
-            FormInfoCard.Instance.Hide();
-              
+            FormInfoCard.Instance.Hide();          
         }
 
+        public void aaa() { }
 
         bool isNotifyIconFlashing = false;//icon是否在闪烁
 
@@ -462,12 +463,38 @@ namespace MainProgram
             notifyIconFormMain.Text = "叮叮鸟：" + AppInfo.PERSONAL_INFO.Nickname + "（" + AppInfo.PERSONAL_INFO.Username + "）";
         }      
        
-        private void button1_Click(object sender, EventArgs e)
-        {
-       //     Debug.Print(MainMgr.Instance.formMain.flowLayoutPanelDialogueList.getDialogueAmount().ToString());
-         //   DialogueItem item = new DialogueItem("",null,"");
 
+        private void FormMain_Paint(object sender, PaintEventArgs e)
+        {
+          //  SetFormRoundRectRgn(this, 20);
         }
-      
+
+
+        /// <summary>
+        /// 设置窗体的圆角矩形
+        /// </summary>
+        /// <param name="form">需要设置的窗体</param>
+        /// <param name="rgnRadius">圆角矩形的半径</param>
+        public static void SetFormRoundRectRgn(Form form, int rgnRadius)
+        {
+            int hRgn = 0;
+            hRgn = CreateRoundRectRgn(0, 0, form.Width + 1, form.Height + 1, rgnRadius, rgnRadius);
+            SetWindowRgn(form.Handle, hRgn, true);
+            DeleteObject(hRgn);
+        }
+
+        [DllImport("gdi32.dll")]
+        public static extern int CreateRoundRectRgn(int x1, int y1, int x2, int y2, int x3, int y3);
+
+        [DllImport("user32.dll")]
+        public static extern int SetWindowRgn(IntPtr hwnd, int hRgn, Boolean bRedraw);
+
+        [DllImport("gdi32.dll", EntryPoint = "DeleteObject", CharSet = CharSet.Ansi)]
+        public static extern int DeleteObject(int hObject);
+
+        private void FormMain_Resize(object sender, EventArgs e)
+        {
+            SetFormRoundRectRgn(this,3);
+        }
     }
 }

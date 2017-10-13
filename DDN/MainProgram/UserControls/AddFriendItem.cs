@@ -57,7 +57,7 @@ namespace MainProgram.UserControls
         //申请添加好友
         private void buttonAddFriend_Click(object sender, EventArgs e)
         {
-            if (MainMgr.Instance.formMain.flowLayoutPanelFriendList.getFriendList().Contains(this.labelUsername.Text))
+            if (AppInfo.MyFriendList.Contains(this.labelUsername.Text))
             {
                 ((FormAddFriend)this.FindForm()).showOpreationResultSafePost("对方已经是你的好友了！");
                 return;

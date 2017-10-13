@@ -324,19 +324,8 @@ namespace MainProgram
                         memberAmount++;
                     }
                 }
-                setAmountSafePost();
-           
         }
 
-
-        void setAmountSafePost()
-        {
-            m_SyncContext.Post(setAmount, null);
-        }
-        void setAmount(object state)
-        {            
-            this.labelMemberAmount2.Text ="总人数："+ memberAmount.ToString();
-        }
 
         void addMemberSafePost(GroupManageMemberItem item) {
             m_SyncContext.Post(addMember, item);
@@ -390,5 +379,16 @@ namespace MainProgram
             this.WindowState = FormWindowState.Minimized;
         }
 
+
+        //成员item发生变化，则去修改总成员数的label
+        private void flowLayoutPanelMembers_ControlAdded(object sender, ControlEventArgs e)
+        {
+            this.labelMemberAmount2.Text = "总人数：" + flowLayoutPanelMembers.Controls.Count;
+        }
+
+        private void flowLayoutPanelMembers_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            flowLayoutPanelMembers_ControlAdded(null,null);
+        }
     }
 }

@@ -47,6 +47,7 @@ namespace Dialog
             
         }
 
+
         private void FormDialogManager_Load(object sender, EventArgs e)
         {
             this.Size = new Size(System.Windows.Forms.SystemInformation.WorkingArea.Width / 3, System.Windows.Forms.SystemInformation.WorkingArea.Height / 2);
@@ -59,11 +60,19 @@ namespace Dialog
             //pictureBoxFace.Region = new Region(path);
             this.appContainer.Hide();
             //unity检查更新
-            UnityManager.Instance.updateUnityEvent += this.onUnityCanRunEvent;
-            UnityManager.Instance.checkUpdate(this.Handle);
-            UnityManager.Instance.openedUnityEvent += this.onUnityOpened;
-                
+            UnityManager.Instance.updateUnityEvent += this.onUnityCanRunEvent;//unity可以运行了。
+            UnityManager.Instance.openedUnityEvent += this.onUnityOpened;//unity已经打开，可以嵌入了。
+            Thread th = new Thread(new ThreadStart(() =>
+            {
+                m_SyncContext.Post(ccheckUnitySafePost, null);
+            }));
+            th.Start();
         }
+
+        void ccheckUnitySafePost(object state) {
+            UnityManager.Instance.checkUpdate(this.Handle);      //这句可以线程内执行。  
+        }
+
         void onUnityOpened() {
             this.appContainer.UnityOpendSafePost();
         }
@@ -78,9 +87,7 @@ namespace Dialog
             {
                 MessageBox.Show("没有网络，请联网后重试","叮叮鸟提示：");
                 return;
-            }
-            this.Show();
-            this.WindowState = FormWindowState.Normal;
+            }        
             switch (dialogType)
             {
                 case 0://请求打开商城
@@ -96,17 +103,32 @@ namespace Dialog
                     changeActiveWindow("shop");
                     break;
                 case 1://请求打开群
-
-                    if (formListDictionary.ContainsKey("group" + dialogId) == false)
-                    {
-                        FormDialog formGroup = new FormDialog(dialogType, dialogId, dialogName, face);
-                        setParent(formGroup);
-                        formListDictionary.Add("group" + dialogId, formGroup);
-                        //创建选项卡
-                        ButtonTab btnTab1 = new ButtonTab(1, "group" + dialogId, dialogName, face);
-                        this.flowLayoutPanelTab.Controls.Add(btnTab1);
-                    }
-                    changeActiveWindow("group" + dialogId);
+                       //确认在群中
+                    DataMgr.Instance.getGroupByID(dialogId, delegate (GroupInfoModel mode) {
+                        if (mode.Member.Contains(AppInfo.PERSONAL_INFO.Username) || mode.Master.Contains(AppInfo.PERSONAL_INFO.Username) || mode.Manager.Contains(AppInfo.PERSONAL_INFO.Username))
+                        {
+                            //打开群对话
+                            if (formListDictionary.ContainsKey("group" + dialogId) == false)
+                            {
+                                FormDialog formGroup = new FormDialog(dialogType, dialogId, dialogName, face);
+                                setParent(formGroup);
+                                formListDictionary.Add("group" + dialogId, formGroup);
+                                //创建选项卡
+                                ButtonTab btnTab1 = new ButtonTab(1, "group" + dialogId, dialogName, face);
+                                this.flowLayoutPanelTab.Controls.Add(btnTab1);
+                            }
+                            changeActiveWindow("group" + dialogId);
+                        }
+                        else {
+                            //DialogResult dr = MessageBox.Show("已经不在这个群中","提示：");
+                            //if (dr == DialogResult.OK)
+                            //{
+                            //    Debug.Print("怎么还不停止呢");
+                            //    return;
+                            //}
+                            return;
+                        }
+                    });                                  
                     break;
                 case 2://请求打开个人
                     if (formListDictionary.ContainsKey("self") == false)
@@ -121,19 +143,32 @@ namespace Dialog
                     changeActiveWindow("self");
                     break;
                 case 3://请求打开朋友
-                 
-                    if (formListDictionary.ContainsKey("friend"+dialogId) == false)
+                       //确定拥有这个好友                     
+                    if (AppInfo.MyFriendList.Contains(dialogId.ToString()))
                     {
-                        FormDialog formFriend = new FormDialog(dialogType, dialogId, dialogName,face);
-                        setParent(formFriend);
-                        formListDictionary.Add("friend" + dialogId, formFriend);
-                        //创建选项卡
-                        ButtonTab btnTab1 = new ButtonTab(3, "friend" + dialogId, dialogName, face);
-                        this.flowLayoutPanelTab.Controls.Add(btnTab1);
+                        if (formListDictionary.ContainsKey("friend" + dialogId) == false)
+                        {
+                            FormDialog formFriend = new FormDialog(dialogType, dialogId, dialogName, face);
+                            setParent(formFriend);
+                            formListDictionary.Add("friend" + dialogId, formFriend);
+                            //创建选项卡
+                            ButtonTab btnTab1 = new ButtonTab(3, "friend" + dialogId, dialogName, face);
+                            this.flowLayoutPanelTab.Controls.Add(btnTab1);
+                        }
+                        changeActiveWindow("friend" + dialogId);
                     }
-                    changeActiveWindow("friend"+dialogId);
+                    else {
+                       // MessageBox.Show("对方已不是你的好友！", "提示：");
+                        return;
+                    }
+                    break;
+                default:
+                    Debug.Print("错误的窗口类型！");
                     break;
             }
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            Debug.Print("hais是展示了！");
         }
 
         //unity更新完毕

@@ -113,6 +113,7 @@
             // 
             // buttonFindFriend
             // 
+            this.buttonFindFriend.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonFindFriend.Image = ((System.Drawing.Image)(resources.GetObject("buttonFindFriend.Image")));
             this.buttonFindFriend.Location = new System.Drawing.Point(247, 16);
             this.buttonFindFriend.Name = "buttonFindFriend";
@@ -229,6 +230,7 @@
             this.Text = "叮叮鸟";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.FormMain_Resize);
             this.contextMenuStripNotifyIcon.ResumeLayout(false);
             this.panelBottom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buttonFindFriend)).EndInit();

@@ -341,6 +341,8 @@
             this.flowLayoutPanelMembers.Name = "flowLayoutPanelMembers";
             this.flowLayoutPanelMembers.Size = new System.Drawing.Size(419, 398);
             this.flowLayoutPanelMembers.TabIndex = 2;
+            this.flowLayoutPanelMembers.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanelMembers_ControlAdded);
+            this.flowLayoutPanelMembers.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanelMembers_ControlRemoved);
             // 
             // panel1
             // 

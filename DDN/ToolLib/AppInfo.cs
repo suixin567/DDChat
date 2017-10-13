@@ -1,7 +1,4 @@
-﻿
-
-
-
+﻿using System.Collections.Generic;
 using System.Drawing;
 
 public class AppInfo
@@ -49,6 +46,15 @@ public class AppInfo
         }
     }
 
+    //我的好友列表
+    private static List<string>  myFriendList=new List<string>();
+    public static List<string> MyFriendList {
+        get {
+            return myFriendList;
+        }set {
+            myFriendList = value;
+        }
+    }
 
 }
 

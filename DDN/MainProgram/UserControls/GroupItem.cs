@@ -98,7 +98,8 @@ namespace MainProgram.UserControls
             //刷新一下数据，有可能已经过时了
             DataMgr.Instance.getGroupByID(m_myGroupModel.GroupID, delegate (GroupInfoModel model) {
                 m_groupInfoModel = model;
-                FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name, pictureBoxGroupFace.Image);
+                // FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name, pictureBoxGroupFace.Image);
+                m_SyncContext.Post(openDialogSafePost,null);
             });           
         }
         //双击
@@ -110,6 +111,9 @@ namespace MainProgram.UserControls
         private void pictureBoxGroupFace_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             GroupItem_MouseDoubleClick(null, null);
+        }
+        void openDialogSafePost(object state) {
+            FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name, pictureBoxGroupFace.Image);
         }
 
         private void pictureBoxGroupFace_MouseEnter(object sender, EventArgs e)
