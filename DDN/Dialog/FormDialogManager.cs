@@ -64,12 +64,12 @@ namespace Dialog
             UnityManager.Instance.openedUnityEvent += this.onUnityOpened;//unity已经打开，可以嵌入了。
             Thread th = new Thread(new ThreadStart(() =>
             {
-                m_SyncContext.Post(ccheckUnitySafePost, null);
+                m_SyncContext.Post(checkUnitySafePost, null);
             }));
             th.Start();
         }
 
-        void ccheckUnitySafePost(object state) {
+        void checkUnitySafePost(object state) {
             UnityManager.Instance.checkUpdate(this.Handle);      //这句可以线程内执行。  
         }
 
