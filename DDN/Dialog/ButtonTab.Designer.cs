@@ -38,9 +38,9 @@
             // pictureBox
             // 
             this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
-            this.pictureBox.Location = new System.Drawing.Point(1, 3);
+            this.pictureBox.Location = new System.Drawing.Point(5, 5);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox.Size = new System.Drawing.Size(45, 45);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
@@ -63,7 +63,7 @@
             this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonClose.Location = new System.Drawing.Point(81, -1);
+            this.buttonClose.Location = new System.Drawing.Point(127, 3);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(20, 20);
             this.buttonClose.TabIndex = 2;
@@ -81,7 +81,7 @@
             this.Controls.Add(this.pictureBox);
             this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.Name = "ButtonTab";
-            this.Size = new System.Drawing.Size(100, 55);
+            this.Size = new System.Drawing.Size(150, 55);
             this.Load += new System.EventHandler(this.ButtonTab_Load);
             this.Click += new System.EventHandler(this.ButtonTab_Click);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonTab_MouseClick);

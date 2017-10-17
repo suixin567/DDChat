@@ -1,21 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
 using MainProgram.UserControls;
 using UnityModule;
 using Dialog;
-using System.Drawing.Drawing2D;
 
 namespace MainProgram
 {
@@ -343,7 +334,8 @@ namespace MainProgram
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.notifyIconFormMain.Visible = false;
-            UnityManager.Instance.CloseUnity();
+            UnityManager.Instance.closeUnity();//关闭Unity
+
             if (appExitEvent!=null)
             {
                 appExitEvent();

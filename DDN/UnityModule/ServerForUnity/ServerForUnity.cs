@@ -108,7 +108,7 @@ namespace UnityModule
             catch (Exception err)
             {
                 Debug.Print("向Unity发送消息失败！" + err.ToString());
-                UnityManager.Instance.CloseUnity();
+                UnityManager.Instance.onUnityClosed();
             }
             
         }
@@ -120,53 +120,50 @@ namespace UnityModule
             {
                 case UnityProtocol.SELF_INFO:
                     Debug.Print("unity请求个人信息");
+                    UnityManager.Instance.isUnityShow = true;
                     if (model.Command ==0) {
-                        Debug.Print("编辑器模式");
-                        UnityManager.Instance.isUnityShow = true;
+                        Debug.Print("编辑器模式");                        
                         UnityManager.Instance.unityMode = 0;
                     }
                     if (model.Command == 1)
                     {
                         Debug.Print("exe模式");
-                        //if (UnityManager.Instance.isUnityShow==false) {//还没开启unity，unity就来了
-                        //    SendMessage(UnityProtocol.CLOSE_UNITY,0,0,"");
-                        //    Debug.Print("还没开始就来了！！！");
-                        //    return;
-                        //}
-                        UnityManager.Instance.isUnityShow = true;//(测试使用，否则会再开一个客户端)
+                        if (UnityManager.Instance.isUnityShow == false)
+                        {//还没开启unity，unity就来了
+                            SendMessage(UnityProtocol.CLOSE_UNITY, 0, 0, "");
+                            Debug.Print("非法请求，还没开始，unity自己来了，关闭unity");
+                            return;
+                        }
                         UnityManager.Instance.unityMode = 1;
+                        try
+                        {
+                            Debug.Print("修改Unity标题" + model.Message);
+                            Process[] ps = Process.GetProcessesByName("叮叮鸟");
+                            foreach (Process p in ps)//遍历进程
+                            {
+                                SetWindowText(p.MainWindowHandle, "叮叮鸟------虚拟家装设计------免费共享平台------powered by H+ technology" + "      V" + model.Message);
+                            }
+                        }
+                        catch (Exception err)
+                        {
+                            Debug.Print("设置Unity Text错误：" + err.ToString());
+                        }
                     }                 
                     //返回个人信息
                     Debug.Print("返回的个人信息是" + AppInfo.USER_NAME + "网络模式"+UnityManager.Instance.netMode);
-                    SendMessage(UnityProtocol.SELF_INFO, 0,UnityManager.Instance.netMode, AppInfo.USER_NAME);
-                    Debug.Print("修改Unity标题" + model.Message);
-                   // UnityManager.Instance.UnityOpened();
-                    //try
-                    //{
-                    //    Process[] ps = Process.GetProcessesByName("叮叮鸟");
-                    //    foreach (Process p in ps)//遍历进程
-                    //    {
-                    //        SetWindowText(p.MainWindowHandle, "叮叮鸟------虚拟家装设计------免费共享平台------powered by H+ technology"+"      V"+ model.Message);
-                    //    }
-                    //}
-                    //catch (Exception err)
-                    //{
-                    //    Debug.Print("设置Unity Text错误：" + err.ToString());
-                    //}
-                 //   if(UnityManager.Instance.unityMode == 1)
-                  //  UnityManager.Instance.formUnity.setTextSafePost("叮叮鸟------虚拟家装设计------免费共享平台------powered by H+ technology" + "      V" + model.Message);
+                    SendMessage(UnityProtocol.SELF_INFO, 0,UnityManager.Instance.netMode, AppInfo.USER_NAME);                   
                     break;
-                case UnityProtocol.SCENE:
-                   //Debug.Print("unity请求场景信息");
-                //    SendMessage(UnityProtocol.SCENE, UnityManager.Instance.sceneIndex, 0, "");
-                    break;
-                case UnityProtocol.RESOUCE_MODE:
-                   // Debug.Print("unity请求资源模式");
-                 //   SendMessage(UnityProtocol.RESOUCE_MODE, 0, UnityManager.Instance.resourceMode, UnityManager.Instance.currentGroup);
-                    break;
+                //case UnityProtocol.SCENE:
+                //   //Debug.Print("unity请求场景信息");
+                ////    SendMessage(UnityProtocol.SCENE, UnityManager.Instance.sceneIndex, 0, "");
+                //    break;
+                //case UnityProtocol.RESOUCE_MODE:
+                //   // Debug.Print("unity请求资源模式");
+                // //   SendMessage(UnityProtocol.RESOUCE_MODE, 0, UnityManager.Instance.resourceMode, UnityManager.Instance.currentGroup);
+                //    break;
                 case UnityProtocol.UNITY_QUIT:
-                    Debug.Print("unity退出...");
-                    UnityManager.Instance.CloseUnity();
+                    Debug.Print("unity自己退出了...");
+                    UnityManager.Instance.onUnityClosed();
 
                     break;
                 default:

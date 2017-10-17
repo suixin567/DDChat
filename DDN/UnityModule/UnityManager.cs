@@ -30,10 +30,9 @@ namespace UnityModule
         public int netMode = 0;//网络模式，0为正常模式，1为离线模式
         public IntPtr unityHandle;
         static string exe = "";
-        System.Diagnostics.Process process;
+        private Process process;
         public delegate void UpdatedUnityEvent(bool result);
         public UpdatedUnityEvent updatedUnityEvent;//unity更新完毕的事件
-
         public delegate void OpenedUnityEvent();
         public OpenedUnityEvent openedUnityEvent;//unity已经打开事件
         #endregion
@@ -71,11 +70,6 @@ namespace UnityModule
         }
 
 
-        public void CloseUnity()
-        {
-            isUnityShow = false;
-            UnityManager.Instance.updatedUnityEvent -= this.exetUnity;//更新完毕以后启动unity。                     
-        }
 
 
 
@@ -119,6 +113,19 @@ namespace UnityModule
             isUnityShow = true;
         }
 
+
+        //当unity自己被关闭事件
+        public void onUnityClosed()
+        {
+            isUnityShow = false;
+            updatedUnityEvent -= this.exetUnity;//更新完毕以后启动unity。       
+        }
+
+
+        //关闭unity
+        public void closeUnity() {
+            ServerForUnity.Instance.SendMessage(UnityProtocol.CLOSE_UNITY, 0, 0, "");
+        }
 
 
 

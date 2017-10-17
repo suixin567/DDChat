@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using ToolLib;
@@ -35,6 +36,7 @@ namespace Dialog
         public Dictionary<string, FormDialog> formListDictionary = new Dictionary<string, FormDialog>();
 
         public const int topHeight = 50;
+        public const int leftPanelMaxWidth = 150;
         public FormDialog activeDialog = null;//激活对话窗
         public SynchronizationContext m_SyncContext = null;
         #endregion
@@ -208,12 +210,19 @@ namespace Dialog
 
         public void setParent(FormDialog child)
         {
-            activeDialog = child;
             child.TopLevel = false;
-            child.Parent = this;
-            child.Location = new Point(this.flowLayoutPanelTab.Width + 2, topHeight);
-            child.Size = new Size(this.Width - this.flowLayoutPanelTab.Width - 5, this.Height - topHeight - 3);
+            this.splitContainer.Panel2.Controls.Add(child);
+            child.Location = new Point(0, topHeight);
+            child.Size = this.splitContainer.Panel2.Size;
+            
+            activeDialog = child;
+          //  child.TopLevel = false;
+          //  child.Parent = this;
+            
+        //    child.Size = new Size(this.Width - this.flowLayoutPanelTab.Width - 5, this.Height - topHeight - 3);
             child.Show();
+            Debug.Print("服务提示" + child.Parent);
+            Debug.Print("服务提示" + child.Location.X);
         }
 
         //设置激活窗体
@@ -369,12 +378,12 @@ namespace Dialog
                     else if (vPoint.Y >= ClientSize.Height - 5)
                         m.Result = (IntPtr)Guying_HTBOTTOM;
                     break;
-                case 0x0201: //鼠标左键按下的消息
-                    m.Msg = 0x00A1; //更改消息为非客户区按下鼠标
-                    m.LParam = IntPtr.Zero; //默认值
-                    m.WParam = new IntPtr(2);//鼠标放在标题栏内
-                    base.WndProc(ref m);
-                    break;
+                //case 0x0201: //鼠标左键按下的消息
+                //    m.Msg = 0x00A1; //更改消息为非客户区按下鼠标
+                //    m.LParam = IntPtr.Zero; //默认值
+                //    m.WParam = new IntPtr(2);//鼠标放在标题栏内
+                //    base.WndProc(ref m);
+                //    break;
                 default:
                     base.WndProc(ref m);
                     break;
@@ -408,8 +417,7 @@ namespace Dialog
                 // this.WindowState = FormWindowState.Normal;   
                 this.Location = normalPoint;
                 this.Size = nnormalSize;
-            }
-    
+            }    
         }
 
 
@@ -441,6 +449,35 @@ namespace Dialog
                 }
             }
             return false;
+        }
+
+
+        private void splitContainer_SplitterMoving(object sender, SplitterCancelEventArgs e)
+        {
+            splitContainer.Panel2MinSize = splitContainer.Size.Width - leftPanelMaxWidth;
+        }
+        private void splitContainer_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+            splitContainer.Panel2MinSize = 1;
+        }
+
+
+        /// ///////////////////////////////////////////////
+        /// 工具方法
+        /// ///////////////////////////////////////////////
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+        private void FormDialogManager_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
 
 
