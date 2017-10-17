@@ -82,7 +82,7 @@ namespace Dialog
         {
             if (Parent != null)
             {
-                this.Size = new Size(Parent.Width - 105, Parent.Height - 50 - 3);
+                this.Size = new Size(FormDialogManager.Instance.splitContainer.Panel2.Width, Parent.Height - 50);
             }
             //switch (m_dialogType)
             //    {

@@ -213,13 +213,10 @@ namespace Dialog
             child.TopLevel = false;
             this.splitContainer.Panel2.Controls.Add(child);
             child.Location = new Point(0, topHeight);
-            child.Size = this.splitContainer.Panel2.Size;
-            
+          //  child.Dock = DockStyle.Fill;
+            // child.Size = new Size(this.splitContainer.Panel2.Width , this.Height - topHeight+4);
+
             activeDialog = child;
-          //  child.TopLevel = false;
-          //  child.Parent = this;
-            
-        //    child.Size = new Size(this.Width - this.flowLayoutPanelTab.Width - 5, this.Height - topHeight - 3);
             child.Show();
             Debug.Print("服务提示" + child.Parent);
             Debug.Print("服务提示" + child.Location.X);
