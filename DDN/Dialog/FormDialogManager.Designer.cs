@@ -48,7 +48,7 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(508, -1);
+            this.buttonClose.Location = new System.Drawing.Point(510, -1);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(30, 30);
             this.buttonClose.TabIndex = 5;
@@ -63,7 +63,7 @@
             this.buttonMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMax.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonMax.ForeColor = System.Drawing.Color.White;
-            this.buttonMax.Location = new System.Drawing.Point(478, -1);
+            this.buttonMax.Location = new System.Drawing.Point(480, -1);
             this.buttonMax.Name = "buttonMax";
             this.buttonMax.Size = new System.Drawing.Size(30, 30);
             this.buttonMax.TabIndex = 6;
@@ -88,7 +88,7 @@
             this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMin.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonMin.ForeColor = System.Drawing.Color.White;
-            this.buttonMin.Location = new System.Drawing.Point(446, -1);
+            this.buttonMin.Location = new System.Drawing.Point(448, -1);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(30, 30);
             this.buttonMin.TabIndex = 11;
@@ -106,6 +106,7 @@
             this.flowLayoutPanelTab.Size = new System.Drawing.Size(58, 596);
             this.flowLayoutPanelTab.TabIndex = 12;
             this.flowLayoutPanelTab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormDialogManager_MouseDown);
+            this.flowLayoutPanelTab.Resize += new System.EventHandler(this.flowLayoutPanelTab_Resize);
             // 
             // splitContainer
             // 

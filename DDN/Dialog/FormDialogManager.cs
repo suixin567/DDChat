@@ -57,11 +57,12 @@ namespace Dialog
             int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = (Point)new Size(x, y);
+           
             //GraphicsPath path = new GraphicsPath();
             //path.AddArc(pictureBoxFace.DisplayRectangle, 0, 360);
             //pictureBoxFace.Region = new Region(path);
             //this.appContainer.Hide();
-       
+
             //Thread th = new Thread(new ThreadStart(() =>
             //{
             //    m_SyncContext.Post(checkUnitySafePost, null);
@@ -90,18 +91,18 @@ namespace Dialog
             }        
             switch (dialogType)
             {
-                case 0://请求打开商城
-                    if (formListDictionary.ContainsKey("shop") == false)
-                    {
-                        FormDialog formShop = new FormDialog(dialogType, -1, "商城", face);
-                        setParent(formShop);
-                        formListDictionary.Add("shop", formShop);
-                        //创建选项卡
-                        ButtonTab btnTab = new ButtonTab(0, "shop", "商城", null);
-                        this.flowLayoutPanelTab.Controls.Add(btnTab);
-                    }
-                    changeActiveWindow("shop");
-                    break;
+                //case 0://请求打开商城
+                //    if (formListDictionary.ContainsKey("shop") == false)
+                //    {
+                //        FormDialog formShop = new FormDialog(dialogType, -1, "商城", face);
+                //        setParent(formShop);
+                //        formListDictionary.Add("shop", formShop);
+                //        //创建选项卡
+                //        ButtonTab btnTab = new ButtonTab(0, "shop", "商城", null);
+                //        this.flowLayoutPanelTab.Controls.Add(btnTab);
+                //    }
+                //    changeActiveWindow("shop");
+                //    break;
                 case 1://请求打开群
                        //确认在群中
                     DataMgr.Instance.getGroupByID(dialogId, delegate (GroupInfoModel mode) {
@@ -116,6 +117,7 @@ namespace Dialog
                                 //创建选项卡
                                 ButtonTab btnTab1 = new ButtonTab(1, "group" + dialogId, dialogName, face);
                                 this.flowLayoutPanelTab.Controls.Add(btnTab1);
+                                btnTab1.Size = new Size(this.splitContainer.SplitterDistance - 2, btnTab1.Height);
                             }
                             changeActiveWindow("group" + dialogId);
                         }
@@ -130,18 +132,18 @@ namespace Dialog
                         }
                     });                                  
                     break;
-                case 2://请求打开个人
-                    if (formListDictionary.ContainsKey("self") == false)
-                    {
-                        FormDialog formSelf = new FormDialog(dialogType, -1, "我的", face);
-                        setParent(formSelf);
-                        formListDictionary.Add("self", formSelf);
-                        //创建选项卡
-                        ButtonTab btnTab2 = new ButtonTab(2, "self", "我的", face);
-                        this.flowLayoutPanelTab.Controls.Add(btnTab2);
-                    }
-                    changeActiveWindow("self");
-                    break;
+                //case 2://请求打开个人
+                //    if (formListDictionary.ContainsKey("self") == false)
+                //    {
+                //        FormDialog formSelf = new FormDialog(dialogType, -1, "我的", face);
+                //        setParent(formSelf);
+                //        formListDictionary.Add("self", formSelf);
+                //        //创建选项卡
+                //        ButtonTab btnTab2 = new ButtonTab(2, "self", "我的", face);
+                //        this.flowLayoutPanelTab.Controls.Add(btnTab2);
+                //    }
+                //    changeActiveWindow("self");
+                //    break;
                 case 3://请求打开朋友
                        //确定拥有这个好友                     
                     if (AppInfo.MyFriendList.Contains(dialogId.ToString()))
@@ -154,6 +156,7 @@ namespace Dialog
                             //创建选项卡
                             ButtonTab btnTab1 = new ButtonTab(3, "friend" + dialogId, dialogName, face);
                             this.flowLayoutPanelTab.Controls.Add(btnTab1);
+                            btnTab1.Size = new Size(this.splitContainer.SplitterDistance - 2, btnTab1.Height);
                         }
                         changeActiveWindow("friend" + dialogId);
                     }
@@ -477,6 +480,17 @@ namespace Dialog
             }
         }
 
-
+        //左边的tabBtn容器size发生变化
+        private void flowLayoutPanelTab_Resize(object sender, EventArgs e)
+        {
+            foreach (var item in flowLayoutPanelTab.Controls)
+            {
+                if (item is ButtonTab)
+                {
+                    ButtonTab buttonTab = (ButtonTab)item;
+                    buttonTab.Size = new Size(this.splitContainer.SplitterDistance-2, buttonTab.Height);
+                }
+            }
+        }
     }
 }

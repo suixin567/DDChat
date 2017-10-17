@@ -46,7 +46,11 @@ namespace Dialog
             GraphicsPath path = new GraphicsPath();
             path.AddArc(pictureBox.DisplayRectangle, 0, 360);
             pictureBox.Region = new Region(path);
-         //   this.buttonClose.Hide();
+
+            GraphicsPath path2 = new GraphicsPath();
+            path2.AddArc(buttonClose.DisplayRectangle, 0, 360);            
+            this.buttonClose.Region = new Region(path2);
+            this.buttonClose.Hide();
         }
 
         //被点击
@@ -63,35 +67,37 @@ namespace Dialog
         private void label_Click(object sender, EventArgs e)
         {
             FormDialogManager.Instance.changeActiveWindow(m_id);
-            Debug.Print("什么，额" + m_id);
         }
 
-        private void ButtonTab_MouseClick(object sender, MouseEventArgs e)
+
+        //关闭按钮
+        private void buttonClose_Click(object sender, EventArgs e)
         {
-            //if (e.Button == MouseButtons.Right)
-            //{
-            //    Debug.Print("右键");
-            //  
-            //}
+            FormDialogManager.Instance.closeDialogueWindow(m_id);
         }
 
         //鼠标进入，显示关闭按钮
         private void ButtonTab_MouseEnter(object sender, EventArgs e)
         {
-         //   this.buttonClose.Location = new Point(this.pictureBox.Size.Width+10,this.Size.Height/2-buttonClose.Height/2);
-        //    this.buttonClose.Show();
+            var x = FormDialogManager.Instance.splitContainer.Panel1.Width;
+            if (x < this.pictureBox.Width*2 + this.pictureBox.Location.X*2 )
+            {
+                this.buttonClose.Location = new Point(x - this.buttonClose.Width, 0);
+            } else {
+                this.buttonClose.Location = new Point(x - this.buttonClose.Width*2, this.Size.Height/2 - buttonClose.Height / 2);
+            }
+         //   this.buttonClose.Location = new Point(FormDialogManager.Instance.splitContainer.Panel1.Width  - buttonClose.Width*2 , this.Size.Height / 2 - buttonClose.Height / 2);
+            this.buttonClose.Show();
         }
         //鼠标离开
         private void ButtonTab_MouseLeave(object sender, EventArgs e)
         {
-            //     this.buttonClose.Hide();
+            Point mousePoint = this.Parent.PointToClient(MousePosition);
+            if (mousePoint.X <= this.Left || mousePoint.X >= this.Right ||
+                mousePoint.Y <= this.Top || mousePoint.Y >= this.Bottom)
+            {
+                this.buttonClose.Hide();
+            }
         }
-        //关闭按钮
-        private void buttonClose_Click(object sender, EventArgs e)
-        {         
-            FormDialogManager.Instance.closeDialogueWindow(m_id);
-        }
-
-
     }
 }

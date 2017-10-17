@@ -38,9 +38,9 @@
             // pictureBox
             // 
             this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
-            this.pictureBox.Location = new System.Drawing.Point(5, 5);
+            this.pictureBox.Location = new System.Drawing.Point(5, 7);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox.Size = new System.Drawing.Size(42, 42);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
@@ -59,16 +59,18 @@
             // 
             // buttonClose
             // 
+            this.buttonClose.BackColor = System.Drawing.Color.DimGray;
             this.buttonClose.FlatAppearance.BorderSize = 0;
-            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClose.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonClose.Location = new System.Drawing.Point(127, 3);
+            this.buttonClose.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonClose.ForeColor = System.Drawing.Color.White;
+            this.buttonClose.Location = new System.Drawing.Point(109, 16);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(20, 20);
+            this.buttonClose.Size = new System.Drawing.Size(18, 18);
             this.buttonClose.TabIndex = 2;
             this.buttonClose.Text = "×";
-            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // ButtonTab
@@ -79,12 +81,11 @@
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.label);
             this.Controls.Add(this.pictureBox);
-            this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.Name = "ButtonTab";
             this.Size = new System.Drawing.Size(150, 55);
             this.Load += new System.EventHandler(this.ButtonTab_Load);
             this.Click += new System.EventHandler(this.ButtonTab_Click);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonTab_MouseClick);
             this.MouseEnter += new System.EventHandler(this.ButtonTab_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.ButtonTab_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
