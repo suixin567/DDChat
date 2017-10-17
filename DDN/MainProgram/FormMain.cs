@@ -359,15 +359,11 @@ namespace MainProgram
         //打开商城
         private void buttonShop_Click(object sender, EventArgs e)
         {
-            FormDialogManager.Instance.openDialog(0);
-          //  UnityManager.Instance.changeUnityScene(4);
-          //  UnityManager.Instance.resourceMode = 0;
+            //FormDialogManager.Instance.openDialog(0);
+            //  UnityManager.Instance.changeUnityScene(4);
+            //  UnityManager.Instance.resourceMode = 0;
+            UnityModule.UnityManager.Instance.openUnity(this.Handle);
         }
-        //打开画房子
-      //  private void buttonDraw_Click(object sender, EventArgs e)
-      //  {
-      ////      UnityManager.Instance.changeUnityScene(3);
-      //  }
 
         Label m_labelTip = null;
 

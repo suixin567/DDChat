@@ -1,5 +1,4 @@
-﻿using SmileWei.EmbeddedApp;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -8,7 +7,6 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using ToolLib;
-using UnityModule;
 
 namespace Dialog
 {
@@ -56,8 +54,6 @@ namespace Dialog
                     this.labelChat.Dispose();
                     break;
                 case 3://朋友     
-                    this.labelRes.Dispose();
-                    this.labelDraw.Dispose();
                     this.groupMemberPanel1.Hide();
                     this.pictureBoxAd.Size = new Size(pictureBoxAd.Size.Width, pictureBoxAd.Size.Height*2);
                     break;
@@ -88,29 +84,29 @@ namespace Dialog
             {
                 this.Size = new Size(Parent.Width - 105, Parent.Height - 50 - 3);
             }
-            switch (m_dialogType)
-                {
-                    case 0:
-                        if (this.Size.Width > 300 && this.Size.Height > 200)
-                        {
-                            FormDialogManager.Instance.appContainer.Size = this.Size;
-                        }
-                        break;
-                    case 1://群
-                        if (this.Size.Width > 300 && this.Size.Height > 200)
-                        {
-                            FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
-                        }
-                        break;
-                    case 2:
-                        if (this.Size.Width > 300 && this.Size.Height > 200)
-                        {
-                            FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
-                        }
-                        break;
-                    default:
-                        break;
-                }
+            //switch (m_dialogType)
+            //    {
+            //        case 0:
+            //            if (this.Size.Width > 300 && this.Size.Height > 200)
+            //            {
+            //            //    FormDialogManager.Instance.appContainer.Size = this.Size;
+            //            }
+            //            break;
+            //        case 1://群
+            //            if (this.Size.Width > 300 && this.Size.Height > 200)
+            //            {
+            //            //    FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+            //            }
+            //            break;
+            //        case 2:
+            //            if (this.Size.Width > 300 && this.Size.Height > 200)
+            //            {
+            //              //  FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+            //            }
+            //            break;
+            //        default:
+            //            break;
+            //    }
         }
 
 
@@ -126,44 +122,44 @@ namespace Dialog
                 case 0:
                     this.flowLayoutPanelTop.Hide();
                     this.panelChat.Hide();
-                    FormDialogManager.Instance.appContainer.Show();
-                    FormDialogManager.Instance.appContainer.Location = this.Location;
-                    UnityManager.Instance.resourceMode = 0;
-                    UnityManager.Instance.changeUnityScene(4);
+                  //  FormDialogManager.Instance.appContainer.Show();
+                 //   FormDialogManager.Instance.appContainer.Location = this.Location;
+                    //UnityManager.Instance.resourceMode = 0;
+                    //UnityManager.Instance.changeUnityScene(4);
                     break;
                 case 1:
-                    FormDialogManager.Instance.appContainer.Hide();
-                    UnityManager.Instance.currentGroup = m_title;
-                    UnityManager.Instance.resourceMode = 1;
+                  //  FormDialogManager.Instance.appContainer.Hide();
+                    //UnityManager.Instance.currentGroup = m_title;
+                    //UnityManager.Instance.resourceMode = 1;
                     if (UIState == 0)//资源
                     {
-                        FormDialogManager.Instance.appContainer.Show();
-                        FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
-                        UnityManager.Instance.changeUnityScene(4);
+                   //     FormDialogManager.Instance.appContainer.Show();
+                   //     FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+                 //       UnityManager.Instance.changeUnityScene(4);
                     }
                     else if (UIState == 1)//聊天
                     {
                         this.panelChat.Show();
-                        FormDialogManager.Instance.appContainer.Hide();
+                    //    FormDialogManager.Instance.appContainer.Hide();
                     }
                     else//绘制
                     {
-                        FormDialogManager.Instance.appContainer.Show();
-                        FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
-                        UnityManager.Instance.changeUnityScene(3);
+                      //  FormDialogManager.Instance.appContainer.Show();
+                      //  FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+                  //      UnityManager.Instance.changeUnityScene(3);
                     }
                     break;
                 case 2://个人
                     this.panelChat.Hide();
-                    UnityManager.Instance.resourceMode = 2;
-                    FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
-                    FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
-                    FormDialogManager.Instance.appContainer.Show();
-                    UnityManager.Instance.changeUnityScene(4);
+                 //   UnityManager.Instance.resourceMode = 2;
+                  //  FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+                 //   FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+                 //   FormDialogManager.Instance.appContainer.Show();
+                 //   UnityManager.Instance.changeUnityScene(4);
                     break;
                 case 3://朋友
                     this.panelChat.Show();
-                    FormDialogManager.Instance.appContainer.Hide();
+                  //  FormDialogManager.Instance.appContainer.Hide();
                     break;
                 default:                                  
                     Debug.Print("FormDialog：未知类型");
@@ -182,39 +178,39 @@ namespace Dialog
             labelChat.BackColor = Color.SteelBlue;
             UIState = 1;
             panelChat.Show();
-            FormDialogManager.Instance.appContainer.Hide();
+         //   FormDialogManager.Instance.appContainer.Hide();
         }
-        //资源选项卡
-        private void labelRes_Click(object sender, EventArgs e)
-        {
-            foreach (var item in flowLayoutPanelTop.Controls)
-            {
-                ((Label)item).BackColor = Color.Transparent;
-            }
-            labelRes.BackColor = Color.SteelBlue;
-            UIState = 0;
-            panelChat.Hide();
-            UnityManager.Instance.changeUnityScene(4);
-            FormDialogManager.Instance.appContainer.Show();
-            FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
-            FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
-        }
+       // //资源选项卡
+       // private void labelRes_Click(object sender, EventArgs e)
+       // {
+       //     foreach (var item in flowLayoutPanelTop.Controls)
+       //     {
+       //         ((Label)item).BackColor = Color.Transparent;
+       //     }
+       //  /   labelRes.BackColor = Color.SteelBlue;
+       //     UIState = 0;
+       //     panelChat.Hide();
+       //  //   UnityManager.Instance.changeUnityScene(4);
+       //  //   FormDialogManager.Instance.appContainer.Show();
+       //  //   FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+       //  //   FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+       // }
 
-        //画房子选项卡
-        private void labelDraw_Click(object sender, EventArgs e)
-        {
-            foreach (var item in flowLayoutPanelTop.Controls)
-            {
-                ((Label)item).BackColor = Color.Transparent;
-            }
-            labelDraw.BackColor = Color.SteelBlue;
-            UIState = 2;
-            panelChat.Hide();
-            UnityManager.Instance.changeUnityScene(3);
-            FormDialogManager.Instance.appContainer.Show();
-            FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
-            FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
-        }
+       // //画房子选项卡
+       // private void labelDraw_Click(object sender, EventArgs e)
+       // {
+       //     foreach (var item in flowLayoutPanelTop.Controls)
+       //     {
+       //         ((Label)item).BackColor = Color.Transparent;
+       //     }
+       //     labelDraw.BackColor = Color.SteelBlue;
+       //     UIState = 2;
+       //     panelChat.Hide();
+       ////     UnityManager.Instance.changeUnityScene(3);
+       //  //   FormDialogManager.Instance.appContainer.Show();
+       //  //   FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+       //  //   FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+       // }
 
 
         /// ////////////////////////////////////////////////////////
@@ -371,11 +367,7 @@ namespace Dialog
             }
             catch
             {
-
             }
         }
-
-
-
     }
 }

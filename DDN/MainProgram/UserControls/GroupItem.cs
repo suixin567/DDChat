@@ -98,7 +98,6 @@ namespace MainProgram.UserControls
             //刷新一下数据，有可能已经过时了
             DataMgr.Instance.getGroupByID(m_myGroupModel.GroupID, delegate (GroupInfoModel model) {
                 m_groupInfoModel = model;
-                // FormDialogManager.Instance.openDialog(1, m_groupInfoModel.Gid, m_groupInfoModel.Name, pictureBoxGroupFace.Image);
                 m_SyncContext.Post(openDialogSafePost,null);
             });           
         }

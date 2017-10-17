@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.buttonClose = new System.Windows.Forms.Button();
             this.buttonMax = new System.Windows.Forms.Button();
             this.labelTitle = new System.Windows.Forms.Label();
             this.buttonMin = new System.Windows.Forms.Button();
             this.flowLayoutPanelTab = new System.Windows.Forms.FlowLayoutPanel();
-            this.appContainer = new SmileWei.EmbeddedApp.AppContainer(this.components);
             this.SuspendLayout();
             // 
             // buttonClose
@@ -105,16 +103,6 @@
             this.flowLayoutPanelTab.Size = new System.Drawing.Size(100, 600);
             this.flowLayoutPanelTab.TabIndex = 12;
             // 
-            // appContainer
-            // 
-            this.appContainer.AppFilename = "";
-            this.appContainer.AppProcess = null;
-            this.appContainer.BackColor = System.Drawing.Color.SteelBlue;
-            this.appContainer.Location = new System.Drawing.Point(106, 78);
-            this.appContainer.Name = "appContainer";
-            this.appContainer.Size = new System.Drawing.Size(482, 510);
-            this.appContainer.TabIndex = 4;
-            // 
             // FormDialogManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -126,7 +114,6 @@
             this.Controls.Add(this.buttonMin);
             this.Controls.Add(this.buttonMax);
             this.Controls.Add(this.buttonClose);
-            this.Controls.Add(this.appContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(600, 500);
             this.Name = "FormDialogManager";
@@ -138,7 +125,6 @@
         }
 
         #endregion
-        public SmileWei.EmbeddedApp.AppContainer appContainer;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonMax;
         private System.Windows.Forms.Label labelTitle;

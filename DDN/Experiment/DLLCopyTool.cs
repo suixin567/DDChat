@@ -83,7 +83,7 @@ namespace Experiment
                 Debug.Print("复制完毕" + destinationFile);
             }
         }
-        int i = 0;
+      //  int i = 0;
         private void button1_Click(object sender, EventArgs e)
         {
             //i++;

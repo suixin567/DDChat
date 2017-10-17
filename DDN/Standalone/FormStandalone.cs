@@ -83,8 +83,8 @@ namespace Standalone
         //启动Unity
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            UnityManager.Instance.changeUnityScene(4);
-            UnityManager.Instance.resourceMode = 0;
+         //   UnityManager.Instance.changeUnityScene(4);
+         //   UnityManager.Instance.resourceMode = 0;
 
             findExe(System.Windows.Forms.Application.StartupPath + @"\Unity");
             if (exe == "")
@@ -113,7 +113,7 @@ namespace Standalone
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("程序加载失败");
+                    MessageBox.Show("程序加载失败"+ ex.ToString());
                     if (unityProcess != null)
                     {
                         if (!unityProcess.HasExited)

@@ -69,7 +69,7 @@ namespace Experiment
         public override  void eat()
         {
             Debug.Print("这是我的2eat");
-            int a = 0;
+         //   int a = 0;
             int i = 0;
             if (true & ++i == 1)
             {

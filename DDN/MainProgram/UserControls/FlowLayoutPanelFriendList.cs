@@ -32,6 +32,7 @@ namespace MainProgram.UserControls
 
         private void FlowLayoutPanelFriendList_Load(object sender, EventArgs e)
         {
+            this.panelSelf.Hide();
             //拉取好友列表
             pullFriendList();
         }

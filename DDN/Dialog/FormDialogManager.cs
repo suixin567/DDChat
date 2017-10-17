@@ -7,7 +7,7 @@ using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using ToolLib;
-using UnityModule;
+//using UnityModule;
 
 
 namespace Dialog
@@ -33,7 +33,7 @@ namespace Dialog
 
         #region 属性
         public Dictionary<string, FormDialog> formListDictionary = new Dictionary<string, FormDialog>();
-        static string exe = "";
+
         public const int topHeight = 50;
         public FormDialog activeDialog = null;//激活对话窗
         public SynchronizationContext m_SyncContext = null;
@@ -58,24 +58,22 @@ namespace Dialog
             //GraphicsPath path = new GraphicsPath();
             //path.AddArc(pictureBoxFace.DisplayRectangle, 0, 360);
             //pictureBoxFace.Region = new Region(path);
-            this.appContainer.Hide();
-            //unity检查更新
-            UnityManager.Instance.updateUnityEvent += this.onUnityCanRunEvent;//unity可以运行了。
-            UnityManager.Instance.openedUnityEvent += this.onUnityOpened;//unity已经打开，可以嵌入了。
-            Thread th = new Thread(new ThreadStart(() =>
-            {
-                m_SyncContext.Post(checkUnitySafePost, null);
-            }));
-            th.Start();
+            //this.appContainer.Hide();
+       
+            //Thread th = new Thread(new ThreadStart(() =>
+            //{
+            //    m_SyncContext.Post(checkUnitySafePost, null);
+            //}));
+            //th.Start();
         }
 
-        void checkUnitySafePost(object state) {
-            UnityManager.Instance.checkUpdate(this.Handle);      //这句可以线程内执行。  
-        }
+        //void checkUnitySafePost(object state) {
+        //    //UnityManager.Instance.checkUpdate(this.Handle);      //这句可以线程内执行。  
+        //}
 
-        void onUnityOpened() {
-            this.appContainer.UnityOpendSafePost();
-        }
+        //void onUnityOpened() {
+        //    this.appContainer.UnityOpendSafePost();
+        //}
     
 
         //dialogType 资源类型
@@ -172,60 +170,41 @@ namespace Dialog
         }
 
         //unity更新完毕
-        void onUnityCanRunEvent(bool result)
-        {
-            if (result)
-            {
-                //打开Unity
-                findExe(System.Windows.Forms.Application.StartupPath + @"\Unity");
-                if (exe == "")
-                {
-                    MessageBox.Show("3D展示模块不存在！\n请先下载3D模块。", "叮叮鸟提示：");
-                    this.Dispose();
-                }
-                else
-                {
-                    if (UnityManager.Instance.unityMode != 0)
-                    {
-                        openUnitySafePost();
-                    }
+        //void onUnityCanRunEvent(bool result)
+        //{
+        //    if (result)
+        //    {
+        //        //打开Unity
+        //        findExe(System.Windows.Forms.Application.StartupPath + @"\Unity");
+        //        if (exe == "")
+        //        {
+        //            MessageBox.Show("3D展示模块不存在！\n请先下载3D模块。", "叮叮鸟提示：");
+        //            this.Dispose();
+        //        }
+        //        else
+        //        {
+        //            if (UnityManager.Instance.unityMode != 0)
+        //            {
+        //                openUnitySafePost();
+        //            }
   
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
 
-        public void openUnitySafePost()
-        {
-            m_SyncContext.Post(openUnity, null);
-        }
-        void openUnity(object state)
-        {
-            appContainer.AppFilename = exe;
-            appContainer.Start();
-        }
+        //public void openUnitySafePost()
+        //{
+        //    m_SyncContext.Post(openUnity, null);
+        //}
+        //void openUnity(object state)
+        //{
+        //    appContainer.AppFilename = exe;
+        //    appContainer.Start();
+        //}
 
 
-        static void findExe(string dir)
-        {
-            DirectoryInfo d = new DirectoryInfo(dir);
-            FileSystemInfo[] fsinfos = d.GetFileSystemInfos();
-            foreach (FileSystemInfo fsinfo in fsinfos)
-            {
-                if (fsinfo is DirectoryInfo)     //判断是否为文件夹  
-                {
-                    findExe(fsinfo.FullName);//递归调用  
-                }
-                else
-                {
-                    if (fsinfo.FullName.EndsWith(".exe"))
-                    {
-                        exe = fsinfo.FullName;
-                        return;
-                    }
-                }
-            }
-        }
+
 
         public void setParent(FormDialog child)
         {
@@ -442,11 +421,11 @@ namespace Dialog
         //关闭对话框
         private void buttonClose_Click(object sender, EventArgs e)
         {
-            if (this.appContainer.AppProcess != null)
-            {
-                this.appContainer.Stop();
-            }
-            UnityManager.Instance.updateUnityEvent -= this.onUnityCanRunEvent;
+            //if (this.appContainer.AppProcess != null)
+            //{
+            //    this.appContainer.Stop();
+            //}
+         //   UnityManager.Instance.updateUnityEvent -= this.onUnityCanRunEvent;
             instance = null;
             this.Close();
             this.Dispose();

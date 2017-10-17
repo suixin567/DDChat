@@ -140,7 +140,7 @@ namespace UnityModule
                     Debug.Print("返回的个人信息是" + AppInfo.USER_NAME + "网络模式"+UnityManager.Instance.netMode);
                     SendMessage(UnityProtocol.SELF_INFO, 0,UnityManager.Instance.netMode, AppInfo.USER_NAME);
                     Debug.Print("修改Unity标题" + model.Message);
-                    UnityManager.Instance.UnityOpened();
+                   // UnityManager.Instance.UnityOpened();
                     //try
                     //{
                     //    Process[] ps = Process.GetProcessesByName("叮叮鸟");
@@ -158,11 +158,11 @@ namespace UnityModule
                     break;
                 case UnityProtocol.SCENE:
                    //Debug.Print("unity请求场景信息");
-                    SendMessage(UnityProtocol.SCENE, UnityManager.Instance.sceneIndex, 0, "");
+                //    SendMessage(UnityProtocol.SCENE, UnityManager.Instance.sceneIndex, 0, "");
                     break;
                 case UnityProtocol.RESOUCE_MODE:
                    // Debug.Print("unity请求资源模式");
-                    SendMessage(UnityProtocol.RESOUCE_MODE, 0, UnityManager.Instance.resourceMode, UnityManager.Instance.currentGroup);
+                 //   SendMessage(UnityProtocol.RESOUCE_MODE, 0, UnityManager.Instance.resourceMode, UnityManager.Instance.currentGroup);
                     break;
                 case UnityProtocol.UNITY_QUIT:
                     Debug.Print("unity退出...");

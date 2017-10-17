@@ -17,7 +17,7 @@ namespace UnityModule
 {
     public partial class FormUnityUpdate : Form
     {
-        IntPtr m_formMainHandle;
+
 
 
         //[DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
@@ -28,11 +28,12 @@ namespace UnityModule
         ////1    正常大小显示窗口
         ////2    最小化窗口
         ////3    最大化窗口
-
-
+        #region 属性
+        IntPtr m_formMainHandle;
         string unityPath = System.Windows.Forms.Application.StartupPath + @"\Unity";
         string oriSerInfos;
         public SynchronizationContext m_SyncContext = null;
+        #endregion
 
 
         public FormUnityUpdate(IntPtr formMainHandle)
@@ -72,8 +73,8 @@ namespace UnityModule
             int x = rect.Left;
             int y = rect.Top;
             this.StartPosition = FormStartPosition.Manual; 
-            this.Location = (Point)new Size(x+ width/4, y+ height/3);
-            this.Width = width/2;
+            this.Location = (Point)new Size(x, y+height);
+            this.Width = width;
         }
 
 
@@ -118,10 +119,10 @@ namespace UnityModule
             }
             else
             {//不需要更新
-                if (UnityManager.Instance.updateUnityEvent != null)
+                if (UnityManager.Instance.updatedUnityEvent != null)
                 {
                     UnityManager.Instance.isUpdateing = false;
-                    UnityManager.Instance.updateUnityEvent(true);
+                    UnityManager.Instance.updatedUnityEvent(true);
                     Debug.Print("不需要更新的");
                 }
                 return true;
@@ -209,9 +210,9 @@ namespace UnityModule
                                 }
                                 Debug.Print("更新Unity版本号：" + AnalyzeMFile.Analyze(oriSerInfos, "UnityVersion")[0]);
 
-                                if (UnityManager.Instance.updateUnityEvent != null)  {
+                                if (UnityManager.Instance.updatedUnityEvent != null)  {
                                     UnityManager.Instance.isUpdateing = false;
-                                    UnityManager.Instance.updateUnityEvent(true);
+                                    UnityManager.Instance.updatedUnityEvent(true);
                                 }
                             }
                             else
@@ -233,10 +234,10 @@ namespace UnityModule
                 }
                 else {
                     MessageBox.Show("下载3D模块失败，请重试。");
-                    if (UnityManager.Instance.updateUnityEvent != null)
+                    if (UnityManager.Instance.updatedUnityEvent != null)
                     {
                         UnityManager.Instance.isUpdateing = false;
-                        UnityManager.Instance.updateUnityEvent(false);
+                        UnityManager.Instance.updatedUnityEvent(false);
                     }
                     closeSelfSafePost();
                 }
