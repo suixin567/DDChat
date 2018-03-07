@@ -1,0 +1,239 @@
+Mono path[0] = 'C:/Users/Administrator/Desktop/DDN/DDN/Mgr/bin/Debug/Unity/2018212/叮叮鸟_Data/Managed'
+Mono path[1] = 'C:/Users/Administrator/Desktop/DDN/DDN/Mgr/bin/Debug/Unity/2018212/叮叮鸟_Data/Mono'
+Mono config path = 'C:/Users/Administrator/Desktop/DDN/DDN/Mgr/bin/Debug/Unity/2018212/叮叮鸟_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/Administrator/Desktop/DDN/DDN/Mgr/bin/Debug/Unity/2018212/叮叮鸟_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55002
+Multi-casting "[IP] 192.168.1.101 [Port] 55002 [Flags] 2 [Guid] 3325410926 [EditorId] 1054048859 [Version] 1048832 [Id] WindowsPlayer(E-PC) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.1.101:55002]
+Initialize engine version: 5.3.4f1 (fdbb5133b820)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 1060 3GB (ID=0x1c02)
+    Vendor:   NVIDIA
+    VRAM:     2986 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\BuildMeshToolRT.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\BuildMeshToolRT.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DrawLineCuttingAngle.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DrawLineCuttingAngle.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\ICSharpCode.SharpZipLib.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\ICSharpCode.SharpZipLib.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\LitJson.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\LitJson.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\NPOI.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\NPOI.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\NPOI.OOXML.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\NPOI.OOXML.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\NPOI.OpenXml4Net.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\NPOI.OpenXml4Net.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\NPOI.OpenXmlFormats.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\NPOI.OpenXmlFormats.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\PunchRT.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\PunchRT.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\System.Drawing.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\System.Drawing.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\System.Windows.Forms.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DemiLib.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DemiLib.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DOTween.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DOTween.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DOTween43.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DOTween43.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DOTween46.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DOTween46.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DOTween50.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DOTween50.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DOTweenPro.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\DOTweenPro.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\zxing.unity.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\zxing.unity.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\Mono.Data.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\Mono.Data.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\Mono.Data.Sqlite.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\Mono.Data.Sqlite.dll into Unity Child Domain
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\System.Data.dll (this message is harmless)
+Loading C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\System.Data.dll into Unity Child Domain
+- Completed reload, in  0.063 seconds
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
+<RI> Initialized touch support.
+UnloadTime: 0.561427 ms
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\System.Configuration.dll (this message is harmless)
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\System.Xml.dll (this message is harmless)
+连接服务器成功...
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetWorkManager:Awake() (at C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\BaseLayer\Net\Socket\NetWorkManager.cs:31)
+ 
+(Filename: C:/Users/Administrator/Desktop/furGit/Furniture/Assets/Scripts/BaseLayer/Net/Socket/NetWorkManager.cs Line: 31)
+
+Platform assembly: C:\Users\Administrator\Desktop\DDN\DDN\Mgr\bin\Debug\Unity\2018212\叮叮鸟_Data\Managed\System.Transactions.dll (this message is harmless)
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 2680 -> priority: 1 
+NullReferenceException: Object reference not set to an instance of an object
+  at TitleCanves.updateUserinfo (System.String nickname) [0x00026] in C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\SceneLayer\0_title\TitleCanves.cs:135 
+  at TitleCanves.Execute (.INotifier inofifier) [0x0007b] in C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\SceneLayer\0_title\TitleCanves.cs:122 
+  at View.ExcuteMediator (.INotifier notifier) [0x0003a] in C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\BaseLayer\MVC\View\View.cs:72 
+  at AppFacade.ExcuteMediator (.INotifier notifier) [0x00000] in C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\Global\AppFacade.cs:45 
+  at MessageManager.OnMessage (System.String modelStr) [0x00037] in C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\BaseLayer\Net\Socket\MessageManager.cs:59 
+  at MessageManager+<checkMessage>c__IteratorB.MoveNext () [0x0007c] in C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\BaseLayer\Net\Socket\MessageManager.cs:32 
+ 
+(Filename: C:/Users/Administrator/Desktop/furGit/Furniture/Assets/Scripts/SceneLayer/0_title/TitleCanves.cs Line: 135)
+
+UnloadTime: 0.342545 ms
+System memory in use before: 59.4 MB.
+System memory in use after: 57.2 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1672.
+Total: 1.704997 ms (FindLiveObjects: 0.123971 ms CreateObjectMapping: 0.065231 ms MarkObjects: 1.505900 ms  DeleteObjects: 0.009274 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.007473 ms
+请求单机数据
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VirtualShowList:Start() (at C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\SceneLayer\4_vShowList\VirtualShowList.cs:46)
+ 
+(Filename: C:/Users/Administrator/Desktop/furGit/Furniture/Assets/Scripts/SceneLayer/4_vShowList/VirtualShowList.cs Line: 46)
+
+System memory in use before: 58.3 MB.
+System memory in use after: 58.5 MB.
+
+Unloading 61 unused Assets to reduce memory usage. Loaded Objects now: 2539.
+Total: 1.807637 ms (FindLiveObjects: 0.131082 ms CreateObjectMapping: 0.050701 ms MarkObjects: 1.567731 ms  DeleteObjects: 0.057503 ms)
+
+清除缓存
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+VirtualItemStandalonePanel:onYesBtnClick() (at C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\SceneLayer\4_vShowList\VirtualItemStandalonePanel.cs:33)
+UnityEngine.Events.InvokableCall:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:144)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:621)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:756)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:529)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:428)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:416)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:190)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:277)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+清除缓存
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+VirtualItemStandalonePanel:onYesBtnClick() (at C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\SceneLayer\4_vShowList\VirtualItemStandalonePanel.cs:33)
+UnityEngine.Events.InvokableCall:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:144)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:621)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:756)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:529)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:428)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:416)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:190)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:277)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+清除缓存
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+VirtualItemStandalonePanel:onYesBtnClick() (at C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\SceneLayer\4_vShowList\VirtualItemStandalonePanel.cs:33)
+UnityEngine.Events.InvokableCall:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:144)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:621)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:756)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:529)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:428)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:416)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:190)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:277)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+清除缓存
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+VirtualItemStandalonePanel:onYesBtnClick() (at C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\SceneLayer\4_vShowList\VirtualItemStandalonePanel.cs:33)
+UnityEngine.Events.InvokableCall:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:144)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:621)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:756)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:529)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:428)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:416)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:190)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:277)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+清除缓存
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+VirtualItemStandalonePanel:onYesBtnClick() (at C:\Users\Administrator\Desktop\furGit\Furniture\Assets\Scripts\SceneLayer\4_vShowList\VirtualItemStandalonePanel.cs:33)
+UnityEngine.Events.InvokableCall:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:144)
+UnityEngine.Events.InvokableCallList:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:621)
+UnityEngine.Events.UnityEventBase:Invoke(Object[]) (at C:\buildslave\unity\build\Runtime\Export\UnityEvent.cs:756)
+UnityEngine.Events.UnityEvent:Invoke() (at C:\buildslave\unity\build\Runtime\Export\UnityEvent_0.cs:53)
+UnityEngine.UI.Button:Press() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:35)
+UnityEngine.UI.Button:OnPointerClick(PointerEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\UI\Core\Button.cs:44)
+UnityEngine.EventSystems.ExecuteEvents:Execute(IPointerClickHandler, BaseEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:52)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:529)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:428)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:416)
+UnityEngine.EventSystems.StandaloneInputModule:Process() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\InputModules\StandaloneInputModule.cs:190)
+UnityEngine.EventSystems.EventSystem:Update() (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\EventSystem.cs:277)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+

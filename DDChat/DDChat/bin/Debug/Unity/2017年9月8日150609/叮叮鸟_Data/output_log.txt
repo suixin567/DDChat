@@ -1,0 +1,846 @@
+Mono path[0] = 'C:/Users/文强/Desktop/DDN/DDN/DDN/bin/Debug/Unity/2017年9月8日150609/叮叮鸟_Data/Managed'
+Mono path[1] = 'C:/Users/文强/Desktop/DDN/DDN/DDN/bin/Debug/Unity/2017年9月8日150609/叮叮鸟_Data/Mono'
+Mono config path = 'C:/Users/文强/Desktop/DDN/DDN/DDN/bin/Debug/Unity/2017年9月8日150609/叮叮鸟_Data/Mono/etc'
+PlayerConnection initialized from C:/Users/文强/Desktop/DDN/DDN/DDN/bin/Debug/Unity/2017年9月8日150609/叮叮鸟_Data (debug = 0)
+PlayerConnection initialized network socket : 0.0.0.0 55390
+Multi-casting "[IP] 192.168.1.107 [Port] 55390 [Flags] 2 [Guid] 2748143035 [EditorId] 3678537402 [Version] 1048832 [Id] WindowsPlayer(C-PC) [Debug] 0" to [225.0.0.222:54997]...
+PlayerConnection already initialized - listening to [192.168.1.107:55390]
+Initialize engine version: 5.3.4f1 (fdbb5133b820)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c81)
+    Vendor:   NVIDIA
+    VRAM:     2015 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\BuildMeshToolRT.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\BuildMeshToolRT.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\ICSharpCode.SharpZipLib.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\ICSharpCode.SharpZipLib.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\LitJson.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\LitJson.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\NPOI.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\NPOI.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\NPOI.OOXML.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\NPOI.OOXML.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\NPOI.OpenXml4Net.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\NPOI.OpenXml4Net.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\NPOI.OpenXmlFormats.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\NPOI.OpenXmlFormats.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\PunchRT.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\PunchRT.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\System.Drawing.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\System.Drawing.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\System.Windows.Forms.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\DemiLib.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\DemiLib.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\DOTween.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\DOTween.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\DOTween43.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\DOTween43.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\DOTween46.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\DOTween46.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\DOTween50.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\DOTween50.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\DOTweenPro.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\DOTweenPro.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\zxing.unity.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\zxing.unity.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\Mono.Data.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\Mono.Data.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\Mono.Data.Sqlite.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\Mono.Data.Sqlite.dll into Unity Child Domain
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\System.Data.dll (this message is harmless)
+Loading C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\System.Data.dll into Unity Child Domain
+- Completed reload, in  0.089 seconds
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
+<RI> Initialized touch support.
+The referenced script on this Behaviour (Game Object 'BGCanvas') is missing!
+ 
+(Filename: C:/buildslave/unity/build/Runtime/Mono/MonoBehaviour.cpp Line: 1655)
+
+UnloadTime: 0.966016 ms
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\System.Configuration.dll (this message is harmless)
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\System.Xml.dll (this message is harmless)
+连接服务器成功...
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+NetWorkManager:Awake() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\NetWorkManager.cs:34)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/NetWorkManager.cs Line: 34)
+
+Platform assembly: C:\Users\文强\Desktop\DDN\DDN\DDN\bin\Debug\Unity\2017年9月8日150609\叮叮鸟_Data\Managed\System.Transactions.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 68e4 -> priority: 1 
+收到个人信息777777   0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:56)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 56)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+无效的返回按钮
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+TitleCanves:OnBackButtonClick() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\0_title\TitleCanves.cs:124)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:75)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/0_title/TitleCanves.cs Line: 124)
+
+无法销毁上一个场景！这句提示不应该出现！
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+<addScene>c__Iterator6:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\MySceneManager\MySceneManager.cs:140)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/MySceneManager/MySceneManager.cs Line: 140)
+
+资源类型被切换了 个人库
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:76)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/4_vShowList/VshowListTypePanel.cs Line: 76)
+
+发出虚拟展厅请求：http://211.159.186.78:5588/houseData?protocol=14&lib=2&provider=个人库不等于我&username=777777&style=0&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:64)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:83)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+发出请求商城是：http://211.159.186.78:5588/shop2?&lib=2&provider=个人库不等于我&username=777777&style=0&color=0&mat=0&brand=&maintype=节点&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:48)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+ShopResLibraryPanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:83)
+ShopResLibraryPanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:29)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:155)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到展厅是：null&0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:77)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到是：硬装=0,家具=0,厨卫=0,照明=0,家饰=0,家电=0,工装=0,&[]
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:62)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+资源类型被切换了 个人库
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:76)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/4_vShowList/VshowListTypePanel.cs Line: 76)
+
+发出虚拟展厅请求：http://211.159.186.78:5588/houseData?protocol=14&lib=2&provider=个人库不等于我&username=777777&style=0&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:64)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:83)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+发出请求商城是：http://211.159.186.78:5588/shop2?&lib=2&provider=个人库不等于我&username=777777&style=0&color=0&mat=0&brand=&maintype=节点&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:48)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+ShopResLibraryPanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:83)
+ShopResLibraryPanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:29)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:155)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到展厅是：null&0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:77)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+资源类型被切换了 个人库
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:76)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/4_vShowList/VshowListTypePanel.cs Line: 76)
+
+发出虚拟展厅请求：http://211.159.186.78:5588/houseData?protocol=14&lib=2&provider=个人库不等于我&username=777777&style=0&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:64)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:83)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+发出请求商城是：http://211.159.186.78:5588/shop2?&lib=2&provider=个人库不等于我&username=777777&style=0&color=0&mat=0&brand=&maintype=节点&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:48)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+ShopResLibraryPanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:83)
+ShopResLibraryPanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:29)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:155)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到展厅是：null&0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:77)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到是：硬装=0,家具=0,厨卫=0,照明=0,家饰=0,家电=0,工装=0,&[]
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:62)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+资源类型被切换了 个人库
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:76)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/4_vShowList/VshowListTypePanel.cs Line: 76)
+
+发出虚拟展厅请求：http://211.159.186.78:5588/houseData?protocol=14&lib=2&provider=个人库不等于我&username=777777&style=0&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:64)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:83)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+发出请求商城是：http://211.159.186.78:5588/shop2?&lib=2&provider=个人库不等于我&username=777777&style=0&color=0&mat=0&brand=&maintype=节点&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:48)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+ShopResLibraryPanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:83)
+ShopResLibraryPanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:29)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:155)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到展厅是：null&0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:77)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+资源类型被切换了 个人库
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:76)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/4_vShowList/VshowListTypePanel.cs Line: 76)
+
+发出虚拟展厅请求：http://211.159.186.78:5588/houseData?protocol=14&lib=2&provider=个人库不等于我&username=777777&style=0&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:64)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:83)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+发出请求商城是：http://211.159.186.78:5588/shop2?&lib=2&provider=个人库不等于我&username=777777&style=0&color=0&mat=0&brand=&maintype=节点&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:48)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+ShopResLibraryPanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:83)
+ShopResLibraryPanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:29)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:155)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到展厅是：null&0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:77)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+资源类型被切换了 个人库
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:76)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/4_vShowList/VshowListTypePanel.cs Line: 76)
+
+发出虚拟展厅请求：http://211.159.186.78:5588/houseData?protocol=14&lib=2&provider=个人库不等于我&username=777777&style=0&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:64)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:83)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+发出请求商城是：http://211.159.186.78:5588/shop2?&lib=2&provider=个人库不等于我&username=777777&style=0&color=0&mat=0&brand=&maintype=节点&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:48)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+ShopResLibraryPanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:83)
+ShopResLibraryPanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:29)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:155)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到展厅是：null&0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:77)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+资源类型被切换了 个人库
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:76)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/4_vShowList/VshowListTypePanel.cs Line: 76)
+
+发出虚拟展厅请求：http://211.159.186.78:5588/houseData?protocol=14&lib=2&provider=个人库不等于我&username=777777&style=0&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:64)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:83)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+发出请求商城是：http://211.159.186.78:5588/shop2?&lib=2&provider=个人库不等于我&username=777777&style=0&color=0&mat=0&brand=&maintype=节点&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:48)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+ShopResLibraryPanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:83)
+ShopResLibraryPanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:29)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:155)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到展厅是：null&0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:77)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+资源类型被切换了 个人库
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:76)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/4_vShowList/VshowListTypePanel.cs Line: 76)
+
+发出虚拟展厅请求：http://211.159.186.78:5588/houseData?protocol=14&lib=2&provider=个人库不等于我&username=777777&style=0&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:64)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:83)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到展厅是：null&0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:77)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到是：硬装=0,家具=0,厨卫=0,照明=0,家饰=0,家电=0,工装=0,&[]
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:62)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+资源类型被切换了 个人库
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:76)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/4_vShowList/VshowListTypePanel.cs Line: 76)
+
+发出虚拟展厅请求：http://211.159.186.78:5588/houseData?protocol=14&lib=2&provider=个人库不等于我&username=777777&style=0&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:64)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:83)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+发出请求商城是：http://211.159.186.78:5588/shop2?&lib=2&provider=个人库不等于我&username=777777&style=0&color=0&mat=0&brand=&maintype=节点&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:48)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+ShopResLibraryPanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:83)
+ShopResLibraryPanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:29)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:155)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到展厅是：null&0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:77)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到是：硬装=0,家具=0,厨卫=0,照明=0,家饰=0,家电=0,工装=0,&[]
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:62)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+收到了换场景
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+MessageManager:OnMessage(String) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:61)
+<checkMessage>c__Iterator8:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:32)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/BaseLayer/Net/MessageManager.cs Line: 61)
+
+资源类型被切换了 个人库
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:LogWarning(Object)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:76)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/Users/文强/Desktop/furnitureGit/Furniture/Assets/Scripts/scenes/4_vShowList/VshowListTypePanel.cs Line: 76)
+
+发出虚拟展厅请求：http://211.159.186.78:5588/houseData?protocol=14&lib=2&provider=个人库不等于我&username=777777&style=0&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:64)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+VshowListTypePanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:83)
+VshowListTypePanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VshowListTypePanel.cs:27)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:154)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+发出请求商城是：http://211.159.186.78:5588/shop2?&lib=2&provider=个人库不等于我&username=777777&style=0&color=0&mat=0&brand=&maintype=节点&page=0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:48)
+UnityEngine.MonoBehaviour:StartCoroutine_Auto(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:60)
+ShopResLibraryPanel:onPersonalLibButton() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:83)
+ShopResLibraryPanel:onResourceMode(Int32) (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResLibraryPanel.cs:29)
+<pullRes>c__Iterator9:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\BaseLayer\Net\MessageManager.cs:155)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到展厅是：null&0
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestList>c__Iterator32:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\VirtualContentPanel.cs:77)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
+收到是：硬装=0,家具=0,厨卫=0,照明=0,家饰=0,家电=0,工装=0,&[]
+UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+UnityEngine.Logger:Log(LogType, Object)
+UnityEngine.Debug:Log(Object)
+UnityEngine.MonoBehaviour:print(Object) (at C:\buildslave\unity\build\artifacts\generated\common\runtime\UnityEngineMonoBehaviourBindings.gen.cs:106)
+<requestChilds>c__Iterator23:MoveNext() (at C:\Users\文强\Desktop\furnitureGit\Furniture\Assets\Scripts\scenes\4_vShowList\ShopRes\ShopResManager.cs:62)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineMonoBehaviourBindings.gen.cs Line: 106)
+
