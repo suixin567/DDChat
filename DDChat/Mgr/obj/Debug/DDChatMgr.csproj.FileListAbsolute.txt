@@ -51,3 +51,6 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\obj\Debug\DDChatMgr.csproj.Core
 C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\obj\Debug\DDChatMgr.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\obj\Debug\DDChatMgr.exe
 C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\obj\Debug\DDChatMgr.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\bin\Debug\CSharpSmsSDK.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\bin\Debug\Newtonsoft.Json.dll
