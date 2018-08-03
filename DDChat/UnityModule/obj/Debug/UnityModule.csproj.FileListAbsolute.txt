@@ -27,8 +27,11 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\bin\Debug\UnityModule.p
 C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\bin\Debug\ToolLib.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\bin\Debug\LitJson.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\bin\Debug\ToolLib.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\bin\Debug\ToolLib.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\obj\Debug\UnityModule.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\obj\Debug\UnityModule.Properties.Resources.resources
-C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\obj\Debug\UnityModule.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\obj\Debug\UnityModule.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\obj\Debug\UnityModule.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\obj\Debug\UnityModule.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\obj\Debug\UnityModule.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\obj\Debug\UnityModule.pdb

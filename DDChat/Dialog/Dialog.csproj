@@ -156,12 +156,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UnityModule\UnityModule.csproj">
-      <Project>{6B79909E-7A0A-4674-80E7-C7E169BA5054}</Project>
-      <Name>UnityModule</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\chatface.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

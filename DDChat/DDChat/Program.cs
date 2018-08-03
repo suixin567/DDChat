@@ -23,15 +23,15 @@ namespace DDN
           
 
 
-            mutex = new System.Threading.Mutex(true, "ddnOnlyRun");
-            if (mutex.WaitOne(0, false)  && System.Diagnostics.Process.GetProcessesByName("Mgr").ToList().Count == 0)
+            mutex = new System.Threading.Mutex(true, "ddchatOnlyRun");
+            if (mutex.WaitOne(0, false)  && System.Diagnostics.Process.GetProcessesByName("DDChatMgr").ToList().Count == 0)
             {
                 FormDDChat DDN = new FormDDChat();
                 Application.Run(DDN);
             }
             else
             {
-                MessageBox.Show("已经有叮叮鸟程序在运行，不可以开启多个。","叮叮鸟提示"); 
+               // MessageBox.Show("已经有叮叮鸟程序在运行，不可以开启多个。","叮叮鸟提示"); 
                 Application.Exit();
             }
         }

@@ -60,6 +60,9 @@
     <Reference Include="ToolLib">
       <HintPath>..\ToolLib\bin\Debug\ToolLib.dll</HintPath>
     </Reference>
+    <Reference Include="UnityModule">
+      <HintPath>..\UnityModule\bin\Debug\UnityModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormDDChatMgr.cs">

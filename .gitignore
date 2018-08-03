@@ -1,3 +1,10 @@
-/DDN/DDN/bin/Debug/Unity/
-/DDN/Mgr/bin/Debug/Unity/
-/DDN/Standalone/bin/Debug/Unity/
+/DDChat/DDChat/obj/
+/DDChat/Dialog/obj/
+/DDChat/Experiment/obj/
+/DDChat/Login/obj/
+/DDChat/MainProgram/obj/
+/DDChat/Mgr/obj/
+/DDChat/Standalone/obj/
+/DDChat/ToolLib/obj/
+/DDChat/UnityModule/obj/
+/DDChat/UpdateProgram/obj/

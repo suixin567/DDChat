@@ -39,6 +39,7 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\bin\Debug\UpdateProgr
 C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\bin\Debug\UpdateProgram.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\obj\Debug\UpdateProgram.FormUpdate.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\obj\Debug\UpdateProgram.Properties.Resources.resources
-C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\obj\Debug\UpdateProgram.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\obj\Debug\UpdateProgram.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\obj\Debug\UpdateProgram.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\obj\Debug\UpdateProgram.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\obj\Debug\UpdateProgram.pdb

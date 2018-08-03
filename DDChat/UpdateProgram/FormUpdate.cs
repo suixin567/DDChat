@@ -24,10 +24,6 @@ namespace UpdateProgram
 
         private void FormUpdate_Load(object sender, EventArgs e)
         {
-            int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width / 2 - this.Size.Width / 2);
-            int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2);
-            this.StartPosition = FormStartPosition.Manual; //窗体的位置由Location属性决定
-            this.Location = (Point)new Size(x, y);         //窗体的起始位置为(x,y)
         }
 
         public void downFiles(string serInfos)
@@ -56,7 +52,7 @@ namespace UpdateProgram
                 {
                     count++;
                     //下载中
-                    labelProgress.Text = "更新..." + item + "     " + count + "/" + toLoadDlls.Count;
+                    labelProgress.Text = item + "     " + count + "/" + toLoadDlls.Count;
                     labelProgress.Refresh();
                     string url = "http://" + ipList[0] + "/res/winUpdateDlls/"+ pathList[0]+"/" + item;
                     Debug.Print("更新文件" + "http://" + ipList[0] + "/res/winUpdateDlls/" + pathList[0] + "/" + item);
@@ -107,6 +103,7 @@ namespace UpdateProgram
             catch (Exception upErr)
             {
                 Debug.Print("更新版本号失败" + upErr);
+                MessageBox.Show("更新版本号失败" + upErr);
             }
             Debug.Print("更新版本号：" + getValue(m_serInfoStr, "Version")[0]);
 
@@ -138,65 +135,16 @@ namespace UpdateProgram
             }
         }
 
-        private void FormUpdate_FormClosed(object sender, FormClosedEventArgs e)
-        {
-        }
+
+     
+       
 
 
-        List<string> getValue(string content, string key)
-        {
-            string[] rows = content.Split('\n');
-            for (int i = 0; i < rows.Length; i++)
-            {
-                if (rows[i].Contains("[" + key + "]"))
-                {
-                    List<string> values = new List<string>();
-                    //   Debug.Print("发现key"+i);
-                    for (int j = i + 1; j < rows.Length; j++)
-                    {
-                        //      Debug.Print("比对中"+j + data[j]);
-                        if (rows[j].Contains("[") == false && rows[j].Contains("]") == false)
-                        {
-                            string temp = rows[j].TrimEnd((char[])"\r".ToCharArray());
-                            if (temp.Contains("\r") == false && temp.Contains("\n") == false && temp != string.Empty)
-                            {
-                                values.Add(temp.Trim());
-                                //        Debug.Print("找到值" + data[j]);
-                            }
-                        }
-                        else
-                        {
-                            //         Debug.Print("已经到界" + data[j]);
-                            break;
-                        }
-                    }
-                    if (values.Count == 0)
-                    {
-                        Debug.Print("错误： 没有找到value!");
-                    }
-                    return values;
-                }
-            }
-            Debug.Print("错误： 没有找到key!");
-            return null;
-        }
-        void HttpDownloadFile(string url, string path)
-        {
-            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
-            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
-            Stream responseStream = response.GetResponseStream();
-            Stream stream = new FileStream(path, FileMode.Create);
-            byte[] bArr = new byte[1024];
-            int size = responseStream.Read(bArr, 0, (int)bArr.Length);
-            while (size > 0)
-            {
-                stream.Write(bArr, 0, size);
-                size = responseStream.Read(bArr, 0, (int)bArr.Length);
-            }
-            stream.Close();
-            responseStream.Close();
-        }
 
+
+        //////////////////////////////////////////////////
+        //////////////////工具方法/////////////////////
+        /////////////////////////////////////////////////
         string AnalyzeSet(string content, string key, List<string> value)
         {
 
@@ -212,18 +160,18 @@ namespace UpdateProgram
                 {
                     isKeyExist = true;
                     keyPosition = i;
-                //    Debug.Print("找到key" + keyPosition);
+                    //    Debug.Print("找到key" + keyPosition);
                 }
                 if (isKeyExist && i != keyPosition && serInfos[i].Contains("[") && serInfos[i].Contains("]"))
                 {//找到了下一个key
                     nextKeyPosition = i;
-                //    Debug.Print("找到了下一个key" + nextKeyPosition);
+                    //    Debug.Print("找到了下一个key" + nextKeyPosition);
                     break;
                 }
             }
             if (isKeyExist)
             {
-            //    Debug.Print("存在key模式");
+                //    Debug.Print("存在key模式");
                 if (nextKeyPosition == -1)                   //更新最后一个key
                 {
                     List<string> newList = new List<string>();
@@ -304,15 +252,70 @@ namespace UpdateProgram
             }
             else
             {
-           //     Debug.Print("不存在key模式");
+                //     Debug.Print("不存在key模式");
                 content += "\r\n[" + key + "]";
                 foreach (var item in value)
                 {
                     content += "\r\n" + item;
                 }
             }
-           // Debug.Print("最终文件是\n" + content);
+            // Debug.Print("最终文件是\n" + content);
             return content;
+        }
+
+        List<string> getValue(string content, string key)
+        {
+            string[] rows = content.Split('\n');
+            for (int i = 0; i < rows.Length; i++)
+            {
+                if (rows[i].Contains("[" + key + "]"))
+                {
+                    List<string> values = new List<string>();
+                    //   Debug.Print("发现key"+i);
+                    for (int j = i + 1; j < rows.Length; j++)
+                    {
+                        //      Debug.Print("比对中"+j + data[j]);
+                        if (rows[j].Contains("[") == false && rows[j].Contains("]") == false)
+                        {
+                            string temp = rows[j].TrimEnd((char[])"\r".ToCharArray());
+                            if (temp.Contains("\r") == false && temp.Contains("\n") == false && temp != string.Empty)
+                            {
+                                values.Add(temp.Trim());
+                                //        Debug.Print("找到值" + data[j]);
+                            }
+                        }
+                        else
+                        {
+                            //         Debug.Print("已经到界" + data[j]);
+                            break;
+                        }
+                    }
+                    if (values.Count == 0)
+                    {
+                        Debug.Print("错误： 没有找到value!");
+                    }
+                    return values;
+                }
+            }
+            Debug.Print("错误： 没有找到key!");
+            return null;
+        }
+
+        void HttpDownloadFile(string url, string path)
+        {
+            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
+            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+            Stream responseStream = response.GetResponseStream();
+            Stream stream = new FileStream(path, FileMode.Create);
+            byte[] bArr = new byte[1024];
+            int size = responseStream.Read(bArr, 0, (int)bArr.Length);
+            while (size > 0)
+            {
+                stream.Write(bArr, 0, size);
+                size = responseStream.Read(bArr, 0, (int)bArr.Length);
+            }
+            stream.Close();
+            responseStream.Close();
         }
     }
 }

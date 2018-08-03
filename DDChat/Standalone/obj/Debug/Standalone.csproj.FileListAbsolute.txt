@@ -33,10 +33,14 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\bin\Debug\UnityModule.dl
 C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\bin\Debug\ToolLib.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\bin\Debug\LitJson.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\bin\Debug\UnityModule.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\bin\Debug\UnityModule.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\bin\Debug\ToolLib.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\bin\Debug\ToolLib.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\obj\Debug\Standalone.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\obj\Debug\Standalone.FormStandalone.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\obj\Debug\Standalone.Properties.Resources.resources
-C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\obj\Debug\Standalone.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\obj\Debug\Standalone.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\obj\Debug\Standalone.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\obj\Debug\Standalone.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\obj\Debug\Standalone.exe
 C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\obj\Debug\Standalone.pdb

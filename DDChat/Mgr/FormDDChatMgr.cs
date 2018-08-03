@@ -19,16 +19,12 @@ namespace Mgr
 
         private void FormMgr_Load(object sender, EventArgs e)
         {
-            int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width / 2 - this.Size.Width / 2);
-            int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2-50);
-            this.StartPosition = FormStartPosition.Manual; //窗体的位置由Location属性决定
-            this.Location = (Point)new Size(x, y);         //窗体的起始位置为(x,y)            
             InitApp();
-#if DEBUG
-        this.labelRunMode.Text ="v" + AppConst.APP_VERSION;
-#else
-            this.labelRunMode.Text = "发布版";
-#endif
+//#if DEBUG
+//        this.labelRunMode.Text ="v" + AppConst.APP_VERSION;
+//#else
+//            this.labelRunMode.Text = "发布版";
+//#endif
         }
 
         public void InitApp()
@@ -37,10 +33,12 @@ namespace Mgr
             PlayerPrefs.Init();
             NetWorkManager.Instance.Start();
             Thread th = new Thread(new ThreadStart(checkNetMsg));
+
             th.Start();
             Login.LoginMgr.Instance.Init();
             m_SyncContext = SynchronizationContext.Current;
             FaceMgr.Instance.Init();
+            
         }
 
 
@@ -72,10 +70,10 @@ namespace Mgr
         {
             switch (model.Type)
             {
-                case Protocol.LOGIN:
+                case Protocol.LOGIN:                                    
                     Login.LoginMgr.Instance.formLogin.OnMessage(model);
                     //登录成功
-                    if (model.Command == LoginProtocol.LOGIN_SRES && model.Message !="10" && model.Message != "11" && model.Message != "12")
+                    if (model.Command == LoginProtocol.LOGIN_SRES && model.Message !="10" && model.Message != "11" && model.Message != "12" && model.Message!="")
                     {                      
                         openMainProgramSafePost();
                     }
@@ -109,10 +107,7 @@ namespace Mgr
             MainProgram.MainMgr.Instance.Init();
         }
 
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
+  
 
         private void FormMgr_MouseClick(object sender, MouseEventArgs e)
         {

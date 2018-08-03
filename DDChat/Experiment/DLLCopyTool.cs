@@ -27,52 +27,53 @@ namespace Experiment
         static string f4 = @"C:\Users\Administrator\Desktop\DDChat\DDChat\Login\bin\Debug\Login.dll";
         static string f5 = @"C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\MainProgram.dll";
         static string f6 = @"C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\Dialog.dll";
-        static string f7 = @"C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\bin\Debug\UnityModule.dll";
-        static string f8 = @"C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\bin\Debug\Standalone.exe";
-        static string f9 = @"C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\bin\Debug\ToolLib.dll";
-        string[] dlls = new string[9] { f1,f2,f3,f4,f5,f6, f7, f8,f9 };
+    
+     //   static string f8 = @"C:\Users\Administrator\Desktop\DDChat\DDChat\Standalone\bin\Debug\Standalone.exe";
+        static string f7 = @"C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\bin\Debug\ToolLib.dll";
+           static string f8 = @"C:\Users\Administrator\Desktop\DDChat\DDChat\UnityModule\bin\Debug\UnityModule.dll";
+        string[] dlls = new string[8] { f1,f2,f3,f4,f5,f6, f7,f8};
 
 
   
         private void buttonCopy_Click(object sender, EventArgs e)
         {
             string sourceFile = dlls[0];
-            string destinationFile = @"C:\Users\Administrator\Desktop\DDN_DLLS\DDChat.exe";
+            string destinationFile = @"C:\Users\Administrator\Desktop\DDChat_DLLS\DDChat.exe";
             copy(sourceFile,destinationFile);
 
             sourceFile = dlls[1];
-            destinationFile = @"C:\Users\Administrator\Desktop\DDN_DLLS\UpdateProgram.dll";
+            destinationFile = @"C:\Users\Administrator\Desktop\DDChat_DLLS\UpdateProgram.dll";
             copy(sourceFile, destinationFile);
 
             sourceFile = dlls[2];
-            destinationFile = @"C:\Users\Administrator\Desktop\DDN_DLLS\DDChatMgr.exe";
+            destinationFile = @"C:\Users\Administrator\Desktop\DDChat_DLLS\DDChatMgr.exe";
             copy(sourceFile, destinationFile);
 
             sourceFile = dlls[3];
-            destinationFile = @"C:\Users\Administrator\Desktop\DDN_DLLS\Login.dll";
+            destinationFile = @"C:\Users\Administrator\Desktop\DDChat_DLLS\Login.dll";
             copy(sourceFile, destinationFile);
 
             sourceFile = dlls[4];
-            destinationFile = @"C:\Users\Administrator\Desktop\DDN_DLLS\MainProgram.dll";
+            destinationFile = @"C:\Users\Administrator\Desktop\DDChat_DLLS\MainProgram.dll";
             copy(sourceFile, destinationFile);
 
             sourceFile = dlls[5];
-            destinationFile = @"C:\Users\Administrator\Desktop\DDN_DLLS\Dialog.dll";
+            destinationFile = @"C:\Users\Administrator\Desktop\DDChat_DLLS\Dialog.dll";
             copy(sourceFile, destinationFile);
 
             sourceFile = dlls[6];
-            destinationFile = @"C:\Users\Administrator\Desktop\DDN_DLLS\UnityModule.dll";
+            destinationFile = @"C:\Users\Administrator\Desktop\DDChat_DLLS\ToolLib.dll";
             copy(sourceFile, destinationFile);
 
             sourceFile = dlls[7];
-            destinationFile = @"C:\Users\Administrator\Desktop\DDN_DLLS\Standalone.exe";
+            destinationFile = @"C:\Users\Administrator\Desktop\DDChat_DLLS\UnityModule.dll";
             copy(sourceFile, destinationFile);
 
-            sourceFile = dlls[8];
-            destinationFile = @"C:\Users\Administrator\Desktop\DDN_DLLS\ToolLib.dll";
-            copy(sourceFile, destinationFile);
+            //sourceFile = dlls[7];
+            //destinationFile = @"C:\Users\Administrator\Desktop\DDChat_DLLS\Standalone.exe";
+            //copy(sourceFile, destinationFile);
 
-            System.Diagnostics.Process.Start(@"C:\Users\Administrator\Desktop\DDN_DLLS");
+            System.Diagnostics.Process.Start(@"C:\Users\Administrator\Desktop\DDChat_DLLS");
             Debug.Print(dlls.Length+"个文件，复制完成...");
         }
 

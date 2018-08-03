@@ -30,7 +30,8 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\bin\Debug\ToolLib.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\bin\Debug\ToolLib.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\bin\Debug\LitJson.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.Properties.Resources.resources
-C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.pdb
-C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.csprojResolveAssemblyReference.cache

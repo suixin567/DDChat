@@ -67,6 +67,9 @@
     <Reference Include="ToolLib">
       <HintPath>..\ToolLib\bin\Debug\ToolLib.dll</HintPath>
     </Reference>
+    <Reference Include="UnityModule">
+      <HintPath>..\UnityModule\bin\Debug\UnityModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormCreateGroup.cs">
@@ -370,12 +373,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\msg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\UnityModule\UnityModule.csproj">
-      <Project>{6B79909E-7A0A-4674-80E7-C7E169BA5054}</Project>
-      <Name>UnityModule</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

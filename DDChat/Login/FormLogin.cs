@@ -14,6 +14,7 @@ using System.Configuration;
 using System.Net.Mail;
 using System.Net;
 using ToolLib;
+using System.Runtime.InteropServices;
 
 namespace Login
 {
@@ -151,6 +152,9 @@ namespace Login
                     break;
                 case "12"://密码错误
                     showLoginOpreationResultSafePost("密码错误...");
+                    break;
+                case "":
+                    showLoginOpreationResultSafePost("未知错误...");
                     break;
                 default:
                     loginOK(message);
@@ -349,6 +353,28 @@ namespace Login
                 MessageBox.Show("发生致命错误，开启离线程序错误。", "叮叮鸟提示：");
                 Environment.Exit(0);
             }
+        }
+
+
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+        private void FormLogin_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

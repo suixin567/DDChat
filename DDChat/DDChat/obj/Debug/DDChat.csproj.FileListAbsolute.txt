@@ -14,9 +14,12 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\bin\Debug\DDChat.exe
 C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\bin\Debug\DDChat.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\bin\Debug\UpdateProgram.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\bin\Debug\UpdateProgram.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\bin\Debug\UpdateProgram.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\obj\Debug\DDChat.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\obj\Debug\DDN.FormDDChat.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\obj\Debug\DDChat.Properties.Resources.resources
-C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\obj\Debug\DDChat.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\obj\Debug\DDChat.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\obj\Debug\DDChat.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\obj\Debug\DDChat.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\obj\Debug\DDChat.exe
 C:\Users\Administrator\Desktop\DDChat\DDChat\DDChat\obj\Debug\DDChat.pdb

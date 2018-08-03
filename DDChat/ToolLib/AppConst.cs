@@ -12,7 +12,7 @@
     //#else
     //    static string ip = "211.159.186.78";
     //#endif
-   // static string ip = "192.168.1.101";
+    //static string ip = "192.168.1.101";
     static string ip = "211.159.186.78";
     public static string SocketUrl = ip;//叮叮鸟主程序IP
     public static int SocketPort = 10103;//叮叮鸟主程序端口

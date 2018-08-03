@@ -62,11 +62,10 @@ namespace MainProgram
             int y = (300);
             this.StartPosition = FormStartPosition.Manual; 
             this.Location = (Point)new Size(x, y);           
-        //    SetBtnStyle(this.buttonExit);
-       //     SetBtnStyle(this.buttonMin);
+          //SetBtnStyle(this.buttonExit);
+          //SetBtnStyle(this.buttonMin);
             //icon闪烁计时器停止
             this.timerNotifyIcon.Stop();
-
             //  this.Font = new Font("Arial", 9);
             ////////获取图片的测试//////
             //ResourceManager rm = new ResourceManager("DDN.FormMain", Assembly.GetExecutingAssembly());
@@ -77,7 +76,6 @@ namespace MainProgram
             FormInfoCard.Instance.Hide();          
         }
 
-        public void aaa() { }
 
         bool isNotifyIconFlashing = false;//icon是否在闪烁
 
@@ -142,6 +140,7 @@ namespace MainProgram
             {
                 if (isNotifyIconFlashing == false)
                 {
+                    this.Show();
                     this.WindowState = FormWindowState.Normal;
                     int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width - this.Size.Width * 3);
                     int y = (300);
@@ -325,7 +324,8 @@ namespace MainProgram
         //最小化
         private void buttonMin_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            //   this.WindowState = FormWindowState.Minimized;
+            this.Hide();
         }
 
         public delegate void AppExitEvent();

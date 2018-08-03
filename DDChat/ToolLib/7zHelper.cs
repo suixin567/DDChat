@@ -67,8 +67,6 @@ public class _7zHelper
             process.Start();
             process.WaitForExit();
             process.Close();
-
-
         }
         catch (Exception e)
         {

@@ -117,6 +117,7 @@ C:\Users\Administrator\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.UserCon
 C:\Users\Administrator\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.csproj.GenerateResource.Cache
 C:\Users\Administrator\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.dll
 C:\Users\Administrator\Desktop\DDN\DDN\MainProgram\obj\Debug\MainProgram.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.FormAddFriend.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\MainProgram.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\MainProgram.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\MainProgram.pdb
@@ -128,8 +129,11 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\ToolLib.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\UnityModule.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\LitJson.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\Dialog.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\Dialog.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\ToolLib.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\ToolLib.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\UnityModule.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\UnityModule.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.FormCreateGroup.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.FormInviteToGroup.resources
@@ -142,7 +146,6 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.F
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.FormInfoCard.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.MsgTip.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.UserControls.AddFriendItem.resources
-C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.FormAddFriend.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.FormMessageVerify.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.UserControls.AddGroupItem.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.UserControls.DialogueItem.resources
@@ -160,6 +163,8 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.U
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.Properties.Resources.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.UserControls.TopInfoPanel.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.UserControls.VerifyMsgItem.resources
-C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.pdb

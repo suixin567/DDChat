@@ -51,7 +51,7 @@ namespace MainProgram.UserControls
                     formMain.flowLayoutPanelDialogueList.Show();
                     formMain.flowLayoutPanelFriendList.Hide();
                     formMain.flowLayoutPanelGroupList.Hide();
-                    pictureBoxDia.BackColor = Color.DodgerBlue;
+                    pictureBoxDia.BackColor = Color.FromArgb(100,100,100);
                     pictureBoxFriend.BackColor = Color.Transparent;
                     pictureBoxGroup.BackColor = Color.Transparent;
                  //   pictureBoxRes.BackColor = Color.Transparent;
@@ -63,7 +63,7 @@ namespace MainProgram.UserControls
                     formMain.flowLayoutPanelGroupList.Hide();
 
                     pictureBoxDia.BackColor = Color.Transparent;
-                    pictureBoxFriend.BackColor = Color.DodgerBlue;
+                    pictureBoxFriend.BackColor = Color.FromArgb(100, 100, 100);
                     pictureBoxGroup.BackColor = Color.Transparent;
                 //    pictureBoxRes.BackColor = Color.Transparent;
 
@@ -75,21 +75,9 @@ namespace MainProgram.UserControls
 
                     pictureBoxDia.BackColor = Color.Transparent;
                     pictureBoxFriend.BackColor = Color.Transparent;
-                    pictureBoxGroup.BackColor = Color.DodgerBlue;
-               //     pictureBoxRes.BackColor = Color.Transparent;
+                    pictureBoxGroup.BackColor = Color.FromArgb(100, 100, 100);
+                    //     pictureBoxRes.BackColor = Color.Transparent;
                     break;
-                //case 3:
-                //    formMain.flowLayoutPanelDialogueList.Hide();
-                //    formMain.flowLayoutPanelFriendList.Hide();
-                //    formMain.flowLayoutPanelGroupList.Hide();
-                //    formMain.flowLayoutPanelResourcesList.Show();
-
-                //    pictureBoxDia.BackColor = Color.Transparent;
-                //    pictureBoxFriend.BackColor = Color.Transparent;
-                //    pictureBoxGroup.BackColor = Color.Transparent;
-                ////    pictureBoxRes.BackColor = Color.DodgerBlue;
-
-                //    break;
                 default:
                     break;
             }

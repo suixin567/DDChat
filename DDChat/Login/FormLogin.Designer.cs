@@ -40,15 +40,19 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelOpreationResult = new System.Windows.Forms.Label();
             this.timerOpreationResult = new System.Windows.Forms.Timer(this.components);
-            this.buttonStandalone = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserNameTip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPsdTip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxUserName
             // 
-            this.textBoxUserName.Location = new System.Drawing.Point(134, 155);
+            this.textBoxUserName.Location = new System.Drawing.Point(281, 195);
             this.textBoxUserName.MaxLength = 10;
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(165, 21);
@@ -57,7 +61,7 @@
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(134, 185);
+            this.textBoxPassword.Location = new System.Drawing.Point(281, 225);
             this.textBoxPassword.MaxLength = 13;
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(165, 21);
@@ -67,7 +71,7 @@
             // checkBoxRemmberPsd
             // 
             this.checkBoxRemmberPsd.AutoSize = true;
-            this.checkBoxRemmberPsd.Location = new System.Drawing.Point(134, 212);
+            this.checkBoxRemmberPsd.Location = new System.Drawing.Point(281, 252);
             this.checkBoxRemmberPsd.Name = "checkBoxRemmberPsd";
             this.checkBoxRemmberPsd.Size = new System.Drawing.Size(72, 16);
             this.checkBoxRemmberPsd.TabIndex = 2;
@@ -76,9 +80,9 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(134, 234);
+            this.buttonLogin.Location = new System.Drawing.Point(281, 274);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(165, 34);
             this.buttonLogin.TabIndex = 3;
@@ -89,7 +93,7 @@
             // pictureBoxUserNameTip
             // 
             this.pictureBoxUserNameTip.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUserNameTip.Image")));
-            this.pictureBoxUserNameTip.Location = new System.Drawing.Point(304, 156);
+            this.pictureBoxUserNameTip.Location = new System.Drawing.Point(451, 196);
             this.pictureBoxUserNameTip.Name = "pictureBoxUserNameTip";
             this.pictureBoxUserNameTip.Size = new System.Drawing.Size(20, 20);
             this.pictureBoxUserNameTip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -99,7 +103,7 @@
             // pictureBoxPsdTip
             // 
             this.pictureBoxPsdTip.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPsdTip.Image")));
-            this.pictureBoxPsdTip.Location = new System.Drawing.Point(304, 185);
+            this.pictureBoxPsdTip.Location = new System.Drawing.Point(451, 225);
             this.pictureBoxPsdTip.Name = "pictureBoxPsdTip";
             this.pictureBoxPsdTip.Size = new System.Drawing.Size(20, 20);
             this.pictureBoxPsdTip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -110,7 +114,7 @@
             // 
             this.labelRegist.AutoSize = true;
             this.labelRegist.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.labelRegist.Location = new System.Drawing.Point(331, 160);
+            this.labelRegist.Location = new System.Drawing.Point(478, 200);
             this.labelRegist.Name = "labelRegist";
             this.labelRegist.Size = new System.Drawing.Size(53, 12);
             this.labelRegist.TabIndex = 7;
@@ -120,9 +124,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(212, 34);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(425, 148);
+            this.pictureBox1.Size = new System.Drawing.Size(388, 127);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
@@ -132,7 +136,7 @@
             this.labelOpreationResult.AutoSize = true;
             this.labelOpreationResult.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelOpreationResult.ForeColor = System.Drawing.Color.Red;
-            this.labelOpreationResult.Location = new System.Drawing.Point(137, 174);
+            this.labelOpreationResult.Location = new System.Drawing.Point(284, 214);
             this.labelOpreationResult.Name = "labelOpreationResult";
             this.labelOpreationResult.Size = new System.Drawing.Size(97, 14);
             this.labelOpreationResult.TabIndex = 9;
@@ -144,25 +148,64 @@
             this.timerOpreationResult.Interval = 1000;
             this.timerOpreationResult.Tick += new System.EventHandler(this.timerOpreationResult_Tick);
             // 
-            // buttonStandalone
+            // label1
             // 
-            this.buttonStandalone.FlatAppearance.BorderSize = 0;
-            this.buttonStandalone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStandalone.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonStandalone.Location = new System.Drawing.Point(320, 245);
-            this.buttonStandalone.Name = "buttonStandalone";
-            this.buttonStandalone.Size = new System.Drawing.Size(75, 23);
-            this.buttonStandalone.TabIndex = 10;
-            this.buttonStandalone.Text = " 离线登录 ";
-            this.buttonStandalone.UseVisualStyleBackColor = true;
-            this.buttonStandalone.Click += new System.EventHandler(this.buttonStandalone_Click);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(9, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "登录叮叮鸟";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.pictureBox2.Location = new System.Drawing.Point(-2, 34);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(213, 306);
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(569, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(28, 28);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "×";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.Orange;
+            this.label2.Location = new System.Drawing.Point(12, 161);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(176, 16);
+            this.label2.TabIndex = 14;
+            this.label2.Text = " 3D装修，就来叮叮鸟！";
             // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 273);
-            this.Controls.Add(this.buttonStandalone);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(600, 340);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.labelOpreationResult);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelRegist);
@@ -172,7 +215,7 @@
             this.Controls.Add(this.checkBoxRemmberPsd);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUserName);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormLogin";
@@ -181,9 +224,11 @@
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormLoginClose);
             this.Load += new System.EventHandler(this.FormLogin_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormLogin_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserNameTip)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPsdTip)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,6 +246,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelOpreationResult;
         private System.Windows.Forms.Timer timerOpreationResult;
-        private System.Windows.Forms.Button buttonStandalone;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
     }
 }

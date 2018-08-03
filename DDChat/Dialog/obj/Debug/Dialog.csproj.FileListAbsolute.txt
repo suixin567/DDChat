@@ -42,11 +42,9 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\Dialog.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\Dialog.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\Dialog.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\ToolLib.dll
-C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\UnityModule.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\LitJson.dll
-C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\UnityModule.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\ToolLib.pdb
-C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\ToolLib.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.ButtonTab.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.ChatPop.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.FormDialog.resources
@@ -55,6 +53,8 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.FormFace.re
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.GroupMember.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.GroupMemberPanel.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.Properties.Resources.resources
-C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.pdb

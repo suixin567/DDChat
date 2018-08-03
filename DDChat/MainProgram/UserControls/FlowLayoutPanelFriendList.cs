@@ -214,10 +214,5 @@ namespace MainProgram.UserControls
         {
             FormInfoCard.Instance.leaveItem("self");
         }
-
-        private void flowLayoutPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
