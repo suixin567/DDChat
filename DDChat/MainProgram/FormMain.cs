@@ -58,6 +58,7 @@ namespace MainProgram
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
+
             int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width - this.Size.Width * 3);
             int y = (300);
             this.StartPosition = FormStartPosition.Manual; 

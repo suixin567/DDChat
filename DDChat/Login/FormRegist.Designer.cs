@@ -46,6 +46,7 @@
             this.buttonGetPhoneCode = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserNameTip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPsdTip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoneTip)).BeginInit();
@@ -54,7 +55,7 @@
             // textBoxRegistUserName
             // 
             this.textBoxRegistUserName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxRegistUserName.Location = new System.Drawing.Point(152, 60);
+            this.textBoxRegistUserName.Location = new System.Drawing.Point(180, 63);
             this.textBoxRegistUserName.MaxLength = 10;
             this.textBoxRegistUserName.Name = "textBoxRegistUserName";
             this.textBoxRegistUserName.Size = new System.Drawing.Size(159, 21);
@@ -63,7 +64,7 @@
             // 
             // textBoxRegistPsd
             // 
-            this.textBoxRegistPsd.Location = new System.Drawing.Point(152, 112);
+            this.textBoxRegistPsd.Location = new System.Drawing.Point(180, 115);
             this.textBoxRegistPsd.MaxLength = 13;
             this.textBoxRegistPsd.Name = "textBoxRegistPsd";
             this.textBoxRegistPsd.Size = new System.Drawing.Size(159, 21);
@@ -72,7 +73,7 @@
             // 
             // textBoxRegistPhone
             // 
-            this.textBoxRegistPhone.Location = new System.Drawing.Point(152, 161);
+            this.textBoxRegistPhone.Location = new System.Drawing.Point(180, 164);
             this.textBoxRegistPhone.MaxLength = 11;
             this.textBoxRegistPhone.Name = "textBoxRegistPhone";
             this.textBoxRegistPhone.Size = new System.Drawing.Size(159, 21);
@@ -83,7 +84,7 @@
             // 
             this.buttonRegistCommit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.buttonRegistCommit.ForeColor = System.Drawing.Color.White;
-            this.buttonRegistCommit.Location = new System.Drawing.Point(152, 250);
+            this.buttonRegistCommit.Location = new System.Drawing.Point(180, 253);
             this.buttonRegistCommit.Name = "buttonRegistCommit";
             this.buttonRegistCommit.Size = new System.Drawing.Size(159, 31);
             this.buttonRegistCommit.TabIndex = 3;
@@ -95,7 +96,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(62, 63);
+            this.label1.Location = new System.Drawing.Point(90, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 4;
@@ -105,7 +106,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(62, 116);
+            this.label2.Location = new System.Drawing.Point(90, 119);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 5;
@@ -115,7 +116,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(62, 168);
+            this.label3.Location = new System.Drawing.Point(90, 171);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 6;
@@ -124,7 +125,7 @@
             // pictureBoxUserNameTip
             // 
             this.pictureBoxUserNameTip.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUserNameTip.Image")));
-            this.pictureBoxUserNameTip.Location = new System.Drawing.Point(315, 60);
+            this.pictureBoxUserNameTip.Location = new System.Drawing.Point(343, 64);
             this.pictureBoxUserNameTip.Name = "pictureBoxUserNameTip";
             this.pictureBoxUserNameTip.Size = new System.Drawing.Size(20, 20);
             this.pictureBoxUserNameTip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -134,7 +135,7 @@
             // pictureBoxPsdTip
             // 
             this.pictureBoxPsdTip.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPsdTip.Image")));
-            this.pictureBoxPsdTip.Location = new System.Drawing.Point(316, 113);
+            this.pictureBoxPsdTip.Location = new System.Drawing.Point(344, 116);
             this.pictureBoxPsdTip.Name = "pictureBoxPsdTip";
             this.pictureBoxPsdTip.Size = new System.Drawing.Size(20, 20);
             this.pictureBoxPsdTip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -144,7 +145,7 @@
             // pictureBoxPhoneTip
             // 
             this.pictureBoxPhoneTip.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPhoneTip.Image")));
-            this.pictureBoxPhoneTip.Location = new System.Drawing.Point(316, 163);
+            this.pictureBoxPhoneTip.Location = new System.Drawing.Point(344, 164);
             this.pictureBoxPhoneTip.Name = "pictureBoxPhoneTip";
             this.pictureBoxPhoneTip.Size = new System.Drawing.Size(20, 20);
             this.pictureBoxPhoneTip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -155,7 +156,7 @@
             // 
             this.labelregistResult.AutoSize = true;
             this.labelregistResult.ForeColor = System.Drawing.Color.Red;
-            this.labelregistResult.Location = new System.Drawing.Point(341, 64);
+            this.labelregistResult.Location = new System.Drawing.Point(369, 67);
             this.labelregistResult.Name = "labelregistResult";
             this.labelregistResult.Size = new System.Drawing.Size(53, 12);
             this.labelregistResult.TabIndex = 11;
@@ -165,7 +166,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(152, 42);
+            this.label5.Location = new System.Drawing.Point(180, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(215, 12);
             this.label5.TabIndex = 12;
@@ -175,7 +176,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(152, 95);
+            this.label6.Location = new System.Drawing.Point(180, 98);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(173, 12);
             this.label6.TabIndex = 13;
@@ -183,7 +184,7 @@
             // 
             // textBoxPhoneCode
             // 
-            this.textBoxPhoneCode.Location = new System.Drawing.Point(152, 208);
+            this.textBoxPhoneCode.Location = new System.Drawing.Point(180, 211);
             this.textBoxPhoneCode.MaxLength = 11;
             this.textBoxPhoneCode.Name = "textBoxPhoneCode";
             this.textBoxPhoneCode.Size = new System.Drawing.Size(159, 21);
@@ -195,18 +196,19 @@
             this.buttonGetPhoneCode.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonGetPhoneCode.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonGetPhoneCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.buttonGetPhoneCode.Location = new System.Drawing.Point(321, 206);
+            this.buttonGetPhoneCode.Location = new System.Drawing.Point(349, 209);
             this.buttonGetPhoneCode.Name = "buttonGetPhoneCode";
             this.buttonGetPhoneCode.Size = new System.Drawing.Size(103, 23);
             this.buttonGetPhoneCode.TabIndex = 16;
             this.buttonGetPhoneCode.Text = "获取短信验证码";
             this.buttonGetPhoneCode.UseVisualStyleBackColor = true;
+            this.buttonGetPhoneCode.Click += new System.EventHandler(this.buttonGetPhoneCode_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(62, 211);
+            this.label4.Location = new System.Drawing.Point(90, 214);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 17;
@@ -220,7 +222,7 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(451, 5);
+            this.buttonClose.Location = new System.Drawing.Point(476, 5);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(28, 28);
             this.buttonClose.TabIndex = 18;
@@ -228,12 +230,23 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(7, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "注册叮叮鸟";
+            // 
             // FormRegist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(484, 311);
+            this.ClientSize = new System.Drawing.Size(509, 311);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonGetPhoneCode);
@@ -288,5 +301,6 @@
         private System.Windows.Forms.Button buttonGetPhoneCode;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Label label7;
     }
 }

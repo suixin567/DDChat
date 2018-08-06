@@ -31,7 +31,6 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\bin\Debug\ToolLib.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\bin\Debug\LitJson.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\bin\Debug\ToolLib.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\bin\Debug\ToolLib.dll.config
-C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\obj\Debug\Experiment.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\obj\Debug\Experiment.DLLCopyTool.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\obj\Debug\Experiment.Form1.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\obj\Debug\Experiment.Properties.Resources.resources
@@ -40,3 +39,7 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\obj\Debug\Experiment.csp
 C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\obj\Debug\Experiment.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\obj\Debug\Experiment.exe
 C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\obj\Debug\Experiment.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\bin\Debug\CSharpSmsSDK.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\Experiment\obj\Debug\Experiment.csprojAssemblyReference.cache

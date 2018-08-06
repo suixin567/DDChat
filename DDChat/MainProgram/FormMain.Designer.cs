@@ -39,6 +39,7 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.buttonMin = new System.Windows.Forms.Button();
             this.timerNotifyIcon = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.mainTabControl1 = new MainProgram.UserControls.MainTabControl();
             this.flowLayoutPanelFriendList = new MainProgram.UserControls.FlowLayoutPanelFriendList();
             this.topInfoPanel1 = new MainProgram.UserControls.TopInfoPanel();
@@ -127,7 +128,7 @@
             this.buttonMin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonMin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMin.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonMin.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonMin.ForeColor = System.Drawing.Color.White;
             this.buttonMin.Location = new System.Drawing.Point(221, 0);
             this.buttonMin.Name = "buttonMin";
@@ -142,6 +143,16 @@
             this.timerNotifyIcon.Enabled = true;
             this.timerNotifyIcon.Interval = 300;
             this.timerNotifyIcon.Tick += new System.EventHandler(this.notifyIconTimer_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(4, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "叮叮鸟";
             // 
             // mainTabControl1
             // 
@@ -176,6 +187,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(280, 650);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.mainTabControl1);
             this.Controls.Add(this.flowLayoutPanelFriendList);
@@ -199,6 +211,7 @@
             this.panelBottom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.buttonFindFriend)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -216,6 +229,7 @@
         private System.Windows.Forms.PictureBox buttonFindFriend;
         private UserControls.MainTabControl mainTabControl1;
         private UserControls.TopInfoPanel topInfoPanel1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

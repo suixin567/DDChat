@@ -44,7 +44,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.labelForget = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserNameTip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPsdTip)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -114,6 +114,7 @@
             // labelRegist
             // 
             this.labelRegist.AutoSize = true;
+            this.labelRegist.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelRegist.ForeColor = System.Drawing.Color.DodgerBlue;
             this.labelRegist.Location = new System.Drawing.Point(478, 200);
             this.labelRegist.Name = "labelRegist";
@@ -197,15 +198,17 @@
             this.label2.TabIndex = 14;
             this.label2.Text = " 3D装修，就来叮叮鸟！";
             // 
-            // button2
+            // labelForget
             // 
-            this.button2.Location = new System.Drawing.Point(480, 274);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.labelForget.AutoSize = true;
+            this.labelForget.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelForget.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.labelForget.Location = new System.Drawing.Point(478, 228);
+            this.labelForget.Name = "labelForget";
+            this.labelForget.Size = new System.Drawing.Size(53, 12);
+            this.labelForget.TabIndex = 15;
+            this.labelForget.Text = "找回密码";
+            this.labelForget.Click += new System.EventHandler(this.labelForget_Click);
             // 
             // FormLogin
             // 
@@ -213,7 +216,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(600, 340);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.labelForget);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -262,6 +265,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label labelForget;
     }
 }

@@ -43,7 +43,6 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\bin\Debug\UnityModule.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\bin\Debug\UnityModule.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\bin\Debug\Dialog.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\bin\Debug\Dialog.dll.config
-C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\obj\Debug\DDChatMgr.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\obj\Debug\Mgr.FormDDChatMgr.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\obj\Debug\DDChatMgr.Properties.Resources.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\obj\Debug\DDChatMgr.csproj.GenerateResource.cache
@@ -54,3 +53,4 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\obj\Debug\DDChatMgr.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\bin\Debug\CSharpSmsSDK.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\bin\Debug\log4net.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\Mgr\obj\Debug\DDChatMgr.csprojAssemblyReference.cache

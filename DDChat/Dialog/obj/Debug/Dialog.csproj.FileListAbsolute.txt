@@ -58,3 +58,6 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.csproj.Core
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\CSharpSmsSDK.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\Newtonsoft.Json.dll

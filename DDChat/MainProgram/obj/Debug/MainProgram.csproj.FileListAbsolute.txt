@@ -134,7 +134,6 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\ToolLib.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\ToolLib.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\UnityModule.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\UnityModule.dll.config
-C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.FormCreateGroup.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.FormInviteToGroup.resources
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.FormModifyGroupFace.resources
@@ -168,3 +167,7 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.c
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\CSharpSmsSDK.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\MainProgram\obj\Debug\MainProgram.csprojAssemblyReference.cache

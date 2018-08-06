@@ -35,3 +35,4 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.csproj.Co
 C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\ToolLib\obj\Debug\ToolLib.csprojAssemblyReference.cache

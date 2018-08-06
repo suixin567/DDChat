@@ -71,7 +71,7 @@
             // buttonCreateGroup
             // 
             this.buttonCreateGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreateGroup.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonCreateGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonCreateGroup.ForeColor = System.Drawing.Color.White;
             this.buttonCreateGroup.Location = new System.Drawing.Point(234, 1);
             this.buttonCreateGroup.Name = "buttonCreateGroup";
