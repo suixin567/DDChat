@@ -185,7 +185,7 @@
             // textBoxPhoneCode
             // 
             this.textBoxPhoneCode.Location = new System.Drawing.Point(180, 211);
-            this.textBoxPhoneCode.MaxLength = 11;
+            this.textBoxPhoneCode.MaxLength = 4;
             this.textBoxPhoneCode.Name = "textBoxPhoneCode";
             this.textBoxPhoneCode.Size = new System.Drawing.Size(159, 21);
             this.textBoxPhoneCode.TabIndex = 14;

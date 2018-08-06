@@ -30,12 +30,12 @@
         {
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonGetPhoneCode = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxPhoneCode = new System.Windows.Forms.TextBox();
+            this.textBoxPhone = new System.Windows.Forms.TextBox();
+            this.labelHponeTip = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonNext
@@ -61,29 +61,31 @@
             this.buttonGetPhoneCode.TabIndex = 31;
             this.buttonGetPhoneCode.Text = "获取短信验证码";
             this.buttonGetPhoneCode.UseVisualStyleBackColor = true;
+            this.buttonGetPhoneCode.Click += new System.EventHandler(this.buttonGetPhoneCode_Click);
             // 
-            // textBox2
+            // textBoxPhoneCode
             // 
-            this.textBox2.Location = new System.Drawing.Point(109, 171);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(159, 21);
-            this.textBox2.TabIndex = 30;
+            this.textBoxPhoneCode.Location = new System.Drawing.Point(109, 171);
+            this.textBoxPhoneCode.MaxLength = 4;
+            this.textBoxPhoneCode.Name = "textBoxPhoneCode";
+            this.textBoxPhoneCode.Size = new System.Drawing.Size(159, 21);
+            this.textBoxPhoneCode.TabIndex = 30;
             // 
-            // textBox3
+            // textBoxPhone
             // 
-            this.textBox3.Location = new System.Drawing.Point(109, 128);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(159, 21);
-            this.textBox3.TabIndex = 29;
+            this.textBoxPhone.Location = new System.Drawing.Point(109, 128);
+            this.textBoxPhone.Name = "textBoxPhone";
+            this.textBoxPhone.Size = new System.Drawing.Size(159, 21);
+            this.textBoxPhone.TabIndex = 29;
             // 
-            // label3
+            // labelHponeTip
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(107, 94);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 12);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "提示：157********";
+            this.labelHponeTip.AutoSize = true;
+            this.labelHponeTip.Location = new System.Drawing.Point(107, 94);
+            this.labelHponeTip.Name = "labelHponeTip";
+            this.labelHponeTip.Size = new System.Drawing.Size(107, 12);
+            this.labelHponeTip.TabIndex = 28;
+            this.labelHponeTip.Text = "提示：157********";
             // 
             // label4
             // 
@@ -94,16 +96,6 @@
             this.label4.Size = new System.Drawing.Size(161, 12);
             this.label4.TabIndex = 27;
             this.label4.Text = "请输入此账号关联的手机号：";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "找回密码";
             // 
             // buttonClose
             // 
@@ -121,6 +113,16 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(119, 12);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "第2步：手机短信验证";
+            // 
             // FormForget2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -131,9 +133,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonGetPhoneCode);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBoxPhoneCode);
+            this.Controls.Add(this.textBoxPhone);
+            this.Controls.Add(this.labelHponeTip);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormForget2";
@@ -149,11 +151,11 @@
 
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button buttonGetPhoneCode;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxPhoneCode;
+        private System.Windows.Forms.TextBox textBoxPhone;
+        private System.Windows.Forms.Label labelHponeTip;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Label label1;
     }
 }

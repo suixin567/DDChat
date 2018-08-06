@@ -41,15 +41,15 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(95, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "找回密码";
+            this.label1.Text = "第1步：输入账号";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(73, 86);
+            this.label2.Location = new System.Drawing.Point(80, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 12);
             this.label2.TabIndex = 1;
@@ -57,7 +57,8 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(184, 83);
+            this.textBox1.Location = new System.Drawing.Point(191, 100);
+            this.textBox1.MaxLength = 13;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(143, 21);
             this.textBox1.TabIndex = 2;
@@ -66,7 +67,7 @@
             // 
             this.buttonNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
             this.buttonNext.ForeColor = System.Drawing.Color.White;
-            this.buttonNext.Location = new System.Drawing.Point(184, 154);
+            this.buttonNext.Location = new System.Drawing.Point(191, 171);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(111, 27);
             this.buttonNext.TabIndex = 20;
