@@ -361,7 +361,7 @@ namespace Login
         {
             int x = this.Location.X - 200;
             int y = this.Location.Y - 200;
-            formForget1 = new FormForget1(x, y, this);
+            formForget1 = new FormForget1(x, y);
             formForget1.ShowDialog();
         }
     }

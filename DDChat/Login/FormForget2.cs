@@ -15,6 +15,7 @@ namespace Login
 {
     public partial class FormForget2 : Form
     {
+        FormForget1 formForget1;
         FormForget3 formForget3;
         string phoneNum;
         string phoneCode = "";
@@ -35,26 +36,52 @@ namespace Login
                     if (callback != "" && callback != "error")
                     {
                         phoneNum = callback;
-                        setPhonetipSafePost("提示：" + phoneNum.Substring(0, 4) + "*******");
+                        SetPhonetipSafePost("提示：" + phoneNum.Substring(0, 4) + "*******");
                     }
                     else
                     {
-                        MessageBox.Show("此账号不存在！请核对后重试", "提示：");
+                        MessageBoxSafePost("此账号不存在！请核对后重试");
                     }
                 });
         }
 
 
-        public void setPhonetipSafePost(string content)
+        private void FormForget2_Load(object sender, EventArgs e)
         {
-            m_SyncContext.Post(setPhonetip, content);
+            this.textBoxPhoneCode.Hide();
+            this.buttonGetPhoneCode.Hide();
+            this.buttonNext.Hide();
         }
 
-        public void setPhonetip(object state)
+
+        public void SetPhonetipSafePost(string content)
+        {
+            m_SyncContext.Post(SetPhonetip, content);
+        }
+
+        public void SetPhonetip(object state)
         {
             this.labelHponeTip.Text = (string)state;
         }
 
+
+        public void MessageBoxSafePost(string content)
+        {
+            m_SyncContext.Post(MessageBox, content);
+        }
+
+        public void MessageBox(object state)
+        {
+            int x = this.Location.X;
+            int y = this.Location.Y;
+            this.Location = new Point(10000,0);
+            System.Windows.Forms.MessageBox.Show((string)state, "提示：");
+
+            formForget1 = new FormForget1(x, y);                                         
+            this.Close();
+            this.Dispose();
+            formForget1.ShowDialog();
+        }
 
 
 
@@ -64,11 +91,11 @@ namespace Login
             this.Dispose();
         }
 
-        private void buttonNext_Click(object sender, EventArgs e)
+        private void ButtonNext_Click(object sender, EventArgs e)
         {
             if (textBoxPhoneCode.Text != phoneCode || phoneCode == "")
             {
-                MessageBox.Show("短信验证码错误！");
+                System.Windows.Forms.MessageBox.Show("短信验证码错误！");
                 return;
             }
             int x = this.Location.X;
@@ -80,7 +107,7 @@ namespace Login
         }
 
         //获取验证码按钮 被点击
-        private void buttonGetPhoneCode_Click(object sender, EventArgs e)
+        private void ButtonGetPhoneCode_Click(object sender, EventArgs e)
         {
             //1检查手机号
             //2发送短信
@@ -90,7 +117,7 @@ namespace Login
 
             if (!IsPhoneset(textBoxPhone.Text))
             {
-                MessageBox.Show("请输入正确的手机号", "提示：");
+                System.Windows.Forms.MessageBox.Show("请输入正确的手机号", "提示：");
                 return;
             }
             //禁用验证码按钮
@@ -106,7 +133,7 @@ namespace Login
             int result = SendPhoneCode.sendVerifyPhoneMsg(phoneNum, "注册验证码" + phoneCode + "，2分钟内有效。");
             if (result != 0)
             {
-                MessageBox.Show("密码找回功能维护中！稍后再试！" + result);
+                System.Windows.Forms.MessageBox.Show("密码找回功能维护中！稍后再试！" + result);
                 return;
             }
             else
@@ -147,6 +174,22 @@ namespace Login
                 temp = res;
             }
             return temp;
+        }
+
+
+        private void TextBoxPhone_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxPhone.Text == phoneNum)
+            {
+                this.textBoxPhoneCode.Show();
+                this.buttonGetPhoneCode.Show();
+                this.buttonNext.Show();
+            }
+            else {
+                this.textBoxPhoneCode.Hide();
+                this.buttonGetPhoneCode.Hide();
+                this.buttonNext.Hide();
+            }
         }
     }
 }

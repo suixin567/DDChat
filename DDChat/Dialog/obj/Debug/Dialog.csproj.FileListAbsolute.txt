@@ -42,7 +42,10 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\Dialog.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\Dialog.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\Dialog.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\ToolLib.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\CSharpSmsSDK.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\LitJson.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\log4net.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\ToolLib.pdb
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\ToolLib.dll.config
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.ButtonTab.resources
@@ -58,6 +61,4 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.csproj.Core
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.pdb
-C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\CSharpSmsSDK.dll
-C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\log4net.dll
-C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\DDChat\DDChat\Dialog\obj\Debug\Dialog.csprojAssemblyReference.cache

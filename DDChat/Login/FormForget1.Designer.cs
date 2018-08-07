@@ -73,7 +73,7 @@
             this.buttonNext.TabIndex = 20;
             this.buttonNext.Text = "下一步";
             this.buttonNext.UseVisualStyleBackColor = false;
-            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            this.buttonNext.Click += new System.EventHandler(this.ButtonNext_Click);
             // 
             // buttonClose
             // 
@@ -89,7 +89,7 @@
             this.buttonClose.TabIndex = 21;
             this.buttonClose.Text = "×";
             this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // FormForget1
             // 
