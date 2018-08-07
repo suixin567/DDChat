@@ -38,9 +38,9 @@
             // pictureBox
             // 
             this.pictureBox.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox.Image")));
-            this.pictureBox.Location = new System.Drawing.Point(5, 7);
+            this.pictureBox.Location = new System.Drawing.Point(1, 7);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(42, 42);
+            this.pictureBox.Size = new System.Drawing.Size(35, 35);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
@@ -50,7 +50,7 @@
             // 
             this.label.AutoSize = true;
             this.label.ForeColor = System.Drawing.Color.White;
-            this.label.Location = new System.Drawing.Point(52, 21);
+            this.label.Location = new System.Drawing.Point(38, 19);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(41, 12);
             this.label.TabIndex = 1;
@@ -77,13 +77,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.label);
             this.Controls.Add(this.pictureBox);
             this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.Name = "ButtonTab";
-            this.Size = new System.Drawing.Size(150, 55);
+            this.Size = new System.Drawing.Size(150, 51);
             this.Load += new System.EventHandler(this.ButtonTab_Load);
             this.Click += new System.EventHandler(this.ButtonTab_Click);
             this.MouseEnter += new System.EventHandler(this.ButtonTab_MouseEnter);

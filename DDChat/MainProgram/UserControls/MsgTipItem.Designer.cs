@@ -32,6 +32,7 @@
             this.labelNickName = new System.Windows.Forms.Label();
             this.labelContent = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.labelMsgNum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,11 +67,22 @@
             this.pictureBox.TabStop = false;
             this.pictureBox.Click += new System.EventHandler(this.MsgTipItem_Click);
             // 
+            // labelMsgNum
+            // 
+            this.labelMsgNum.AutoSize = true;
+            this.labelMsgNum.ForeColor = System.Drawing.Color.Black;
+            this.labelMsgNum.Location = new System.Drawing.Point(174, 5);
+            this.labelMsgNum.Name = "labelMsgNum";
+            this.labelMsgNum.Size = new System.Drawing.Size(11, 12);
+            this.labelMsgNum.TabIndex = 3;
+            this.labelMsgNum.Text = "0";
+            // 
             // MsgTipItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.labelMsgNum);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.labelContent);
             this.Controls.Add(this.labelNickName);
@@ -90,5 +102,6 @@
         public System.Windows.Forms.Label labelNickName;
         private System.Windows.Forms.Label labelContent;
         public System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.Label labelMsgNum;
     }
 }

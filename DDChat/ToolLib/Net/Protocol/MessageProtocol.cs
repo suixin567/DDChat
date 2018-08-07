@@ -43,7 +43,7 @@
     //群聊
     public const int CHAT_ME_TO_GROUP_CREQ = 110;
     public const int CHAT_ME_TO_GROUP_SRES = 111;
-    public const int CHAT_GROUP_TO_ME_SRES = 112;
+    public const int CHAT_GROUP_TO_ME_SRES = 112;//收到群聊天消息
 
 
 }

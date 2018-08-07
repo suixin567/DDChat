@@ -43,12 +43,12 @@
             // buttonClose
             // 
             this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClose.FlatAppearance.BorderSize = 0;
+            this.buttonClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(505, -1);
+            this.buttonClose.Location = new System.Drawing.Point(587, -1);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(30, 30);
             this.buttonClose.TabIndex = 5;
@@ -59,11 +59,11 @@
             // buttonMax
             // 
             this.buttonMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonMax.FlatAppearance.BorderSize = 0;
+            this.buttonMax.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMax.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonMax.ForeColor = System.Drawing.Color.White;
-            this.buttonMax.Location = new System.Drawing.Point(477, -1);
+            this.buttonMax.Location = new System.Drawing.Point(559, -1);
             this.buttonMax.Name = "buttonMax";
             this.buttonMax.Size = new System.Drawing.Size(30, 30);
             this.buttonMax.TabIndex = 6;
@@ -75,6 +75,7 @@
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelTitle.ForeColor = System.Drawing.Color.White;
             this.labelTitle.Location = new System.Drawing.Point(3, 8);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(59, 16);
@@ -84,11 +85,11 @@
             // buttonMin
             // 
             this.buttonMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonMin.FlatAppearance.BorderSize = 0;
+            this.buttonMin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMin.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonMin.ForeColor = System.Drawing.Color.White;
-            this.buttonMin.Location = new System.Drawing.Point(450, -1);
+            this.buttonMin.Location = new System.Drawing.Point(532, -1);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(30, 30);
             this.buttonMin.TabIndex = 11;
@@ -98,12 +99,12 @@
             // 
             // flowLayoutPanelTab
             // 
-            this.flowLayoutPanelTab.BackColor = System.Drawing.SystemColors.Menu;
+            this.flowLayoutPanelTab.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.flowLayoutPanelTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelTab.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelTab.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelTab.Name = "flowLayoutPanelTab";
-            this.flowLayoutPanelTab.Size = new System.Drawing.Size(58, 596);
+            this.flowLayoutPanelTab.Size = new System.Drawing.Size(126, 496);
             this.flowLayoutPanelTab.TabIndex = 12;
             this.flowLayoutPanelTab.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormDialogManager_MouseDown);
             this.flowLayoutPanelTab.Resize += new System.EventHandler(this.flowLayoutPanelTab_Resize);
@@ -129,8 +130,8 @@
             this.splitContainer.Panel2.Controls.Add(this.buttonMax);
             this.splitContainer.Panel2.Controls.Add(this.buttonMin);
             this.splitContainer.Panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormDialogManager_MouseDown);
-            this.splitContainer.Size = new System.Drawing.Size(596, 596);
-            this.splitContainer.SplitterDistance = 58;
+            this.splitContainer.Size = new System.Drawing.Size(746, 496);
+            this.splitContainer.SplitterDistance = 126;
             this.splitContainer.SplitterWidth = 2;
             this.splitContainer.TabIndex = 13;
             this.splitContainer.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainer_SplitterMoving);
@@ -141,13 +142,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(600, 600);
+            this.ClientSize = new System.Drawing.Size(750, 500);
             this.Controls.Add(this.splitContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(600, 500);
             this.Name = "FormDialogManager";
             this.Text = "FormDialogManager";
             this.Load += new System.EventHandler(this.FormDialogManager_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormDialogManager_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormDialogManager_MouseDown);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel2.ResumeLayout(false);

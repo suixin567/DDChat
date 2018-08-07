@@ -45,30 +45,59 @@ namespace MainProgram
         }
 
         //添加新提示
-        public void addNewTip(MsgModel mode) {
+        public void addNewTip(MsgModel newMsg) {
             //这里应该过滤一些重复的提示消息，如：重复的申请好友提示、申请入群
-            foreach (var item in tipMsgList)
+            foreach (var oldMsg in tipMsgList)
             {
                 //过滤同一个人发来的重复的好友申请。
-                if (item.MsgType == mode.MsgType && item.From == mode.From && mode.MsgType == MessageProtocol.ONE_ADD_YOU_SRES)
+                if (oldMsg.MsgType == newMsg.MsgType && oldMsg.From == newMsg.From && newMsg.MsgType == MessageProtocol.ONE_ADD_YOU_SRES)
                 {
                     return;
                 }
                 //过滤同一个人发来的重复的入同一个群的申请。
-                if (item.MsgType == mode.MsgType && item.From == mode.From && item.To == mode.To && mode.MsgType == MessageProtocol.ONE_WANT_ADD_GROUP_SRES)
+                if (oldMsg.MsgType == newMsg.MsgType && oldMsg.From == newMsg.From && oldMsg.To == newMsg.To && newMsg.MsgType == MessageProtocol.ONE_WANT_ADD_GROUP_SRES)
                 {
                     return;
                 }
                 //过滤重复的入群邀请
-                if (item.MsgType == mode.MsgType && item.From == mode.From && item.To == mode.To && mode.MsgType == MessageProtocol.BE_INVITE_TO_GROUP_SRES)
+                if (oldMsg.MsgType == newMsg.MsgType && oldMsg.From == newMsg.From && oldMsg.To == newMsg.To && newMsg.MsgType == MessageProtocol.BE_INVITE_TO_GROUP_SRES)
                 {
                     return;
                 }
+                //过滤来自同一个人的消息(来自同一人的消息只显示一个item就可以了。)
+                if (oldMsg.MsgType == newMsg.MsgType && oldMsg.From == newMsg.From && oldMsg.To == newMsg.To && newMsg.MsgType == MessageProtocol.CHAT_FRIEND_TO_ME_SRES)
+                {
+                    foreach (var item in this.flowLayoutPanel1.Controls)
+                    {
+                        MsgTipItem mi = (MsgTipItem)item;
+                        if (mi.m_mode.MsgType == MessageProtocol.CHAT_FRIEND_TO_ME_SRES && mi.m_mode.From == newMsg.From)//找到这个item
+                        {
+                            tipMsgList.Add(newMsg);
+                            mi.addMsgSafePost(newMsg);
+                            return;
+                        }
+                    }
+                    return;
+                }
+                //过滤来自同一个群组的消息(来自同一群组的消息只显示一个item就可以了。)
+                if (oldMsg.MsgType == newMsg.MsgType && oldMsg.From == newMsg.From && oldMsg.To == newMsg.To && newMsg.MsgType == MessageProtocol.CHAT_GROUP_TO_ME_SRES)
+                {
+                    foreach (var item in this.flowLayoutPanel1.Controls)
+                    {
+                        MsgTipItem mi = (MsgTipItem)item;
+                        if (mi.m_mode.MsgType == MessageProtocol.CHAT_GROUP_TO_ME_SRES && mi.m_mode.From == newMsg.From)//找到这个item
+                        {
+                            tipMsgList.Add(newMsg);
+                            mi.addMsgSafePost(newMsg);
+                            return;
+                        }
+                    }
+                    return;
+                }
             }
-
             //添加一个新的提示
-            tipMsgList.Add(mode);
-            MsgTipItem tipItem = new MsgTipItem(mode);
+            tipMsgList.Add(newMsg);
+            MsgTipItem tipItem = new MsgTipItem(newMsg,m_SyncContext);
             addItemSafePost(tipItem);
             MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁
             showFormSafePost();
@@ -150,7 +179,7 @@ namespace MainProgram
                                 break;
                             }                            
                         }
-                        FormDialogManager.Instance.openDialog(1, int.Parse(tipMsgList[i].To), nickName4, face4);
+                        FormDialogManager.Instance.openDialog(1, int.Parse(tipMsgList[i].To), nickName4, face4);//这里会多次请求打开一个群窗体
                         FormDialogManager.Instance.onChatMsg(tipMsgList[i]);//展示消息
                         break;
                     case MessageProtocol.BE_REMOVE_GROUP_SRES://被移除出群

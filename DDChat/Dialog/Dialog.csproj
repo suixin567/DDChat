@@ -72,7 +72,6 @@
     <Compile Include="ChatPop.Designer.cs">
       <DependentUpon>ChatPop.cs</DependentUpon>
     </Compile>
-    <Compile Include="DialogManager.cs" />
     <Compile Include="FormDialog.cs">
       <SubType>Form</SubType>
     </Compile>

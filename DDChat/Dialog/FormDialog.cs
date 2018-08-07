@@ -28,6 +28,13 @@ namespace Dialog
         public FormDialog(int type , int dialogId, string dialogName, Image face)
         {
             InitializeComponent();
+            #region 颜色
+            this.BackColor = Color.FromArgb(AppConst.panelColor.R + 10, AppConst.panelColor.G + 10, AppConst.panelColor.B + 10);
+            this.panelRight.BackColor = this.BackColor;
+            this.groupMemberPanel1.BackColor = this.BackColor;
+            this.panelTakeEdit.BackColor = this.BackColor;
+            #endregion
+
             m_SyncContext = SynchronizationContext.Current;
             m_dialogType = type;
             m_groupOrFriendId = dialogId;
@@ -60,9 +67,8 @@ namespace Dialog
                 default:
                     break;
             }
-            labelChat.BackColor = Color.SteelBlue;
+            
             //信息编辑框属性
-            Rich_Edit.BackColor = Color.FromArgb(213, 224, 230);
             Rich_Edit.BorderStyle = BorderStyle.None;
             Rich_Edit.ScrollBars = RichTextBoxScrollBars.None;
           //  Rich_Edit.KeyUp += new KeyEventHandler(RichEdit_KeyUp);
@@ -175,7 +181,7 @@ namespace Dialog
             {
                 ((Label)item).BackColor = Color.Transparent;
             }
-            labelChat.BackColor = Color.SteelBlue;
+            labelChat.BackColor = Color.White;
             UIState = 1;
             panelChat.Show();
          //   FormDialogManager.Instance.appContainer.Hide();
@@ -234,30 +240,58 @@ namespace Dialog
         }
 
 
-        public void showOnePopSafePost(MsgModel mm) {
-            m_SyncContext.Post(showOnePop , mm);
-        }
-       void showOnePop(object content)
+        //public void showOnePopSafePost(MsgModel mm) {
+        //    m_SyncContext.Post(showOnePop , mm);
+        //}
+        public void showOnePop(object content)
         {
-            MsgModel mm = (MsgModel)content;
-            //展示聊天内容
-            if (mm.From == AppInfo.PERSONAL_INFO.Username)//自己发出去的
+            MsgModel mm = (MsgModel)content;          
+            //获取发言人的昵称
+            DataMgr.Instance.getPersonalByID(mm.From, delegate (PersonalInfoModel personalInfoModel)
+            {
+                appendTitleSafePost(personalInfoModel.Nickname + "(" + mm.From + ")" + " " + mm.Time + "\n");
+                //具体内容               
+                appendContentSafePost(mm.Content + "\n");               
+            });
+        }
+
+        //显示消息头
+        void appendTitleSafePost(string title)
+        {
+            m_SyncContext.Post(appendTitle, title);
+        }
+        void appendTitle(object content) {
+            string fromName = ((string)content);
+            int a = fromName.IndexOf("(");
+            int b = fromName.LastIndexOf(")");
+            fromName = fromName.Substring(a+1,b-a-1);           
+            if (fromName == AppInfo.PERSONAL_INFO.Username)//自己发出去的
             {
                 this.richTextBoxChat.SelectionColor = Color.Green;
             }
-            else {
+            else
+            {
                 this.richTextBoxChat.SelectionColor = Color.Blue;
             }
-            //获取发言人的昵称
-            DataMgr.Instance.getPersonalByID(mm.From,delegate(PersonalInfoModel fromMode) {
-                this.richTextBoxChat.AppendText(fromMode.Nickname + "("+mm.From+")" + " " + mm.Time + "\n");
-                //具体内容
-                this.richTextBoxChat.SelectionColor = Color.Black;
-                this.richTextBoxChat.AppendText(mm.Content + "\n");
-                //设置滚动条位置
-                this.richTextBoxChat.ScrollToCaret();
-            });                   
+            this.richTextBoxChat.AppendText((string)content);
         }
+        //显示消息体
+        void appendContentSafePost(string content)
+        {
+            m_SyncContext.Post(appendContent, content);
+        }
+        void appendContent(object content)
+        {
+            this.richTextBoxChat.SelectionColor = Color.Black;
+            this.richTextBoxChat.AppendText((string)content);
+            //设置滚动条位置
+            this.richTextBoxChat.ScrollToCaret();
+        }
+
+
+
+
+
 
         //发送按钮
         private void buttonSend_Click(object sender, EventArgs e)

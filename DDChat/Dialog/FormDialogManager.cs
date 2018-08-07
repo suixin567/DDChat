@@ -45,14 +45,16 @@ namespace Dialog
         public FormDialogManager()
         {
             InitializeComponent();
+           
             m_SyncContext = SynchronizationContext.Current;
+            this.BackColor = AppConst.panelColor;
             
         }
 
 
         private void FormDialogManager_Load(object sender, EventArgs e)
         {
-            this.Size = new Size(System.Windows.Forms.SystemInformation.WorkingArea.Width / 3, System.Windows.Forms.SystemInformation.WorkingArea.Height / 2);
+            //this.Size = new Size(System.Windows.Forms.SystemInformation.WorkingArea.Width / 3, System.Windows.Forms.SystemInformation.WorkingArea.Height / 2);
             int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width / 2 - this.Size.Width / 2);
             int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2);
             this.StartPosition = FormStartPosition.Manual;
@@ -103,12 +105,12 @@ namespace Dialog
                 //    }
                 //    changeActiveWindow("shop");
                 //    break;
-                case 1://请求打开群
-                       //确认在群中
+                case 1://请求打开一个群窗体
+                       //确认我在群中
                     DataMgr.Instance.getGroupByID(dialogId, delegate (GroupInfoModel mode) {
                         if (mode.Member.Contains(AppInfo.PERSONAL_INFO.Username) || mode.Master.Contains(AppInfo.PERSONAL_INFO.Username) || mode.Manager.Contains(AppInfo.PERSONAL_INFO.Username))
                         {
-                            //打开群对话
+                            //创建群对话窗体
                             if (formListDictionary.ContainsKey("group" + dialogId) == false)
                             {
                                 FormDialog formGroup = new FormDialog(dialogType, dialogId, dialogName, face);
@@ -145,25 +147,18 @@ namespace Dialog
                 //    changeActiveWindow("self");
                 //    break;
                 case 3://请求打开朋友
-                       //确定拥有这个好友                     
-                    if (AppInfo.MyFriendList.Contains(dialogId.ToString()))
+                    if (formListDictionary.ContainsKey("friend" + dialogId) == false)
                     {
-                        if (formListDictionary.ContainsKey("friend" + dialogId) == false)
-                        {
-                            FormDialog formFriend = new FormDialog(dialogType, dialogId, dialogName, face);
-                            setParent(formFriend);
-                            formListDictionary.Add("friend" + dialogId, formFriend);
-                            //创建选项卡
-                            ButtonTab btnTab1 = new ButtonTab(3, "friend" + dialogId, dialogName, face);
-                            this.flowLayoutPanelTab.Controls.Add(btnTab1);
-                            btnTab1.Size = new Size(this.splitContainer.SplitterDistance - 2, btnTab1.Height);
-                        }
-                        changeActiveWindow("friend" + dialogId);
+                        FormDialog formFriend = new FormDialog(dialogType, dialogId, dialogName, face);
+                        setParent(formFriend);
+                        formListDictionary.Add("friend" + dialogId, formFriend);
+                        //创建选项卡
+                        ButtonTab btnTab1 = new ButtonTab(3, "friend" + dialogId, dialogName, face);
+                        this.flowLayoutPanelTab.Controls.Add(btnTab1);
+                        btnTab1.Size = new Size(this.splitContainer.SplitterDistance - 2, btnTab1.Height);
                     }
-                    else {
-                       // MessageBox.Show("对方已不是你的好友！", "提示：");
-                        return;
-                    }
+                    changeActiveWindow("friend" + dialogId);
+                    //Todo缺少判断 是否还拥有这个好友        if (AppInfo.MyFriendList.Contains(dialogId.ToString()))                             
                     break;
                 default:
                     Debug.Print("错误的窗口类型！");
@@ -171,7 +166,6 @@ namespace Dialog
             }
             this.Show();
             this.WindowState = FormWindowState.Normal;
-            Debug.Print("hais是展示了！");
         }
 
         //unity更新完毕
@@ -218,11 +212,10 @@ namespace Dialog
             child.Location = new Point(0, topHeight);
           //  child.Dock = DockStyle.Fill;
             // child.Size = new Size(this.splitContainer.Panel2.Width , this.Height - topHeight+4);
-
             activeDialog = child;
             child.Show();
-            Debug.Print("服务提示" + child.Parent);
-            Debug.Print("服务提示" + child.Location.X);
+            //Debug.Print("服务提示" + child.Parent);
+            //Debug.Print("服务提示" + child.Location.X);
         }
 
         //设置激活窗体
@@ -258,7 +251,7 @@ namespace Dialog
                 }
                 else
                 {
-                    btnTab.BackColor = Color.SteelBlue;
+                    btnTab.BackColor = AppConst.panelColor;
                 }
             }
         }
@@ -312,7 +305,7 @@ namespace Dialog
                     {
                         if (item.Key == "friend" + mm.To)//自己发出去的消息
                         {
-                            item.Value.showOnePopSafePost(mm);
+                            item.Value.showOnePop(mm);
                             return;
                         }
                     }
@@ -320,7 +313,7 @@ namespace Dialog
                 case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://朋友发来的消息
                     if (formListDictionary.ContainsKey("friend" + mm.From))
                     {
-                        formListDictionary["friend" + mm.From].showOnePopSafePost(mm);
+                        formListDictionary["friend" + mm.From].showOnePop(mm);
                     }
                     else {
                         Debug.Print("发生错误：收到朋友和我聊天，却找不到这个人的对话窗体。");
@@ -329,7 +322,7 @@ namespace Dialog
                 case MessageProtocol.CHAT_GROUP_TO_ME_SRES://收到群聊                  
                     if (formListDictionary.ContainsKey("group" + mm.To))
                     {
-                        formListDictionary["group" + mm.To].showOnePopSafePost(mm);
+                        formListDictionary["group" + mm.To].showOnePop(mm);
                     }
                     else {
                         Debug.Print("发生错误：收到群聊，却找不到这个群的对话窗体。");
@@ -491,6 +484,11 @@ namespace Dialog
                     buttonTab.Size = new Size(this.splitContainer.SplitterDistance-2, buttonTab.Height);
                 }
             }
+        }
+
+        private void FormDialogManager_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(Pens.DarkGray, 0, 0, this.Width - 1, this.Height - 1);
         }
     }
 }

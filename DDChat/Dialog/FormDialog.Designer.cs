@@ -76,7 +76,9 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.White;
             this.splitContainer1.Panel1.Controls.Add(this.richTextBoxChat);
+            this.splitContainer1.Panel1.ForeColor = System.Drawing.Color.Maroon;
             this.splitContainer1.Panel1MinSize = 140;
             // 
             // splitContainer1.Panel2
@@ -93,27 +95,29 @@
             this.richTextBoxChat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBoxChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(204)))), ((int)(((byte)(213)))));
+            this.richTextBoxChat.BackColor = System.Drawing.Color.White;
             this.richTextBoxChat.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxChat.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.richTextBoxChat.Location = new System.Drawing.Point(19, 0);
+            this.richTextBoxChat.Location = new System.Drawing.Point(13, 0);
             this.richTextBoxChat.Name = "richTextBoxChat";
             this.richTextBoxChat.ReadOnly = true;
             this.richTextBoxChat.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.richTextBoxChat.Size = new System.Drawing.Size(482, 413);
+            this.richTextBoxChat.Size = new System.Drawing.Size(488, 413);
             this.richTextBoxChat.TabIndex = 3;
             this.richTextBoxChat.Text = "";
             // 
             // panelTakeEdit
             // 
+            this.panelTakeEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTakeEdit.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.panelTakeEdit.Controls.Add(this.labelTip);
             this.panelTakeEdit.Controls.Add(this.Rich_Edit);
             this.panelTakeEdit.Controls.Add(this.buttonSend);
-            this.panelTakeEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTakeEdit.Location = new System.Drawing.Point(0, 0);
+            this.panelTakeEdit.Location = new System.Drawing.Point(0, -2);
             this.panelTakeEdit.Name = "panelTakeEdit";
-            this.panelTakeEdit.Size = new System.Drawing.Size(501, 149);
+            this.panelTakeEdit.Size = new System.Drawing.Size(501, 154);
             this.panelTakeEdit.TabIndex = 0;
             // 
             // labelTip
@@ -121,7 +125,7 @@
             this.labelTip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTip.AutoSize = true;
             this.labelTip.ForeColor = System.Drawing.Color.Red;
-            this.labelTip.Location = new System.Drawing.Point(299, 127);
+            this.labelTip.Location = new System.Drawing.Point(299, 132);
             this.labelTip.Name = "labelTip";
             this.labelTip.Size = new System.Drawing.Size(113, 12);
             this.labelTip.TabIndex = 3;
@@ -132,10 +136,11 @@
             this.Rich_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Rich_Edit.BackColor = System.Drawing.Color.White;
             this.Rich_Edit.Location = new System.Drawing.Point(0, 25);
             this.Rich_Edit.Name = "Rich_Edit";
             this.Rich_Edit.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.Rich_Edit.Size = new System.Drawing.Size(501, 94);
+            this.Rich_Edit.Size = new System.Drawing.Size(501, 99);
             this.Rich_Edit.TabIndex = 0;
             this.Rich_Edit.Text = "";
             this.Rich_Edit.TextChanged += new System.EventHandler(this.Rich_Edit_TextChanged);
@@ -143,7 +148,7 @@
             // buttonSend
             // 
             this.buttonSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSend.Location = new System.Drawing.Point(418, 121);
+            this.buttonSend.Location = new System.Drawing.Point(418, 126);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(75, 23);
             this.buttonSend.TabIndex = 0;
@@ -189,7 +194,7 @@
             this.flowLayoutPanelTop.Controls.Add(this.labelChat);
             this.flowLayoutPanelTop.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelTop.Name = "flowLayoutPanelTop";
-            this.flowLayoutPanelTop.Padding = new System.Windows.Forms.Padding(5, 3, 0, 0);
+            this.flowLayoutPanelTop.Padding = new System.Windows.Forms.Padding(1, 3, 0, 0);
             this.flowLayoutPanelTop.Size = new System.Drawing.Size(105, 35);
             this.flowLayoutPanelTop.TabIndex = 0;
             // 
@@ -197,10 +202,10 @@
             // 
             this.labelChat.BackColor = System.Drawing.SystemColors.Control;
             this.labelChat.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelChat.Location = new System.Drawing.Point(8, 3);
-            this.labelChat.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
+            this.labelChat.Location = new System.Drawing.Point(1, 3);
+            this.labelChat.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.labelChat.Name = "labelChat";
-            this.labelChat.Size = new System.Drawing.Size(52, 29);
+            this.labelChat.Size = new System.Drawing.Size(60, 29);
             this.labelChat.TabIndex = 0;
             this.labelChat.Text = "聊天";
             this.labelChat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

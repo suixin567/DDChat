@@ -364,6 +364,10 @@ namespace Login
             formForget1 = new FormForget1(x, y);
             formForget1.ShowDialog();
         }
+
+
+
+
     }
 }
 

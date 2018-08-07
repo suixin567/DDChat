@@ -31,6 +31,7 @@ namespace MainProgram.UserControls
 
         private void FlowLayoutPanelFriendList_Load(object sender, EventArgs e)
         {
+
             this.panelSelf.Hide();
             //拉取好友列表
             pullFriendList();
@@ -153,7 +154,7 @@ namespace MainProgram.UserControls
             if (isFirendExpend)//展开时
             {
                 this.buttonFriend.Image = MainProgram.Properties.Resources._3_1;
-                this.panelSelf.Show();
+               // this.panelSelf.Show();
                 foreach (var item in this.flowLayoutPanel.Controls)
                 {
                     if (item is FriendItem) {
@@ -165,7 +166,7 @@ namespace MainProgram.UserControls
             else//收起时
             {
                 this.buttonFriend.Image = MainProgram.Properties.Resources._3;
-                this.panelSelf.Hide();
+              //  this.panelSelf.Hide();
                 foreach (var item in this.flowLayoutPanel.Controls)
                 {
                     if (item is FriendItem)
