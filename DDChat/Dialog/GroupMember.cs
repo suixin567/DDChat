@@ -81,7 +81,7 @@ namespace Dialog
         /// <param name="text"></param>
         private void SetText(string text)
         {
-            Debug.Print(text);
+            //Debug.Print(text);
             // InvokeRequired required compares the thread ID of the 
             // calling thread to the thread ID of the creating thread. 
             // If these threads are different, it returns true. 

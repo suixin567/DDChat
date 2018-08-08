@@ -39,22 +39,25 @@ namespace Dialog
         }
 
 
-        void onMemberChanged(int gid) {
+        void onMemberChanged(int gid)
+        {
             refreshMembers(gid.ToString());
         }
 
         //拉取或刷新群成员列表
-        public void refreshMembers(string groupId) {            
+        public void refreshMembers(string groupId)
+        {
             //拉取群成员
-            HttpReqHelper.requestSync(AppConst.WebUrl + "groupMembers?gid=" + groupId, delegate (string membersJson) {
+            HttpReqHelper.requestSync(AppConst.WebUrl + "groupMembers?gid=" + groupId, delegate (string membersJson)
+            {
                 //先清空
                 clearMemberSafePost();
-                Debug.Print("收到群成员是：" + membersJson);
+                //   Debug.Print("收到群成员是：" + membersJson);
                 GroupMembers members = Coding<GroupMembers>.decode(membersJson);
-                Debug.Print("群主是：" + members.Master);
+                //    Debug.Print("群主是：" + members.Master);
                 GroupMember master = new GroupMember(members.Master, 2);
                 addMemberSafePost(master);
-                Debug.Print("管理是：" + members.Manager);
+                //     Debug.Print("管理是：" + members.Manager);
                 string[] mans = members.Manager.Split(',');
                 foreach (var item in mans)
                 {
@@ -64,7 +67,7 @@ namespace Dialog
                         //  addMemberSafePost(manger);
                     }
                 }
-                Debug.Print("成员是：" + members.Member);
+                //  Debug.Print("成员是：" + members.Member);
                 string[] mems = members.Member.Split(',');
                 foreach (var item in mems)
                 {
@@ -88,7 +91,7 @@ namespace Dialog
         void addMember(object mem)
         {
             m_memberAmount++;
-            this.labelGroupMember.Text = "群成员 "+ m_memberAmount;
+            this.labelGroupMember.Text = "群成员 " + m_memberAmount;
             this.flowLayoutPanelGroupMember.Controls.Add((GroupMember)mem);
         }
 
@@ -100,7 +103,7 @@ namespace Dialog
 
         void clearMember(object state)
         {
-            m_memberAmount=0;
+            m_memberAmount = 0;
             this.labelGroupMember.Text = "群成员 " + m_memberAmount;
             this.flowLayoutPanelGroupMember.Controls.Clear();
         }

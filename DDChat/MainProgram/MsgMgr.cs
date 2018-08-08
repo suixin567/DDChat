@@ -208,7 +208,7 @@ namespace MainProgram
                 case MessageProtocol.CHAT_ME_TO_GROUP_SRES://我发群聊的响应                 
                     break;
                 case MessageProtocol.CHAT_GROUP_TO_ME_SRES://收到群聊
-                  //  Debug.Print("收到群聊消息" + mModel.Content);
+                   // Debug.Print("收到群聊消息" + mModel.Content);
                     if (FormDialogManager.Instance.isDialogOpend("group"+mModel.To) == false)
                     {
                      //   Debug.Print("弹出提示");
@@ -216,14 +216,19 @@ namespace MainProgram
                     }
                     else
                     {
-                     //   Debug.Print("直接显示气泡");
+                        Debug.Print("直接显示气泡");
                         FormDialogManager.Instance.onChatMsg(mModel);
                     }
                     //更新对话item
                     MainMgr.Instance.formMain.flowLayoutPanelDialogueList.reFreshContent("group" + mModel.To, mModel.Content);
                     break;
+                case MessageProtocol.CHAT_GROUP_HAS_HISTORY_SRES://某群有离线历史消息
+                    Debug.Print("某群有离线消息：" + mModel.From + mModel.To + mModel.Content);
+                    //拉取群离线消息
+                    pullGroupOfflineMsg(mModel.To);                  
+                    break;
                 default:
-                    Debug.Print("未知消息协议类型" + mModel.MsgType);
+                    Debug.Print("未知消息协议类型" + mModel.MsgType+" "+mModel.Content);
                     break;
             }
         }
@@ -293,5 +298,39 @@ namespace MainProgram
             MainMgr.Instance.msgTip.addNewTip(mode);
         }
 
+
+
+        //拉取群离线消息
+        void pullGroupOfflineMsg(string gid)
+        {
+           
+            HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=2&gid=" +gid, delegate (string groupOfflineMsg) {
+                Debug.Print(gid+"的群离线消息------>>>>>>" + groupOfflineMsg);
+                MsgModel[] groupOfflineMsgArr = null;
+                //  MessageBox.Show("MsgMgr.pullOfflineMsg()解析离线消息" + offlineMsg);
+                try
+                {
+                    groupOfflineMsgArr = Coding<MsgModel[]>.decode(groupOfflineMsg);
+                }
+                catch (Exception e)
+                {
+                    Debug.Print("MsgMgr.pullOfflineMsg()解析群组离线消息失败" + e.ToString());
+                    //       MessageBox.Show("MsgMgr.pullOfflineMsg()解析离线消息失败" + e.ToString());
+                }
+                //处理离线消息
+                if (groupOfflineMsgArr != null)
+                {
+                    foreach (var item in groupOfflineMsgArr)
+                    {
+                        Debug.Print("群离线消息:"+ item.MsgType+"  " + item.Content);
+                    }
+                    foreach (var item in groupOfflineMsgArr)
+                    {
+                        MainMgr.Instance.msgMgr.onNewMessage(item);
+                    }
+                    Debug.Print("群离线消息数量:"+ groupOfflineMsgArr.Length);
+                }             
+            });
+        }
     }
 }

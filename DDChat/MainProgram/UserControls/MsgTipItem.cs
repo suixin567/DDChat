@@ -229,7 +229,7 @@ namespace MainProgram.UserControls
         void addMsg(object state)
         {
           
-            Debug.Print("离线需要提示的"+ (string)state);
+        //    Debug.Print("需要提示的离线消息" + (string)state);
             //更新为新的显示内容
             labelContent.Text = (string)state;
             int num = int.Parse(this.labelMsgNum.Text);
