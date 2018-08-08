@@ -71,6 +71,17 @@ namespace Dialog
             //}));
             //th.Start();
         }
+        //无边框窗体点击任务栏最小化
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int WS_MINIMIZEBOX = 0x00020000;  // Winuser.h中定义  
+                CreateParams cp = base.CreateParams;
+                cp.Style = cp.Style | WS_MINIMIZEBOX;   // 允许最小化操作  
+                return cp;
+            }
+        }
 
         //void checkUnitySafePost(object state) {
         //    //UnityManager.Instance.checkUpdate(this.Handle);      //这句可以线程内执行。  
@@ -79,7 +90,7 @@ namespace Dialog
         //void onUnityOpened() {
         //    this.appContainer.UnityOpendSafePost();
         //}
-    
+
 
         //dialogType 资源类型
         //dialogName 表示群的名字 或者好友名字

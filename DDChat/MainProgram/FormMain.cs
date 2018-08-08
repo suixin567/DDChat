@@ -74,7 +74,7 @@ namespace MainProgram
             //pictureBox2.Image = img;    
             //展示个人资料的窗体
             FormInfoCard.Instance.Show();
-            FormInfoCard.Instance.Hide();          
+            FormInfoCard.Instance.Hide();
         }
 
 

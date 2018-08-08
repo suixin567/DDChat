@@ -48,7 +48,7 @@
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(587, -1);
+            this.buttonClose.Location = new System.Drawing.Point(589, -1);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(30, 30);
             this.buttonClose.TabIndex = 5;
@@ -63,7 +63,7 @@
             this.buttonMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMax.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonMax.ForeColor = System.Drawing.Color.White;
-            this.buttonMax.Location = new System.Drawing.Point(559, -1);
+            this.buttonMax.Location = new System.Drawing.Point(561, -1);
             this.buttonMax.Name = "buttonMax";
             this.buttonMax.Size = new System.Drawing.Size(30, 30);
             this.buttonMax.TabIndex = 6;
@@ -89,7 +89,7 @@
             this.buttonMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMin.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonMin.ForeColor = System.Drawing.Color.White;
-            this.buttonMin.Location = new System.Drawing.Point(532, -1);
+            this.buttonMin.Location = new System.Drawing.Point(534, -1);
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(30, 30);
             this.buttonMin.TabIndex = 11;

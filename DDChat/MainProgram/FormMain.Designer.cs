@@ -115,6 +115,7 @@
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(30, 30);
             this.buttonExit.TabIndex = 12;
+            this.buttonExit.TabStop = false;
             this.buttonExit.Text = "×";
             this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
@@ -134,6 +135,7 @@
             this.buttonMin.Name = "buttonMin";
             this.buttonMin.Size = new System.Drawing.Size(30, 30);
             this.buttonMin.TabIndex = 13;
+            this.buttonMin.TabStop = false;
             this.buttonMin.Text = "一";
             this.buttonMin.UseVisualStyleBackColor = false;
             this.buttonMin.Click += new System.EventHandler(this.buttonMin_Click);
