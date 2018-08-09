@@ -486,5 +486,11 @@ namespace MainProgram
         {
             SetFormRoundRectRgn(this,3);
         }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainProgram.MainMgr.Instance.msgMgr.pullGroupOfflineMsg("1006");
+        }
     }
 }

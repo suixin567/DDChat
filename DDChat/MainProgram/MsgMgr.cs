@@ -40,7 +40,7 @@ namespace MainProgram
             }
             catch (Exception e)
             {
-                Debug.Print("MsgMgr.onMessage解析错误" + e.ToString());               
+                Debug.Print("MsgMgr.onMessage解析错误" + e.ToString());
             }
             onNewMessage(mModel);
         }
@@ -75,11 +75,11 @@ namespace MainProgram
                     break;
                 case MessageProtocol.YOU_BE_DELETED://你被别人删除好友了,删除item、list、添加消息列表     (闪烁~~~)  
                     MainMgr.Instance.formMain.flowLayoutPanelFriendList.removeFriendItemSafePost(mModel.From);
-                  //  msgTip(mModel);
+                    //  msgTip(mModel);
                     break;
 
 
-                    ////群组相关
+                ////群组相关
                 case MessageProtocol.CREATE_GROUP_SRES://建群的响应       (《《《无需闪烁》》》)
                     MyGroupModel myGroupModel = Coding<MyGroupModel>.decode(mModel.Content);
                     Debug.Print("我新建的群号是：" + myGroupModel.GroupID);
@@ -129,7 +129,7 @@ namespace MainProgram
                     MainMgr.Instance.formMain.flowLayoutPanelGroupList.removeItemSafePost(int.Parse(mModel.To));
                     break;
                 case MessageProtocol.FORCE_REMOVE_GROUP_SRES://把一个人移除出群的响应
-                    if (onRemoveMemberProcessed!=null)//这个事件为了销毁那个item
+                    if (onRemoveMemberProcessed != null)//这个事件为了销毁那个item
                     {
                         onRemoveMemberProcessed(mModel.To);
                     }
@@ -143,7 +143,7 @@ namespace MainProgram
                     MainMgr.Instance.formMain.flowLayoutPanelGroupList.removeItemSafePost(int.Parse(mModel.From));
                     break;
                 case MessageProtocol.INVITE_TO_GROUP_SRES://申请邀请一个人入群的响应                    
-                    if (onInviteProcessedEvent!=null)
+                    if (onInviteProcessedEvent != null)
                     {
                         onInviteProcessedEvent(mModel.To);
                     }
@@ -155,14 +155,14 @@ namespace MainProgram
                     break;
                 case MessageProtocol.INVITE_PROCESS_SRES://被邀请入群的人的操作的响应
                     //如果之前是同意的操作，则进入一个群
-                    if (mModel.Content=="yes")
+                    if (mModel.Content == "yes")
                     {
                         msgTip(mModel);
                         //增加群item
                         MyGroupModel enterGroupModel = new MyGroupModel();
                         enterGroupModel.GroupID = int.Parse(mModel.To);
                         enterGroupModel.ReceiveModel = 0;
-                        MainMgr.Instance.formMain.flowLayoutPanelGroupList.addItemSafePost(enterGroupModel);        
+                        MainMgr.Instance.formMain.flowLayoutPanelGroupList.addItemSafePost(enterGroupModel);
                         //把验证消息里的这条消息标记为已处理
                         VerifyMsgMgr.Instance.markInviteGroupProcessed(mModel);
                     }
@@ -174,7 +174,7 @@ namespace MainProgram
                 case MessageProtocol.OTHER_PROCESS_OF_INVITE_SRES://我邀请别人后，被邀请人的操作结果
                     //验证消息窗体加入这条信息         
                     VerifyMsgMgr.Instance.addOneVerifyMsg(mModel);
-                    Debug.Print("我的邀请有结果了"+ mModel.Content);              
+                    Debug.Print("我的邀请有结果了" + mModel.Content);
                     break;
 
 
@@ -186,37 +186,38 @@ namespace MainProgram
 
                 ////聊天相关
                 case MessageProtocol.CHAT_ME_TO_FRIEND_SRES://我和别人聊天的响应
-                   // Debug.Print("我和别人聊天的响应" + mModel.From + mModel.To+mModel.Content);
+                                                            // Debug.Print("我和别人聊天的响应" + mModel.From + mModel.To+mModel.Content);
                     FormDialogManager.Instance.onChatMsg(mModel);
                     //更新对话item
-                    MainMgr.Instance.formMain.flowLayoutPanelDialogueList.reFreshContent("friend"+mModel.To,mModel.Content);
+                    MainMgr.Instance.formMain.flowLayoutPanelDialogueList.reFreshContent("friend" + mModel.To, mModel.Content);
                     break;
                 case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://别人和我聊天,聊天框已经打开则直接显示气泡，否则进入消息提示窗
-                    if (FormDialogManager.Instance.isDialogOpend("friend"+mModel.From)==false)
+                    if (FormDialogManager.Instance.isDialogOpend("friend" + mModel.From) == false)
                     {
-                   //     Debug.Print("弹出提示");
+                        //     Debug.Print("弹出提示");
                         msgTip(mModel);
                     }
-                    else {
-                    //    Debug.Print("直接显示气泡");
+                    else
+                    {
+                        //    Debug.Print("直接显示气泡");
                         FormDialogManager.Instance.onChatMsg(mModel);
                     }
                     //更新对话item
                     MainMgr.Instance.formMain.flowLayoutPanelDialogueList.reFreshContent("friend" + mModel.From, mModel.Content);
                     break;
-                    //群聊相关
+                //群聊相关
                 case MessageProtocol.CHAT_ME_TO_GROUP_SRES://我发群聊的响应                 
                     break;
                 case MessageProtocol.CHAT_GROUP_TO_ME_SRES://收到群聊
-                   // Debug.Print("收到群聊消息" + mModel.Content);
-                    if (FormDialogManager.Instance.isDialogOpend("group"+mModel.To) == false)
+                                                           // Debug.Print("收到群聊消息" + mModel.Content);
+                    if (FormDialogManager.Instance.isDialogOpend("group" + mModel.To) == false)
                     {
-                     //   Debug.Print("弹出提示");
+                        //   Debug.Print("弹出提示");
                         msgTip(mModel);
                     }
                     else
                     {
-                        Debug.Print("直接显示气泡");
+                       // Debug.Print("直接显示气泡");
                         FormDialogManager.Instance.onChatMsg(mModel);
                     }
                     //更新对话item
@@ -225,15 +226,15 @@ namespace MainProgram
                 case MessageProtocol.CHAT_GROUP_HAS_HISTORY_SRES://某群有离线历史消息
                     Debug.Print("某群有离线消息：" + mModel.From + mModel.To + mModel.Content);
                     //拉取群离线消息
-                    pullGroupOfflineMsg(mModel.To);                  
+                    pullGroupOfflineMsg(mModel.To);
                     break;
                 default:
-                    Debug.Print("未知消息协议类型" + mModel.MsgType+" "+mModel.Content);
+                    Debug.Print("未知消息协议类型" + mModel.MsgType + " " + mModel.Content);
                     break;
             }
         }
 
-        public void sendMessage(int command , MsgModel m)
+        public void sendMessage(int command, MsgModel m)
         {
             string message = Coding<MsgModel>.encode(m);
             Debug.Print("消息管理器发出的消息是:" + message);
@@ -242,70 +243,73 @@ namespace MainProgram
 
 
 
-        public MsgModel[] offlineMsgArr =null;
+        public MsgModel[] offlineMsgArr = null;
         //拉取离线消息
         void pullOfflineMsg()
         {
-           HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=0&username=" + AppInfo.USER_NAME, delegate(string offlineMsg) {
-               Debug.Print("我的离线消息------>>>>>>" + offlineMsg);
-             //  MessageBox.Show("MsgMgr.pullOfflineMsg()解析离线消息" + offlineMsg);
-               try
-               {
-                   offlineMsgArr = Coding<MsgModel[]>.decode(offlineMsg);                
-               }
-               catch (Exception e)
-               {
-                   Debug.Print("MsgMgr.pullOfflineMsg()解析离线消息失败" + e.ToString());
-            //       MessageBox.Show("MsgMgr.pullOfflineMsg()解析离线消息失败" + e.ToString());
-               }
+            HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=0&username=" + AppInfo.USER_NAME, delegate (string offlineMsg)
+            {
+                Debug.Print("我的离线消息------>>>>>>" + offlineMsg);
+                //  MessageBox.Show("MsgMgr.pullOfflineMsg()解析离线消息" + offlineMsg);
+                try
+                {
+                    offlineMsgArr = Coding<MsgModel[]>.decode(offlineMsg);
+                }
+                catch (Exception e)
+                {
+                    Debug.Print("MsgMgr.pullOfflineMsg()解析离线消息失败" + e.ToString());
+                    //       MessageBox.Show("MsgMgr.pullOfflineMsg()解析离线消息失败" + e.ToString());
+                }
 
 
 
-               //处理离线消息
-               if (offlineMsgArr != null)
-               {
-                   foreach (var item in MainMgr.Instance.msgMgr.offlineMsgArr)
-                   {
-                       MainMgr.Instance.msgMgr.onNewMessage(item);
-                   }               
-               }
-             
+                //处理离线消息
+                if (offlineMsgArr != null)
+                {
+                    foreach (var item in MainMgr.Instance.msgMgr.offlineMsgArr)
+                    {
+                        MainMgr.Instance.msgMgr.onNewMessage(item);
+                    }
+                }
 
 
-               //告诉服务器可以删除离线消息
-               if (offlineMsgArr != null)
-               {
-                   if (offlineMsgArr.Length > 0)
-                   {
-                       clearOfflineMsg();
-                   }
-               }
-           });           
+
+                //告诉服务器可以删除离线消息
+                if (offlineMsgArr != null)
+                {
+                    if (offlineMsgArr.Length > 0)
+                    {
+                        clearOfflineMsg();
+                    }
+                }
+            });
         }
 
         void clearOfflineMsg()
         {
-            HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=1&username=" + AppInfo.USER_NAME, delegate(string offlineMsg) {
+            HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=1&username=" + AppInfo.USER_NAME, delegate (string offlineMsg)
+            {
                 if (offlineMsg == "false")
                 {
                     clearOfflineMsg();
                 }
-            });           
+            });
         }
 
 
-        void msgTip(MsgModel mode) {
+        void msgTip(MsgModel mode)
+        {
             MainMgr.Instance.msgTip.addNewTip(mode);
         }
 
 
 
         //拉取群离线消息
-        void pullGroupOfflineMsg(string gid)
-        {
-           
-            HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=2&gid=" +gid, delegate (string groupOfflineMsg) {
-                Debug.Print(gid+"的群离线消息------>>>>>>" + groupOfflineMsg);
+        public void pullGroupOfflineMsg(string gid)
+        {            
+            HttpReqHelper.requestSync(AppConst.WebUrl + "offlinemsg?protocol=2&gid=" + gid, delegate (string groupOfflineMsg)
+            {
+                Debug.Print(gid + "的群离线消息------>>>>>>" + groupOfflineMsg);
                 MsgModel[] groupOfflineMsgArr = null;
                 //  MessageBox.Show("MsgMgr.pullOfflineMsg()解析离线消息" + offlineMsg);
                 try
@@ -319,17 +323,13 @@ namespace MainProgram
                 }
                 //处理离线消息
                 if (groupOfflineMsgArr != null)
-                {
-                    foreach (var item in groupOfflineMsgArr)
-                    {
-                        Debug.Print("群离线消息:"+ item.MsgType+"  " + item.Content);
-                    }
+                {               
                     foreach (var item in groupOfflineMsgArr)
                     {
                         MainMgr.Instance.msgMgr.onNewMessage(item);
                     }
-                    Debug.Print("群离线消息数量:"+ groupOfflineMsgArr.Length);
-                }             
+                    Debug.Print("群离线消息数量:" + groupOfflineMsgArr.Length);
+                }
             });
         }
     }

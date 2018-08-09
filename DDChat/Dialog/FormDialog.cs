@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -21,6 +22,9 @@ namespace Dialog
         public int UIState = 1;//对话窗的UI模式，0代表展示资源的状态，1代表聊天状态 ,2代表绘制状态
         public FormFace formFace;
         int Fmx, Fmy; //主窗口坐标
+
+        List<object> popCache = new List<object>();//气泡缓存
+        object locker = new object();
         #endregion
 
 
@@ -42,6 +46,9 @@ namespace Dialog
             m_face = face;
             Fmx = FormDialogManager.Instance.Left;
             Fmy = FormDialogManager.Instance.Top;
+
+            Thread showPopTh = new Thread(showOnePop);
+            showPopTh.Start();
         }
 
         private void FormDialog_Load(object sender, EventArgs e)
@@ -238,21 +245,39 @@ namespace Dialog
                 formFace.Show();
             }
         }
+   
 
-
-        //public void showOnePopSafePost(MsgModel mm) {
-        //    m_SyncContext.Post(showOnePop , mm);
-        //}
-        public void showOnePop(object content)
+        public void catcheOnePop(object content)
         {
-            MsgModel mm = (MsgModel)content;          
-            //获取发言人的昵称
-            DataMgr.Instance.getPersonalByID(mm.From, delegate (PersonalInfoModel personalInfoModel)
+            lock (locker) {
+                popCache.Add(content);
+           //     Debug.Print("添加一个气泡缓存");
+            }
+        }
+
+        void showOnePop()
+        {
+
+            while (true)
             {
-                appendTitleSafePost(personalInfoModel.Nickname + "(" + mm.From + ")" + " " + mm.Time + "\n");
-                //具体内容               
-                appendContentSafePost(mm.Content + "\n");               
-            });
+                lock (locker)
+                {
+                    if (popCache.Count > 0)
+                    {
+                        MsgModel mm = (MsgModel)popCache[0];
+                   //     Debug.Print("展示做泡泡：" + mm.Content);
+                        //获取发言人的昵称
+                        DataMgr.Instance.getPersonalByID(mm.From, delegate (PersonalInfoModel personalInfoModel)
+                        {
+                            appendTitleSafePost(personalInfoModel.Nickname + "(" + mm.From + ")" + " " + mm.Time + "\n");
+                            //具体内容               
+                            appendContentSafePost(mm.Content + "\n");
+                        });
+                        popCache.RemoveAt(0);
+                    }
+                }
+                Thread.Sleep(10);
+            }
         }
 
         //显示消息头

@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using ToolLib;
-//using UnityModule;
 
 
 namespace Dialog
@@ -34,7 +31,6 @@ namespace Dialog
 
         #region 属性
         public Dictionary<string, FormDialog> formListDictionary = new Dictionary<string, FormDialog>();
-
         public const int topHeight = 50;
         public const int leftPanelMaxWidth = 150;
         public FormDialog activeDialog = null;//激活对话窗
@@ -44,33 +40,20 @@ namespace Dialog
 
         public FormDialogManager()
         {
-            InitializeComponent();
-           
+            InitializeComponent();           
             m_SyncContext = SynchronizationContext.Current;
-            this.BackColor = AppConst.panelColor;
-            
+            this.BackColor = AppConst.panelColor;            
         }
 
 
         private void FormDialogManager_Load(object sender, EventArgs e)
         {
-            //this.Size = new Size(System.Windows.Forms.SystemInformation.WorkingArea.Width / 3, System.Windows.Forms.SystemInformation.WorkingArea.Height / 2);
             int x = (System.Windows.Forms.SystemInformation.WorkingArea.Width / 2 - this.Size.Width / 2);
             int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height / 2 - this.Size.Height / 2);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = (Point)new Size(x, y);
-           
-            //GraphicsPath path = new GraphicsPath();
-            //path.AddArc(pictureBoxFace.DisplayRectangle, 0, 360);
-            //pictureBoxFace.Region = new Region(path);
-            //this.appContainer.Hide();
-
-            //Thread th = new Thread(new ThreadStart(() =>
-            //{
-            //    m_SyncContext.Post(checkUnitySafePost, null);
-            //}));
-            //th.Start();
         }
+
         //无边框窗体点击任务栏最小化
         protected override CreateParams CreateParams
         {
@@ -82,15 +65,6 @@ namespace Dialog
                 return cp;
             }
         }
-
-        //void checkUnitySafePost(object state) {
-        //    //UnityManager.Instance.checkUpdate(this.Handle);      //这句可以线程内执行。  
-        //}
-
-        //void onUnityOpened() {
-        //    this.appContainer.UnityOpendSafePost();
-        //}
-
 
         //dialogType 资源类型
         //dialogName 表示群的名字 或者好友名字
@@ -179,40 +153,6 @@ namespace Dialog
             this.WindowState = FormWindowState.Normal;
         }
 
-        //unity更新完毕
-        //void onUnityCanRunEvent(bool result)
-        //{
-        //    if (result)
-        //    {
-        //        //打开Unity
-        //        findExe(System.Windows.Forms.Application.StartupPath + @"\Unity");
-        //        if (exe == "")
-        //        {
-        //            MessageBox.Show("3D展示模块不存在！\n请先下载3D模块。", "叮叮鸟提示：");
-        //            this.Dispose();
-        //        }
-        //        else
-        //        {
-        //            if (UnityManager.Instance.unityMode != 0)
-        //            {
-        //                openUnitySafePost();
-        //            }
-  
-        //        }
-        //    }
-        //}
-
-
-        //public void openUnitySafePost()
-        //{
-        //    m_SyncContext.Post(openUnity, null);
-        //}
-        //void openUnity(object state)
-        //{
-        //    appContainer.AppFilename = exe;
-        //    appContainer.Start();
-        //}
-
 
 
 
@@ -221,12 +161,8 @@ namespace Dialog
             child.TopLevel = false;
             this.splitContainer.Panel2.Controls.Add(child);
             child.Location = new Point(0, topHeight);
-          //  child.Dock = DockStyle.Fill;
-            // child.Size = new Size(this.splitContainer.Panel2.Width , this.Height - topHeight+4);
             activeDialog = child;
             child.Show();
-            //Debug.Print("服务提示" + child.Parent);
-            //Debug.Print("服务提示" + child.Location.X);
         }
 
         //设置激活窗体
@@ -316,7 +252,7 @@ namespace Dialog
                     {
                         if (item.Key == "friend" + mm.To)//自己发出去的消息
                         {
-                            item.Value.showOnePop(mm);
+                            item.Value.catcheOnePop(mm);
                             return;
                         }
                     }
@@ -324,7 +260,7 @@ namespace Dialog
                 case MessageProtocol.CHAT_FRIEND_TO_ME_SRES://朋友发来的消息
                     if (formListDictionary.ContainsKey("friend" + mm.From))
                     {
-                        formListDictionary["friend" + mm.From].showOnePop(mm);
+                        formListDictionary["friend" + mm.From].catcheOnePop(mm);
                     }
                     else {
                         Debug.Print("发生错误：收到朋友和我聊天，却找不到这个人的对话窗体。");
@@ -333,7 +269,7 @@ namespace Dialog
                 case MessageProtocol.CHAT_GROUP_TO_ME_SRES://收到群聊                  
                     if (formListDictionary.ContainsKey("group" + mm.To))
                     {
-                        formListDictionary["group" + mm.To].showOnePop(mm);
+                        formListDictionary["group" + mm.To].catcheOnePop(mm);
                     }
                     else {
                         Debug.Print("发生错误：收到群聊，却找不到这个群的对话窗体。");
@@ -342,8 +278,7 @@ namespace Dialog
                 default:
                     Debug.Print("聊天协议错误");
                     break;
-            }
-       
+            }       
         }
 
 
@@ -395,54 +330,6 @@ namespace Dialog
         }
 
 
-        private void buttonMin_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-
-        //最大化
-        bool isMaxSize = false;
-        Size nnormalSize = new Size();
-        Point normalPoint = new Point();
-        private void buttonMax_Click(object sender, EventArgs e)
-        {
-            isMaxSize = !isMaxSize;
-            if (isMaxSize)//变最大
-            {
-                //记录之前的大小
-                normalPoint = this.Location;
-                nnormalSize = this.Size;
-                this.Size = new Size(System.Windows.Forms.SystemInformation.WorkingArea.Width, System.Windows.Forms.SystemInformation.WorkingArea.Height);
-                this.StartPosition = FormStartPosition.Manual;
-                this.Location = (Point)new Size(0, 0);
-            }
-            else {
-                // this.WindowState = FormWindowState.Normal;   
-                this.Location = normalPoint;
-                this.Size = nnormalSize;
-            }    
-        }
-
-
-        public void AppExitEvent()
-        {
-            buttonClose_Click(null, null);
-        }
-
-        //关闭对话框
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            //if (this.appContainer.AppProcess != null)
-            //{
-            //    this.appContainer.Stop();
-            //}
-         //   UnityManager.Instance.updateUnityEvent -= this.onUnityCanRunEvent;
-            instance = null;
-            this.Close();
-            this.Dispose();
-        }
-
         //查看某个窗体是否已经打开，需要遍历朋友聊天窗体，和群聊天窗体。
         public bool isDialogOpend(string friendOrGroupID) {
             foreach (var item in formListDictionary)
@@ -468,7 +355,37 @@ namespace Dialog
 
         /// ///////////////////////////////////////////////
         /// 工具方法
-        /// ///////////////////////////////////////////////
+        /// ///////////////////////////////////////////////        
+        private void buttonMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+
+        //最大化
+        bool isMaxSize = false;
+        Size nnormalSize = new Size();
+        Point normalPoint = new Point();
+        private void buttonMax_Click(object sender, EventArgs e)
+        {
+            isMaxSize = !isMaxSize;
+            if (isMaxSize)//变最大
+            {
+                //记录之前的大小
+                normalPoint = this.Location;
+                nnormalSize = this.Size;
+                this.Size = new Size(System.Windows.Forms.SystemInformation.WorkingArea.Width, System.Windows.Forms.SystemInformation.WorkingArea.Height);
+                this.StartPosition = FormStartPosition.Manual;
+                this.Location = (Point)new Size(0, 0);
+            }
+            else
+            {
+                this.Location = normalPoint;
+                this.Size = nnormalSize;
+            }
+        }
+
+
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         [DllImportAttribute("user32.dll")]
@@ -496,10 +413,29 @@ namespace Dialog
                 }
             }
         }
-
+        //窗体边缘
         private void FormDialogManager_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.DrawRectangle(Pens.DarkGray, 0, 0, this.Width - 1, this.Height - 1);
+        }
+
+        //关闭对话框
+        public void AppExitEvent()
+        {
+            buttonClose_Click(null, null);
+        }
+
+       
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            //if (this.appContainer.AppProcess != null)
+            //{
+            //    this.appContainer.Stop();
+            //}
+            //   UnityManager.Instance.updateUnityEvent -= this.onUnityCanRunEvent;
+            instance = null;
+            this.Close();
+            this.Dispose();
         }
     }
 }

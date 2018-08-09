@@ -15,7 +15,7 @@ namespace MainProgram
         public SynchronizationContext m_SyncContext = null;
         //需要提示的消息
         public List<MsgModel> tipMsgList = new List<MsgModel>();
-        private Object thisLock = new Object();
+        private Object thisLock = new Object();//TODO:这个locker 是否必要呢？ 在展示气泡的时候也是有locker的。
         #endregion
 
         public MsgTip()
@@ -80,7 +80,7 @@ namespace MainProgram
                             if (mi.m_mode.MsgType == MessageProtocol.CHAT_GROUP_TO_ME_SRES && mi.m_mode.To == newMsg.To)//找到这个item
                             {
                                 tipMsgList.Add(newMsg);
-                                Debug.Print("来了一个新2提示：" + newMsg.Content);
+                           //     Debug.Print("来了一个新2提示：" + newMsg.Content);
                                 mi.addMsgSafePost(newMsg);
                                 return;
                             }
@@ -94,7 +94,7 @@ namespace MainProgram
                 addItemSafePost(tipItem);
                 MainMgr.Instance.formMain.notifyIonFlashSafePost();//icon闪烁
                 showFormSafePost();
-                Debug.Print("来了一个新1提示：" + newMsg.Content);
+              //  Debug.Print("来了一个新1提示：" + newMsg.Content);
             }
         }
 
@@ -239,16 +239,7 @@ namespace MainProgram
             int y = (System.Windows.Forms.SystemInformation.WorkingArea.Height - this.Size.Height);
             this.Location = new Point(x, y);// (Point)new Size(x, y);
             this.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            foreach (var item in tipMsgList)
-            {
-                Debug.Print(item.Content);
-            }
-
-        }
+        }     
     }
 
 }
