@@ -31,7 +31,7 @@ namespace MainProgram.UserControls
             m_SyncContext = SynchronizationContext.Current;
 
             //注册资料被修改的事件
-            AppInfo.onPersonalInfoModelChanged += this.initNickLabelSafePost;
+            AppInfo.onPersonalInfoModelChanged += this.onPersonalInfoModelChanged;
             //注册头像被修改的事件
             AppInfo.onPersonalFaceChanged += this.initFaceSafePost;
 
@@ -60,12 +60,12 @@ namespace MainProgram.UserControls
         }
 
 
-        void initNickLabelSafePost() {
+        void onPersonalInfoModelChanged() {
             m_SyncContext.Post(initNickLabel,null);         
         }
         void initNickLabel(object state)
         {
-            try
+            try//这个try 不可以省略
             {
                 if (AppInfo.PERSONAL_INFO.Nickname.Length < 5)
                 {
@@ -75,13 +75,19 @@ namespace MainProgram.UserControls
                 {
                     this.labelSelfNickName.Text = AppInfo.PERSONAL_INFO.Nickname.Substring(0, 4) + "...";
                 }
-
                 this.labelSelfDescription.Text = AppInfo.PERSONAL_INFO.Description;
-                this.labelOnlineState.Location = new Point(labelSelfNickName.Location.X + labelSelfNickName.Width + 2, labelSelfNickName.Location.Y + 2);
+                if (AppInfo.PERSONAL_INFO.Level < 1)
+                {
+                    this.labelLevel.Text = "Lv1";
+                }
+                else
+                {
+                    this.labelLevel.Text = "Lv" + AppInfo.PERSONAL_INFO.Level;
+                }
+                this.labelLevel.Location = new Point(labelSelfNickName.Location.X + labelSelfNickName.Width, labelSelfNickName.Location.Y + 6);
+                this.labelOnlineState.Location = new Point(labelLevel.Location.X + labelLevel.Width, labelLevel.Location.Y - 1);
             }
-            catch {
-              //  MessageBox.Show("1");
-            }      
+            catch {}
         }
 
 

@@ -32,7 +32,7 @@ namespace ToolLib
         public delegate void DeprecatedGroupInfo(int gid);
         public event DeprecatedGroupInfo deprecatedGroupInfoEvent;
         //群资料已更新事件
-        public delegate void UpdateGroupInfo(int gid,GroupInfoModel newMode);
+        public delegate void UpdateGroupInfo(int gid, GroupInfoModel newMode);
         public event UpdateGroupInfo updateGroupInfoEvent;
         //个人资料修改事件
         //public delegate void ModifyPersonalInfo(string username);
@@ -43,6 +43,14 @@ namespace ToolLib
         //异步获取一个人的信息
         public delegate void RequestPersonalInfoEvent(PersonalInfoModel callback);
         public void getPersonalByID(string personalId, RequestPersonalInfoEvent callBack) {
+            if (personalId == string.Empty || personalId == null)
+            {
+                if (callBack != null)
+                {
+                    callBack(new PersonalInfoModel());
+                }
+                return;
+            }
             if (personalDic.ContainsKey(personalId))
             {
                 if (callBack != null)

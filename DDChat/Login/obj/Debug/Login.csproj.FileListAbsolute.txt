@@ -58,4 +58,3 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\Login\obj\Debug\Login.csproj.CoreCo
 C:\Users\Administrator\Desktop\DDChat\DDChat\Login\obj\Debug\Login.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDChat\DDChat\Login\obj\Debug\Login.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\Login\obj\Debug\Login.pdb
-C:\Users\Administrator\Desktop\DDChat\DDChat\Login\obj\Debug\Login.csprojAssemblyReference.cache

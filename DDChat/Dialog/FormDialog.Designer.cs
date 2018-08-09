@@ -32,21 +32,20 @@
             this.panelChat = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.richTextBoxChat = new System.Windows.Forms.RichTextBox();
-            this.panelTakeEdit = new System.Windows.Forms.Panel();
             this.labelTip = new System.Windows.Forms.Label();
-            this.Rich_Edit = new Thedog.PicRichTextBox();
             this.buttonSend = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.groupMemberPanel1 = new Dialog.GroupMemberPanel();
             this.pictureBoxAd = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanelTop = new System.Windows.Forms.FlowLayoutPanel();
             this.labelChat = new System.Windows.Forms.Label();
+            this.buttonClose = new System.Windows.Forms.Button();
+            this.Rich_Edit = new Thedog.PicRichTextBox();
+            this.groupMemberPanel1 = new Dialog.GroupMemberPanel();
             this.panelChat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.panelTakeEdit.SuspendLayout();
             this.panelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAd)).BeginInit();
             this.flowLayoutPanelTop.SuspendLayout();
@@ -83,7 +82,10 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panelTakeEdit);
+            this.splitContainer1.Panel2.Controls.Add(this.buttonClose);
+            this.splitContainer1.Panel2.Controls.Add(this.Rich_Edit);
+            this.splitContainer1.Panel2.Controls.Add(this.labelTip);
+            this.splitContainer1.Panel2.Controls.Add(this.buttonSend);
             this.splitContainer1.Panel2MinSize = 140;
             this.splitContainer1.Size = new System.Drawing.Size(501, 566);
             this.splitContainer1.SplitterDistance = 416;
@@ -106,51 +108,23 @@
             this.richTextBoxChat.TabIndex = 3;
             this.richTextBoxChat.Text = "";
             // 
-            // panelTakeEdit
-            // 
-            this.panelTakeEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelTakeEdit.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.panelTakeEdit.Controls.Add(this.labelTip);
-            this.panelTakeEdit.Controls.Add(this.Rich_Edit);
-            this.panelTakeEdit.Controls.Add(this.buttonSend);
-            this.panelTakeEdit.Location = new System.Drawing.Point(0, -2);
-            this.panelTakeEdit.Name = "panelTakeEdit";
-            this.panelTakeEdit.Size = new System.Drawing.Size(501, 154);
-            this.panelTakeEdit.TabIndex = 0;
-            // 
             // labelTip
             // 
             this.labelTip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTip.AutoSize = true;
             this.labelTip.ForeColor = System.Drawing.Color.Red;
-            this.labelTip.Location = new System.Drawing.Point(299, 132);
+            this.labelTip.Location = new System.Drawing.Point(143, 124);
             this.labelTip.Name = "labelTip";
             this.labelTip.Size = new System.Drawing.Size(113, 12);
             this.labelTip.TabIndex = 3;
             this.labelTip.Text = "发送的消息太长了！";
             // 
-            // Rich_Edit
-            // 
-            this.Rich_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Rich_Edit.BackColor = System.Drawing.Color.White;
-            this.Rich_Edit.Location = new System.Drawing.Point(0, 25);
-            this.Rich_Edit.Name = "Rich_Edit";
-            this.Rich_Edit.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.Rich_Edit.Size = new System.Drawing.Size(501, 99);
-            this.Rich_Edit.TabIndex = 0;
-            this.Rich_Edit.Text = "";
-            this.Rich_Edit.TextChanged += new System.EventHandler(this.Rich_Edit_TextChanged);
-            // 
             // buttonSend
             // 
             this.buttonSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSend.Location = new System.Drawing.Point(418, 126);
+            this.buttonSend.Location = new System.Drawing.Point(406, 114);
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(75, 23);
+            this.buttonSend.Size = new System.Drawing.Size(85, 28);
             this.buttonSend.TabIndex = 0;
             this.buttonSend.Text = "发送";
             this.buttonSend.UseVisualStyleBackColor = true;
@@ -167,15 +141,6 @@
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(200, 566);
             this.panelRight.TabIndex = 2;
-            // 
-            // groupMemberPanel1
-            // 
-            this.groupMemberPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupMemberPanel1.Location = new System.Drawing.Point(0, 218);
-            this.groupMemberPanel1.Name = "groupMemberPanel1";
-            this.groupMemberPanel1.Size = new System.Drawing.Size(200, 348);
-            this.groupMemberPanel1.TabIndex = 1;
             // 
             // pictureBoxAd
             // 
@@ -194,7 +159,7 @@
             this.flowLayoutPanelTop.Controls.Add(this.labelChat);
             this.flowLayoutPanelTop.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelTop.Name = "flowLayoutPanelTop";
-            this.flowLayoutPanelTop.Padding = new System.Windows.Forms.Padding(1, 3, 0, 0);
+            this.flowLayoutPanelTop.Padding = new System.Windows.Forms.Padding(1, 6, 0, 0);
             this.flowLayoutPanelTop.Size = new System.Drawing.Size(105, 35);
             this.flowLayoutPanelTop.TabIndex = 0;
             // 
@@ -202,14 +167,48 @@
             // 
             this.labelChat.BackColor = System.Drawing.SystemColors.Control;
             this.labelChat.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelChat.Location = new System.Drawing.Point(1, 3);
+            this.labelChat.Location = new System.Drawing.Point(1, 6);
             this.labelChat.Margin = new System.Windows.Forms.Padding(0, 0, 20, 0);
             this.labelChat.Name = "labelChat";
-            this.labelChat.Size = new System.Drawing.Size(60, 29);
+            this.labelChat.Size = new System.Drawing.Size(60, 25);
             this.labelChat.TabIndex = 0;
             this.labelChat.Text = "聊天";
             this.labelChat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelChat.Click += new System.EventHandler(this.labelChat_Click);
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonClose.Location = new System.Drawing.Point(308, 114);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(85, 28);
+            this.buttonClose.TabIndex = 4;
+            this.buttonClose.Text = "关闭";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // Rich_Edit
+            // 
+            this.Rich_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Rich_Edit.BackColor = System.Drawing.Color.White;
+            this.Rich_Edit.Location = new System.Drawing.Point(0, 2);
+            this.Rich_Edit.Name = "Rich_Edit";
+            this.Rich_Edit.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.Rich_Edit.Size = new System.Drawing.Size(501, 109);
+            this.Rich_Edit.TabIndex = 0;
+            this.Rich_Edit.Text = "";
+            this.Rich_Edit.TextChanged += new System.EventHandler(this.Rich_Edit_TextChanged);
+            // 
+            // groupMemberPanel1
+            // 
+            this.groupMemberPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupMemberPanel1.Location = new System.Drawing.Point(0, 218);
+            this.groupMemberPanel1.Name = "groupMemberPanel1";
+            this.groupMemberPanel1.Size = new System.Drawing.Size(200, 348);
+            this.groupMemberPanel1.TabIndex = 1;
             // 
             // FormDialog
             // 
@@ -228,10 +227,9 @@
             this.panelChat.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.panelTakeEdit.ResumeLayout(false);
-            this.panelTakeEdit.PerformLayout();
             this.panelRight.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAd)).EndInit();
             this.flowLayoutPanelTop.ResumeLayout(false);
@@ -243,7 +241,6 @@
         private System.Windows.Forms.Panel panelChat;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTop;
         private System.Windows.Forms.Label labelChat;
-        private System.Windows.Forms.Panel panelTakeEdit;
         private System.Windows.Forms.Button buttonSend;
         public Thedog.PicRichTextBox Rich_Edit;
         private System.Windows.Forms.Label labelTip;
@@ -252,5 +249,6 @@
         public GroupMemberPanel groupMemberPanel1;
         private System.Windows.Forms.RichTextBox richTextBoxChat;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button buttonClose;
     }
 }

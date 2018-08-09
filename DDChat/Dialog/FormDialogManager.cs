@@ -54,6 +54,7 @@ namespace Dialog
             this.Location = (Point)new Size(x, y);
         }
 
+
         //无边框窗体点击任务栏最小化
         protected override CreateParams CreateParams
         {
@@ -416,7 +417,7 @@ namespace Dialog
         //窗体边缘
         private void FormDialogManager_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawRectangle(Pens.DarkGray, 0, 0, this.Width - 1, this.Height - 1);
+            e.Graphics.DrawRectangle(Pens.LightSlateGray, 0, 0, this.Width - 1, this.Height - 1);
         }
 
         //关闭对话框

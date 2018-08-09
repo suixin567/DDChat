@@ -6,6 +6,9 @@ public struct PersonalInfoModel
     public string Nickname;
     public string Face;
     public string Description;
+    public string Phone;
+    public int Level;
+    public string Lasttime;
 }
 
 //创建群数据结构

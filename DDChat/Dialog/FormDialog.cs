@@ -15,7 +15,7 @@ namespace Dialog
     {
         #region 属性
         public SynchronizationContext m_SyncContext = null;
-        int m_dialogType = -1;
+        int m_dialogType = -1;//type1 为群窗体 3为朋友窗体
         int m_groupOrFriendId = -1;
         public string m_title = "";
         Image m_face = null;
@@ -28,15 +28,14 @@ namespace Dialog
         #endregion
 
 
-
-        public FormDialog(int type , int dialogId, string dialogName, Image face)
+        //type1 为群窗体 3为朋友窗体
+        public FormDialog(int type, int dialogId, string dialogName, Image face)
         {
             InitializeComponent();
             #region 颜色
             this.BackColor = Color.FromArgb(AppConst.panelColor.R + 10, AppConst.panelColor.G + 10, AppConst.panelColor.B + 10);
             this.panelRight.BackColor = this.BackColor;
             this.groupMemberPanel1.BackColor = this.BackColor;
-            this.panelTakeEdit.BackColor = this.BackColor;
             #endregion
 
             m_SyncContext = SynchronizationContext.Current;
@@ -46,7 +45,7 @@ namespace Dialog
             m_face = face;
             Fmx = FormDialogManager.Instance.Left;
             Fmy = FormDialogManager.Instance.Top;
-
+            //从pop缓存中取出并展示pop
             Thread showPopTh = new Thread(showOnePop);
             showPopTh.Start();
         }
@@ -69,16 +68,16 @@ namespace Dialog
                     break;
                 case 3://朋友     
                     this.groupMemberPanel1.Hide();
-                    this.pictureBoxAd.Size = new Size(pictureBoxAd.Size.Width, pictureBoxAd.Size.Height*2);
+                    this.pictureBoxAd.Size = new Size(pictureBoxAd.Size.Width, pictureBoxAd.Size.Height * 2);
                     break;
                 default:
                     break;
             }
-            
+
             //信息编辑框属性
             Rich_Edit.BorderStyle = BorderStyle.None;
             Rich_Edit.ScrollBars = RichTextBoxScrollBars.None;
-          //  Rich_Edit.KeyUp += new KeyEventHandler(RichEdit_KeyUp);
+            //  Rich_Edit.KeyUp += new KeyEventHandler(RichEdit_KeyUp);
             Rich_Edit.TextChanged += new EventHandler(RichEdit_TextChanged);
             labelTip.Text = "";
             SetLineSpace(richTextBoxChat, 300);
@@ -126,7 +125,7 @@ namespace Dialog
         //设置激活窗体时触发
         private void FormDialog_VisibleChanged(object sender, EventArgs e)
         {
-            if (this.Visible==false)
+            if (this.Visible == false)
             {
                 return;
             }
@@ -135,50 +134,50 @@ namespace Dialog
                 case 0:
                     this.flowLayoutPanelTop.Hide();
                     this.panelChat.Hide();
-                  //  FormDialogManager.Instance.appContainer.Show();
-                 //   FormDialogManager.Instance.appContainer.Location = this.Location;
+                    //  FormDialogManager.Instance.appContainer.Show();
+                    //   FormDialogManager.Instance.appContainer.Location = this.Location;
                     //UnityManager.Instance.resourceMode = 0;
                     //UnityManager.Instance.changeUnityScene(4);
                     break;
                 case 1:
-                  //  FormDialogManager.Instance.appContainer.Hide();
+                    //  FormDialogManager.Instance.appContainer.Hide();
                     //UnityManager.Instance.currentGroup = m_title;
                     //UnityManager.Instance.resourceMode = 1;
                     if (UIState == 0)//资源
                     {
-                   //     FormDialogManager.Instance.appContainer.Show();
-                   //     FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
-                 //       UnityManager.Instance.changeUnityScene(4);
+                        //     FormDialogManager.Instance.appContainer.Show();
+                        //     FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+                        //       UnityManager.Instance.changeUnityScene(4);
                     }
                     else if (UIState == 1)//聊天
                     {
                         this.panelChat.Show();
-                    //    FormDialogManager.Instance.appContainer.Hide();
+                        //    FormDialogManager.Instance.appContainer.Hide();
                     }
                     else//绘制
                     {
-                      //  FormDialogManager.Instance.appContainer.Show();
-                      //  FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
-                  //      UnityManager.Instance.changeUnityScene(3);
+                        //  FormDialogManager.Instance.appContainer.Show();
+                        //  FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+                        //      UnityManager.Instance.changeUnityScene(3);
                     }
                     break;
                 case 2://个人
                     this.panelChat.Hide();
-                 //   UnityManager.Instance.resourceMode = 2;
-                  //  FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
-                 //   FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
-                 //   FormDialogManager.Instance.appContainer.Show();
-                 //   UnityManager.Instance.changeUnityScene(4);
+                    //   UnityManager.Instance.resourceMode = 2;
+                    //  FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+                    //   FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+                    //   FormDialogManager.Instance.appContainer.Show();
+                    //   UnityManager.Instance.changeUnityScene(4);
                     break;
                 case 3://朋友
                     this.panelChat.Show();
-                  //  FormDialogManager.Instance.appContainer.Hide();
+                    //  FormDialogManager.Instance.appContainer.Hide();
                     break;
-                default:                                  
+                default:
                     Debug.Print("FormDialog：未知类型");
                     break;
             }
-            resize(null,null);
+            resize(null, null);
         }
 
         //聊天选项卡
@@ -191,45 +190,45 @@ namespace Dialog
             labelChat.BackColor = Color.White;
             UIState = 1;
             panelChat.Show();
-         //   FormDialogManager.Instance.appContainer.Hide();
+            //   FormDialogManager.Instance.appContainer.Hide();
         }
-       // //资源选项卡
-       // private void labelRes_Click(object sender, EventArgs e)
-       // {
-       //     foreach (var item in flowLayoutPanelTop.Controls)
-       //     {
-       //         ((Label)item).BackColor = Color.Transparent;
-       //     }
-       //  /   labelRes.BackColor = Color.SteelBlue;
-       //     UIState = 0;
-       //     panelChat.Hide();
-       //  //   UnityManager.Instance.changeUnityScene(4);
-       //  //   FormDialogManager.Instance.appContainer.Show();
-       //  //   FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
-       //  //   FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
-       // }
+        // //资源选项卡
+        // private void labelRes_Click(object sender, EventArgs e)
+        // {
+        //     foreach (var item in flowLayoutPanelTop.Controls)
+        //     {
+        //         ((Label)item).BackColor = Color.Transparent;
+        //     }
+        //  /   labelRes.BackColor = Color.SteelBlue;
+        //     UIState = 0;
+        //     panelChat.Hide();
+        //  //   UnityManager.Instance.changeUnityScene(4);
+        //  //   FormDialogManager.Instance.appContainer.Show();
+        //  //   FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+        //  //   FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+        // }
 
-       // //画房子选项卡
-       // private void labelDraw_Click(object sender, EventArgs e)
-       // {
-       //     foreach (var item in flowLayoutPanelTop.Controls)
-       //     {
-       //         ((Label)item).BackColor = Color.Transparent;
-       //     }
-       //     labelDraw.BackColor = Color.SteelBlue;
-       //     UIState = 2;
-       //     panelChat.Hide();
-       ////     UnityManager.Instance.changeUnityScene(3);
-       //  //   FormDialogManager.Instance.appContainer.Show();
-       //  //   FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
-       //  //   FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
-       // }
+        // //画房子选项卡
+        // private void labelDraw_Click(object sender, EventArgs e)
+        // {
+        //     foreach (var item in flowLayoutPanelTop.Controls)
+        //     {
+        //         ((Label)item).BackColor = Color.Transparent;
+        //     }
+        //     labelDraw.BackColor = Color.SteelBlue;
+        //     UIState = 2;
+        //     panelChat.Hide();
+        ////     UnityManager.Instance.changeUnityScene(3);
+        //  //   FormDialogManager.Instance.appContainer.Show();
+        //  //   FormDialogManager.Instance.appContainer.Location = new Point(this.Location.X, this.Location.Y + this.flowLayoutPanelTop.Height);
+        //  //   FormDialogManager.Instance.appContainer.Size = this.panelChat.Size;
+        // }
 
 
         /// ////////////////////////////////////////////////////////
         /// ////////////////////////*聊*天*////////////////////////////////
         /// ////////////////////////////////////////////////////////
-       
+
 
         //打开表情面板
         private void pictureBoxaFaceBtn_Click(object sender, EventArgs e)
@@ -239,19 +238,20 @@ namespace Dialog
                 formFace = new FormFace(this);
                 formFace.TopLevel = false;
                 formFace.Parent = FormDialogManager.Instance;
-                formFace.Left =110;
+                formFace.Left = 110;
                 formFace.Top = 350;
                 formFace.BringToFront();
                 formFace.Show();
             }
         }
-   
+
 
         public void catcheOnePop(object content)
         {
-            lock (locker) {
+            lock (locker)
+            {
                 popCache.Add(content);
-           //     Debug.Print("添加一个气泡缓存");
+                //     Debug.Print("添加一个气泡缓存");
             }
         }
 
@@ -265,7 +265,7 @@ namespace Dialog
                     if (popCache.Count > 0)
                     {
                         MsgModel mm = (MsgModel)popCache[0];
-                   //     Debug.Print("展示做泡泡：" + mm.Content);
+                        //     Debug.Print("展示做泡泡：" + mm.Content);
                         //获取发言人的昵称
                         DataMgr.Instance.getPersonalByID(mm.From, delegate (PersonalInfoModel personalInfoModel)
                         {
@@ -276,29 +276,36 @@ namespace Dialog
                         popCache.RemoveAt(0);
                     }
                 }
-                Thread.Sleep(10);
+                Thread.Sleep(100);
             }
         }
 
         //显示消息头
         void appendTitleSafePost(string title)
         {
-            m_SyncContext.Post(appendTitle, title);
+         
+                m_SyncContext.Post(appendTitle, title);
+           
         }
-        void appendTitle(object content) {
-            string fromName = ((string)content);
-            int a = fromName.IndexOf("(");
-            int b = fromName.LastIndexOf(")");
-            fromName = fromName.Substring(a+1,b-a-1);           
-            if (fromName == AppInfo.PERSONAL_INFO.Username)//自己发出去的
+        void appendTitle(object content)
+        {
+            try//这个try不可省略，因为窗口随时可能已经被关闭
             {
-                this.richTextBoxChat.SelectionColor = Color.Green;
+                string fromName = ((string)content);
+                int a = fromName.IndexOf("(");
+                int b = fromName.LastIndexOf(")");
+                fromName = fromName.Substring(a + 1, b - a - 1);
+                if (fromName == AppInfo.PERSONAL_INFO.Username)//自己发出去的
+                {
+                    this.richTextBoxChat.SelectionColor = Color.Green;
+                }
+                else
+                {
+                    this.richTextBoxChat.SelectionColor = Color.Blue;
+                }
+                this.richTextBoxChat.AppendText((string)content);
             }
-            else
-            {
-                this.richTextBoxChat.SelectionColor = Color.Blue;
-            }
-            this.richTextBoxChat.AppendText((string)content);
+            catch { }
         }
         //显示消息体
         void appendContentSafePost(string content)
@@ -307,15 +314,15 @@ namespace Dialog
         }
         void appendContent(object content)
         {
-            this.richTextBoxChat.SelectionColor = Color.Black;
-            this.richTextBoxChat.AppendText((string)content);
-            //设置滚动条位置
-            this.richTextBoxChat.ScrollToCaret();
+            try//这个try不可省略，因为窗口随时可能已经被关闭
+            {
+                this.richTextBoxChat.SelectionColor = Color.Black;
+                this.richTextBoxChat.AppendText((string)content);
+                //设置滚动条位置
+                this.richTextBoxChat.ScrollToCaret();
+            }
+            catch { }
         }
-
-
-
-
 
 
         //发送按钮
@@ -342,7 +349,7 @@ namespace Dialog
             switch (this.m_dialogType)
             {
                 case 1://和群聊天
-                 //   MsgModel groupMm = new MsgModel(MessageProtocol.CHAT_ME_TO_GROUP_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
+                       //   MsgModel groupMm = new MsgModel(MessageProtocol.CHAT_ME_TO_GROUP_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
                     MsgModel groupMm = new MsgModel(MessageProtocol.CHAT_ME_TO_GROUP_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Text, DateTime.Now.ToString());
                     string groupMessage = Coding<MsgModel>.encode(groupMm);
                     Debug.Print("发出的聊天消息是:" + Rich_Edit.Text);
@@ -350,7 +357,7 @@ namespace Dialog
                     Rich_Edit.Rtf = "";
                     break;
                 case 3://和朋友聊天              
-                  //  MsgModel mm = new MsgModel(MessageProtocol.CHAT_ME_TO_FRIEND_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
+                       //  MsgModel mm = new MsgModel(MessageProtocol.CHAT_ME_TO_FRIEND_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Rtf, DateTime.Now.ToString());
                     MsgModel mm = new MsgModel(MessageProtocol.CHAT_ME_TO_FRIEND_CREQ, AppInfo.USER_NAME, m_groupOrFriendId.ToString(), Rich_Edit.Text, DateTime.Now.ToString());
                     string message = Coding<MsgModel>.encode(mm);
                     Debug.Print("发出的聊天消息是:" + Rich_Edit.Text);
@@ -365,8 +372,8 @@ namespace Dialog
         //当编辑的文本发生变化
         private void Rich_Edit_TextChanged(object sender, EventArgs e)
         {
-           // Debug.Print("编辑的文本是：" + Rich_Edit.Text + "长度" + Rich_Edit.Text.Length);
-           // Debug.Print("编辑的富文本是：" + Rich_Edit.Rtf);
+            // Debug.Print("编辑的文本是：" + Rich_Edit.Text + "长度" + Rich_Edit.Text.Length);
+            // Debug.Print("编辑的富文本是：" + Rich_Edit.Rtf);
         }
 
 
@@ -408,6 +415,19 @@ namespace Dialog
         [DllImport("user32", CharSet = CharSet.Auto)]
         private static extern IntPtr SendMessage(HandleRef hWnd, int msg, int wParam, ref PARAFORMAT2 lParam);
 
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            if (m_dialogType==1)
+            {
+                FormDialogManager.Instance.closeDialogueWindow("group"+m_groupOrFriendId.ToString());
+            }
+            if (m_dialogType==3)
+            {
+                FormDialogManager.Instance.closeDialogueWindow("friend" + m_groupOrFriendId.ToString());
+            }
+          
+        }
+
         /// <summary>
         /// 设置行距
         /// </summary>
@@ -428,5 +448,8 @@ namespace Dialog
             {
             }
         }
+    
+
+     
     }
 }

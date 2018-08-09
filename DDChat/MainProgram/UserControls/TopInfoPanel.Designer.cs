@@ -33,6 +33,7 @@
             this.pictureBoxTopFace = new System.Windows.Forms.PictureBox();
             this.labelSelfDescription = new System.Windows.Forms.Label();
             this.labelOnlineState = new System.Windows.Forms.Label();
+            this.labelLevel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTopFace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             this.labelSelfNickName.AutoSize = true;
             this.labelSelfNickName.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelSelfNickName.ForeColor = System.Drawing.Color.White;
-            this.labelSelfNickName.Location = new System.Drawing.Point(86, 11);
+            this.labelSelfNickName.Location = new System.Drawing.Point(83, 11);
             this.labelSelfNickName.Name = "labelSelfNickName";
             this.labelSelfNickName.Size = new System.Drawing.Size(76, 16);
             this.labelSelfNickName.TabIndex = 1;
@@ -63,7 +64,7 @@
             // 
             // labelSelfDescription
             // 
-            this.labelSelfDescription.Location = new System.Drawing.Point(86, 38);
+            this.labelSelfDescription.Location = new System.Drawing.Point(83, 47);
             this.labelSelfDescription.Name = "labelSelfDescription";
             this.labelSelfDescription.Size = new System.Drawing.Size(125, 12);
             this.labelSelfDescription.TabIndex = 3;
@@ -73,23 +74,34 @@
             // 
             this.labelOnlineState.AutoSize = true;
             this.labelOnlineState.ForeColor = System.Drawing.Color.Lime;
-            this.labelOnlineState.Location = new System.Drawing.Point(168, 15);
+            this.labelOnlineState.Location = new System.Drawing.Point(194, 15);
             this.labelOnlineState.Name = "labelOnlineState";
             this.labelOnlineState.Size = new System.Drawing.Size(29, 12);
             this.labelOnlineState.TabIndex = 4;
             this.labelOnlineState.Text = "状态";
+            // 
+            // labelLevel
+            // 
+            this.labelLevel.AutoSize = true;
+            this.labelLevel.ForeColor = System.Drawing.Color.Yellow;
+            this.labelLevel.Location = new System.Drawing.Point(165, 15);
+            this.labelLevel.Name = "labelLevel";
+            this.labelLevel.Size = new System.Drawing.Size(23, 12);
+            this.labelLevel.TabIndex = 5;
+            this.labelLevel.Text = "Lv1";
             // 
             // TopInfoPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.labelLevel);
             this.Controls.Add(this.labelOnlineState);
             this.Controls.Add(this.labelSelfDescription);
             this.Controls.Add(this.pictureBoxTopFace);
             this.Controls.Add(this.labelSelfNickName);
             this.Name = "TopInfoPanel";
-            this.Size = new System.Drawing.Size(230, 80);
+            this.Size = new System.Drawing.Size(254, 80);
             this.Load += new System.EventHandler(this.TopInfoPanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTopFace)).EndInit();
             this.ResumeLayout(false);
@@ -102,5 +114,6 @@
         private System.Windows.Forms.PictureBox pictureBoxTopFace;
         private System.Windows.Forms.Label labelSelfDescription;
         private System.Windows.Forms.Label labelOnlineState;
+        private System.Windows.Forms.Label labelLevel;
     }
 }

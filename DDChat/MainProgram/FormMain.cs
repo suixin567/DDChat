@@ -487,10 +487,10 @@ namespace MainProgram
             SetFormRoundRectRgn(this,3);
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
+        //窗体边缘变色
+        private void FormMain_Paint_1(object sender, PaintEventArgs e)
         {
-            MainProgram.MainMgr.Instance.msgMgr.pullGroupOfflineMsg("1006");
+            e.Graphics.DrawRectangle(Pens.LightSlateGray, 0, 0, this.Width - 1, this.Height - 1);
         }
     }
 }

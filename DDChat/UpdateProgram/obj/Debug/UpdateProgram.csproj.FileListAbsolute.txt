@@ -43,3 +43,4 @@ C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\obj\Debug\UpdateProgr
 C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\obj\Debug\UpdateProgram.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\obj\Debug\UpdateProgram.dll
 C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\obj\Debug\UpdateProgram.pdb
+C:\Users\Administrator\Desktop\DDChat\DDChat\UpdateProgram\obj\Debug\UpdateProgram.csprojAssemblyReference.cache
